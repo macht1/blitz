@@ -1,4 +1,4 @@
-/* Copyright (c) 2014, ocupy Developers */
+/* Copyright (c) 2014, blitz Developers */
 /* See LICENSE for licensing information */
 
 /**

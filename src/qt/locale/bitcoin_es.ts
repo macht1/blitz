@@ -3,22 +3,22 @@
     <name>AboutDialog</name>
     <message>
         <location filename="../forms/aboutdialog.ui" line="+14"/>
-        <source>About ocupy</source>
-        <translation>Acerca de ocupy</translation>
+        <source>About blitz</source>
+        <translation>Acerca de blitz</translation>
     </message>
     <message>
         <location line="+39"/>
-        <source>&lt;b&gt;ocupy&lt;/b&gt; version</source>
-        <translation>&lt;b&gt;ocupy&lt;/b&gt; versión</translation>
+        <source>&lt;b&gt;blitz&lt;/b&gt; version</source>
+        <translation>&lt;b&gt;blitz&lt;/b&gt; versión</translation>
     </message>
     <message>
         <location line="+41"/>
         <source>Copyright © 2009-2014 The Bitcoin developers
 Copyright © 2012-2014 The NovaCoin developers
-Copyright © 2014 The ocupy developers</source>
+Copyright © 2014 The blitz developers</source>
         <translation>Copyright © 2009-2014 The Bitcoin developers
 Copyright © 2012-2014 The NovaCoin developers
-Copyright © 2014 The ocupy developers</translation>
+Copyright © 2014 The blitz developers</translation>
     </message>
     <message>
         <location line="+15"/>
@@ -68,8 +68,8 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
     </message>
     <message>
         <location line="-46"/>
-        <source>These are your ocupy addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
-        <translation>Estas son las direcciones de ocupy para recibir pagos. Es posible que desee dar una diferente a cada remitente para que pueda realizar un seguimiento de quien te está pagando.</translation>
+        <source>These are your blitz addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
+        <translation>Estas son las direcciones de blitz para recibir pagos. Es posible que desee dar una diferente a cada remitente para que pueda realizar un seguimiento de quien te está pagando.</translation>
     </message>
     <message>
         <location line="+60"/>
@@ -83,8 +83,8 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
     </message>
     <message>
         <location line="+11"/>
-        <source>Sign a message to prove you own a ocupy address</source>
-        <translation>Firmar un mensaje para demostrar que es dueño de su dirección de ocupy</translation>
+        <source>Sign a message to prove you own a blitz address</source>
+        <translation>Firmar un mensaje para demostrar que es dueño de su dirección de blitz</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -98,8 +98,8 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
     </message>
     <message>
         <location line="-14"/>
-        <source>Verify a message to ensure it was signed with a specified ocupy address</source>
-        <translation>Verifique el mensaje para asegurarse que fue firmado por una dirección específica de ocupy</translation>
+        <source>Verify a message to ensure it was signed with a specified blitz address</source>
+        <translation>Verifique el mensaje para asegurarse que fue firmado por una dirección específica de blitz</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -266,8 +266,8 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
     </message>
     <message>
         <location line="-58"/>
-        <source>ocupy will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your coins from being stolen by malware infecting your computer.</source>
-        <translation>ocupy cerrará para terminar el proceso de encriptación. Recuerde que la encriptación de su monedero no puede proteger completamente que sus monedas sean robadas por malware infectando su computadora.</translation>
+        <source>blitz will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your coins from being stolen by malware infecting your computer.</source>
+        <translation>blitz cerrará para terminar el proceso de encriptación. Recuerde que la encriptación de su monedero no puede proteger completamente que sus monedas sean robadas por malware infectando su computadora.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -380,8 +380,8 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
     </message>
     <message>
         <location line="+6"/>
-        <source>Show information about ocupy</source>
-        <translation>Mostrar información sobre ocupy</translation>
+        <source>Show information about blitz</source>
+        <translation>Mostrar información sobre blitz</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -430,13 +430,13 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
     </message>
     <message>
         <location line="-64"/>
-        <source>Send coins to a ocupy address</source>
-        <translation>Enviar monedas a una dirección de ocupy</translation>
+        <source>Send coins to a blitz address</source>
+        <translation>Enviar monedas a una dirección de blitz</translation>
     </message>
     <message>
         <location line="+47"/>
-        <source>Modify configuration options for ocupy</source>
-        <translation>Modificar las opciones de configuración para ocupy</translation>
+        <source>Modify configuration options for blitz</source>
+        <translation>Modificar las opciones de configuración para blitz</translation>
     </message>
     <message>
         <location line="+18"/>
@@ -475,8 +475,8 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
     </message>
     <message>
         <location line="-202"/>
-        <source>ocupy</source>
-        <translation>ocupy</translation>
+        <source>blitz</source>
+        <translation>blitz</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -485,8 +485,8 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
     </message>
     <message>
         <location line="+180"/>
-        <source>&amp;About ocupy</source>
-        <translation>Acerca de ocupy</translation>
+        <source>&amp;About blitz</source>
+        <translation>Acerca de blitz</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -542,13 +542,13 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
     <message>
         <location line="+0"/>
         <location line="+60"/>
-        <source>ocupy client</source>
-        <translation>Cliente ocupy</translation>
+        <source>blitz client</source>
+        <translation>Cliente blitz</translation>
     </message>
     <message numerus="yes">
         <location line="+75"/>
-        <source>%n active connection(s) to ocupy network</source>
-        <translation><numerusform>%n conexión activa a la red ocupy</numerusform><numerusform>%n conexiones activas a la red ocupy</numerusform></translation>
+        <source>%n active connection(s) to blitz network</source>
+        <translation><numerusform>%n conexión activa a la red blitz</numerusform><numerusform>%n conexiones activas a la red blitz</numerusform></translation>
     </message>
     <message>
         <location line="+40"/>
@@ -587,13 +587,13 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
     </message>
     <message>
         <location line="-312"/>
-        <source>About ocupy card</source>
-        <translation>Sobre la tarjeta ocupy</translation>
+        <source>About blitz card</source>
+        <translation>Sobre la tarjeta blitz</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Show information about ocupy card</source>
-        <translation>Mostrar información sobre la tarjeta ocupy</translation>
+        <source>Show information about blitz card</source>
+        <translation>Mostrar información sobre la tarjeta blitz</translation>
     </message>
     <message>
         <location line="+18"/>
@@ -672,8 +672,8 @@ Dirección: %4
     <message>
         <location line="-15"/>
         <location line="+15"/>
-        <source>URI can not be parsed! This can be caused by an invalid ocupy address or malformed URI parameters.</source>
-        <translation>URI no se puede analizar! Esto puede ser causado por una dirección de ocupy no válida o parámetros de URI malformados.</translation>
+        <source>URI can not be parsed! This can be caused by an invalid blitz address or malformed URI parameters.</source>
+        <translation>URI no se puede analizar! Esto puede ser causado por una dirección de blitz no válida o parámetros de URI malformados.</translation>
     </message>
     <message>
         <location line="+18"/>
@@ -732,8 +732,8 @@ Dirección: %4
     </message>
     <message>
         <location filename="../bitcoin.cpp" line="+109"/>
-        <source>A fatal error occurred. ocupy can no longer continue safely and will quit.</source>
-        <translation>Se ha producido un error fatal. ocupy ya no puede continuar de forma segura y cerrará.</translation>
+        <source>A fatal error occurred. blitz can no longer continue safely and will quit.</source>
+        <translation>Se ha producido un error fatal. blitz ya no puede continuar de forma segura y cerrará.</translation>
     </message>
 </context>
 <context>
@@ -1066,8 +1066,8 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     </message>
     <message>
         <location line="-5"/>
-        <source>The entered address &quot;%1&quot; is not a valid ocupy address.</source>
-        <translation>La dirección introducida &quot;%1&quot; no es una dirección válida de ocupy.</translation>
+        <source>The entered address &quot;%1&quot; is not a valid blitz address.</source>
+        <translation>La dirección introducida &quot;%1&quot; no es una dirección válida de blitz.</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1085,8 +1085,8 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     <message>
         <location filename="../guiutil.cpp" line="+420"/>
         <location line="+12"/>
-        <source>ocupy-Qt</source>
-        <translation>ocupy-Qt</translation>
+        <source>blitz-Qt</source>
+        <translation>blitz-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -1158,13 +1158,13 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     </message>
     <message>
         <location line="+31"/>
-        <source>Automatically start ocupy after logging in to the system.</source>
-        <translation>Iniciar ocupy automáticamente después de entrar en el sistema.</translation>
+        <source>Automatically start blitz after logging in to the system.</source>
+        <translation>Iniciar blitz automáticamente después de entrar en el sistema.</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&amp;Start ocupy on system login</source>
-        <translation>&amp;Iniciar ocupy al inicio del sistema</translation>
+        <source>&amp;Start blitz on system login</source>
+        <translation>&amp;Iniciar blitz al inicio del sistema</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1183,8 +1183,8 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     </message>
     <message>
         <location line="+6"/>
-        <source>Automatically open the ocupy client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Abrir automáticamente el puerto de cliente ocupy en el router. Esto sólo funciona cuando el router es compatible con UPnP y está habilitado.</translation>
+        <source>Automatically open the blitz client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Abrir automáticamente el puerto de cliente blitz en el router. Esto sólo funciona cuando el router es compatible con UPnP y está habilitado.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1193,8 +1193,8 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Connect to the ocupy network through a SOCKS proxy (e.g. when connecting through Tor).</source>
-        <translation>Conéctese a la red de ocupy a través de un SOCKS proxy (e.g. cuando se conecta a través de Tor)</translation>
+        <source>Connect to the blitz network through a SOCKS proxy (e.g. when connecting through Tor).</source>
+        <translation>Conéctese a la red de blitz a través de un SOCKS proxy (e.g. cuando se conecta a través de Tor)</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1268,8 +1268,8 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     </message>
     <message>
         <location line="+13"/>
-        <source>The user interface language can be set here. This setting will take effect after restarting ocupy.</source>
-        <translation>El idioma del interfaz de usuario se puede configurar aquí. Esta configuración se aplicará después de reiniciar ocupy.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting blitz.</source>
+        <translation>El idioma del interfaz de usuario se puede configurar aquí. Esta configuración se aplicará después de reiniciar blitz.</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -1283,8 +1283,8 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     </message>
     <message>
         <location line="+9"/>
-        <source>Whether to show ocupy addresses in the transaction list or not.</source>
-        <translation>Tanto para mostrar direcciones de ocupy en la lista de transacciones o no.</translation>
+        <source>Whether to show blitz addresses in the transaction list or not.</source>
+        <translation>Tanto para mostrar direcciones de blitz en la lista de transacciones o no.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1330,8 +1330,8 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     <message>
         <location line="-9"/>
         <location line="+9"/>
-        <source>This setting will take effect after restarting ocupy.</source>
-        <translation>Esta configuración se aplicará después de reiniciar ocupy.</translation>
+        <source>This setting will take effect after restarting blitz.</source>
+        <translation>Esta configuración se aplicará después de reiniciar blitz.</translation>
     </message>
     <message>
         <location line="+29"/>
@@ -1349,8 +1349,8 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     <message>
         <location line="+33"/>
         <location line="+231"/>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the ocupy network after a connection is established, but this process has not completed yet.</source>
-        <translation>La información mostrada puede estar fuera de fecha. Su monedera se sincroniza automáticamente con la red ocupy después de que se establece una conexión, pero este proceso no se ha completado todavía.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the blitz network after a connection is established, but this process has not completed yet.</source>
+        <translation>La información mostrada puede estar fuera de fecha. Su monedera se sincroniza automáticamente con la red blitz después de que se establece una conexión, pero este proceso no se ha completado todavía.</translation>
     </message>
     <message>
         <location line="-160"/>
@@ -1565,8 +1565,8 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the ocupy-Qt help message to get a list with possible ocupy command-line options.</source>
-        <translation>Mostrar el mensaje de ayuda de ocupy-Qt para obtener una lista con las posibles opciones de línea de comandos para ocupy.</translation>
+        <source>Show the blitz-Qt help message to get a list with possible blitz command-line options.</source>
+        <translation>Mostrar el mensaje de ayuda de blitz-Qt para obtener una lista con las posibles opciones de línea de comandos para blitz.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1585,13 +1585,13 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     </message>
     <message>
         <location line="-104"/>
-        <source>ocupy - Debug window</source>
-        <translation>ocupy - Ventana de depuración</translation>
+        <source>blitz - Debug window</source>
+        <translation>blitz - Ventana de depuración</translation>
     </message>
     <message>
         <location line="+25"/>
-        <source>ocupy Core</source>
-        <translation>Núcleo ocupy</translation>
+        <source>blitz Core</source>
+        <translation>Núcleo blitz</translation>
     </message>
     <message>
         <location line="+279"/>
@@ -1600,8 +1600,8 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Open the ocupy debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Abre el archivo de registro de ocupy del directorio de datos actual. Esto puede tardar algunos segundos para archivos grandes.</translation>
+        <source>Open the blitz debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Abre el archivo de registro de blitz del directorio de datos actual. Esto puede tardar algunos segundos para archivos grandes.</translation>
     </message>
     <message>
         <location line="+102"/>
@@ -1610,8 +1610,8 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     </message>
     <message>
         <location filename="../rpcconsole.cpp" line="-33"/>
-        <source>Welcome to the ocupy RPC console.</source>
-        <translation>Bienvenido a la consola RPC de ocupy</translation>
+        <source>Welcome to the blitz RPC console.</source>
+        <translation>Bienvenido a la consola RPC de blitz</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1684,8 +1684,8 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
         <location line="+86"/>
         <location line="+86"/>
         <location line="+32"/>
-        <source>0.00 OCUPY</source>
-        <translation>123.456 OCUPY {0.00 ?}</translation>
+        <source>0.00 BLITZ</source>
+        <translation>123.456 BLITZ {0.00 ?}</translation>
     </message>
     <message>
         <location line="-191"/>
@@ -1754,8 +1754,8 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     </message>
     <message>
         <location line="+16"/>
-        <source>123.456 OCUPY</source>
-        <translation>123.456 OCUPY</translation>
+        <source>123.456 BLITZ</source>
+        <translation>123.456 BLITZ</translation>
     </message>
     <message>
         <location line="+31"/>
@@ -1769,8 +1769,8 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     </message>
     <message>
         <location filename="../sendcoinsdialog.cpp" line="-173"/>
-        <source>Enter a ocupy address (e.g. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
-        <translation>Introduce una dirección ocupy (p.ej. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
+        <source>Enter a blitz address (e.g. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
+        <translation>Introduce una dirección blitz (p.ej. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
     </message>
     <message>
         <location line="+15"/>
@@ -1869,8 +1869,8 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     </message>
     <message>
         <location line="+251"/>
-        <source>WARNING: Invalid ocupy address</source>
-        <translation>ADVERTENCIA: Dirección ocupy inválida</translation>
+        <source>WARNING: Invalid blitz address</source>
+        <translation>ADVERTENCIA: Dirección blitz inválida</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -1913,8 +1913,8 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     </message>
     <message>
         <location line="+18"/>
-        <source>The address to send the payment to  (e.g. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
-        <translation>La dirección a la que se quiere enviar el pago (p.ej. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
+        <source>The address to send the payment to  (e.g. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
+        <translation>La dirección a la que se quiere enviar el pago (p.ej. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1943,8 +1943,8 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
-        <source>Enter a ocupy address (e.g. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
-        <translation>Introduce una dirección ocupy (p.ej. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
+        <source>Enter a blitz address (e.g. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
+        <translation>Introduce una dirección blitz (p.ej. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
     </message>
 </context>
 <context>
@@ -1967,8 +1967,8 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     </message>
     <message>
         <location line="+18"/>
-        <source>The address to sign the message with (e.g. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
-        <translation>La dirección a firmar con un mensaje (p.ej. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
+        <source>The address to sign the message with (e.g. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
+        <translation>La dirección a firmar con un mensaje (p.ej. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -2004,8 +2004,8 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     </message>
     <message>
         <location line="+21"/>
-        <source>Sign the message to prove you own this ocupy address</source>
-        <translation>Firma el mensaje para demostrar que posees esta dirección ocupy.</translation>
+        <source>Sign the message to prove you own this blitz address</source>
+        <translation>Firma el mensaje para demostrar que posees esta dirección blitz.</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -2031,13 +2031,13 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     </message>
     <message>
         <location line="+21"/>
-        <source>The address the message was signed with (e.g. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
-        <translation>La dirección firmada con un mensaje (p.ej. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
+        <source>The address the message was signed with (e.g. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
+        <translation>La dirección firmada con un mensaje (p.ej. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
     </message>
     <message>
         <location line="+40"/>
-        <source>Verify the message to ensure it was signed with the specified ocupy address</source>
-        <translation>Verifique el mensaje para asegurarse de que se firmó con la dirección ocupy especificada.</translation>
+        <source>Verify the message to ensure it was signed with the specified blitz address</source>
+        <translation>Verifique el mensaje para asegurarse de que se firmó con la dirección blitz especificada.</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -2047,8 +2047,8 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
         <location line="+3"/>
-        <source>Enter a ocupy address (e.g. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
-        <translation>Introduce una dirección ocupy (p.ej oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
+        <source>Enter a blitz address (e.g. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
+        <translation>Introduce una dirección blitz (p.ej blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
     </message>
     <message>
         <location line="-2"/>
@@ -2057,8 +2057,8 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Enter ocupy signature</source>
-        <translation>Introduce la firma ocupy</translation>
+        <source>Enter blitz signature</source>
+        <translation>Introduce la firma blitz</translation>
     </message>
     <message>
         <location line="+82"/>
@@ -2628,8 +2628,8 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     <name>bitcoin-core</name>
     <message>
         <location filename="../bitcoinstrings.cpp" line="+33"/>
-        <source>ocupy version</source>
-        <translation>versión ocupy</translation>
+        <source>blitz version</source>
+        <translation>versión blitz</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2638,8 +2638,8 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Send command to -server or ocupyd</source>
-        <translation>Envía un comando a -server o ocupyd</translation>
+        <source>Send command to -server or blitzd</source>
+        <translation>Envía un comando a -server o blitzd</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2661,13 +2661,13 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Specify configuration file (default: ocupy.conf)</source>
-        <translation>Especifica un archivo de configuración (por defecto: ocupy.conf)</translation>
+        <source>Specify configuration file (default: blitz.conf)</source>
+        <translation>Especifica un archivo de configuración (por defecto: blitz.conf)</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Specify pid file (default: ocupyd.pid)</source>
-        <translation>Especifica un archivo pid (por defecto: ocupyd.pid)</translation>
+        <source>Specify pid file (default: blitzd.pid)</source>
+        <translation>Especifica un archivo pid (por defecto: blitzd.pid)</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -2819,8 +2819,8 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
     </message>
     <message>
         <location line="+61"/>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong ocupy will not work properly.</source>
-        <translation>Advertencia: Verifique que la fecha y hora del equipo sean correctas! Si su reloj es erróneo ocupy no funcionará correctamente.</translation>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong blitz will not work properly.</source>
+        <translation>Advertencia: Verifique que la fecha y hora del equipo sean correctas! Si su reloj es erróneo blitz no funcionará correctamente.</translation>
     </message>
     <message>
         <location line="-31"/>
@@ -3010,24 +3010,24 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
         <source>%s, you must set a rpcpassword in the configuration file:
  %s
 It is recommended you use the following random password:
-rpcuser=ocupyrpc
+rpcuser=blitzrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;ocupy Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;blitz Alert&quot; admin@foo.com
 </source>
         <translation>%s, debe establecer un rpcpassword en el fichero de configuración:
 %s
 Se recomienda utilizar la siguiente contraseña aleatoria:
-rpcuser=ocupyrpc
+rpcuser=blitzrpc
 rpcpassword=%s
 (no necesita recordar este password)
 El nombre de usuario y contraseña no debe ser el mismo.
 Si no existe el archivo, créelo con permisos de sólo lectura para el dueño.
 También se recomienda establecer alertnotify para ser notificado de los problemas;
-por ejemplo: alertnotify=echo %%s | mail -s &quot;ocupy Alert&quot; admin@foo.com
+por ejemplo: alertnotify=echo %%s | mail -s &quot;blitz Alert&quot; admin@foo.com
 </translation>
     </message>
     <message>
@@ -3159,13 +3159,13 @@ por ejemplo: alertnotify=echo %%s | mail -s &quot;ocupy Alert&quot; admin@foo.co
     </message>
     <message>
         <location line="+1"/>
-        <source>Cannot obtain a lock on data directory %s.  ocupy is probably already running.</source>
-        <translation>No se puede obtener un bloqueo en el directorio de datos %s. ocupy probablemente ya esté en funcionamiento.</translation>
+        <source>Cannot obtain a lock on data directory %s.  blitz is probably already running.</source>
+        <translation>No se puede obtener un bloqueo en el directorio de datos %s. blitz probablemente ya esté en funcionamiento.</translation>
     </message>
     <message>
         <location line="-98"/>
-        <source>ocupy</source>
-        <translation>ocupy</translation>
+        <source>blitz</source>
+        <translation>blitz</translation>
     </message>
     <message>
         <location line="+140"/>
@@ -3199,13 +3199,13 @@ por ejemplo: alertnotify=echo %%s | mail -s &quot;ocupy Alert&quot; admin@foo.co
     </message>
     <message>
         <location line="+4"/>
-        <source>Error loading wallet.dat: Wallet requires newer version of ocupy</source>
-        <translation>Error cargando wallet.dat: El monedero requiere una nueva versión de ocupy</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of blitz</source>
+        <translation>Error cargando wallet.dat: El monedero requiere una nueva versión de blitz</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Wallet needed to be rewritten: restart ocupy to complete</source>
-        <translation>El monedero necesita ser reescrito: reinicie ocupy para completar</translation>
+        <source>Wallet needed to be rewritten: restart blitz to complete</source>
+        <translation>El monedero necesita ser reescrito: reinicie blitz para completar</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3274,8 +3274,8 @@ por ejemplo: alertnotify=echo %%s | mail -s &quot;ocupy Alert&quot; admin@foo.co
     </message>
     <message>
         <location line="+122"/>
-        <source>Unable to bind to %s on this computer. ocupy is probably already running.</source>
-        <translation>No se puede enlazar a %s en este equipo. ocupy probablemente ya esté en funcionamiento.</translation>
+        <source>Unable to bind to %s on this computer. blitz is probably already running.</source>
+        <translation>No se puede enlazar a %s en este equipo. blitz probablemente ya esté en funcionamiento.</translation>
     </message>
     <message>
         <location line="-97"/>

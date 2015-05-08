@@ -3,22 +3,22 @@
     <name>AboutDialog</name>
     <message>
         <location filename="../forms/aboutdialog.ui" line="+14"/>
-        <source>About ocupy</source>
-        <translation>Despre ocupy</translation>
+        <source>About blitz</source>
+        <translation>Despre blitz</translation>
     </message>
     <message>
         <location line="+39"/>
-        <source>&lt;b&gt;ocupy&lt;/b&gt; version</source>
-        <translation>Versiune &lt;b&gt;ocupy&lt;/b&gt;</translation>
+        <source>&lt;b&gt;blitz&lt;/b&gt; version</source>
+        <translation>Versiune &lt;b&gt;blitz&lt;/b&gt;</translation>
     </message>
     <message>
         <location line="+41"/>
         <source>Copyright © 2009-2014 The Bitcoin developers
 Copyright © 2012-2014 The NovaCoin developers
-Copyright © 2014 The ocupy developers</source>
+Copyright © 2014 The blitz developers</source>
         <translation>Copyright © 2009-2014 The Bitcoin developers
 Copyright © 2012-2014 The NovaCoin developers
-Copyright © 2014 The ocupy developers</translation>
+Copyright © 2014 The blitz developers</translation>
     </message>
     <message>
         <location line="+15"/>
@@ -65,8 +65,8 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
     </message>
     <message>
         <location line="-46"/>
-        <source>These are your ocupy addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
-        <translation>Acestea sunt adresele ocupy pentru a primi plăți. Poate doriți sa dați o adresa noua fiecarui expeditor pentru a putea ține evidența la cine efectuează plăti.</translation>
+        <source>These are your blitz addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
+        <translation>Acestea sunt adresele blitz pentru a primi plăți. Poate doriți sa dați o adresa noua fiecarui expeditor pentru a putea ține evidența la cine efectuează plăti.</translation>
     </message>
     <message>
         <location line="+60"/>
@@ -80,8 +80,8 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
     </message>
     <message>
         <location line="+11"/>
-        <source>Sign a message to prove you own a ocupy address</source>
-        <translation>Semnează un mesaj pentru a dovedi că dețineti o adresă ocupy</translation>
+        <source>Sign a message to prove you own a blitz address</source>
+        <translation>Semnează un mesaj pentru a dovedi că dețineti o adresă blitz</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -95,8 +95,8 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
     </message>
     <message>
         <location line="-14"/>
-        <source>Verify a message to ensure it was signed with a specified ocupy address</source>
-        <translation>Verifică un mesaj pentru a vă asigura că a fost semnat cu o anumită adresă ocupy</translation>
+        <source>Verify a message to ensure it was signed with a specified blitz address</source>
+        <translation>Verifică un mesaj pentru a vă asigura că a fost semnat cu o anumită adresă blitz</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -263,8 +263,8 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
     </message>
     <message>
         <location line="-58"/>
-        <source>ocupy will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your coins from being stolen by malware infecting your computer.</source>
-        <translation>ocupy se va inchide pentru a termina procesul de encriptie. Amintiți-vă, criptarea portofelul dumneavoastră nu poate proteja pe deplin monedele dvs. de a fi furate de  infectarea cu malware a computerului.</translation>
+        <source>blitz will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your coins from being stolen by malware infecting your computer.</source>
+        <translation>blitz se va inchide pentru a termina procesul de encriptie. Amintiți-vă, criptarea portofelul dumneavoastră nu poate proteja pe deplin monedele dvs. de a fi furate de  infectarea cu malware a computerului.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -377,8 +377,8 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
     </message>
     <message>
         <location line="+6"/>
-        <source>Show information about ocupy</source>
-        <translation>Arată informații despre ocupy</translation>
+        <source>Show information about blitz</source>
+        <translation>Arată informații despre blitz</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -427,13 +427,13 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
     </message>
     <message>
         <location line="-64"/>
-        <source>Send coins to a ocupy address</source>
-        <translation>Trimite monede către o adresă ocupy</translation>
+        <source>Send coins to a blitz address</source>
+        <translation>Trimite monede către o adresă blitz</translation>
     </message>
     <message>
         <location line="+47"/>
-        <source>Modify configuration options for ocupy</source>
-        <translation>Modifică opțiuni de configurare pentru ocupy</translation>
+        <source>Modify configuration options for blitz</source>
+        <translation>Modifică opțiuni de configurare pentru blitz</translation>
     </message>
     <message>
         <location line="+18"/>
@@ -472,8 +472,8 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
     </message>
     <message>
         <location line="-202"/>
-        <source>ocupy</source>
-        <translation>ocupy</translation>
+        <source>blitz</source>
+        <translation>blitz</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -482,8 +482,8 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
     </message>
     <message>
         <location line="+180"/>
-        <source>&amp;About ocupy</source>
-        <translation>Despre ocupy</translation>
+        <source>&amp;About blitz</source>
+        <translation>Despre blitz</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -539,13 +539,13 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
     <message>
         <location line="+0"/>
         <location line="+60"/>
-        <source>ocupy client</source>
-        <translation>Clientul ocupy</translation>
+        <source>blitz client</source>
+        <translation>Clientul blitz</translation>
     </message>
     <message numerus="yes">
         <location line="+75"/>
-        <source>%n active connection(s) to ocupy network</source>
-        <translation><numerusform>%n conexiune activă la reteaua ocupy</numerusform><numerusform>%n conexiuni active la reteaua ocupy</numerusform><numerusform>%n conexiuni active la reteaua ocupy</numerusform></translation>
+        <source>%n active connection(s) to blitz network</source>
+        <translation><numerusform>%n conexiune activă la reteaua blitz</numerusform><numerusform>%n conexiuni active la reteaua blitz</numerusform><numerusform>%n conexiuni active la reteaua blitz</numerusform></translation>
     </message>
     <message>
         <location line="+40"/>
@@ -584,13 +584,13 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
     </message>
     <message>
         <location line="-312"/>
-        <source>About ocupy card</source>
-        <translation>Despre cardul ocupy</translation>
+        <source>About blitz card</source>
+        <translation>Despre cardul blitz</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Show information about ocupy card</source>
-        <translation>Arată informații despre card ocupy</translation>
+        <source>Show information about blitz card</source>
+        <translation>Arată informații despre card blitz</translation>
     </message>
     <message>
         <location line="+18"/>
@@ -669,8 +669,8 @@ Adresa: %4
     <message>
         <location line="-15"/>
         <location line="+15"/>
-        <source>URI can not be parsed! This can be caused by an invalid ocupy address or malformed URI parameters.</source>
-        <translation>URI nu poate fi parsatt! Cauza poate fi o adresa ocupy invalidă sau parametrii URI malformați.</translation>
+        <source>URI can not be parsed! This can be caused by an invalid blitz address or malformed URI parameters.</source>
+        <translation>URI nu poate fi parsatt! Cauza poate fi o adresa blitz invalidă sau parametrii URI malformați.</translation>
     </message>
     <message>
         <location line="+18"/>
@@ -729,8 +729,8 @@ Adresa: %4
     </message>
     <message>
         <location filename="../bitcoin.cpp" line="+109"/>
-        <source>A fatal error occurred. ocupy can no longer continue safely and will quit.</source>
-        <translation>A apărut o eroare fatală. ocupy nu mai poate continua în condiții de siguranță și va iesi.</translation>
+        <source>A fatal error occurred. blitz can no longer continue safely and will quit.</source>
+        <translation>A apărut o eroare fatală. blitz nu mai poate continua în condiții de siguranță și va iesi.</translation>
     </message>
 </context>
 <context>
@@ -1063,8 +1063,8 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
     <message>
         <location line="-5"/>
-        <source>The entered address &quot;%1&quot; is not a valid ocupy address.</source>
-        <translation>Adresa introdusă &quot;%1&quot; nu este o adresă ocupy validă</translation>
+        <source>The entered address &quot;%1&quot; is not a valid blitz address.</source>
+        <translation>Adresa introdusă &quot;%1&quot; nu este o adresă blitz validă</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1082,8 +1082,8 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     <message>
         <location filename="../guiutil.cpp" line="+420"/>
         <location line="+12"/>
-        <source>ocupy-Qt</source>
-        <translation>ocupy-Qt</translation>
+        <source>blitz-Qt</source>
+        <translation>blitz-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -1155,13 +1155,13 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
     <message>
         <location line="+31"/>
-        <source>Automatically start ocupy after logging in to the system.</source>
-        <translation>Pornește ocupy imdiat după logarea în sistem</translation>
+        <source>Automatically start blitz after logging in to the system.</source>
+        <translation>Pornește blitz imdiat după logarea în sistem</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&amp;Start ocupy on system login</source>
-        <translation>$Pornește ocupy la logarea în sistem</translation>
+        <source>&amp;Start blitz on system login</source>
+        <translation>$Pornește blitz la logarea în sistem</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1180,8 +1180,8 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
     <message>
         <location line="+6"/>
-        <source>Automatically open the ocupy client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Deschide automat portul pentru cientul ocupy pe router. Aces lucru este posibil doara daca routerul suporta UPnP si este activat</translation>
+        <source>Automatically open the blitz client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Deschide automat portul pentru cientul blitz pe router. Aces lucru este posibil doara daca routerul suporta UPnP si este activat</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1190,8 +1190,8 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Connect to the ocupy network through a SOCKS proxy (e.g. when connecting through Tor).</source>
-        <translation>Conecteaza la reteaua ocupy prinr-un proxy SOCKS(ex. cand te conectezi prin Tor)</translation>
+        <source>Connect to the blitz network through a SOCKS proxy (e.g. when connecting through Tor).</source>
+        <translation>Conecteaza la reteaua blitz prinr-un proxy SOCKS(ex. cand te conectezi prin Tor)</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1265,8 +1265,8 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
     <message>
         <location line="+13"/>
-        <source>The user interface language can be set here. This setting will take effect after restarting ocupy.</source>
-        <translation>Limba interfeței utilizator poate fi setat aici. Această setare va avea efect după repornirea ocupy.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting blitz.</source>
+        <translation>Limba interfeței utilizator poate fi setat aici. Această setare va avea efect după repornirea blitz.</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -1280,8 +1280,8 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
     <message>
         <location line="+9"/>
-        <source>Whether to show ocupy addresses in the transaction list or not.</source>
-        <translation>Dacă să arate adrese ocupy din lista de tranzacție sau nu.</translation>
+        <source>Whether to show blitz addresses in the transaction list or not.</source>
+        <translation>Dacă să arate adrese blitz din lista de tranzacție sau nu.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1327,8 +1327,8 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     <message>
         <location line="-9"/>
         <location line="+9"/>
-        <source>This setting will take effect after restarting ocupy.</source>
-        <translation>Aceasta setare va avea efect dupa repornirea ocupy.</translation>
+        <source>This setting will take effect after restarting blitz.</source>
+        <translation>Aceasta setare va avea efect dupa repornirea blitz.</translation>
     </message>
     <message>
         <location line="+29"/>
@@ -1346,8 +1346,8 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     <message>
         <location line="+33"/>
         <location line="+231"/>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the ocupy network after a connection is established, but this process has not completed yet.</source>
-        <translation>Informatia afisata poate fi depasita.  Portofel se sincronizează automat cu rețeaua ocupy după ce se stabilește o conexiune, dar acest proces nu s-a finalizat încă.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the blitz network after a connection is established, but this process has not completed yet.</source>
+        <translation>Informatia afisata poate fi depasita.  Portofel se sincronizează automat cu rețeaua blitz după ce se stabilește o conexiune, dar acest proces nu s-a finalizat încă.</translation>
     </message>
     <message>
         <location line="-160"/>
@@ -1562,8 +1562,8 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the ocupy-Qt help message to get a list with possible ocupy command-line options.</source>
-        <translation>Afișa mesajul de ajutor ocupy-Qt pentru a obține o listă cu posibile opțiuni de linie de comandă ocupy.</translation>
+        <source>Show the blitz-Qt help message to get a list with possible blitz command-line options.</source>
+        <translation>Afișa mesajul de ajutor blitz-Qt pentru a obține o listă cu posibile opțiuni de linie de comandă blitz.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1582,13 +1582,13 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
     <message>
         <location line="-104"/>
-        <source>ocupy - Debug window</source>
-        <translation>ocupy - fereastră depanare</translation>
+        <source>blitz - Debug window</source>
+        <translation>blitz - fereastră depanare</translation>
     </message>
     <message>
         <location line="+25"/>
-        <source>ocupy Core</source>
-        <translation>ocupy Core</translation>
+        <source>blitz Core</source>
+        <translation>blitz Core</translation>
     </message>
     <message>
         <location line="+279"/>
@@ -1597,8 +1597,8 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Open the ocupy debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Deschideti fisierul de depanare ocupy din folderul curent. Acest lucru poate dura cateva secunde pentru fisiere de log mari.</translation>
+        <source>Open the blitz debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Deschideti fisierul de depanare blitz din folderul curent. Acest lucru poate dura cateva secunde pentru fisiere de log mari.</translation>
     </message>
     <message>
         <location line="+102"/>
@@ -1607,8 +1607,8 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
     <message>
         <location filename="../rpcconsole.cpp" line="-33"/>
-        <source>Welcome to the ocupy RPC console.</source>
-        <translation>Bine ati venit la consola ocupy RPC.</translation>
+        <source>Welcome to the blitz RPC console.</source>
+        <translation>Bine ati venit la consola blitz RPC.</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1681,8 +1681,8 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <location line="+86"/>
         <location line="+86"/>
         <location line="+32"/>
-        <source>0.00 OCUPY</source>
-        <translation>123.456 OCUPY {0.00 ?}</translation>
+        <source>0.00 BLITZ</source>
+        <translation>123.456 BLITZ {0.00 ?}</translation>
     </message>
     <message>
         <location line="-191"/>
@@ -1751,8 +1751,8 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
     <message>
         <location line="+16"/>
-        <source>123.456 OCUPY</source>
-        <translation>123.456 OCUPY</translation>
+        <source>123.456 BLITZ</source>
+        <translation>123.456 BLITZ</translation>
     </message>
     <message>
         <location line="+31"/>
@@ -1766,8 +1766,8 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
     <message>
         <location filename="../sendcoinsdialog.cpp" line="-173"/>
-        <source>Enter a ocupy address (e.g. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
-        <translation>Introduceți o adresă ocupy(ex:oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
+        <source>Enter a blitz address (e.g. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
+        <translation>Introduceți o adresă blitz(ex:blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
     </message>
     <message>
         <location line="+15"/>
@@ -1866,8 +1866,8 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
     <message>
         <location line="+251"/>
-        <source>WARNING: Invalid ocupy address</source>
-        <translation>Atenție: Adresă ocupy invalidă</translation>
+        <source>WARNING: Invalid blitz address</source>
+        <translation>Atenție: Adresă blitz invalidă</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -1910,8 +1910,8 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
     <message>
         <location line="+18"/>
-        <source>The address to send the payment to  (e.g. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
-        <translation>Adresa catre care trimiteti plata(ex. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
+        <source>The address to send the payment to  (e.g. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
+        <translation>Adresa catre care trimiteti plata(ex. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1940,8 +1940,8 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
-        <source>Enter a ocupy address (e.g. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
-        <translation>Introduceți o adresă ocupy(ex:oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
+        <source>Enter a blitz address (e.g. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
+        <translation>Introduceți o adresă blitz(ex:blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
     </message>
 </context>
 <context>
@@ -1964,8 +1964,8 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
     <message>
         <location line="+18"/>
-        <source>The address to sign the message with (e.g. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
-        <translation>Adresa cu care semnati mesajul(ex. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
+        <source>The address to sign the message with (e.g. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
+        <translation>Adresa cu care semnati mesajul(ex. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -2001,8 +2001,8 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
     <message>
         <location line="+21"/>
-        <source>Sign the message to prove you own this ocupy address</source>
-        <translation>Semnează un mesaj pentru a dovedi că dețineti o adresă ocupy</translation>
+        <source>Sign the message to prove you own this blitz address</source>
+        <translation>Semnează un mesaj pentru a dovedi că dețineti o adresă blitz</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -2028,13 +2028,13 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
     <message>
         <location line="+21"/>
-        <source>The address the message was signed with (e.g. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
-        <translation>Adresa cu care a fost semnat mesajul(ex. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
+        <source>The address the message was signed with (e.g. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
+        <translation>Adresa cu care a fost semnat mesajul(ex. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
     </message>
     <message>
         <location line="+40"/>
-        <source>Verify the message to ensure it was signed with the specified ocupy address</source>
-        <translation>Verifică un mesaj pentru a vă asigura că a fost semnat cu o anumită adresă ocupy</translation>
+        <source>Verify the message to ensure it was signed with the specified blitz address</source>
+        <translation>Verifică un mesaj pentru a vă asigura că a fost semnat cu o anumită adresă blitz</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -2044,8 +2044,8 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
         <location line="+3"/>
-        <source>Enter a ocupy address (e.g. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
-        <translation>Introduceți o adresă ocupy(ex:oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
+        <source>Enter a blitz address (e.g. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
+        <translation>Introduceți o adresă blitz(ex:blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
     </message>
     <message>
         <location line="-2"/>
@@ -2054,8 +2054,8 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Enter ocupy signature</source>
-        <translation>Introduceti semnatura ocupy</translation>
+        <source>Enter blitz signature</source>
+        <translation>Introduceti semnatura blitz</translation>
     </message>
     <message>
         <location line="+82"/>
@@ -2625,8 +2625,8 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     <name>bitcoin-core</name>
     <message>
         <location filename="../bitcoinstrings.cpp" line="+33"/>
-        <source>ocupy version</source>
-        <translation>Versiune ocupy</translation>
+        <source>blitz version</source>
+        <translation>Versiune blitz</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2635,8 +2635,8 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Send command to -server or ocupyd</source>
-        <translation>Trimite comanda catre server sau ocupyd</translation>
+        <source>Send command to -server or blitzd</source>
+        <translation>Trimite comanda catre server sau blitzd</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2655,13 +2655,13 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Specify configuration file (default: ocupy.conf)</source>
-        <translation>Specifica fisier de configurare(implicit: ocupy.conf)</translation>
+        <source>Specify configuration file (default: blitz.conf)</source>
+        <translation>Specifica fisier de configurare(implicit: blitz.conf)</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Specify pid file (default: ocupyd.pid)</source>
-        <translation>Speficica fisier pid(implicit: ocupy.pid)</translation>
+        <source>Specify pid file (default: blitzd.pid)</source>
+        <translation>Speficica fisier pid(implicit: blitz.pid)</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -2810,8 +2810,8 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
     <message>
         <location line="+61"/>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong ocupy will not work properly.</source>
-        <translation>Atentie: Va rugam verificati ca timpul si data calculatorului sunt corete. Daca timpul este gresit ocupy nu va functiona corect.</translation>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong blitz will not work properly.</source>
+        <translation>Atentie: Va rugam verificati ca timpul si data calculatorului sunt corete. Daca timpul este gresit blitz nu va functiona corect.</translation>
     </message>
     <message>
         <location line="-31"/>
@@ -3000,22 +3000,22 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <source>%s, you must set a rpcpassword in the configuration file:
  %s
 It is recommended you use the following random password:
-rpcuser=ocupyrpc
+rpcuser=blitzrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;ocupy Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;blitz Alert&quot; admin@foo.com
 </source>
         <translation>%s, trebuie să configurați o parolă rpc în fișierul de configurare: %s
-Este recomandat să folosiți următoarea parolă generată aleator: rpcuser=ocupyrpc
+Este recomandat să folosiți următoarea parolă generată aleator: rpcuser=blitzrpc
 rpcpassword=%s
 (nu trebuie să țineți minte această parolă)
 Username-ul și parola NU TREBUIE să fie aceleași.
 Dacă fișierul nu există, creați-l cu drepturi de citire doar de către deținător.
 Este deasemenea recomandat să setați alertnotify pentru a fi notificat de probleme;
-de exemplu: alertnotify=echo %%s | mail -s &quot;ocupy Alert&quot; admin@foo.com
+de exemplu: alertnotify=echo %%s | mail -s &quot;blitz Alert&quot; admin@foo.com
 </translation>
     </message>
     <message>
@@ -3140,13 +3140,13 @@ de exemplu: alertnotify=echo %%s | mail -s &quot;ocupy Alert&quot; admin@foo.com
     </message>
     <message>
         <location line="+1"/>
-        <source>Cannot obtain a lock on data directory %s.  ocupy is probably already running.</source>
+        <source>Cannot obtain a lock on data directory %s.  blitz is probably already running.</source>
         <translation>Nu se poate obtine un lock pe directorul de date &amp;s. Blackoin probabil ruleaza deja.</translation>
     </message>
     <message>
         <location line="-98"/>
-        <source>ocupy</source>
-        <translation>ocupy</translation>
+        <source>blitz</source>
+        <translation>blitz</translation>
     </message>
     <message>
         <location line="+140"/>
@@ -3180,13 +3180,13 @@ de exemplu: alertnotify=echo %%s | mail -s &quot;ocupy Alert&quot; admin@foo.com
     </message>
     <message>
         <location line="+4"/>
-        <source>Error loading wallet.dat: Wallet requires newer version of ocupy</source>
-        <translation>Eroare la încărcarea wallet.dat: Portofelul necesita o versiune mai noua de ocupy</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of blitz</source>
+        <translation>Eroare la încărcarea wallet.dat: Portofelul necesita o versiune mai noua de blitz</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Wallet needed to be rewritten: restart ocupy to complete</source>
-        <translation>A fost nevoie de rescrierea portofelului: restartați ocupy pentru a finaliza</translation>
+        <source>Wallet needed to be rewritten: restart blitz to complete</source>
+        <translation>A fost nevoie de rescrierea portofelului: restartați blitz pentru a finaliza</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3255,8 +3255,8 @@ de exemplu: alertnotify=echo %%s | mail -s &quot;ocupy Alert&quot; admin@foo.com
     </message>
     <message>
         <location line="+122"/>
-        <source>Unable to bind to %s on this computer. ocupy is probably already running.</source>
-        <translation>Imposibil de conectat %s pe acest computer. Cel mai probabil ocupy ruleaza</translation>
+        <source>Unable to bind to %s on this computer. blitz is probably already running.</source>
+        <translation>Imposibil de conectat %s pe acest computer. Cel mai probabil blitz ruleaza</translation>
     </message>
     <message>
         <location line="-97"/>

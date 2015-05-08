@@ -30,6 +30,8 @@ namespace Checkpoints
             (59000, blockcheck3 )
             (75500, blockcheck4 )
             (99900, blockcheck5 )
+            (231000, blockcheck6 )
+            (253000, blockcheck7 )
     ;
 
     // TestNet has no checkpoints
@@ -68,7 +70,7 @@ namespace Checkpoints
         return NULL;
     }
 
-    // ocupy: synchronized checkpoint (centrally broadcasted)
+    // blitz: synchronized checkpoint (centrally broadcasted)
     uint256 hashSyncCheckpoint = 0;
     uint256 hashPendingCheckpoint = 0;
     CSyncCheckpoint checkpointMessage;
@@ -76,7 +78,7 @@ namespace Checkpoints
     uint256 hashInvalidCheckpoint = 0;
     CCriticalSection cs_hashSyncCheckpoint;
 
-    // ocupy: get last synchronized checkpoint
+    // blitz: get last synchronized checkpoint
     CBlockIndex* GetLastSyncCheckpoint()
     {
         LOCK(cs_hashSyncCheckpoint);
@@ -87,7 +89,7 @@ namespace Checkpoints
         return NULL;
     }
 
-    // ocupy: only descendant of current sync-checkpoint is allowed
+    // blitz: only descendant of current sync-checkpoint is allowed
     bool ValidateSyncCheckpoint(uint256 hashCheckpoint)
     {
         if (!mapBlockIndex.count(hashSyncCheckpoint))
@@ -240,7 +242,7 @@ namespace Checkpoints
         return false;
     }
 
-    // ocupy: reset synchronized checkpoint to last hardened checkpoint
+    // blitz: reset synchronized checkpoint to last hardened checkpoint
     bool ResetSyncCheckpoint()
     {
         LOCK(cs_hashSyncCheckpoint);
@@ -351,12 +353,12 @@ namespace Checkpoints
     }
 }
 
-// ocupy: sync-checkpoint master key
+// blitz: sync-checkpoint master key
 const std::string CSyncCheckpoint::strMasterPubKey = "04a18357665ed7a802dcf252ef528d3dc786da38653b51d1ab8e9f4820b55aca807892a056781967315908ac205940ec9d6f2fd0a85941966971eac7e475a27826";
 
 std::string CSyncCheckpoint::strMasterPrivKey = "";
 
-// ocupy: verify signature of sync-checkpoint message
+// blitz: verify signature of sync-checkpoint message
 bool CSyncCheckpoint::CheckSignature()
 {
     CKey key;
@@ -371,7 +373,7 @@ bool CSyncCheckpoint::CheckSignature()
     return true;
 }
 
-// ocupy: process synchronized checkpoint
+// blitz: process synchronized checkpoint
 bool CSyncCheckpoint::ProcessSyncCheckpoint(CNode* pfrom)
 {
     if (!CheckSignature())

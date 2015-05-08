@@ -230,7 +230,7 @@ OBJS= \
 	obj/util_codedigest.o \
 	obj/json_spirit_reader.o \
 	obj/json_spirit_writer.o
-all: ocupyd
+all: blitzd
 
 LIBS += $(CURDIR)/leveldb/libleveldb.a $(CURDIR)/leveldb/libmemenv.a
 DEFS += $(addprefix -I,$(CURDIR)/leveldb/include)
@@ -293,11 +293,11 @@ obj/anonymize.o: tor/anonymize.cpp
 	-e '/^$$/ d' -e 's/$$/ :/' < $(@:%.o=%.d) >> $(@:%.o=%.P); \
 	rm -f $(@:%.o=%.d)
 
-ocupyd: $(OBJS:obj/%=obj/%) obj/anonymize.o
+blitzd: $(OBJS:obj/%=obj/%) obj/anonymize.o
 	$(LINK) $(xCXXFLAGS) -o $@ $^ $(xLDFLAGS) $(LIBS)
 
 clean:
-	-rm -f ocupyd
+	-rm -f blitzd
 	-rm -f obj/*.o
 	-rm -f obj/tor/*.o
 	-rm -f obj/tor/*.P

@@ -1,4 +1,4 @@
-IDI_ICON1 ICON DISCARDABLE "icons/ocupy.ico"
+IDI_ICON1 ICON DISCARDABLE "icons/blitz.ico"
 
 #include <windows.h>             // needed for VERSIONINFO
 #include "../../clientversion.h" // holds the needed client version information
@@ -18,14 +18,14 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "ocupy"
-            VALUE "FileDescription",    "ocupy-Qt (OSS GUI client for ocupy)"
+            VALUE "CompanyName",        "blitz"
+            VALUE "FileDescription",    "blitz-Qt (OSS GUI client for blitz)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
-            VALUE "InternalName",       "ocupy-qt"
-            VALUE "LegalCopyright",     "2014 The ocupy developers"
+            VALUE "InternalName",       "blitz-qt"
+            VALUE "LegalCopyright",     "2014 The blitz developers"
             VALUE "LegalTrademarks1",   "Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
-            VALUE "OriginalFilename",   "ocupy-qt.exe"
-            VALUE "ProductName",        "ocupy-Qt"
+            VALUE "OriginalFilename",   "blitz-qt.exe"
+            VALUE "ProductName",        "blitz-Qt"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END

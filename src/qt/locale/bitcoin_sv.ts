@@ -3,22 +3,22 @@
     <name>AboutDialog</name>
     <message>
         <location filename="../forms/aboutdialog.ui" line="+14"/>
-        <source>About ocupy</source>
-        <translation>Vad du behöver veta om ocupy</translation>
+        <source>About blitz</source>
+        <translation>Vad du behöver veta om blitz</translation>
     </message>
     <message>
         <location line="+39"/>
-        <source>&lt;b&gt;ocupy&lt;/b&gt; version</source>
-        <translation>&lt;b&gt;ocupy&lt;/b&gt; version</translation>
+        <source>&lt;b&gt;blitz&lt;/b&gt; version</source>
+        <translation>&lt;b&gt;blitz&lt;/b&gt; version</translation>
     </message>
     <message>
         <location line="+41"/>
         <source>Copyright © 2009-2014 The Bitcoin developers
 Copyright © 2012-2014 The NovaCoin developers
-Copyright © 2014 The ocupy developers</source>
+Copyright © 2014 The blitz developers</source>
         <translation>Copyright © 2009-2014 The Bitcoin developers
 Copyright © 2012-2014 The NovaCoin developers
-Copyright © 2014 The ocupy developers</translation>
+Copyright © 2014 The blitz developers</translation>
     </message>
     <message>
         <location line="+15"/>
@@ -66,8 +66,8 @@ Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användni
     </message>
     <message>
         <location line="-46"/>
-        <source>These are your ocupy addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
-        <translation>Dessa är dina ocupy adesser för att mottaga betalningsförsändelser. Du kan även använda olika adresser för varje avsändare för att enkelt hålla koll på vem som har skickat en betalning.</translation>
+        <source>These are your blitz addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
+        <translation>Dessa är dina blitz adesser för att mottaga betalningsförsändelser. Du kan även använda olika adresser för varje avsändare för att enkelt hålla koll på vem som har skickat en betalning.</translation>
     </message>
     <message>
         <location line="+60"/>
@@ -81,8 +81,8 @@ Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användni
     </message>
     <message>
         <location line="+11"/>
-        <source>Sign a message to prove you own a ocupy address</source>
-        <translation>Signera ett meddelande för att bevisa att du äger ocupy adressen</translation>
+        <source>Sign a message to prove you own a blitz address</source>
+        <translation>Signera ett meddelande för att bevisa att du äger blitz adressen</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -96,8 +96,8 @@ Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användni
     </message>
     <message>
         <location line="-14"/>
-        <source>Verify a message to ensure it was signed with a specified ocupy address</source>
-        <translation>Verifiera ett meddelande för att försäkra dig över att det var signerat av en specifik ocupy adress</translation>
+        <source>Verify a message to ensure it was signed with a specified blitz address</source>
+        <translation>Verifiera ett meddelande för att försäkra dig över att det var signerat av en specifik blitz adress</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -264,8 +264,8 @@ Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användni
     </message>
     <message>
         <location line="-58"/>
-        <source>ocupy will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your coins from being stolen by malware infecting your computer.</source>
-        <translation>ocupy plånboken kommer nu att stängas för att slutföra krypteringen: Kom ihåg att även en krypterad plånboks säkerhet kan äventyras genom keyloggers eller dylika malwares.</translation>
+        <source>blitz will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your coins from being stolen by malware infecting your computer.</source>
+        <translation>blitz plånboken kommer nu att stängas för att slutföra krypteringen: Kom ihåg att även en krypterad plånboks säkerhet kan äventyras genom keyloggers eller dylika malwares.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -378,8 +378,8 @@ Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användni
     </message>
     <message>
         <location line="+6"/>
-        <source>Show information about ocupy</source>
-        <translation>Visa information om ocupy</translation>
+        <source>Show information about blitz</source>
+        <translation>Visa information om blitz</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -428,13 +428,13 @@ Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användni
     </message>
     <message>
         <location line="-64"/>
-        <source>Send coins to a ocupy address</source>
-        <translation>Skicka coins till en ocupy adress</translation>
+        <source>Send coins to a blitz address</source>
+        <translation>Skicka coins till en blitz adress</translation>
     </message>
     <message>
         <location line="+47"/>
-        <source>Modify configuration options for ocupy</source>
-        <translation>Modifiera konfigurations-alternativ för ocupy</translation>
+        <source>Modify configuration options for blitz</source>
+        <translation>Modifiera konfigurations-alternativ för blitz</translation>
     </message>
     <message>
         <location line="+18"/>
@@ -473,8 +473,8 @@ Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användni
     </message>
     <message>
         <location line="-202"/>
-        <source>ocupy</source>
-        <translation>ocupy</translation>
+        <source>blitz</source>
+        <translation>blitz</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -483,8 +483,8 @@ Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användni
     </message>
     <message>
         <location line="+180"/>
-        <source>&amp;About ocupy</source>
-        <translation>&amp;Om ocupy</translation>
+        <source>&amp;About blitz</source>
+        <translation>&amp;Om blitz</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -540,13 +540,13 @@ Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användni
     <message>
         <location line="+0"/>
         <location line="+60"/>
-        <source>ocupy client</source>
-        <translation>ocupy klient</translation>
+        <source>blitz client</source>
+        <translation>blitz klient</translation>
     </message>
     <message numerus="yes">
         <location line="+75"/>
-        <source>%n active connection(s) to ocupy network</source>
-        <translation><numerusform>%n aktiv anslutning till ocupy nätverket</numerusform><numerusform>%n aktiva anslutning till ocupy nätverket</numerusform></translation>
+        <source>%n active connection(s) to blitz network</source>
+        <translation><numerusform>%n aktiv anslutning till blitz nätverket</numerusform><numerusform>%n aktiva anslutning till blitz nätverket</numerusform></translation>
     </message>
     <message>
         <location line="+40"/>
@@ -585,13 +585,13 @@ Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användni
     </message>
     <message>
         <location line="-312"/>
-        <source>About ocupy card</source>
-        <translation>Om ocupy kortet</translation>
+        <source>About blitz card</source>
+        <translation>Om blitz kortet</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Show information about ocupy card</source>
-        <translation>Via information om ocupy kortet</translation>
+        <source>Show information about blitz card</source>
+        <translation>Via information om blitz kortet</translation>
     </message>
     <message>
         <location line="+18"/>
@@ -670,8 +670,8 @@ Adress: %4
     <message>
         <location line="-15"/>
         <location line="+15"/>
-        <source>URI can not be parsed! This can be caused by an invalid ocupy address or malformed URI parameters.</source>
-        <translation>URI:n kan inte tolkas! Detta kan bero på en ogiltig ocupy adress eller felaktiga URI parametrar.</translation>
+        <source>URI can not be parsed! This can be caused by an invalid blitz address or malformed URI parameters.</source>
+        <translation>URI:n kan inte tolkas! Detta kan bero på en ogiltig blitz adress eller felaktiga URI parametrar.</translation>
     </message>
     <message>
         <location line="+18"/>
@@ -730,8 +730,8 @@ Adress: %4
     </message>
     <message>
         <location filename="../bitcoin.cpp" line="+109"/>
-        <source>A fatal error occurred. ocupy can no longer continue safely and will quit.</source>
-        <translation>Ett fatalt fel uppstod. ocupy kan inte fortsätta och stänger programmet.</translation>
+        <source>A fatal error occurred. blitz can no longer continue safely and will quit.</source>
+        <translation>Ett fatalt fel uppstod. blitz kan inte fortsätta och stänger programmet.</translation>
     </message>
 </context>
 <context>
@@ -1025,7 +1025,7 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     <message>
         <location line="+10"/>
         <source>The label associated with this address book entry</source>
-        <translation>Namnet som kopplats till denna ocupy-adress</translation>
+        <translation>Namnet som kopplats till denna blitz-adress</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1064,8 +1064,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="-5"/>
-        <source>The entered address &quot;%1&quot; is not a valid ocupy address.</source>
-        <translation>Den inslagna adressen &quot;%1&quot; är inte en giltig ocupy adress.</translation>
+        <source>The entered address &quot;%1&quot; is not a valid blitz address.</source>
+        <translation>Den inslagna adressen &quot;%1&quot; är inte en giltig blitz adress.</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1083,8 +1083,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     <message>
         <location filename="../guiutil.cpp" line="+420"/>
         <location line="+12"/>
-        <source>ocupy-Qt</source>
-        <translation>ocupy-Qt</translation>
+        <source>blitz-Qt</source>
+        <translation>blitz-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -1156,13 +1156,13 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="+31"/>
-        <source>Automatically start ocupy after logging in to the system.</source>
-        <translation>Starta ocupy automatiskt vid inloggning.</translation>
+        <source>Automatically start blitz after logging in to the system.</source>
+        <translation>Starta blitz automatiskt vid inloggning.</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&amp;Start ocupy on system login</source>
-        <translation>&amp;Starta ocupy vid inloggning</translation>
+        <source>&amp;Start blitz on system login</source>
+        <translation>&amp;Starta blitz vid inloggning</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1181,8 +1181,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="+6"/>
-        <source>Automatically open the ocupy client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Öppna automatiskt ocupy klientens port på routern. Detta fungerar endast om din router stödjer UPnP och det är aktiverat.</translation>
+        <source>Automatically open the blitz client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Öppna automatiskt blitz klientens port på routern. Detta fungerar endast om din router stödjer UPnP och det är aktiverat.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1191,8 +1191,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Connect to the ocupy network through a SOCKS proxy (e.g. when connecting through Tor).</source>
-        <translation>Anslut till ocupy nätverket via en SOCKS proxy (t.ex. när du ansluter genom Tor).</translation>
+        <source>Connect to the blitz network through a SOCKS proxy (e.g. when connecting through Tor).</source>
+        <translation>Anslut till blitz nätverket via en SOCKS proxy (t.ex. när du ansluter genom Tor).</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1266,8 +1266,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="+13"/>
-        <source>The user interface language can be set here. This setting will take effect after restarting ocupy.</source>
-        <translation>Användargränssnittets språk kan ställas in här. Inställningen börjar gälla efter omstart av ocupy.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting blitz.</source>
+        <translation>Användargränssnittets språk kan ställas in här. Inställningen börjar gälla efter omstart av blitz.</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -1281,8 +1281,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="+9"/>
-        <source>Whether to show ocupy addresses in the transaction list or not.</source>
-        <translation>Om ocupy adresser skall visas i transaktionslistan eller inte.</translation>
+        <source>Whether to show blitz addresses in the transaction list or not.</source>
+        <translation>Om blitz adresser skall visas i transaktionslistan eller inte.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1328,8 +1328,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     <message>
         <location line="-9"/>
         <location line="+9"/>
-        <source>This setting will take effect after restarting ocupy.</source>
-        <translation>Inställningen börjar gälla efter omstart av ocupy.</translation>
+        <source>This setting will take effect after restarting blitz.</source>
+        <translation>Inställningen börjar gälla efter omstart av blitz.</translation>
     </message>
     <message>
         <location line="+29"/>
@@ -1347,8 +1347,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     <message>
         <location line="+33"/>
         <location line="+231"/>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the ocupy network after a connection is established, but this process has not completed yet.</source>
-        <translation>Den visade informationen kan vara gammal. Din plånbok synkroniseras automatiskt med ocupy nätverket efter att en anslutning skapats, men denna process är inte klar än.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the blitz network after a connection is established, but this process has not completed yet.</source>
+        <translation>Den visade informationen kan vara gammal. Din plånbok synkroniseras automatiskt med blitz nätverket efter att en anslutning skapats, men denna process är inte klar än.</translation>
     </message>
     <message>
         <location line="-160"/>
@@ -1563,8 +1563,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the ocupy-Qt help message to get a list with possible ocupy command-line options.</source>
-        <translation>Visa ocupy-Qt hjälp meddelandet för att få en lista över möjliga ocupy kommandoradsalternativ.</translation>
+        <source>Show the blitz-Qt help message to get a list with possible blitz command-line options.</source>
+        <translation>Visa blitz-Qt hjälp meddelandet för att få en lista över möjliga blitz kommandoradsalternativ.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1583,13 +1583,13 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="-104"/>
-        <source>ocupy - Debug window</source>
-        <translation>ocupy - Felsökningsfönster</translation>
+        <source>blitz - Debug window</source>
+        <translation>blitz - Felsökningsfönster</translation>
     </message>
     <message>
         <location line="+25"/>
-        <source>ocupy Core</source>
-        <translation>ocupy Core</translation>
+        <source>blitz Core</source>
+        <translation>blitz Core</translation>
     </message>
     <message>
         <location line="+279"/>
@@ -1598,8 +1598,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Open the ocupy debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Öppna ocupy felsöknings-loggfilen från nuvarande data mapp. Detta kan kan ta ett par minuter för stora log filer.</translation>
+        <source>Open the blitz debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Öppna blitz felsöknings-loggfilen från nuvarande data mapp. Detta kan kan ta ett par minuter för stora log filer.</translation>
     </message>
     <message>
         <location line="+102"/>
@@ -1608,8 +1608,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location filename="../rpcconsole.cpp" line="-33"/>
-        <source>Welcome to the ocupy RPC console.</source>
-        <translation>Välkommen till ocupy RPC konsoll.</translation>
+        <source>Welcome to the blitz RPC console.</source>
+        <translation>Välkommen till blitz RPC konsoll.</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1682,8 +1682,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
         <location line="+86"/>
         <location line="+86"/>
         <location line="+32"/>
-        <source>0.00 OCUPY</source>
-        <translation>123.456 OCUPY {0.00 ?}</translation>
+        <source>0.00 BLITZ</source>
+        <translation>123.456 BLITZ {0.00 ?}</translation>
     </message>
     <message>
         <location line="-191"/>
@@ -1752,8 +1752,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="+16"/>
-        <source>123.456 OCUPY</source>
-        <translation>123.456 OCUPY</translation>
+        <source>123.456 BLITZ</source>
+        <translation>123.456 BLITZ</translation>
     </message>
     <message>
         <location line="+31"/>
@@ -1767,8 +1767,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location filename="../sendcoinsdialog.cpp" line="-173"/>
-        <source>Enter a ocupy address (e.g. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
-        <translation>Fyll i en ocupy adress (t.ex. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
+        <source>Enter a blitz address (e.g. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
+        <translation>Fyll i en blitz adress (t.ex. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
     </message>
     <message>
         <location line="+15"/>
@@ -1867,8 +1867,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="+251"/>
-        <source>WARNING: Invalid ocupy address</source>
-        <translation>VARNING: Ogiltig ocupy adress</translation>
+        <source>WARNING: Invalid blitz address</source>
+        <translation>VARNING: Ogiltig blitz adress</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -1911,8 +1911,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="+18"/>
-        <source>The address to send the payment to  (e.g. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
-        <translation>Adressen att skicka betalningen till  (t.ex. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
+        <source>The address to send the payment to  (e.g. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
+        <translation>Adressen att skicka betalningen till  (t.ex. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1941,8 +1941,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
-        <source>Enter a ocupy address (e.g. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
-        <translation>Fyll i en ocupy adress (t.ex. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
+        <source>Enter a blitz address (e.g. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
+        <translation>Fyll i en blitz adress (t.ex. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
     </message>
 </context>
 <context>
@@ -1965,8 +1965,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="+18"/>
-        <source>The address to sign the message with (e.g. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
-        <translation>Adressen att signera meddelandet med (t.ex. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
+        <source>The address to sign the message with (e.g. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
+        <translation>Adressen att signera meddelandet med (t.ex. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -2002,8 +2002,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="+21"/>
-        <source>Sign the message to prove you own this ocupy address</source>
-        <translation>Signera meddelandet för att verifiera att du äger denna ocupy adressen</translation>
+        <source>Sign the message to prove you own this blitz address</source>
+        <translation>Signera meddelandet för att verifiera att du äger denna blitz adressen</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -2029,13 +2029,13 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="+21"/>
-        <source>The address the message was signed with (e.g. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
-        <translation>Adressen meddelandet var signerad med (t.ex. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
+        <source>The address the message was signed with (e.g. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
+        <translation>Adressen meddelandet var signerad med (t.ex. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
     </message>
     <message>
         <location line="+40"/>
-        <source>Verify the message to ensure it was signed with the specified ocupy address</source>
-        <translation>Verifiera meddelandet för att vara säker på att det var signerat med den angivna ocupy adressen</translation>
+        <source>Verify the message to ensure it was signed with the specified blitz address</source>
+        <translation>Verifiera meddelandet för att vara säker på att det var signerat med den angivna blitz adressen</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -2045,8 +2045,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
         <location line="+3"/>
-        <source>Enter a ocupy address (e.g. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
-        <translation>Fyll i en ocupy adress (t.ex. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
+        <source>Enter a blitz address (e.g. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
+        <translation>Fyll i en blitz adress (t.ex. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
     </message>
     <message>
         <location line="-2"/>
@@ -2055,8 +2055,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Enter ocupy signature</source>
-        <translation>Fyll i ocupy signatur</translation>
+        <source>Enter blitz signature</source>
+        <translation>Fyll i blitz signatur</translation>
     </message>
     <message>
         <location line="+82"/>
@@ -2626,8 +2626,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     <name>bitcoin-core</name>
     <message>
         <location filename="../bitcoinstrings.cpp" line="+33"/>
-        <source>ocupy version</source>
-        <translation>ocupy version</translation>
+        <source>blitz version</source>
+        <translation>blitz version</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2636,8 +2636,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Send command to -server or ocupyd</source>
-        <translation>Skicka kommando till -server eller ocupyd</translation>
+        <source>Send command to -server or blitzd</source>
+        <translation>Skicka kommando till -server eller blitzd</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2656,13 +2656,13 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Specify configuration file (default: ocupy.conf)</source>
-        <translation>Ange konfigurationsfilen (standard: ocupy.conf)</translation>
+        <source>Specify configuration file (default: blitz.conf)</source>
+        <translation>Ange konfigurationsfilen (standard: blitz.conf)</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Specify pid file (default: ocupyd.pid)</source>
-        <translation>Ange pid filen (standard ocupyd.pid)</translation>
+        <source>Specify pid file (default: blitzd.pid)</source>
+        <translation>Ange pid filen (standard blitzd.pid)</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -2811,8 +2811,8 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
     </message>
     <message>
         <location line="+61"/>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong ocupy will not work properly.</source>
-        <translation>Varning: Kolla att din dators tid och datum är rätt. ocupy kan inte fungera ordentligt om tiden i datorn är fel.</translation>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong blitz will not work properly.</source>
+        <translation>Varning: Kolla att din dators tid och datum är rätt. blitz kan inte fungera ordentligt om tiden i datorn är fel.</translation>
     </message>
     <message>
         <location line="-31"/>
@@ -3001,24 +3001,24 @@ Detta betyder att en avgift på minst %2 krävs.</translation>
         <source>%s, you must set a rpcpassword in the configuration file:
  %s
 It is recommended you use the following random password:
-rpcuser=ocupyrpc
+rpcuser=blitzrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;ocupy Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;blitz Alert&quot; admin@foo.com
 </source>
         <translation>%s, du måste sätta rpcpassword i konfigurationsfilen:
  %s
 Det är rekommenderat att du använder följande slumpmässiga lösenord:
-rpcuser=ocupyrpc
+rpcuser=blitzrpc
 rpcpassword=%s
 (du behöver inte komma ihåg detta lösenord)
 Användarnamnet och lösenordet FÅR INTE vara samma.
 Om filen inte finns, skapa den med endast ägarrättigheter.
 Det är också rekommenderat att sätta alertnotify så du blir notifierad om problem;
-till exempel: alertnotify=echo %%s | mail -s &quot;ocupy Varning&quot; admin@foo.com
+till exempel: alertnotify=echo %%s | mail -s &quot;blitz Varning&quot; admin@foo.com
 </translation>
     </message>
     <message>
@@ -3143,13 +3143,13 @@ till exempel: alertnotify=echo %%s | mail -s &quot;ocupy Varning&quot; admin@foo
     </message>
     <message>
         <location line="+1"/>
-        <source>Cannot obtain a lock on data directory %s.  ocupy is probably already running.</source>
-        <translation>Kan inte låsa datan i mappen %s. ocupy är kanske redan startad.</translation>
+        <source>Cannot obtain a lock on data directory %s.  blitz is probably already running.</source>
+        <translation>Kan inte låsa datan i mappen %s. blitz är kanske redan startad.</translation>
     </message>
     <message>
         <location line="-98"/>
-        <source>ocupy</source>
-        <translation>ocupy</translation>
+        <source>blitz</source>
+        <translation>blitz</translation>
     </message>
     <message>
         <location line="+140"/>
@@ -3183,13 +3183,13 @@ till exempel: alertnotify=echo %%s | mail -s &quot;ocupy Varning&quot; admin@foo
     </message>
     <message>
         <location line="+4"/>
-        <source>Error loading wallet.dat: Wallet requires newer version of ocupy</source>
-        <translation>Kunde inte ladda wallet.dat: En nyare version av ocupy krävs</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of blitz</source>
+        <translation>Kunde inte ladda wallet.dat: En nyare version av blitz krävs</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Wallet needed to be rewritten: restart ocupy to complete</source>
-        <translation>Plånboken måste skrivas om: Starta om ocupy för att slutföra</translation>
+        <source>Wallet needed to be rewritten: restart blitz to complete</source>
+        <translation>Plånboken måste skrivas om: Starta om blitz för att slutföra</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3258,8 +3258,8 @@ till exempel: alertnotify=echo %%s | mail -s &quot;ocupy Varning&quot; admin@foo
     </message>
     <message>
         <location line="+122"/>
-        <source>Unable to bind to %s on this computer. ocupy is probably already running.</source>
-        <translation>Kan inte binda till %s på denna dator. ocupy är sannolikt redan startad.</translation>
+        <source>Unable to bind to %s on this computer. blitz is probably already running.</source>
+        <translation>Kan inte binda till %s på denna dator. blitz är sannolikt redan startad.</translation>
     </message>
     <message>
         <location line="-97"/>

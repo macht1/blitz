@@ -3,22 +3,22 @@
     <name>AboutDialog</name>
     <message>
         <location filename="../forms/aboutdialog.ui" line="+14"/>
-        <source>About ocupy</source>
-        <translation>Sobre ocupy</translation>
+        <source>About blitz</source>
+        <translation>Sobre blitz</translation>
     </message>
     <message>
         <location line="+39"/>
-        <source>&lt;b&gt;ocupy&lt;/b&gt; version</source>
-        <translation>versió &lt;b&gt;ocupy&lt;/b&gt;</translation>
+        <source>&lt;b&gt;blitz&lt;/b&gt; version</source>
+        <translation>versió &lt;b&gt;blitz&lt;/b&gt;</translation>
     </message>
     <message>
         <location line="+41"/>
         <source>Copyright © 2009-2014 The Bitcoin developers
 Copyright © 2012-2014 The NovaCoin developers
-Copyright © 2014 The ocupy developers</source>
+Copyright © 2014 The blitz developers</source>
         <translation>Copyright © 2009-2014 The Bitcoin developers
 Copyright © 2012-2014 The NovaCoin developers
-Copyright © 2014 The ocupy developers</translation>
+Copyright © 2014 The blitz developers</translation>
     </message>
     <message>
         <location line="+15"/>
@@ -60,8 +60,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="-46"/>
-        <source>These are your ocupy addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
-        <translation>Aquestes són les teves adreces de ocupy per rebre els pagaments. És possible que vulgueu donar una diferent a cada remitent per a poder realitzar un seguiment de qui li está pagant.</translation>
+        <source>These are your blitz addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
+        <translation>Aquestes són les teves adreces de blitz per rebre els pagaments. És possible que vulgueu donar una diferent a cada remitent per a poder realitzar un seguiment de qui li está pagant.</translation>
     </message>
     <message>
         <location line="+60"/>
@@ -75,8 +75,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+11"/>
-        <source>Sign a message to prove you own a ocupy address</source>
-        <translation>Signar un missatge per demostrar que és propietari d&apos;una adreça ocupy</translation>
+        <source>Sign a message to prove you own a blitz address</source>
+        <translation>Signar un missatge per demostrar que és propietari d&apos;una adreça blitz</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -90,8 +90,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="-14"/>
-        <source>Verify a message to ensure it was signed with a specified ocupy address</source>
-        <translation>Comproveu el missatge per assegurar-se que es va signar amb una adreça ocupy especificada.</translation>
+        <source>Verify a message to ensure it was signed with a specified blitz address</source>
+        <translation>Comproveu el missatge per assegurar-se que es va signar amb una adreça blitz especificada.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -258,8 +258,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="-58"/>
-        <source>ocupy will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your coins from being stolen by malware infecting your computer.</source>
-        <translation>ocupy tancarà ara per acabar el procés de xifrat. Recordeu que l&apos;encriptació de la seva cartera no pot protegir completament les seves monedes de ser robades pel malware que pugui infectar al seu equip.</translation>
+        <source>blitz will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your coins from being stolen by malware infecting your computer.</source>
+        <translation>blitz tancarà ara per acabar el procés de xifrat. Recordeu que l&apos;encriptació de la seva cartera no pot protegir completament les seves monedes de ser robades pel malware que pugui infectar al seu equip.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -372,8 +372,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+6"/>
-        <source>Show information about ocupy</source>
-        <translation>Mostra informació sobre ocupy</translation>
+        <source>Show information about blitz</source>
+        <translation>Mostra informació sobre blitz</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -422,13 +422,13 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="-64"/>
-        <source>Send coins to a ocupy address</source>
-        <translation>Enviar monedes a una adreça ocupy</translation>
+        <source>Send coins to a blitz address</source>
+        <translation>Enviar monedes a una adreça blitz</translation>
     </message>
     <message>
         <location line="+47"/>
-        <source>Modify configuration options for ocupy</source>
-        <translation>Modificar les opcions de configuració per a ocupy</translation>
+        <source>Modify configuration options for blitz</source>
+        <translation>Modificar les opcions de configuració per a blitz</translation>
     </message>
     <message>
         <location line="+18"/>
@@ -467,8 +467,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="-202"/>
-        <source>ocupy</source>
-        <translation>ocupy</translation>
+        <source>blitz</source>
+        <translation>blitz</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -477,8 +477,8 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+180"/>
-        <source>&amp;About ocupy</source>
-        <translation>&amp;Sobre ocupy</translation>
+        <source>&amp;About blitz</source>
+        <translation>&amp;Sobre blitz</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -534,13 +534,13 @@ This product includes software developed by the OpenSSL Project for use in the O
     <message>
         <location line="+0"/>
         <location line="+60"/>
-        <source>ocupy client</source>
-        <translation>Client ocupy</translation>
+        <source>blitz client</source>
+        <translation>Client blitz</translation>
     </message>
     <message numerus="yes">
         <location line="+75"/>
-        <source>%n active connection(s) to ocupy network</source>
-        <translation><numerusform>%n conexió activa a la xarxa ocupy</numerusform><numerusform>%n conexions actives a la xarxa ocupy</numerusform></translation>
+        <source>%n active connection(s) to blitz network</source>
+        <translation><numerusform>%n conexió activa a la xarxa blitz</numerusform><numerusform>%n conexions actives a la xarxa blitz</numerusform></translation>
     </message>
     <message>
         <location line="+40"/>
@@ -579,13 +579,13 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="-312"/>
-        <source>About ocupy card</source>
-        <translation>Sobre la tarjeta ocupy</translation>
+        <source>About blitz card</source>
+        <translation>Sobre la tarjeta blitz</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Show information about ocupy card</source>
-        <translation>Mostra informació sobre la tarjeta ocupy</translation>
+        <source>Show information about blitz card</source>
+        <translation>Mostra informació sobre la tarjeta blitz</translation>
     </message>
     <message>
         <location line="+18"/>
@@ -660,8 +660,8 @@ Address: %4
     <message>
         <location line="-15"/>
         <location line="+15"/>
-        <source>URI can not be parsed! This can be caused by an invalid ocupy address or malformed URI parameters.</source>
-        <translation>l&apos;URI no es pot analitzar! Això pot ser causat per una adreça ocupy no vàlida o paràmetres URI malformats.</translation>
+        <source>URI can not be parsed! This can be caused by an invalid blitz address or malformed URI parameters.</source>
+        <translation>l&apos;URI no es pot analitzar! Això pot ser causat per una adreça blitz no vàlida o paràmetres URI malformats.</translation>
     </message>
     <message>
         <location line="+18"/>
@@ -720,8 +720,8 @@ Address: %4
     </message>
     <message>
         <location filename="../bitcoin.cpp" line="+109"/>
-        <source>A fatal error occurred. ocupy can no longer continue safely and will quit.</source>
-        <translation>S&apos;ha produït un error fatal. ocupy ja no pot continuar de forma segura i es tancarà.</translation>
+        <source>A fatal error occurred. blitz can no longer continue safely and will quit.</source>
+        <translation>S&apos;ha produït un error fatal. blitz ja no pot continuar de forma segura i es tancarà.</translation>
     </message>
 </context>
 <context>
@@ -1054,8 +1054,8 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
     <message>
         <location line="-5"/>
-        <source>The entered address &quot;%1&quot; is not a valid ocupy address.</source>
-        <translation>La direcció introduïda &quot;%1&quot; no és una adreça ocupy vàlida.</translation>
+        <source>The entered address &quot;%1&quot; is not a valid blitz address.</source>
+        <translation>La direcció introduïda &quot;%1&quot; no és una adreça blitz vàlida.</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1073,8 +1073,8 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     <message>
         <location filename="../guiutil.cpp" line="+420"/>
         <location line="+12"/>
-        <source>ocupy-Qt</source>
-        <translation>ocupy-Qt</translation>
+        <source>blitz-Qt</source>
+        <translation>blitz-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -1146,13 +1146,13 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
     <message>
         <location line="+31"/>
-        <source>Automatically start ocupy after logging in to the system.</source>
-        <translation>Inicia automàticament ocupy després d&apos;entrar en el sistema.</translation>
+        <source>Automatically start blitz after logging in to the system.</source>
+        <translation>Inicia automàticament blitz després d&apos;entrar en el sistema.</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&amp;Start ocupy on system login</source>
-        <translation>&amp;Iniciar ocupy amb l&apos;inici de sessió</translation>
+        <source>&amp;Start blitz on system login</source>
+        <translation>&amp;Iniciar blitz amb l&apos;inici de sessió</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1171,8 +1171,8 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
     <message>
         <location line="+6"/>
-        <source>Automatically open the ocupy client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Obrir automàticament el port de client ocupy en el router. Això només funciona quan el router és compatible amb UPnP i està habilitat.</translation>
+        <source>Automatically open the blitz client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Obrir automàticament el port de client blitz en el router. Això només funciona quan el router és compatible amb UPnP i està habilitat.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1181,8 +1181,8 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Connect to the ocupy network through a SOCKS proxy (e.g. when connecting through Tor).</source>
-        <translation>Connecteu-vos a la xarxa ocupy través d&apos;un proxy SOCKS (per exemple, quan es connecta a través de Tor).</translation>
+        <source>Connect to the blitz network through a SOCKS proxy (e.g. when connecting through Tor).</source>
+        <translation>Connecteu-vos a la xarxa blitz través d&apos;un proxy SOCKS (per exemple, quan es connecta a través de Tor).</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1256,8 +1256,8 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
     <message>
         <location line="+13"/>
-        <source>The user interface language can be set here. This setting will take effect after restarting ocupy.</source>
-        <translation>L&apos;idioma de la interfície d&apos;usuari es pot configurar aquí. Aquesta configuració s&apos;aplicarà després de reiniciar ocupy.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting blitz.</source>
+        <translation>L&apos;idioma de la interfície d&apos;usuari es pot configurar aquí. Aquesta configuració s&apos;aplicarà després de reiniciar blitz.</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -1271,8 +1271,8 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
     <message>
         <location line="+9"/>
-        <source>Whether to show ocupy addresses in the transaction list or not.</source>
-        <translation>Per mostrar ocupy adreces a la llista de transaccions o no.</translation>
+        <source>Whether to show blitz addresses in the transaction list or not.</source>
+        <translation>Per mostrar blitz adreces a la llista de transaccions o no.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1318,8 +1318,8 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     <message>
         <location line="-9"/>
         <location line="+9"/>
-        <source>This setting will take effect after restarting ocupy.</source>
-        <translation>Aquesta configuració s&apos;aplicarà després de reiniciar ocupy.</translation>
+        <source>This setting will take effect after restarting blitz.</source>
+        <translation>Aquesta configuració s&apos;aplicarà després de reiniciar blitz.</translation>
     </message>
     <message>
         <location line="+29"/>
@@ -1337,8 +1337,8 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     <message>
         <location line="+33"/>
         <location line="+231"/>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the ocupy network after a connection is established, but this process has not completed yet.</source>
-        <translation>La informació mostrada pot estar fora de data. La seva cartera es sincronitza automàticament amb la xarxa ocupy després d&apos;establir una connexió, però aquest procés no s&apos;ha completat encara.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the blitz network after a connection is established, but this process has not completed yet.</source>
+        <translation>La informació mostrada pot estar fora de data. La seva cartera es sincronitza automàticament amb la xarxa blitz després d&apos;establir una connexió, però aquest procés no s&apos;ha completat encara.</translation>
     </message>
     <message>
         <location line="-160"/>
@@ -1553,8 +1553,8 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the ocupy-Qt help message to get a list with possible ocupy command-line options.</source>
-        <translation>Mostra el missatge d&apos;ajuda de ocupy-Qt per obtenir una llista amb les possibles opcions de línia d&apos;ordres ocupy.</translation>
+        <source>Show the blitz-Qt help message to get a list with possible blitz command-line options.</source>
+        <translation>Mostra el missatge d&apos;ajuda de blitz-Qt per obtenir una llista amb les possibles opcions de línia d&apos;ordres blitz.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1573,13 +1573,13 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
     <message>
         <location line="-104"/>
-        <source>ocupy - Debug window</source>
-        <translation>ocupy - Finestra Depuració</translation>
+        <source>blitz - Debug window</source>
+        <translation>blitz - Finestra Depuració</translation>
     </message>
     <message>
         <location line="+25"/>
-        <source>ocupy Core</source>
-        <translation>Nucli ocupy</translation>
+        <source>blitz Core</source>
+        <translation>Nucli blitz</translation>
     </message>
     <message>
         <location line="+279"/>
@@ -1588,8 +1588,8 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Open the ocupy debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Obriu el fitxer de registre de depuració ocupy des del directori de dades actual. Això pot trigar uns segons en els arxius de registre de grans dimensions.</translation>
+        <source>Open the blitz debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Obriu el fitxer de registre de depuració blitz des del directori de dades actual. Això pot trigar uns segons en els arxius de registre de grans dimensions.</translation>
     </message>
     <message>
         <location line="+102"/>
@@ -1598,8 +1598,8 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
     <message>
         <location filename="../rpcconsole.cpp" line="-33"/>
-        <source>Welcome to the ocupy RPC console.</source>
-        <translation>Benvingut a la consola RPC de ocupy.</translation>
+        <source>Welcome to the blitz RPC console.</source>
+        <translation>Benvingut a la consola RPC de blitz.</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1672,8 +1672,8 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <location line="+86"/>
         <location line="+86"/>
         <location line="+32"/>
-        <source>0.00 OCUPY</source>
-        <translation>123.456 OCUPY {0.00 ?}</translation>
+        <source>0.00 BLITZ</source>
+        <translation>123.456 BLITZ {0.00 ?}</translation>
     </message>
     <message>
         <location line="-191"/>
@@ -1742,8 +1742,8 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
     <message>
         <location line="+16"/>
-        <source>123.456 OCUPY</source>
-        <translation>123.456 OCUPY</translation>
+        <source>123.456 BLITZ</source>
+        <translation>123.456 BLITZ</translation>
     </message>
     <message>
         <location line="+31"/>
@@ -1757,8 +1757,8 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
     <message>
         <location filename="../sendcoinsdialog.cpp" line="-173"/>
-        <source>Enter a ocupy address (e.g. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
-        <translation>Introdueix una adreça ocupy (p.ex. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
+        <source>Enter a blitz address (e.g. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
+        <translation>Introdueix una adreça blitz (p.ex. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
     </message>
     <message>
         <location line="+15"/>
@@ -1857,8 +1857,8 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
     <message>
         <location line="+251"/>
-        <source>WARNING: Invalid ocupy address</source>
-        <translation>ADVERTÈNCIA: Direcció ocupy invàlida</translation>
+        <source>WARNING: Invalid blitz address</source>
+        <translation>ADVERTÈNCIA: Direcció blitz invàlida</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -1901,8 +1901,8 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
     <message>
         <location line="+18"/>
-        <source>The address to send the payment to  (e.g. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
-        <translation>L&apos;adreça per a enviar el pagament (per exemple: oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
+        <source>The address to send the payment to  (e.g. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
+        <translation>L&apos;adreça per a enviar el pagament (per exemple: blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1931,8 +1931,8 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
-        <source>Enter a ocupy address (e.g. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
-        <translation>Introdueix una adreça ocupy (p.ex. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
+        <source>Enter a blitz address (e.g. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
+        <translation>Introdueix una adreça blitz (p.ex. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
     </message>
 </context>
 <context>
@@ -1955,8 +1955,8 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
     <message>
         <location line="+18"/>
-        <source>The address to sign the message with (e.g. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
-        <translation>L&apos;adreça per a signar el missatge (per exemple oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
+        <source>The address to sign the message with (e.g. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
+        <translation>L&apos;adreça per a signar el missatge (per exemple blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1992,8 +1992,8 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
     <message>
         <location line="+21"/>
-        <source>Sign the message to prove you own this ocupy address</source>
-        <translation>Signar un missatge per demostrar que és propietari d&apos;aquesta adreça ocupy</translation>
+        <source>Sign the message to prove you own this blitz address</source>
+        <translation>Signar un missatge per demostrar que és propietari d&apos;aquesta adreça blitz</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -2019,13 +2019,13 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
     <message>
         <location line="+21"/>
-        <source>The address the message was signed with (e.g. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
-        <translation>La direcció que va ser signada amb un missatge (per exemple oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
+        <source>The address the message was signed with (e.g. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
+        <translation>La direcció que va ser signada amb un missatge (per exemple blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
     </message>
     <message>
         <location line="+40"/>
-        <source>Verify the message to ensure it was signed with the specified ocupy address</source>
-        <translation>Comproveu el missatge per assegurar-se que es va signar amb l&apos;adreça ocupy especificada.</translation>
+        <source>Verify the message to ensure it was signed with the specified blitz address</source>
+        <translation>Comproveu el missatge per assegurar-se que es va signar amb l&apos;adreça blitz especificada.</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -2035,8 +2035,8 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
         <location line="+3"/>
-        <source>Enter a ocupy address (e.g. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
-        <translation>Introdueix una adreça ocupy (p.ex. oCupyuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
+        <source>Enter a blitz address (e.g. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
+        <translation>Introdueix una adreça blitz (p.ex. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</translation>
     </message>
     <message>
         <location line="-2"/>
@@ -2045,8 +2045,8 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Enter ocupy signature</source>
-        <translation>Introduïu la signatura ocupy</translation>
+        <source>Enter blitz signature</source>
+        <translation>Introduïu la signatura blitz</translation>
     </message>
     <message>
         <location line="+82"/>
@@ -2616,8 +2616,8 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     <name>bitcoin-core</name>
     <message>
         <location filename="../bitcoinstrings.cpp" line="+33"/>
-        <source>ocupy version</source>
-        <translation>versió ocupy</translation>
+        <source>blitz version</source>
+        <translation>versió blitz</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2626,8 +2626,8 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Send command to -server or ocupyd</source>
-        <translation>Enviar comandes a -server o ocupyd</translation>
+        <source>Send command to -server or blitzd</source>
+        <translation>Enviar comandes a -server o blitzd</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2646,13 +2646,13 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Specify configuration file (default: ocupy.conf)</source>
-        <translation>Especifiqueu el fitxer de configuració (per defecte: ocupy.conf)</translation>
+        <source>Specify configuration file (default: blitz.conf)</source>
+        <translation>Especifiqueu el fitxer de configuració (per defecte: blitz.conf)</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Specify pid file (default: ocupyd.pid)</source>
-        <translation>Especificar arxiu pid (per defecte: ocupyd.pid)</translation>
+        <source>Specify pid file (default: blitzd.pid)</source>
+        <translation>Especificar arxiu pid (per defecte: blitzd.pid)</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -2801,8 +2801,8 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
     <message>
         <location line="+61"/>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong ocupy will not work properly.</source>
-        <translation>Avís: Comproveu que la data i hora de l&apos;equip siguin correctes! Si el seu rellotge és erroni ocupy no funcionarà correctament.</translation>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong blitz will not work properly.</source>
+        <translation>Avís: Comproveu que la data i hora de l&apos;equip siguin correctes! Si el seu rellotge és erroni blitz no funcionarà correctament.</translation>
     </message>
     <message>
         <location line="-31"/>
@@ -2991,24 +2991,24 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <source>%s, you must set a rpcpassword in the configuration file:
  %s
 It is recommended you use the following random password:
-rpcuser=ocupyrpc
+rpcuser=blitzrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;ocupy Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;blitz Alert&quot; admin@foo.com
 </source>
         <translation>%s, ha d&apos;establir un rpcpassword al fitxer de configuració:
 %s
 Es recomana utilitzar la següent contrasenya aleatòria:
-rpcuser=ocupyrpc
+rpcuser=blitzrpc
 rpcpassword=%s
 (No cal recordar aquesta contrasenya)
 El nom d&apos;usuari i contrasenya NO HA DE SER el mateix.
 Si no hi ha l&apos;arxiu, s&apos;ha de crear amb els permisos de només lectura per al propietari.
 També es recomana establir alertnotify per a que se li notifiquin els problemes;
-per exemple: alertnotify=echo %%s | mail -s &quot;ocupy Alert&quot; admin@foo.com
+per exemple: alertnotify=echo %%s | mail -s &quot;blitz Alert&quot; admin@foo.com
 </translation>
     </message>
     <message>
@@ -3134,13 +3134,13 @@ Executar una ordre quan es rep un avís rellevant (%s en cmd es substitueix per 
     </message>
     <message>
         <location line="+1"/>
-        <source>Cannot obtain a lock on data directory %s.  ocupy is probably already running.</source>
-        <translation>No es pot obtenir un bloqueig en el directori de dades %s. ocupy probablement ja estigui en funcionament.</translation>
+        <source>Cannot obtain a lock on data directory %s.  blitz is probably already running.</source>
+        <translation>No es pot obtenir un bloqueig en el directori de dades %s. blitz probablement ja estigui en funcionament.</translation>
     </message>
     <message>
         <location line="-98"/>
-        <source>ocupy</source>
-        <translation>ocupy</translation>
+        <source>blitz</source>
+        <translation>blitz</translation>
     </message>
     <message>
         <location line="+140"/>
@@ -3174,13 +3174,13 @@ Executar una ordre quan es rep un avís rellevant (%s en cmd es substitueix per 
     </message>
     <message>
         <location line="+4"/>
-        <source>Error loading wallet.dat: Wallet requires newer version of ocupy</source>
-        <translation>Error en carregar wallet.dat: La cartera requereix la versió més recent de ocupy</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of blitz</source>
+        <translation>Error en carregar wallet.dat: La cartera requereix la versió més recent de blitz</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Wallet needed to be rewritten: restart ocupy to complete</source>
-        <translation>La cartera necessita ser reescrita: reiniciar ocupy per completar</translation>
+        <source>Wallet needed to be rewritten: restart blitz to complete</source>
+        <translation>La cartera necessita ser reescrita: reiniciar blitz per completar</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -3249,8 +3249,8 @@ Executar una ordre quan es rep un avís rellevant (%s en cmd es substitueix per 
     </message>
     <message>
         <location line="+122"/>
-        <source>Unable to bind to %s on this computer. ocupy is probably already running.</source>
-        <translation>No es pot enllaçar a %s en aquest equip. ocupy probablement ja estigui en funcionament.</translation>
+        <source>Unable to bind to %s on this computer. blitz is probably already running.</source>
+        <translation>No es pot enllaçar a %s en aquest equip. blitz probablement ja estigui en funcionament.</translation>
     </message>
     <message>
         <location line="-97"/>

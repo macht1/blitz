@@ -1,4 +1,4 @@
-// Copyright (c) 2012-2013 The ocupy developers
+// Copyright (c) 2012-2013 The blitz developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -23,6 +23,8 @@ static std::map<int, unsigned int> mapStakeModifierCheckpoints =
         (59000, 0xce4aac12u)
         (75500, 0x2d5f0d0eu)
         (99900, 0xb1fefcf2u)
+        (231000, 0xb086f9bdu)
+        (253000, 0x50850941u)
 
     ;
 
@@ -252,7 +254,7 @@ static bool GetKernelStakeModifier(uint256 hashBlockFrom, uint64_t& nStakeModifi
     return true;
 }
 
-// ocupy kernel protocol
+// blitz kernel protocol
 // coinstake must meet hash target according to the protocol:
 // kernel (input 0) must meet the formula
 //     hash(nStakeModifier + txPrev.block.nTime + txPrev.offset + txPrev.nTime + txPrev.vout.n + nTime) < bnTarget * nCoinDayWeight

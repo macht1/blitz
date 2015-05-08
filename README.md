@@ -1,4 +1,4 @@
+Blitz
 
-Ocupy
 
-The revolution starts here!
+https://bitcointalk.org/index.php?topic=848186.0

@@ -1,8 +1,8 @@
 #ifndef QTIPCSERVER_H
 #define QTIPCSERVER_H
 
-// Define ocupy-Qt message queue name
-#define BITCOINURI_QUEUE_NAME "ocupyURI"
+// Define blitz-Qt message queue name
+#define BITCOINURI_QUEUE_NAME "blitzURI"
 
 void ipcScanRelay(int argc, char *argv[]);
 void ipcInit(int argc, char *argv[]);

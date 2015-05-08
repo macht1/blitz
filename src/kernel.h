@@ -1,8 +1,8 @@
-// Copyright (c) 2012-2013 The ocupy developers
+// Copyright (c) 2012-2013 The blitz developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef ocupy_KERNEL_H
-#define ocupy_KERNEL_H
+#ifndef blitz_KERNEL_H
+#define blitz_KERNEL_H
 
 #include "main.h"
 

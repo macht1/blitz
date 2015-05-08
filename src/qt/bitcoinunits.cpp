@@ -34,9 +34,9 @@ QString BitcoinUnits::name(int unit)
 {
     switch(unit)
     {
-    case BTC: return QString("OCUPY");
-    case mBTC: return QString("mOCUPY");
-    case uBTC: return QString::fromUtf8("μOCUPY");
+    case BTC: return QString("BLITZ");
+    case mBTC: return QString("mBLITZ");
+    case uBTC: return QString::fromUtf8("μBLITZ");
     default: return QString("???");
     }
 }
@@ -45,9 +45,9 @@ QString BitcoinUnits::description(int unit)
 {
     switch(unit)
     {
-    case BTC: return QString("ocupys");
-    case mBTC: return QString("Milli-ocupys (1 / 1,000)");
-    case uBTC: return QString("Micro-ocupys (1 / 1,000,000)");
+    case BTC: return QString("blitzs");
+    case mBTC: return QString("Milli-blitzs (1 / 1,000)");
+    case uBTC: return QString("Micro-blitzs (1 / 1,000,000)");
     default: return QString("???");
     }
 }

@@ -59,6 +59,8 @@ static const uint256 blockcheck2 ("2abc9eaeab24c9117d5b8f3bf8e8b96eae5a08aae8187
 static const uint256 blockcheck3 ("c438c9b33b1b3cdf6aa00425fc62cf678f2c6d0bf86f1e1572744ec3eb00f6b8"); // block 59000
 static const uint256 blockcheck4 ("bf7ebac082987013efac42f7d97daa58d38907535095b7aca49644b30eec9b96"); // block 75500
 static const uint256 blockcheck5 ("b281334c20652f50ff25910f77b137bb300a16bedd78d3a544b6e58dcfe93f2a"); // block 99900
+static const uint256 blockcheck6 ("b302d3316cc7d9ea9de16cd56e6c15e8b023b97942deb627fa17a45391b41481"); // block 231000
+static const uint256 blockcheck7 ("9c4043c83dc69ba39af00147c0ff6f451b31c61232468344abcb4f68d2e661fc"); // block 253000
 
 
 inline int64_t PastDrift(int64_t nTime)   { return nTime - 24 * 60 * 60; } // up to 1 day from the past
@@ -538,7 +540,7 @@ public:
 
     bool IsCoinStake() const
     {
-        // ocupy: the coin stake transaction is marked with the first output empty
+        // blitz: the coin stake transaction is marked with the first output empty
         return (vin.size() > 0 && (!vin[0].prevout.IsNull()) && vout.size() >= 2 && vout[0].IsEmpty());
     }
 
@@ -702,7 +704,7 @@ public:
     bool ClientConnectInputs();
     bool CheckTransaction() const;
     bool AcceptToMemoryPool(CTxDB& txdb, bool fCheckInputs=true, bool* pfMissingInputs=NULL);
-    bool GetCoinAge(CTxDB& txdb, uint64_t& nCoinAge) const;  // ocupy: get transaction coin age
+    bool GetCoinAge(CTxDB& txdb, uint64_t& nCoinAge) const;  // blitz: get transaction coin age
 
 protected:
     const CTxOut& GetOutputFor(const CTxIn& input, const MapPrevTx& inputs) const;
@@ -854,7 +856,7 @@ public:
     // network and disk
     std::vector<CTransaction> vtx;
 
-    // ocupy: block signature - signed by one of the coin base txout[N]'s owner
+    // blitz: block signature - signed by one of the coin base txout[N]'s owner
     std::vector<unsigned char> vchBlockSig;
 
     // memory only
@@ -933,7 +935,7 @@ public:
         return nEntropyBit;
     }
 
-    // ocupy: two types of block: proof-of-work or proof-of-stake
+    // blitz: two types of block: proof-of-work or proof-of-stake
     bool IsProofOfStake() const
     {
         return (vtx.size() > 1 && vtx[1].IsCoinStake());
@@ -949,7 +951,7 @@ public:
         return IsProofOfStake()? std::make_pair(vtx[1].vin[0].prevout, vtx[1].nTime) : std::make_pair(COutPoint(), (unsigned int)0);
     }
 
-    // ocupy: get max transaction timestamp
+    // blitz: get max transaction timestamp
     int64_t GetMaxTransactionTime() const
     {
         int64_t maxTransactionTime = 0;
@@ -1092,7 +1094,7 @@ public:
     bool AddToBlockIndex(unsigned int nFile, unsigned int nBlockPos, const uint256& hashProofOfStake);
     bool CheckBlock(bool fCheckPOW=true, bool fCheckMerkleRoot=true, bool fCheckSig=true) const;
     bool AcceptBlock();
-    bool GetCoinAge(uint64_t& nCoinAge) const; // ocupy: calculate total coin age spent in block
+    bool GetCoinAge(uint64_t& nCoinAge) const; // blitz: calculate total coin age spent in block
     bool SignBlock(CWallet& keystore, int64_t nFees);
     bool CheckBlockSignature() const;
 
@@ -1120,13 +1122,13 @@ public:
     CBlockIndex* pnext;
     unsigned int nFile;
     unsigned int nBlockPos;
-    uint256 nChainTrust; // ocupy: trust score of block chain
+    uint256 nChainTrust; // blitz: trust score of block chain
     int nHeight;
 
     int64_t nMint;
     int64_t nMoneySupply;
 
-    unsigned int nFlags;  // ocupy: block index flags
+    unsigned int nFlags;  // blitz: block index flags
     enum  
     {
         BLOCK_PROOF_OF_STAKE = (1 << 0), // is proof-of-stake block
