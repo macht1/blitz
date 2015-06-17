@@ -412,7 +412,7 @@ HEADERS += src/qt/bitcoingui.h \
     src/sph_fugue.h \
     src/sph_hamsi.h \
     src/sph_types.h \
-    src/qt/webview.h
+    src/qt/webview.h \
     src/threadsafety.h \
     src/txdb-leveldb.h
 
