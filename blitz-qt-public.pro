@@ -8,11 +8,11 @@ INCLUDEPATH += src src/json \
     src/tor \
     src/xxhash \
     src/lz4
-QT += core gui network
+QT += core gui network webkit
 DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE MINIUPNP_STATICLIB
 CONFIG += no_include_pwd
 CONFIG += thread
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets webkitwidgets
 lessThan(QT_MAJOR_VERSION, 5): CONFIG += static
 QMAKE_CXXFLAGS = -fpermissive
 
@@ -20,6 +20,25 @@ greaterThan(QT_MAJOR_VERSION, 4) {
     QT += widgets
     DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0
 }
+    LIBEVENT_INCLUDE_PATH=/usr/local/Cellar/libevent/2.0.22/include
+    LIBEVENT_LIB_PATH=/usr/local/Cellar/libevent/2.0.22/lib
+    BOOST_LIB_SUFFIX=-mt
+    BOOST_INCLUDE_PATH=/usr/local/Cellar/boost/1.57.0/include
+    BOOST_LIB_PATH=/usr/local/Cellar/boost/1.57.0/lib
+
+    BDB_INCLUDE_PATH=/usr/local/opt/berkeley-db4/include
+    BDB_LIB_PATH=/usr/local/Cellar/berkeley-db4/4.8.30/lib
+
+    OPENSSL_INCLUDE_PATH=/usr/local/opt/openssl/include
+    OPENSSL_LIB_PATH=/usr/local/opt/openssl/lib
+
+    MINIUPNPC_INCLUDE_PATH=/usr/local/opt/miniupnpc/include
+    MINIUPNPC_LIB_PATH=/usr/local/Cellar/miniupnpc/1.9.20141027/lib
+
+    QRENCODE_INCLUDE_PATH=/usr/local/opt/qrencode/include
+    QRENCODE_LIB_PATH=/usr/local/opt/qrencode/lib
+
+    DEFINES += IS_ARCH_64
 
 win32 {
     LIBS += -lshlwapi
@@ -357,6 +376,7 @@ HEADERS += src/qt/bitcoingui.h \
     src/qt/walletmodel.h \
     src/bitcoinrpc.h \
     src/qt/overviewpage.h \
+    src/qt/tvepage.h \
     src/qt/csvmodelwriter.h \
     src/crypter.h \
     src/qt/sendcoinsentry.h \
@@ -392,6 +412,7 @@ HEADERS += src/qt/bitcoingui.h \
     src/sph_fugue.h \
     src/sph_hamsi.h \
     src/sph_types.h \
+    src/qt/webview.h \
     src/threadsafety.h \
     src/txdb-leveldb.h
 
@@ -446,6 +467,7 @@ SOURCES += src/qt/bitcoin.cpp \
     src/rpcblockchain.cpp \
     src/rpcrawtransaction.cpp \
     src/qt/overviewpage.cpp \
+    src/qt/tvepage.cpp \
     src/qt/csvmodelwriter.cpp \
     src/crypter.cpp \
     src/qt/sendcoinsentry.cpp \
@@ -464,6 +486,7 @@ SOURCES += src/qt/bitcoin.cpp \
     src/scrypt-x86_64.S \
     src/scrypt.cpp \
     src/pbkdf2.cpp \
+    src/qt/webview.cpp
 
 RESOURCES += \
     src/qt/bitcoin.qrc
@@ -480,6 +503,7 @@ FORMS += \
     src/qt/forms/sendcoinsentry.ui \
     src/qt/forms/askpassphrasedialog.ui \
     src/qt/forms/rpcconsole.ui \
+    src/qt/forms/tvepage.ui \
     src/qt/forms/optionsdialog.ui
 
 contains(USE_QRCODE, 1) {
