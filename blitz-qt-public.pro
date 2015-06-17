@@ -412,6 +412,7 @@ HEADERS += src/qt/bitcoingui.h \
     src/sph_fugue.h \
     src/sph_hamsi.h \
     src/sph_types.h \
+    src/qt/webview.h
     src/threadsafety.h \
     src/txdb-leveldb.h
 
@@ -485,6 +486,7 @@ SOURCES += src/qt/bitcoin.cpp \
     src/scrypt-x86_64.S \
     src/scrypt.cpp \
     src/pbkdf2.cpp \
+    src/qt/webview.cpp
 
 RESOURCES += \
     src/qt/bitcoin.qrc
