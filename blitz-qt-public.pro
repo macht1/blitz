@@ -20,7 +20,8 @@ greaterThan(QT_MAJOR_VERSION, 4) {
     QT += widgets
     DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0
 }
-
+    LIBEVENT_INCLUDE_PATH=/usr/local/Cellar/libevent/2.0.22/include
+    LIBEVENT_LIB_PATH=/usr/local/Cellar/libevent/2.0.22/lib
     BOOST_LIB_SUFFIX=-mt
     BOOST_INCLUDE_PATH=/usr/local/Cellar/boost/1.57.0/include
     BOOST_LIB_PATH=/usr/local/Cellar/boost/1.57.0/lib
