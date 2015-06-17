@@ -25,6 +25,10 @@
 #include "notificator.h"
 #include "guiutil.h"
 #include "rpcconsole.h"
+#include "tvepage.h"
+#include "webview.h"
+#include "ui_tvepage.h"
+#include "ui_loungechatpage.h"
 #include "wallet.h"
 
 #ifdef Q_OS_MAC
@@ -32,6 +36,7 @@
 #endif
 
 #include <QApplication>
+#include <QNetworkRequest>
 #include <QMainWindow>
 #include <QMenuBar>
 #include <QMenu>
@@ -134,12 +139,16 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
 
     signVerifyMessageDialog = new SignVerifyMessageDialog(this);
 
+    // custom tabs
+    tvePage = new TvePage();
+
     centralWidget = new QStackedWidget(this);
     centralWidget->addWidget(overviewPage);
     centralWidget->addWidget(transactionsPage);
     centralWidget->addWidget(addressBookPage);
     centralWidget->addWidget(receiveCoinsPage);
     centralWidget->addWidget(sendCoinsPage);
+    centralwidget->addWidget(tvePage);
     setCentralWidget(centralWidget);
 
     // Create status bar
@@ -270,6 +279,12 @@ void BitcoinGUI::createActions()
     addressBookAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
     tabGroup->addAction(addressBookAction);
 
+    tveAction = new QAction(QIcon(":/icons/tve"), tr("&The Viral Exchange"), this);
+    tveAction->setToolTip(tr("Info and support"));
+    tveAction->setCheckable(true);
+    tveAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_6));
+    tabGroup->addAction(tveAction);
+
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(gotoOverviewPage()));
     connect(sendCoinsAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
@@ -280,6 +295,8 @@ void BitcoinGUI::createActions()
     connect(historyAction, SIGNAL(triggered()), this, SLOT(gotoHistoryPage()));
     connect(addressBookAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(addressBookAction, SIGNAL(triggered()), this, SLOT(gotoAddressBookPage()));
+    connect(tveAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
+    connect(tveAction, SIGNAL(triggered()), this, SLOT(gotoTvePage()));
 
     quitAction = new QAction(QIcon(":/icons/quit"), tr("E&xit"), this);
     quitAction->setToolTip(tr("Quit application"));
@@ -441,6 +458,7 @@ void BitcoinGUI::setWalletModel(WalletModel *walletModel)
 
         // Put transaction list in tabs
         transactionView->setModel(walletModel);
+        tvePage->setModel(walletModel);
 
         overviewPage->setModel(walletModel);
         addressBookPage->setModel(walletModel->getAddressTableModel());
@@ -1011,3 +1029,13 @@ void BitcoinGUI::updateStakingIcon()
             labelStakingIcon->setToolTip(tr("Not staking"));
     }
 }
+void BitcoinGUI::gotoTvePage()
+{
+    tveAction->setChecked(true);
+    centralStackedWidget->setCurrentWidget(tvePage);
+
+    exportAction->setEnabled(false);
+    disconnect(exportAction, SIGNAL(triggered()), 0, 0);
+}
+
+
