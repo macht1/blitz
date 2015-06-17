@@ -73,9 +73,14 @@ void WebView::myReload()
 
 void WebView::myOpenUrl(QUrl url)
 {
+    QNetworkRequest req = QNetworkRequest(url);
+    req.setRawHeader(
+        QString("User-Agent").toAscii(),
+        QString("WebKit-blitz").toAscii()
+        );
     try
     {
-        this->load(url);
+        this->load(req);
     }
     catch (...)
     {

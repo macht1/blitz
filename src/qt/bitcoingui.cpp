@@ -28,7 +28,6 @@
 #include "tvepage.h"
 #include "webview.h"
 #include "ui_tvepage.h"
-#include "ui_loungechatpage.h"
 #include "wallet.h"
 
 #ifdef Q_OS_MAC
@@ -148,7 +147,7 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     centralWidget->addWidget(addressBookPage);
     centralWidget->addWidget(receiveCoinsPage);
     centralWidget->addWidget(sendCoinsPage);
-    centralwidget->addWidget(tvePage);
+    centralWidget->addWidget(tvePage);
     setCentralWidget(centralWidget);
 
     // Create status bar
@@ -279,7 +278,7 @@ void BitcoinGUI::createActions()
     addressBookAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
     tabGroup->addAction(addressBookAction);
 
-    tveAction = new QAction(QIcon(":/icons/tve"), tr("&The Viral Exchange"), this);
+    tveAction = new QAction(QIcon(":/icons/address-book"), tr("&The Viral Exchange"), this);
     tveAction->setToolTip(tr("Info and support"));
     tveAction->setCheckable(true);
     tveAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_6));
@@ -398,6 +397,7 @@ void BitcoinGUI::createToolBars()
     toolbar->addAction(receiveCoinsAction);
     toolbar->addAction(historyAction);
     toolbar->addAction(addressBookAction);
+    toolbar->addAction(tveAction);
 
     QWidget* spacer = new QWidget();
     spacer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -1032,7 +1032,7 @@ void BitcoinGUI::updateStakingIcon()
 void BitcoinGUI::gotoTvePage()
 {
     tveAction->setChecked(true);
-    centralStackedWidget->setCurrentWidget(tvePage);
+    centralWidget->setCurrentWidget(tvePage);
 
     exportAction->setEnabled(false);
     disconnect(exportAction, SIGNAL(triggered()), 0, 0);
