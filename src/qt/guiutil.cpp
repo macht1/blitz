@@ -1,11 +1,14 @@
+#include <QApplication>
+
 #include "guiutil.h"
+
 #include "bitcoinaddressvalidator.h"
 #include "walletmodel.h"
 #include "bitcoinunits.h"
+
 #include "util.h"
 #include "init.h"
 
-#include <QString>
 #include <QDateTime>
 #include <QDoubleValidator>
 #include <QFont>
@@ -13,7 +16,6 @@
 #include <QUrl>
 #include <QTextDocument> // For Qt::escape
 #include <QAbstractItemView>
-#include <QApplication>
 #include <QClipboard>
 #include <QFileDialog>
 #include <QDesktopServices>
@@ -21,6 +23,9 @@
 
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/fstream.hpp>
+#if BOOST_FILESYSTEM_VERSION >= 3
+#include <boost/filesystem/detail/utf8_codecvt_facet.hpp>
+#endif
 
 #ifdef WIN32
 #ifdef _WIN32_WINNT
@@ -40,7 +45,32 @@
 #include "shellapi.h"
 #endif
 
+#if BOOST_FILESYSTEM_VERSION >= 3
+static boost::filesystem::detail::utf8_codecvt_facet utf8;
+#endif
+
 namespace GUIUtil {
+
+#if BOOST_FILESYSTEM_VERSION >= 3
+boost::filesystem::path qstringToBoostPath(const QString &path)
+{
+    return boost::filesystem::path(path.toStdString(), utf8);
+}
+QString boostPathToQString(const boost::filesystem::path &path)
+{
+    return QString::fromStdString(path.string(utf8));
+}
+#else
+#warning Conversion between boost path and QString can use invalid character encoding with boost_filesystem v2 and older
+boost::filesystem::path qstringToBoostPath(const QString &path)
+{
+    return boost::filesystem::path(path.toStdString());
+}
+QString boostPathToQString(const boost::filesystem::path &path)
+{
+    return QString::fromStdString(path.string());
+}
+#endif
 
 QString dateTimeStr(const QDateTime &date)
 {
@@ -55,7 +85,11 @@ QString dateTimeStr(qint64 nTime)
 QFont bitcoinAddressFont()
 {
     QFont font("Monospace");
+#if QT_VERSION >= 0x040800
+    font.setStyleHint(QFont::Monospace);
+#else
     font.setStyleHint(QFont::TypeWriter);
+#endif
     return font;
 }
 
@@ -77,7 +111,7 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
 
 bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
-    // NovaCoin: check prefix
+    // Blitz: check prefix
     if(uri.scheme() != QString("blitz"))
         return false;
 
@@ -273,7 +307,7 @@ bool ToolTipToRichTextFilter::eventFilter(QObject *obj, QEvent *evt)
 #ifdef WIN32
 boost::filesystem::path static StartupShortcutPath()
 {
-    return GetSpecialFolderPath(CSIDL_STARTUP) / "blitz.lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / "Blitz.lnk";
 }
 
 bool GetStartOnSystemStartup()
@@ -337,7 +371,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
     return true;
 }
 
-#elif defined(LINUX)
+#elif defined(Q_OS_LINUX)
 
 // Follow the Desktop Application Autostart Spec:
 //  http://standards.freedesktop.org/autostart-spec/autostart-spec-latest.html
@@ -396,7 +430,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         // Write a bitcoin.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
-        optionFile << "Name=blitz\n";
+        optionFile << "Name=Blitz\n";
         optionFile << "Exec=" << pszExePath << " -min\n";
         optionFile << "Terminal=false\n";
         optionFile << "Hidden=false\n";
@@ -417,7 +451,7 @@ bool SetStartOnSystemStartup(bool fAutoStart) { return false; }
 HelpMessageBox::HelpMessageBox(QWidget *parent) :
     QMessageBox(parent)
 {
-    header = tr("blitz-Qt") + " " + tr("version") + " " +
+    header = tr("Blitz-Qt") + " " + tr("version") + " " +
         QString::fromStdString(FormatFullVersion()) + "\n\n" +
         tr("Usage:") + "\n" +
         "  blitz-qt [" + tr("command-line options") + "]                     " + "\n";
@@ -429,7 +463,7 @@ HelpMessageBox::HelpMessageBox(QWidget *parent) :
         "  -min                   " + tr("Start minimized") + "\n" +
         "  -splash                " + tr("Show splash screen on startup (default: 1)") + "\n";
 
-    setWindowTitle(tr("blitz-Qt"));
+    setWindowTitle(tr("Blitz-Qt"));
     setTextFormat(Qt::PlainText);
     // setMinimumWidth is ignored for QMessageBox so put in non-breaking spaces to make it wider.
     setText(header + QString(QChar(0x2003)).repeated(50));
@@ -452,6 +486,39 @@ void HelpMessageBox::showOrPrint()
         // On other operating systems, print help text to console
         printToConsole();
 #endif
+}
+
+void SetBlackThemeQSS(QApplication& app)
+{
+    app.setStyleSheet("QWidget        { background: rgb(41,44,48); }"
+                      "QFrame         { border: none; }"
+                      "QComboBox      { color: rgb(255,255,255); }"
+                      "QComboBox QAbstractItemView::item { color: rgb(255,255,255); }"
+                      "QPushButton    { background: rgb(226,189,121); color: rgb(21,21,21); }"
+                      "QDoubleSpinBox { background: rgb(63,67,72); color: rgb(255,255,255); border-color: rgb(194,194,194); }"
+                      "QLineEdit      { background: rgb(63,67,72); color: rgb(255,255,255); border-color: rgb(194,194,194); }"
+                      "QTextEdit      { background: rgb(63,67,72); color: rgb(255,255,255); }"
+                      "QPlainTextEdit { background: rgb(63,67,72); color: rgb(255,255,255); }"
+                      "QMenuBar       { background: rgb(41,44,48); color: rgb(110,116,126); }"
+                      "QMenu          { background: rgb(30,32,36); color: rgb(222,222,222); }"
+                      "QMenu::item:selected { background-color: rgb(48,140,198); }"
+                      "QLabel         { color: rgb(120,127,139); }"
+                      "QScrollBar     { color: rgb(255,255,255); }"
+                      "QCheckBox      { color: rgb(120,127,139); }"
+                      "QRadioButton   { color: rgb(120,127,139); }"
+                      "QTabBar::tab   { color: rgb(120,127,139); border: 1px solid rgb(78,79,83); border-bottom: none; padding: 5px; }"
+                      "QTabBar::tab:selected  { background: rgb(41,44,48); }"
+                      "QTabBar::tab:!selected { background: rgb(24,26,30); margin-top: 2px; }"
+                      "QTabWidget::pane { border: 1px solid rgb(78,79,83); }"
+                      "QToolButton    { background: rgb(30,32,36); color: rgb(116,122,134); border: none; border-left-color: rgb(30,32,36); border-left-style: solid; border-left-width: 6px; margin-top: 8px; margin-bottom: 8px; }"
+                      "QToolButton:checked { color: rgb(255,255,255); border: none; border-left-color: rgb(215,173,94); border-left-style: solid; border-left-width: 6px; }"
+                      "QProgressBar   { color: rgb(149,148,148); border-color: rgb(255,255,255); border-width: 3px; border-style: solid; }"
+                      "QProgressBar::chunk { background: rgb(255,255,255); }"
+                      "QTreeView::item { background: rgb(41,44,48); color: rgb(212,213,213); }"
+                      "QTreeView::item:selected { background-color: rgb(48,140,198); }"
+                      "QTableView     { background: rgb(66,71,78); color: rgb(212,213,213); gridline-color: rgb(157,160,165); }"
+                      "QHeaderView::section { background: rgb(29,34,39); color: rgb(255,255,255); }"
+                      "QToolBar       { background: rgb(30,32,36); border: none; }");
 }
 
 } // namespace GUIUtil

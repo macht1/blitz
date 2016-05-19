@@ -20,7 +20,7 @@ LIBPATHS= \
  -L"$(DEPSDIR)/lib/db48"
 
 USE_UPNP:=1
-USE_IPV6:=1
+USE_WALLET:=1
 
 LIBS= -dead_strip
 
@@ -53,7 +53,7 @@ ifdef RELEASE
 # Compile for maximum compatibility and smallest size.
 # This requires that dependencies are compiled
 # the same way.
-CFLAGS = -mmacosx-version-min=10.5 -arch x86_64 -O3 -msse2
+CFLAGS = -mmacosx-version-min=10.5 -arch x86_64 -O2 -msse2
 else
 CFLAGS = -g -msse2
 endif
@@ -63,19 +63,6 @@ CFLAGS += -Wall -Wextra -Wformat -Wno-ignored-qualifiers -Wformat-security -Wno-
     $(DEBUGFLAGS) $(DEFS) $(INCLUDEPATHS)
 
 OBJS= \
-    obj/fugue.o \
-    obj/hamsi.o \
-    obj/groestl.o \
-    obj/blake.o \
-    obj/bmw.o \
-    obj/skein.o \
-    obj/keccak.o \
-    obj/shavite.o \
-    obj/jh.o \
-    obj/luffa.o \
-    obj/cubehash.o \
-    obj/echo.o \
-    obj/simd.o \
     obj/alert.o \
     obj/version.o \
     obj/checkpoints.o \
@@ -83,33 +70,45 @@ OBJS= \
     obj/addrman.o \
     obj/crypter.o \
     obj/key.o \
-    obj/db.o \
     obj/init.o \
-    obj/irc.o \
+    obj/bitcoind.o \
     obj/keystore.o \
-    obj/miner.o \
+    obj/core.o \
     obj/main.o \
     obj/net.o \
     obj/protocol.o \
-    obj/bitcoinrpc.o \
-    obj/rpcdump.o \
+    obj/rpcclient.o \
+    obj/rpcprotocol.o \
+    obj/rpcserver.o \
+    obj/rpcmisc.o \
     obj/rpcnet.o \
-    obj/rpcmining.o \
-    obj/rpcwallet.o \
     obj/rpcblockchain.o \
     obj/rpcrawtransaction.o \
+    obj/timedata.o \
     obj/script.o \
     obj/sync.o \
+    obj/txmempool.o \
     obj/util.o \
-    obj/wallet.o \
-    obj/walletdb.o \
+    obj/hash.o \
     obj/noui.o \
-    obj/kernel.o \
     obj/pbkdf2.o \
+    obj/kernel.o \
     obj/scrypt.o \
-    obj/scrypt-arm.o \
     obj/scrypt-x86.o \
-    obj/scrypt-x86_64.o 
+    obj/scrypt-x86_64.o \
+    obj/chainparams.o
+
+ifeq (${USE_WALLET}, 1)
+    DEFS += -DENABLE_WALLET
+    OBJS += \
+        obj/db.o \
+        obj/miner.o \
+        obj/rpcdump.o \
+        obj/rpcmining.o \
+        obj/rpcwallet.o \
+        obj/wallet.o \
+        obj/walletdb.o
+endif
 
 ifndef USE_UPNP
 	override USE_UPNP = -
@@ -123,10 +122,6 @@ else
 endif
 endif
 
-ifneq (${USE_IPV6}, -)
-	DEFS += -DUSE_IPV6=$(USE_IPV6)
-endif
-
 all: blitzd
 
 LIBS += $(CURDIR)/leveldb/libleveldb.a $(CURDIR)/leveldb/libmemenv.a
@@ -134,7 +129,7 @@ DEFS += $(addprefix -I,$(CURDIR)/leveldb/include)
 DEFS += $(addprefix -I,$(CURDIR)/leveldb/helpers)
 OBJS += obj/txdb-leveldb.o
 leveldb/libleveldb.a:
-	@echo "Building LevelDB ..."; cd leveldb; make; cd ..
+	@echo "Building LevelDB ..."; cd leveldb; make libleveldb.a libmemenv.a; cd ..
 obj/txdb-leveldb.o: leveldb/libleveldb.a
 
 # auto-generated dependencies:
@@ -165,10 +160,6 @@ clean:
 	-rm -f blitzd
 	-rm -f obj/*.o
 	-rm -f obj/*.P
-	-rm -f obj-test/*.o
-	-rm -f obj-test/*.P
 	-rm -f obj/build.h
-	-rm -f leveldb/libleveldb.a
-	-rm -f leveldb/libmemenv.a
 
 FORCE:

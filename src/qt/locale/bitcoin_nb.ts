@@ -3,35 +3,32 @@
     <name>AboutDialog</name>
     <message>
         <location filename="../forms/aboutdialog.ui" line="+14"/>
-        <source>About blitz</source>
-        <translation type="unfinished"/>
+        <source>About Fibre</source>
+        <translation>Om Fibre</translation>
     </message>
     <message>
         <location line="+39"/>
-        <source>&lt;b&gt;blitz&lt;/b&gt; version</source>
-        <translation type="unfinished"/>
+        <source>&lt;b&gt;Fibre&lt;/b&gt; version</source>
+        <translation>&lt;b&gt;Fibre&lt;/b&gt; versjon</translation>
     </message>
     <message>
         <location line="+41"/>
         <source>Copyright © 2009-2014 The Bitcoin developers
 Copyright © 2012-2014 The NovaCoin developers
-Copyright © 2014 The blitz developers</source>
-        <translation type="unfinished"/>
+Copyright © 2014 The Fibre developers</source>
+        <translation>Copyright © 2009-2014 The Bitcoin developers
+Copyright © 2012-2014 The NovaCoin developers
+Copyright © 2014 The Fibre developers</translation>
     </message>
     <message>
         <location line="+15"/>
         <source>
 This is experimental software.
 
-Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php.
+Distributed under the MIT/X11 software license, see the accompanying file COPYING or &lt;a href=&quot;http://www.opensource.org/licenses/mit-license.php&quot;&gt;http://www.opensource.org/licenses/mit-license.php&lt;/a&gt;.
 
-This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/) and cryptographic software written by Eric Young (eay@cryptsoft.com) and UPnP software written by Thomas Bernard.</source>
-        <translation>
-Dette er eksperimentell programvare.
-
-Distribuert under MIT/X11 programvarelisensen, se medfølgende fil COPYING eller http://www.opensource.org/licenses/mit-license.php.
-
-Dette produktet inneholder programvare utviklet av OpenSSL prosjektet for bruk i OpenSSL Toolkit (http://www.openssl.org/) og kryptografisk programvare skrevet av Eric Young (eay@cryptsoft.com) og UPnP programvare skrevet av Thomas Bernard.</translation>
+This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (&lt;a href=&quot;https://www.openssl.org/&quot;&gt;https://www.openssl.org/&lt;/a&gt;) and cryptographic software written by Eric Young (&lt;a href=&quot;mailto:eay@cryptsoft.com&quot;&gt;eay@cryptsoft.com&lt;/a&gt;) and UPnP software written by Thomas Bernard.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -39,7 +36,7 @@ Dette produktet inneholder programvare utviklet av OpenSSL prosjektet for bruk i
     <message>
         <location filename="../forms/addressbookpage.ui" line="+14"/>
         <source>Address Book</source>
-        <translation type="unfinished"/>
+        <translation>Adressebok</translation>
     </message>
     <message>
         <location line="+22"/>
@@ -47,79 +44,79 @@ Dette produktet inneholder programvare utviklet av OpenSSL prosjektet for bruk i
         <translation>Dobbeltklikk for å redigere adresse eller merkelapp</translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="+24"/>
         <source>Create a new address</source>
         <translation>Lag en ny adresse</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+10"/>
         <source>Copy the currently selected address to the system clipboard</source>
         <translation>Kopier den valgte adressen til systemets utklippstavle</translation>
     </message>
     <message>
-        <location line="-11"/>
+        <location line="-7"/>
         <source>&amp;New Address</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Ny Adresse</translation>
     </message>
     <message>
-        <location line="-46"/>
-        <source>These are your blitz addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
-        <translation type="unfinished"/>
+        <location line="-43"/>
+        <source>These are your Fibre addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
+        <translation>Dette er adressene for å motta betalinger. Du ønsker kanskje å gi ulike adresser til hver avsender så du lettere kan holde øye med hvem som betaler deg.</translation>
     </message>
     <message>
-        <location line="+60"/>
+        <location line="+53"/>
         <source>&amp;Copy Address</source>
         <translation>&amp;Kopier Adresse</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+7"/>
         <source>Show &amp;QR Code</source>
-        <translation type="unfinished"/>
+        <translation>Vis &amp;QR Kode</translation>
     </message>
     <message>
-        <location line="+11"/>
-        <source>Sign a message to prove you own a blitz address</source>
-        <translation type="unfinished"/>
+        <location line="+7"/>
+        <source>Sign a message to prove you own a Fibre address</source>
+        <translation>Signer en melding for å bevise din egen Fibre adresse.</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Sign &amp;Message</source>
-        <translation type="unfinished"/>
+        <translation>Signer &amp;Melding</translation>
     </message>
     <message>
-        <location line="+25"/>
+        <location line="+17"/>
         <source>Delete the currently selected address from the list</source>
         <translation>Slett den valgte adressen fra listen.</translation>
     </message>
     <message>
-        <location line="-14"/>
-        <source>Verify a message to ensure it was signed with a specified blitz address</source>
-        <translation type="unfinished"/>
+        <location line="-10"/>
+        <source>Verify a message to ensure it was signed with a specified Fibre address</source>
+        <translation>Verifiser en melding får å forsikre deg om at den er signert med en spesifikk Fibre adresse</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>&amp;Verify Message</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Verifiser en melding</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+10"/>
         <source>&amp;Delete</source>
         <translation>&amp;Slett</translation>
     </message>
     <message>
-        <location filename="../addressbookpage.cpp" line="+65"/>
+        <location filename="../addressbookpage.cpp" line="+66"/>
         <source>Copy &amp;Label</source>
         <translation>Kopier &amp;Merkelapp</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="+1"/>
         <source>&amp;Edit</source>
         <translation>&amp;Rediger</translation>
     </message>
     <message>
-        <location line="+250"/>
+        <location line="+248"/>
         <source>Export Address Book Data</source>
-        <translation type="unfinished"/>
+        <translation>Eksporter Adressebok</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -129,18 +126,18 @@ Dette produktet inneholder programvare utviklet av OpenSSL prosjektet for bruk i
     <message>
         <location line="+13"/>
         <source>Error exporting</source>
-        <translation type="unfinished"/>
+        <translation>Feil under eksportering</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Could not write to file %1.</source>
-        <translation type="unfinished"/>
+        <translation>Kunne ikke skrive til filen %1</translation>
     </message>
 </context>
 <context>
     <name>AddressTableModel</name>
     <message>
-        <location filename="../addresstablemodel.cpp" line="+144"/>
+        <location filename="../addresstablemodel.cpp" line="+145"/>
         <source>Label</source>
         <translation>Merkelapp</translation>
     </message>
@@ -188,12 +185,7 @@ Dette produktet inneholder programvare utviklet av OpenSSL prosjektet for bruk i
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../askpassphrasedialog.cpp" line="+35"/>
-        <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;10 or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
-        <translation>Skriv inn den nye adgangsfrasen for lommeboken.&lt;br/&gt;Vennligst bruk en adgangsfrase med &lt;b&gt;10 eller flere tilfeldige tegn&lt;/b&gt;, eller &lt;b&gt;åtte eller flere ord&lt;/b&gt;.</translation>
-    </message>
-    <message>
-        <location line="+1"/>
+        <location filename="../askpassphrasedialog.cpp" line="+38"/>
         <source>Encrypt wallet</source>
         <translation>Krypter lommebok</translation>
     </message>
@@ -228,14 +220,14 @@ Dette produktet inneholder programvare utviklet av OpenSSL prosjektet for bruk i
         <translation>Skriv inn gammel og ny adgangsfrase for lommeboken.</translation>
     </message>
     <message>
-        <location line="+46"/>
+        <location line="+45"/>
         <source>Confirm wallet encryption</source>
         <translation>Bekreft kryptering av lommebok</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR COINS&lt;/b&gt;!</source>
-        <translation type="unfinished"/>
+        <translation>Advarsel: Viss du krypterer lommeboken og mister passordet vil du &lt;b&gt;MISTE ALLE MYNTENE DINE&lt;/b&gt;!</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -260,8 +252,13 @@ Dette produktet inneholder programvare utviklet av OpenSSL prosjektet for bruk i
         <translation>Lommebok kryptert</translation>
     </message>
     <message>
-        <location line="-58"/>
-        <source>blitz will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your coins from being stolen by malware infecting your computer.</source>
+        <location line="-140"/>
+        <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+82"/>
+        <source>Fibre will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your coins from being stolen by malware infecting your computer.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -309,22 +306,12 @@ Dette produktet inneholder programvare utviklet av OpenSSL prosjektet for bruk i
 <context>
     <name>BitcoinGUI</name>
     <message>
-        <location filename="../bitcoingui.cpp" line="+282"/>
+        <location filename="../bitcoingui.cpp" line="+297"/>
         <source>Sign &amp;message...</source>
         <translation>Signer &amp;melding...</translation>
     </message>
     <message>
-        <location line="+251"/>
-        <source>Synchronizing with network...</source>
-        <translation>Synkroniserer med nettverk...</translation>
-    </message>
-    <message>
-        <location line="-319"/>
-        <source>&amp;Overview</source>
-        <translation>&amp;Oversikt</translation>
-    </message>
-    <message>
-        <location line="+1"/>
+        <location line="-64"/>
         <source>Show general overview of wallet</source>
         <translation>Vis generell oversikt over lommeboken</translation>
     </message>
@@ -341,30 +328,20 @@ Dette produktet inneholder programvare utviklet av OpenSSL prosjektet for bruk i
     <message>
         <location line="+5"/>
         <source>&amp;Address Book</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Adressebok</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Edit the list of stored addresses and labels</source>
-        <translation type="unfinished"/>
+        <translation>Endre listen med lagrede adresser og merkelapper</translation>
     </message>
     <message>
-        <location line="-13"/>
-        <source>&amp;Receive coins</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+1"/>
+        <location line="-18"/>
         <source>Show the list of addresses for receiving payments</source>
-        <translation type="unfinished"/>
+        <translation>Vis listen med adresser for å motta betalinger</translation>
     </message>
     <message>
-        <location line="-7"/>
-        <source>&amp;Send coins</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+35"/>
+        <location line="+34"/>
         <source>E&amp;xit</source>
         <translation>&amp;Avslutt</translation>
     </message>
@@ -374,9 +351,9 @@ Dette produktet inneholder programvare utviklet av OpenSSL prosjektet for bruk i
         <translation>Avslutt applikasjonen</translation>
     </message>
     <message>
-        <location line="+6"/>
-        <source>Show information about blitz</source>
-        <translation type="unfinished"/>
+        <location line="+4"/>
+        <source>Show information about Fibre</source>
+        <translation>Vis info om Fibre</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -399,7 +376,7 @@ Dette produktet inneholder programvare utviklet av OpenSSL prosjektet for bruk i
         <translation>&amp;Krypter Lommebok...</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+2"/>
         <source>&amp;Backup Wallet...</source>
         <translation>Lag &amp;Sikkerhetskopi av Lommebok...</translation>
     </message>
@@ -408,43 +385,33 @@ Dette produktet inneholder programvare utviklet av OpenSSL prosjektet for bruk i
         <source>&amp;Change Passphrase...</source>
         <translation>&amp;Endre Adgangsfrase...</translation>
     </message>
-    <message numerus="yes">
-        <location line="+259"/>
-        <source>~%n block(s) remaining</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
     <message>
-        <location line="+6"/>
-        <source>Downloaded %1 of %2 blocks of transaction history (%3% done).</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="-256"/>
+        <location line="+9"/>
         <source>&amp;Export...</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Eksporter...</translation>
     </message>
     <message>
-        <location line="-64"/>
-        <source>Send coins to a blitz address</source>
-        <translation type="unfinished"/>
+        <location line="-55"/>
+        <source>Send coins to a Fibre address</source>
+        <translation>Send coins til en Fibre adresse</translation>
     </message>
     <message>
-        <location line="+47"/>
-        <source>Modify configuration options for blitz</source>
-        <translation type="unfinished"/>
+        <location line="+39"/>
+        <source>Modify configuration options for Fibre</source>
+        <translation>Endre innstillingene til Fibre</translation>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+17"/>
         <source>Export the data in the current tab to a file</source>
-        <translation type="unfinished"/>
+        <translation>Eksporter dataene i nåværende fane til en fil</translation>
     </message>
     <message>
-        <location line="-14"/>
+        <location line="-13"/>
         <source>Encrypt or decrypt wallet</source>
-        <translation type="unfinished"/>
+        <translation>Krypter eller dekrypter lommeboken</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+2"/>
         <source>Backup wallet to another location</source>
         <translation>Sikkerhetskopiér lommebok til annet sted</translation>
     </message>
@@ -469,19 +436,20 @@ Dette produktet inneholder programvare utviklet av OpenSSL prosjektet for bruk i
         <translation>&amp;Verifiser melding...</translation>
     </message>
     <message>
-        <location line="-202"/>
-        <source>blitz</source>
-        <translation type="unfinished"/>
+        <location line="-214"/>
+        <location line="+555"/>
+        <source>Fibre</source>
+        <translation>Fibre</translation>
     </message>
     <message>
-        <location line="+0"/>
+        <location line="-555"/>
         <source>Wallet</source>
         <translation>Lommebok</translation>
     </message>
     <message>
-        <location line="+180"/>
-        <source>&amp;About blitz</source>
-        <translation type="unfinished"/>
+        <location line="+193"/>
+        <source>&amp;About Fibre</source>
+        <translation>&amp;Om Fibre</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -489,22 +457,22 @@ Dette produktet inneholder programvare utviklet av OpenSSL prosjektet for bruk i
         <translation>&amp;Gjem / vis</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+8"/>
         <source>Unlock wallet</source>
-        <translation type="unfinished"/>
+        <translation>Lås opp lommebok</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>&amp;Lock Wallet</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Lås Lommeboken</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>Lock wallet</source>
-        <translation type="unfinished"/>
+        <translation>Lås lommeboken</translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+32"/>
         <source>&amp;File</source>
         <translation>&amp;Fil</translation>
     </message>
@@ -519,39 +487,29 @@ Dette produktet inneholder programvare utviklet av OpenSSL prosjektet for bruk i
         <translation>&amp;Hjelp</translation>
     </message>
     <message>
-        <location line="+12"/>
+        <location line="+17"/>
         <source>Tabs toolbar</source>
         <translation>Verktøylinje for faner</translation>
     </message>
     <message>
-        <location line="+8"/>
-        <source>Actions toolbar</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+13"/>
+        <location line="+46"/>
         <location line="+9"/>
         <source>[testnet]</source>
         <translation>[testnett]</translation>
     </message>
     <message>
         <location line="+0"/>
-        <location line="+60"/>
-        <source>blitz client</source>
-        <translation type="unfinished"/>
+        <location line="+58"/>
+        <source>Fibre client</source>
+        <translation>Fibre klient</translation>
     </message>
     <message numerus="yes">
-        <location line="+75"/>
-        <source>%n active connection(s) to blitz network</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <location line="+70"/>
+        <source>%n active connection(s) to Fibre network</source>
+        <translation><numerusform>%n aktiv tilkobling til Fibre nettverket</numerusform><numerusform>%n aktive tilkoblinger til Fibre nettverket</numerusform></translation>
     </message>
     <message>
-        <location line="+40"/>
-        <source>Downloaded %1 blocks of transaction history.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+413"/>
+        <location line="+488"/>
         <source>Staking.&lt;br&gt;Your weight is %1&lt;br&gt;Network weight is %2&lt;br&gt;Expected time to earn reward is %3</source>
         <translation type="unfinished"/>
     </message>
@@ -575,63 +533,38 @@ Dette produktet inneholder programvare utviklet av OpenSSL prosjektet for bruk i
         <source>Not staking because you don&apos;t have mature coins</source>
         <translation type="unfinished"/>
     </message>
-    <message numerus="yes">
-        <location line="-403"/>
-        <source>%n second(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
     <message>
-        <location line="-312"/>
-        <source>About blitz card</source>
+        <location line="-812"/>
+        <source>&amp;Dashboard</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Show information about blitz card</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+18"/>
-        <source>&amp;Unlock Wallet...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message numerus="yes">
-        <location line="+297"/>
-        <source>%n minute(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <location line="+4"/>
-        <source>%n hour(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <location line="+4"/>
-        <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location line="+6"/>
+        <source>&amp;Receive</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>&amp;Send</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+49"/>
+        <source>&amp;Unlock Wallet...</source>
+        <translation>&amp;Lås opp lommeboken</translation>
+    </message>
+    <message>
+        <location line="+277"/>
         <source>Up to date</source>
         <translation>Ajour</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+43"/>
         <source>Catching up...</source>
         <translation>Kommer ajour...</translation>
     </message>
     <message>
-        <location line="+10"/>
-        <source>Last received block was generated %1.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+59"/>
-        <source>This transaction is over the size limit.  You can still send it for a fee of %1, which goes to the nodes that process your transaction and helps to support the network.  Do you want to pay the fee?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+5"/>
+        <location line="+113"/>
         <source>Confirm transaction fee</source>
         <translation type="unfinished"/>
     </message>
@@ -667,33 +600,38 @@ Adresse: %4
     <message>
         <location line="-15"/>
         <location line="+15"/>
-        <source>URI can not be parsed! This can be caused by an invalid blitz address or malformed URI parameters.</source>
+        <source>URI can not be parsed! This can be caused by an invalid Fibre address or malformed URI parameters.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+9"/>
+        <source>Wallet is &lt;b&gt;not encrypted&lt;/b&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
         <translation>Lommeboken er &lt;b&gt;kryptert&lt;/b&gt; og for tiden &lt;b&gt;ulåst&lt;/b&gt;</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+8"/>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Lommeboken er &lt;b&gt;kryptert&lt;/b&gt; og for tiden &lt;b&gt;låst&lt;/b&gt;</translation>
     </message>
     <message>
-        <location line="+25"/>
+        <location line="+24"/>
         <source>Backup Wallet</source>
-        <translation type="unfinished"/>
+        <translation>Sikkerhetskopier Lommeboken</translation>
     </message>
     <message>
         <location line="+0"/>
         <source>Wallet Data (*.dat)</source>
-        <translation type="unfinished"/>
+        <translation>Lommebokdata (*.dat)</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Backup Failed</source>
-        <translation type="unfinished"/>
+        <translation>Sikkerhetskopiering feilet</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -701,40 +639,98 @@ Adresse: %4
         <translation type="unfinished"/>
     </message>
     <message numerus="yes">
-        <location line="+76"/>
+        <location line="+91"/>
         <source>%n second(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n sekund</numerusform><numerusform>%n sekunder</numerusform></translation>
     </message>
     <message numerus="yes">
         <location line="+4"/>
         <source>%n minute(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n minutt</numerusform><numerusform>%n minutter</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location line="+4"/>
+        <location line="-429"/>
+        <location line="+433"/>
         <source>%n hour(s)</source>
         <translation><numerusform>%n time</numerusform><numerusform>%n timer</numerusform></translation>
     </message>
+    <message>
+        <location line="-456"/>
+        <source>Processed %1 blocks of transaction history.</source>
+        <translation type="unfinished"/>
+    </message>
     <message numerus="yes">
-        <location line="+4"/>
+        <location line="+27"/>
+        <location line="+433"/>
         <source>%n day(s)</source>
         <translation><numerusform>%n dag</numerusform><numerusform>%n dager</numerusform></translation>
     </message>
+    <message numerus="yes">
+        <location line="-429"/>
+        <location line="+6"/>
+        <source>%n week(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
     <message>
-        <location line="+18"/>
+        <location line="+0"/>
+        <source>%1 and %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <location line="+0"/>
+        <source>%n year(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>%1 behind</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+15"/>
+        <source>Last received block was generated %1 ago.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Transactions after this will not yet be visible.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>Error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Warning</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+69"/>
+        <source>This transaction is over the size limit. You can still send it for a fee of %1, which goes to the nodes that process your transaction and helps to support the network. Do you want to pay the fee?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+324"/>
         <source>Not staking</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../bitcoin.cpp" line="+109"/>
-        <source>A fatal error occurred. blitz can no longer continue safely and will quit.</source>
+        <location filename="../bitcoin.cpp" line="+104"/>
+        <source>A fatal error occurred. Fibre can no longer continue safely and will quit.</source>
         <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>ClientModel</name>
     <message>
-        <location filename="../clientmodel.cpp" line="+90"/>
+        <location filename="../clientmodel.cpp" line="+110"/>
         <source>Network Alert</source>
         <translation>Nettverksvarsel</translation>
     </message>
@@ -777,7 +773,7 @@ Adresse: %4
         <translation>Lav Utdata:</translation>
     </message>
     <message>
-        <location filename="../coincontroldialog.cpp" line="+551"/>
+        <location filename="../coincontroldialog.cpp" line="+537"/>
         <source>no</source>
         <translation>nei</translation>
     </message>
@@ -814,7 +810,7 @@ Adresse: %4
     <message>
         <location line="+5"/>
         <source>Label</source>
-        <translation type="unfinished"/>
+        <translation>Merkelapp</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -842,7 +838,7 @@ Adresse: %4
         <translation>Prioritet</translation>
     </message>
     <message>
-        <location filename="../coincontroldialog.cpp" line="-515"/>
+        <location filename="../coincontroldialog.cpp" line="-500"/>
         <source>Copy address</source>
         <translation>Kopier adresse</translation>
     </message>
@@ -875,7 +871,7 @@ Adresse: %4
     <message>
         <location line="+1"/>
         <source>Copy after fee</source>
-        <translation type="unfinished"/>
+        <translation>Kopier etter gebyr</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -885,7 +881,7 @@ Adresse: %4
     <message>
         <location line="+1"/>
         <source>Copy priority</source>
-        <translation type="unfinished"/>
+        <translation>Kopier prioritet</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -895,7 +891,7 @@ Adresse: %4
     <message>
         <location line="+1"/>
         <source>Copy change</source>
-        <translation type="unfinished"/>
+        <translation>Kopier veksel</translation>
     </message>
     <message>
         <location line="+317"/>
@@ -933,7 +929,7 @@ Adresse: %4
         <translation>lavest</translation>
     </message>
     <message>
-        <location line="+155"/>
+        <location line="+140"/>
         <source>DUST</source>
         <translation type="unfinished"/>
     </message>
@@ -974,10 +970,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <source>This label turns red, if the change is smaller than %1.
 
  This means a fee of at least %2 is required.</source>
-        <translation type="unfinished"/>
+        <translation>Denne merkelappen blir rød, viss endringen er mindre enn %1
+
+Dette betyr at det trengs en avgift på minimum %2.</translation>
     </message>
     <message>
-        <location line="+37"/>
+        <location line="+36"/>
         <location line="+66"/>
         <source>(no label)</source>
         <translation>(ingen merkelapp)</translation>
@@ -1008,7 +1006,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+10"/>
         <source>The label associated with this address book entry</source>
-        <translation type="unfinished"/>
+        <translation>Merkelappen assosiert med denne adressen</translation>
     </message>
     <message>
         <location line="+7"/>
@@ -1021,7 +1019,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../editaddressdialog.cpp" line="+20"/>
+        <location filename="../editaddressdialog.cpp" line="+21"/>
         <source>New receiving address</source>
         <translation>Ny mottaksadresse</translation>
     </message>
@@ -1047,8 +1045,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="-5"/>
-        <source>The entered address &quot;%1&quot; is not a valid blitz address.</source>
-        <translation type="unfinished"/>
+        <source>The entered address &quot;%1&quot; is not a valid Fibre address.</source>
+        <translation>Den angitte adressen &quot;%1&quot; er ikke en gyldig Fibre adresse.</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1064,20 +1062,20 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>GUIUtil::HelpMessageBox</name>
     <message>
-        <location filename="../guiutil.cpp" line="+420"/>
+        <location filename="../guiutil.cpp" line="+426"/>
         <location line="+12"/>
-        <source>blitz-Qt</source>
-        <translation type="unfinished"/>
+        <source>Fibre-Qt</source>
+        <translation>Fibre-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
         <source>version</source>
-        <translation type="unfinished"/>
+        <translation>versjon</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>Usage:</source>
-        <translation type="unfinished"/>
+        <translation>Bruk:</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1097,7 +1095,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+1"/>
         <source>Start minimized</source>
-        <translation type="unfinished"/>
+        <translation>Start Minimert</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1139,23 +1137,13 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+31"/>
-        <source>Automatically start blitz after logging in to the system.</source>
-        <translation type="unfinished"/>
+        <source>Automatically start Fibre after logging in to the system.</source>
+        <translation>Start Fibre automatisk ved hver innlogging.</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&amp;Start blitz on system login</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Detach block and address databases at shutdown. This means they can be moved to another data directory, but it slows down shutdown. The wallet is always detached.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>&amp;Detach databases at shutdown</source>
-        <translation type="unfinished"/>
+        <source>&amp;Start Fibre on system login</source>
+        <translation>&amp;Start Fibre ved innlogging</translation>
     </message>
     <message>
         <location line="+21"/>
@@ -1164,7 +1152,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+6"/>
-        <source>Automatically open the blitz client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <source>Automatically open the Fibre client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1173,17 +1161,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Sett opp port vha. &amp;UPnP</translation>
     </message>
     <message>
-        <location line="+7"/>
-        <source>Connect to the blitz network through a SOCKS proxy (e.g. when connecting through Tor).</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>&amp;Connect through SOCKS proxy:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+9"/>
+        <location line="+19"/>
         <source>Proxy &amp;IP:</source>
         <translation>Proxy &amp;IP:</translation>
     </message>
@@ -1203,17 +1181,17 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Proxyens port (f.eks. 9050)</translation>
     </message>
     <message>
-        <location line="+7"/>
-        <source>SOCKS &amp;Version:</source>
-        <translation>SOCKS &amp;Versjon:</translation>
+        <location line="-57"/>
+        <source>Connect to the Fibre network through a SOCKS5 proxy (e.g. when connecting through Tor).</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+13"/>
-        <source>SOCKS version of the proxy (e.g. 5)</source>
-        <translation>Proxyens SOCKS versjon (f.eks. 5)</translation>
+        <location line="+3"/>
+        <source>&amp;Connect through SOCKS5 proxy:</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+36"/>
+        <location line="+90"/>
         <source>&amp;Window</source>
         <translation>&amp;Vindu</translation>
     </message>
@@ -1249,7 +1227,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+13"/>
-        <source>The user interface language can be set here. This setting will take effect after restarting blitz.</source>
+        <source>The user interface language can be set here. This setting will take effect after restarting Fibre.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1260,26 +1238,31 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+13"/>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>Velg standard delt enhet for visning i grensesnittet og for sending av bitcoins.</translation>
+        <translation>Velg standard delt enhet for visning i grensesnittet og for sending av fibres.</translation>
     </message>
     <message>
         <location line="+9"/>
-        <source>Whether to show blitz addresses in the transaction list or not.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>&amp;Display addresses in transaction list</source>
-        <translation>&amp;Vis adresser i transaksjonslisten</translation>
-    </message>
-    <message>
-        <location line="+7"/>
         <source>Whether to show coin control features or not.</source>
         <translation>Skal mynt kontroll funksjoner vises eller ikke.</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Display coin &amp;control features (experts only!)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Whether to select the coin outputs randomly or with minimal coin age.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Minimize weight consumption (experimental)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Use black visual theme (requires restart)</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1295,24 +1278,24 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+10"/>
         <source>&amp;Apply</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Bruk</translation>
     </message>
     <message>
-        <location filename="../optionsdialog.cpp" line="+55"/>
+        <location filename="../optionsdialog.cpp" line="+47"/>
         <source>default</source>
         <translation>standardverdi</translation>
     </message>
     <message>
-        <location line="+149"/>
+        <location line="+148"/>
         <location line="+9"/>
         <source>Warning</source>
-        <translation type="unfinished"/>
+        <translation>Advarsel</translation>
     </message>
     <message>
         <location line="-9"/>
         <location line="+9"/>
-        <source>This setting will take effect after restarting blitz.</source>
-        <translation type="unfinished"/>
+        <source>This setting will take effect after restarting Fibre.</source>
+        <translation>Denne innstillingen vil tre i kraft etter Fibre er blitt startet på nytt.</translation>
     </message>
     <message>
         <location line="+29"/>
@@ -1328,30 +1311,30 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Skjema</translation>
     </message>
     <message>
-        <location line="+33"/>
-        <location line="+231"/>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the blitz network after a connection is established, but this process has not completed yet.</source>
+        <location line="+46"/>
+        <location line="+247"/>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Fibre network after a connection is established, but this process has not completed yet.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="-160"/>
+        <location line="-173"/>
         <source>Stake:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+29"/>
+        <location line="+32"/>
         <source>Unconfirmed:</source>
-        <translation type="unfinished"/>
+        <translation>Ubekreftet:</translation>
     </message>
     <message>
-        <location line="-107"/>
+        <location line="-113"/>
         <source>Wallet</source>
         <translation>Lommebok</translation>
     </message>
     <message>
         <location line="+49"/>
         <source>Spendable:</source>
-        <translation type="unfinished"/>
+        <translation>Disponibelt:</translation>
     </message>
     <message>
         <location line="+16"/>
@@ -1359,7 +1342,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Din nåværende saldo</translation>
     </message>
     <message>
-        <location line="+71"/>
+        <location line="+80"/>
         <source>Immature:</source>
         <translation>Umoden:</translation>
     </message>
@@ -1369,7 +1352,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Minet saldo har ikke modnet enda</translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="+23"/>
         <source>Total:</source>
         <translation>Totalt:</translation>
     </message>
@@ -1379,25 +1362,33 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Din nåværende saldo</translation>
     </message>
     <message>
-        <location line="+46"/>
+        <location line="+50"/>
         <source>&lt;b&gt;Recent transactions&lt;/b&gt;</source>
         <translation>&lt;b&gt;Siste transaksjoner&lt;/b&gt;</translation>
     </message>
     <message>
-        <location line="-108"/>
+        <location line="-118"/>
         <source>Total of transactions that have yet to be confirmed, and do not yet count toward the current balance</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="-29"/>
+        <location line="-32"/>
         <source>Total of coins that was staked, and do not yet count toward the current balance</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../overviewpage.cpp" line="+113"/>
+        <location filename="../overviewpage.cpp" line="+116"/>
         <location line="+1"/>
         <source>out of sync</source>
         <translation>ute av synk</translation>
+    </message>
+</context>
+<context>
+    <name>PaymentServer</name>
+    <message>
+        <location filename="../paymentserver.cpp" line="+107"/>
+        <source>Cannot start fibre: click-to-pay handler</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1415,22 +1406,22 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+56"/>
         <source>Amount:</source>
-        <translation type="unfinished"/>
+        <translation>Beløp:</translation>
     </message>
     <message>
         <location line="-44"/>
         <source>Label:</source>
-        <translation type="unfinished"/>
+        <translation>Merkelapp:</translation>
     </message>
     <message>
         <location line="+19"/>
         <source>Message:</source>
-        <translation type="unfinished"/>
+        <translation>Melding:</translation>
     </message>
     <message>
         <location line="+71"/>
         <source>&amp;Save As...</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Lagre som...</translation>
     </message>
     <message>
         <location filename="../qrcodedialog.cpp" line="+62"/>
@@ -1455,7 +1446,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+0"/>
         <source>PNG Images (*.png)</source>
-        <translation type="unfinished"/>
+        <translation>PNG Bilder (*.png)</translation>
     </message>
 </context>
 <context>
@@ -1474,13 +1465,11 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <location line="+36"/>
         <location line="+53"/>
         <location line="+23"/>
-        <location line="+23"/>
-        <location filename="../rpcconsole.cpp" line="+348"/>
         <source>N/A</source>
         <translation>-</translation>
     </message>
     <message>
-        <location line="-217"/>
+        <location line="-194"/>
         <source>Client version</source>
         <translation>Klientversjon</translation>
     </message>
@@ -1525,12 +1514,32 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Nåværende antall blokker</translation>
     </message>
     <message>
-        <location line="+23"/>
-        <source>Estimated total blocks</source>
-        <translation>Estimert totalt antall blokker</translation>
+        <location line="+197"/>
+        <source>&amp;Network Traffic</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+23"/>
+        <location line="+52"/>
+        <source>&amp;Clear</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>Totals</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+64"/>
+        <source>In:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+80"/>
+        <source>Out:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="-383"/>
         <source>Last block time</source>
         <translation>Tidspunkt for siste blokk</translation>
     </message>
@@ -1546,13 +1555,13 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the blitz-Qt help message to get a list with possible blitz command-line options.</source>
+        <source>Show the Fibre-Qt help message to get a list with possible Fibre command-line options.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location line="+3"/>
         <source>&amp;Show</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Vis</translation>
     </message>
     <message>
         <location line="+24"/>
@@ -1560,28 +1569,28 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>&amp;Konsoll</translation>
     </message>
     <message>
-        <location line="-260"/>
+        <location line="-237"/>
         <source>Build date</source>
         <translation>Byggedato</translation>
     </message>
     <message>
         <location line="-104"/>
-        <source>blitz - Debug window</source>
+        <source>Fibre - Debug window</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location line="+25"/>
-        <source>blitz Core</source>
+        <source>Fibre Core</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+279"/>
+        <location line="+256"/>
         <source>Debug log file</source>
         <translation>Loggfil for feilsøk</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Open the blitz debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <source>Open the Fibre debug log file from the current data directory. This can take a few seconds for large log files.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1590,8 +1599,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Tøm konsoll</translation>
     </message>
     <message>
-        <location filename="../rpcconsole.cpp" line="-33"/>
-        <source>Welcome to the blitz RPC console.</source>
+        <location filename="../rpcconsole.cpp" line="+325"/>
+        <source>Welcome to the Fibre RPC console.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1603,6 +1612,41 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <location line="+1"/>
         <source>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</source>
         <translation>Skriv &lt;b&gt;help&lt;/b&gt; for en oversikt over kommandoer.</translation>
+    </message>
+    <message>
+        <location line="+127"/>
+        <source>%1 B</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>%1 KB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>%1 MB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>%1 GB</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>%1 m</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>%1 h</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>%1 h %2 m</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1617,7 +1661,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <location line="+5"/>
         <location line="+5"/>
         <source>Send Coins</source>
-        <translation>Send Bitcoins</translation>
+        <translation>Send Fibres</translation>
     </message>
     <message>
         <location line="+76"/>
@@ -1661,15 +1705,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Beløp:</translation>
     </message>
     <message>
-        <location line="+22"/>
-        <location line="+86"/>
-        <location line="+86"/>
-        <location line="+32"/>
-        <source>0.00 BLITZ</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="-191"/>
+        <location line="+35"/>
         <source>Priority:</source>
         <translation>Prioritet:</translation>
     </message>
@@ -1691,7 +1727,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+19"/>
         <source>no</source>
-        <translation type="unfinished"/>
+        <translation>nei</translation>
     </message>
     <message>
         <location line="+32"/>
@@ -1719,7 +1755,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>&amp;Legg til Mottaker</translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="+16"/>
         <source>Remove all transaction fields</source>
         <translation type="unfinished"/>
     </message>
@@ -1729,17 +1765,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Fjern &amp;Alt</translation>
     </message>
     <message>
-        <location line="+28"/>
+        <location line="+24"/>
         <source>Balance:</source>
         <translation>Saldo:</translation>
     </message>
     <message>
-        <location line="+16"/>
-        <source>123.456 BLITZ</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+31"/>
+        <location line="+47"/>
         <source>Confirm the send action</source>
         <translation>Bekreft sending</translation>
     </message>
@@ -1749,8 +1780,8 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>S&amp;end</translation>
     </message>
     <message>
-        <location filename="../sendcoinsdialog.cpp" line="-173"/>
-        <source>Enter a blitz address (e.g. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
+        <location filename="../sendcoinsdialog.cpp" line="-174"/>
+        <source>Enter a Fibre address (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1794,9 +1825,9 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+86"/>
+        <location line="+87"/>
         <source>&lt;b&gt;%1&lt;/b&gt; to %2 (%3)</source>
-        <translation type="unfinished"/>
+        <translation>&lt;b&gt;%1&lt;/b&gt; til %2 (%3)</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -1806,12 +1837,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+1"/>
         <source>Are you sure you want to send %1?</source>
-        <translation type="unfinished"/>
+        <translation>Er du sikker på du ønsker å sende %1?</translation>
     </message>
     <message>
         <location line="+0"/>
         <source> and </source>
-        <translation type="unfinished"/>
+        <translation>og</translation>
     </message>
     <message>
         <location line="+29"/>
@@ -1840,7 +1871,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+5"/>
-        <source>Error: Transaction creation failed.</source>
+        <source>Error: Transaction creation failed!</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1849,9 +1880,9 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+251"/>
-        <source>WARNING: Invalid blitz address</source>
-        <translation type="unfinished"/>
+        <location line="+247"/>
+        <source>WARNING: Invalid Fibre address</source>
+        <translation>ADVARSEL: Ugyldig Fibre adresse</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -1882,25 +1913,25 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Betal &amp;Til:</translation>
     </message>
     <message>
-        <location line="+24"/>
-        <location filename="../sendcoinsentry.cpp" line="+25"/>
+        <location line="+34"/>
+        <source>The address to send the payment to (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+60"/>
+        <location filename="../sendcoinsentry.cpp" line="+26"/>
         <source>Enter a label for this address to add it to your address book</source>
         <translation>Skriv inn en merkelapp for denne adressen for å legge den til i din adressebok</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="-78"/>
         <source>&amp;Label:</source>
         <translation>&amp;Merkelapp:</translation>
     </message>
     <message>
-        <location line="+18"/>
-        <source>The address to send the payment to  (e.g. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+10"/>
+        <location line="+28"/>
         <source>Choose address from address book</source>
-        <translation type="unfinished"/>
+        <translation>Velg adresse fra adresseboken</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -1920,11 +1951,11 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+7"/>
         <source>Remove this recipient</source>
-        <translation type="unfinished"/>
+        <translation>Fjern denne mottakeren</translation>
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
-        <source>Enter a blitz address (e.g. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
+        <source>Enter a Fibre address (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1948,14 +1979,14 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+18"/>
-        <source>The address to sign the message with (e.g. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
+        <source>The address to sign the message with (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location line="+10"/>
         <location line="+203"/>
         <source>Choose an address from the address book</source>
-        <translation type="unfinished"/>
+        <translation>Velg en adresse fra adresseboken</translation>
     </message>
     <message>
         <location line="-193"/>
@@ -1985,7 +2016,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+21"/>
-        <source>Sign the message to prove you own this blitz address</source>
+        <source>Sign the message to prove you own this Fibre address</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2012,12 +2043,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+21"/>
-        <source>The address the message was signed with (e.g. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
+        <source>The address the message was signed with (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location line="+40"/>
-        <source>Verify the message to ensure it was signed with the specified blitz address</source>
+        <source>Verify the message to ensure it was signed with the specified Fibre address</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2028,7 +2059,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
         <location line="+3"/>
-        <source>Enter a blitz address (e.g. blitzuKHzUQJnSdzvpiigEGxseKkDhQToX)</source>
+        <source>Enter a Fibre address (e.g. B8gZqgY4r2RoEdqYk3QsAqFckyf9pRHN6i)</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2038,11 +2069,11 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+3"/>
-        <source>Enter blitz signature</source>
-        <translation type="unfinished"/>
+        <source>Enter Fibre signature</source>
+        <translation>Skriv inn Fibre signatur</translation>
     </message>
     <message>
-        <location line="+82"/>
+        <location line="+85"/>
         <location line="+81"/>
         <source>The entered address is invalid.</source>
         <translation>Angitt adresse er ugyldig.</translation>
@@ -2109,19 +2140,22 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
 </context>
 <context>
+    <name>TrafficGraphWidget</name>
+    <message>
+        <location filename="../trafficgraphwidget.cpp" line="+75"/>
+        <source>KB/s</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>TransactionDesc</name>
     <message>
-        <location filename="../transactiondesc.cpp" line="+19"/>
+        <location filename="../transactiondesc.cpp" line="+25"/>
         <source>Open until %1</source>
         <translation>Åpen til %1</translation>
     </message>
-    <message numerus="yes">
-        <location line="-2"/>
-        <source>Open for %n block(s)</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
-    </message>
     <message>
-        <location line="+8"/>
+        <location line="+6"/>
         <source>conflicted</source>
         <translation type="unfinished"/>
     </message>
@@ -2141,7 +2175,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>%1 bekreftelser</translation>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+17"/>
         <source>Status</source>
         <translation>Status</translation>
     </message>
@@ -2167,19 +2201,19 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+5"/>
-        <location line="+17"/>
+        <location line="+13"/>
         <source>From</source>
         <translation>Fra</translation>
     </message>
     <message>
         <location line="+1"/>
-        <location line="+22"/>
+        <location line="+19"/>
         <location line="+58"/>
         <source>To</source>
         <translation>Til</translation>
     </message>
     <message>
-        <location line="-77"/>
+        <location line="-74"/>
         <location line="+2"/>
         <source>own address</source>
         <translation>egen adresse</translation>
@@ -2190,7 +2224,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>merkelapp</translation>
     </message>
     <message>
-        <location line="+37"/>
+        <location line="+34"/>
         <location line="+12"/>
         <location line="+45"/>
         <location line="+17"/>
@@ -2243,7 +2277,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+3"/>
-        <source>Generated coins must mature 110 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to &quot;not accepted&quot; and it won&apos;t be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
+        <source>Generated coins must mature 510 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to &quot;not accepted&quot; and it won&apos;t be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2262,7 +2296,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Inndata</translation>
     </message>
     <message>
-        <location line="+23"/>
+        <location line="+21"/>
         <source>Amount</source>
         <translation>Beløp</translation>
     </message>
@@ -2277,12 +2311,17 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>usann</translation>
     </message>
     <message>
-        <location line="-211"/>
+        <location line="-202"/>
         <source>, has not been successfully broadcast yet</source>
         <translation>, har ikke blitt kringkastet uten problemer enda.</translation>
     </message>
+    <message numerus="yes">
+        <location line="-36"/>
+        <source>Open for %n more block(s)</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
     <message>
-        <location line="+35"/>
+        <location line="+67"/>
         <source>unknown</source>
         <translation>ukjent</translation>
     </message>
@@ -2303,7 +2342,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>TransactionTableModel</name>
     <message>
-        <location filename="../transactiontablemodel.cpp" line="+226"/>
+        <location filename="../transactiontablemodel.cpp" line="+231"/>
         <source>Date</source>
         <translation>Dato</translation>
     </message>
@@ -2323,7 +2362,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Beløp</translation>
     </message>
     <message>
-        <location line="+60"/>
+        <location line="+52"/>
         <source>Open until %1</source>
         <translation>Åpen til %1</translation>
     </message>
@@ -2345,12 +2384,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+3"/>
         <source>Unconfirmed</source>
-        <translation type="unfinished"/>
+        <translation>Ubekreftet</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>Confirming (%1 of %2 recommended confirmations)</source>
-        <translation type="unfinished"/>
+        <translation>Bekrefter (%1 av %2 anbefalte bekreftelser)</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -2403,7 +2442,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>-</translation>
     </message>
     <message>
-        <location line="+190"/>
+        <location line="+194"/>
         <source>Transaction status. Hover over this field to show number of confirmations.</source>
         <translation>Transaksjonsstatus. Hold muspekeren over dette feltet for å se antall bekreftelser.</translation>
     </message>
@@ -2431,13 +2470,13 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>TransactionView</name>
     <message>
-        <location filename="../transactionview.cpp" line="+55"/>
-        <location line="+16"/>
+        <location filename="../transactionview.cpp" line="+54"/>
+        <location line="+17"/>
         <source>All</source>
         <translation>Alle</translation>
     </message>
     <message>
-        <location line="-15"/>
+        <location line="-16"/>
         <source>Today</source>
         <translation>I dag</translation>
     </message>
@@ -2467,7 +2506,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Intervall...</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+12"/>
         <source>Received with</source>
         <translation>Mottatt med</translation>
     </message>
@@ -2532,7 +2571,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Vis transaksjonsdetaljer</translation>
     </message>
     <message>
-        <location line="+144"/>
+        <location line="+138"/>
         <source>Export Transaction Data</source>
         <translation type="unfinished"/>
     </message>
@@ -2584,7 +2623,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     <message>
         <location line="+0"/>
         <source>Could not write to file %1.</source>
-        <translation type="unfinished"/>
+        <translation>Kunne ikke skrive til filen %1</translation>
     </message>
     <message>
         <location line="+100"/>
@@ -2600,17 +2639,17 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>WalletModel</name>
     <message>
-        <location filename="../walletmodel.cpp" line="+206"/>
+        <location filename="../walletmodel.cpp" line="+212"/>
         <source>Sending...</source>
-        <translation type="unfinished"/>
+        <translation>Sender...</translation>
     </message>
 </context>
 <context>
     <name>bitcoin-core</name>
     <message>
-        <location filename="../bitcoinstrings.cpp" line="+33"/>
-        <source>blitz version</source>
-        <translation type="unfinished"/>
+        <location filename="../bitcoinstrings.cpp" line="+171"/>
+        <source>Fibre version</source>
+        <translation>Fibre versjon</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2619,7 +2658,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+1"/>
-        <source>Send command to -server or blitzd</source>
+        <source>Send command to -server or fibred</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2633,18 +2672,18 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Vis hjelpetekst for en kommando</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="-145"/>
         <source>Options:</source>
         <translation>Innstillinger:</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Specify configuration file (default: blitz.conf)</source>
+        <source>Specify configuration file (default: fibre.conf)</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location line="+1"/>
-        <source>Specify pid file (default: blitzd.pid)</source>
+        <source>Specify pid file (default: fibred.pid)</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2658,7 +2697,22 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Angi mappe for datafiler</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="-25"/>
+        <source>%s, you must set a rpcpassword in the configuration file:
+%s
+It is recommended you use the following random password:
+rpcuser=fibrerpc
+rpcpassword=%s
+(you do not need to remember this password)
+The username and password MUST NOT be the same.
+If the file does not exist, create it with owner-readable-only file permissions.
+It is also recommended to set alertnotify so you are notified of problems;
+for example: alertnotify=echo %%s | mail -s &quot;Fibre Alert&quot; admin@foo.com
+</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+27"/>
         <source>Set database cache size in megabytes (default: 25)</source>
         <translation>Sett størrelse på mellomlager for database i megabytes (standardverdi: 25)</translation>
     </message>
@@ -2668,7 +2722,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+5"/>
         <source>Listen for connections on &lt;port&gt; (default: 15714 or testnet: 25714)</source>
         <translation type="unfinished"/>
     </message>
@@ -2688,17 +2742,22 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Angi din egen offentlige adresse</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+4"/>
         <source>Bind to given address. Use [host]:port notation for IPv6</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+2"/>
-        <source>Stake your coins to support network and gain reward (default: 1)</source>
+        <location line="+1"/>
+        <source>Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+3"/>
+        <source>Always query for peer addresses via DNS lookup (default: 0)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+4"/>
         <source>Threshold for disconnecting misbehaving peers (default: 100)</source>
         <translation>Grenseverdi for å koble fra noder med dårlig oppførsel (standardverdi: 100)</translation>
     </message>
@@ -2708,57 +2767,22 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Antall sekunder noder med dårlig oppførsel hindres fra å koble til på nytt (standardverdi: 86400)</translation>
     </message>
     <message>
-        <location line="-44"/>
+        <location line="-35"/>
         <source>An error occurred while setting up the RPC port %u for listening on IPv4: %s</source>
         <translation>En feil oppstod ved opprettelse av RPC port %u for lytting: %s</translation>
     </message>
     <message>
-        <location line="+51"/>
-        <source>Detach block and address databases. Increases shutdown time (default: 0)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+109"/>
-        <source>Error: The transaction was rejected.  This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="-5"/>
-        <source>Error: This transaction requires a transaction fee of at least %s because of its amount, complexity, or use of recently received funds  </source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="-87"/>
+        <location line="+62"/>
         <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 25715)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="-11"/>
+        <location line="-16"/>
         <source>Accept command line and JSON-RPC commands</source>
         <translation>Ta imot kommandolinje- og JSON-RPC-kommandoer</translation>
     </message>
     <message>
-        <location line="+101"/>
-        <source>Error: Transaction creation failed  </source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="-5"/>
-        <source>Error: Wallet locked, unable to create transaction  </source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="-8"/>
-        <source>Importing blockchain data file.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location line="+1"/>
-        <source>Importing bootstrap blockchain data file.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="-88"/>
         <source>Run in the background as a daemon and accept commands</source>
         <translation>Kjør i bakgrunnen som daemon og ta imot kommandoer</translation>
     </message>
@@ -2768,57 +2792,52 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Bruk testnettverket</translation>
     </message>
     <message>
-        <location line="-24"/>
+        <location line="-23"/>
         <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
         <translation>Ta imot tilkoblinger fra utsiden (standardverdi: 1 hvis uten -proxy eller -connect)</translation>
     </message>
     <message>
-        <location line="-38"/>
+        <location line="-28"/>
         <source>An error occurred while setting up the RPC port %u for listening on IPv6, falling back to IPv4: %s</source>
         <translation>En feil oppstod under oppsettet av RPC port %u for IPv6, tilbakestilles til IPv4: %s</translation>
     </message>
     <message>
-        <location line="+117"/>
-        <source>Error initializing database environment %s! To recover, BACKUP THAT DIRECTORY, then remove everything from it except for wallet.dat.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="-20"/>
+        <location line="+93"/>
         <source>Set maximum size of high-priority/low-fee transactions in bytes (default: 27000)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+15"/>
         <source>Warning: -paytxfee is set very high! This is the transaction fee you will pay if you send a transaction.</source>
         <translation>Advarsel: -paytxfee er satt veldig høyt! Dette er transaksjonsgebyret du betaler når du sender transaksjoner.</translation>
     </message>
     <message>
-        <location line="+61"/>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong blitz will not work properly.</source>
+        <location line="-103"/>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Fibre will not work properly.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="-31"/>
+        <location line="+130"/>
         <source>Warning: error reading wallet.dat! All keys read correctly, but transaction data or address book entries might be missing or incorrect.</source>
         <translation>Advarsel: Feil ved lesing av wallet.dat! Alle taster lest riktig, men transaksjon dataene eller adresse innlegg er kanskje manglende eller feil.</translation>
     </message>
     <message>
-        <location line="-18"/>
+        <location line="-16"/>
         <source>Warning: wallet.dat corrupt, data salvaged! Original wallet.dat saved as wallet.{timestamp}.bak in %s; if your balance or transactions are incorrect you should restore from a backup.</source>
         <translation>Advarsel: wallet.dat korrupt, data reddet! Original wallet.dat lagret som wallet.{timestamp}.bak i %s; hvis din saldo eller dine transaksjoner ikke er korrekte bør du gjenopprette fra en backup.</translation>
     </message>
     <message>
-        <location line="-30"/>
+        <location line="-34"/>
         <source>Attempt to recover private keys from a corrupt wallet.dat</source>
         <translation>Forsøk å berge private nøkler fra en korrupt wallet.dat</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+5"/>
         <source>Block creation options:</source>
         <translation>Valg for opprettelse av blokker:</translation>
     </message>
     <message>
-        <location line="-62"/>
+        <location line="-67"/>
         <source>Connect only to the specified node(s)</source>
         <translation>Koble kun til angitt(e) node(r)</translation>
     </message>
@@ -2828,22 +2847,12 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Oppdag egen IP-adresse (standardverdi: 1 ved lytting og uten -externalip)</translation>
     </message>
     <message>
-        <location line="+94"/>
+        <location line="+101"/>
         <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
         <translation>Kunne ikke lytte på noen port. Bruk -listen=0 hvis det er dette du vil.</translation>
     </message>
     <message>
-        <location line="-90"/>
-        <source>Find peers using DNS lookup (default: 1)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+5"/>
-        <source>Sync checkpoints policy (default: strict)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+83"/>
+        <location line="-2"/>
         <source>Invalid -tor address: &apos;%s&apos;</source>
         <translation type="unfinished"/>
     </message>
@@ -2853,7 +2862,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="-82"/>
+        <location line="-89"/>
         <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: 5000)</source>
         <translation>Maks mottaksbuffer per forbindelse, &lt;n&gt;*1000 bytes (standardverdi: 5000)</translation>
     </message>
@@ -2868,42 +2877,22 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Koble kun til noder i nettverket &lt;nett&gt; (IPv4, IPv6 eller Tor)</translation>
     </message>
     <message>
-        <location line="+28"/>
-        <source>Output extra debugging information. Implies all other -debug* options</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Output extra network debugging information</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+1"/>
+        <location line="+30"/>
         <source>Prepend debug output with timestamp</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+40"/>
         <source>SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
         <translation>SSL valg: (se Bitcoin Wiki for instruksjoner for oppsett av SSL)</translation>
     </message>
     <message>
-        <location line="-74"/>
-        <source>Select the version of socks proxy to use (4-5, default: 5)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+41"/>
+        <location line="-38"/>
         <source>Send trace/debug info to console instead of debug.log file</source>
         <translation>Send spor/debug informasjon til konsollet istedenfor debug.log filen</translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>Send trace/debug info to debugger</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+28"/>
+        <location line="+34"/>
         <source>Set maximum block size in bytes (default: 250000)</source>
         <translation type="unfinished"/>
     </message>
@@ -2913,23 +2902,17 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation>Sett minimum blokkstørrelse i bytes (standardverdi: 0)</translation>
     </message>
     <message>
-        <location line="-29"/>
+        <location line="-34"/>
         <source>Shrink debug.log file on client startup (default: 1 when no -debug)</source>
         <translation>Krymp debug.log filen når klienten starter (standardverdi: 1 hvis uten -debug)</translation>
     </message>
     <message>
-        <location line="-42"/>
+        <location line="-41"/>
         <source>Specify connection timeout in milliseconds (default: 5000)</source>
         <translation>Angi tidsavbrudd for forbindelse i millisekunder (standardverdi: 5000)</translation>
     </message>
     <message>
-        <location line="+109"/>
-        <source>Unable to sign checkpoint, wrong checkpointkey?
-</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="-80"/>
+        <location line="+28"/>
         <source>Use UPnP to map the listening port (default: 0)</source>
         <translation>Bruk UPnP for lytteport (standardverdi: 0)</translation>
     </message>
@@ -2944,72 +2927,97 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+42"/>
+        <location line="+45"/>
         <source>Username for JSON-RPC connections</source>
         <translation>Brukernavn for JSON-RPC forbindelser</translation>
     </message>
     <message>
-        <location line="+47"/>
+        <location line="+54"/>
         <source>Verifying database integrity...</source>
+        <translation>Verifiserer databasens integritet...</translation>
+    </message>
+    <message>
+        <location line="+42"/>
+        <source>Error: Wallet locked, unable to create transaction!</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+57"/>
-        <source>WARNING: syncronized checkpoint violation detected, but skipped!</source>
+        <location line="+2"/>
+        <source>Error: This transaction requires a transaction fee of at least %s because of its amount, complexity, or use of recently received funds!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Error: Transaction creation failed!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Warning</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location line="+1"/>
-        <source>Warning: Disk space is low!</source>
+        <source>Information</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="-2"/>
+        <location line="+1"/>
         <source>Warning: This version is obsolete, upgrade required!</source>
         <translation>Advarsel: Denne versjonen er foreldet, oppgradering kreves!</translation>
     </message>
     <message>
-        <location line="-48"/>
+        <location line="-52"/>
         <source>wallet.dat corrupt, salvage failed</source>
         <translation>wallet.dat korrupt, bergning feilet</translation>
     </message>
     <message>
-        <location line="-54"/>
+        <location line="-59"/>
         <source>Password for JSON-RPC connections</source>
         <translation>Passord for JSON-RPC forbindelser</translation>
     </message>
     <message>
-        <location line="-84"/>
-        <source>%s, you must set a rpcpassword in the configuration file:
- %s
-It is recommended you use the following random password:
-rpcuser=blitzrpc
-rpcpassword=%s
-(you do not need to remember this password)
-The username and password MUST NOT be the same.
-If the file does not exist, create it with owner-readable-only file permissions.
-It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;blitz Alert&quot; admin@foo.com
-</source>
+        <location line="-47"/>
+        <source>Connect through SOCKS5 proxy</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+51"/>
-        <source>Find peers using internet relay chat (default: 0)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+5"/>
+        <location line="+17"/>
         <source>Sync time with other nodes. Disable if time on your system is precise e.g. syncing with NTP (default: 1)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+15"/>
+        <location line="+12"/>
         <source>When creating transactions, ignore inputs with value less than this (default: 0.01)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+6"/>
+        <source>Output debugging information (default: 0, supplying &lt;category&gt; is optional)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>If &lt;category&gt; is not supplied, output all debugging information.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>&lt;category&gt; can be:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Enter regression test mode, which uses a special chain in which blocks can be solved instantly. This is intended for regression testing tools and app development.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>Allow JSON-RPC connections from specified IP address</source>
         <translation>Tillat JSON-RPC tilkoblinger fra angitt IP-adresse</translation>
     </message>
@@ -3017,6 +3025,16 @@ for example: alertnotify=echo %%s | mail -s &quot;blitz Alert&quot; admin@foo.co
         <location line="+1"/>
         <source>Send commands to node running on &lt;ip&gt; (default: 127.0.0.1)</source>
         <translation>Send kommandoer til node på &lt;ip&gt; (standardverdi: 127.0.0.1)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Wait for RPC server to start</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Set the number of threads to service RPC calls (default: 4)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+1"/>
@@ -3031,11 +3049,6 @@ for example: alertnotify=echo %%s | mail -s &quot;blitz Alert&quot; admin@foo.co
     <message>
         <location line="+3"/>
         <source>Require a confirmations for change (default: 0)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Enforce transaction scripts to use canonical PUSH operators (default: 1)</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3059,18 +3072,18 @@ for example: alertnotify=echo %%s | mail -s &quot;blitz Alert&quot; admin@foo.co
         <translation>Se gjennom blokk-kjeden etter manglende lommeboktransaksjoner</translation>
     </message>
     <message>
-        <location line="+2"/>
-        <source>How many blocks to check at startup (default: 2500, 0 = all)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+1"/>
+        <location line="+3"/>
         <source>How thorough the block verification is (0-6, default: 1)</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location line="+1"/>
         <source>Imports blocks from external blk000?.dat file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Keep at most &lt;n&gt; MiB of unconnectable blocks in memory (default: %u)</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3089,78 +3102,73 @@ for example: alertnotify=echo %%s | mail -s &quot;blitz Alert&quot; admin@foo.co
         <translation>Servers private nøkkel (standardverdi: server.pem)</translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>Acceptable ciphers (default: TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!AH:!3DES:@STRENGTH)</source>
+        <location line="+5"/>
+        <source>Error: Unsupported argument -socks found. Setting SOCKS version isn&apos;t possible anymore, only SOCKS5 proxies are supported.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+53"/>
+        <location line="+8"/>
+        <source>Initialization sanity check failed. Fibre is shutting down.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+20"/>
+        <source>Error loading block database</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+28"/>
         <source>Error: Wallet unlocked for staking only, unable to create transaction.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+18"/>
-        <source>WARNING: Invalid checkpoint found! Displayed transactions may not be correct! You may need to upgrade, or notify developers.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="-158"/>
-        <source>This help message</source>
-        <translation>Denne hjelpemeldingen</translation>
-    </message>
-    <message>
-        <location line="+95"/>
-        <source>Wallet %s resides outside data directory %s.</source>
+        <location line="+16"/>
+        <source>Error: Disk space is low!</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location line="+1"/>
-        <source>Cannot obtain a lock on data directory %s.  blitz is probably already running.</source>
+        <source>This is a pre-release test build - use at your own risk - do not use for mining or merchant applications</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="-98"/>
-        <source>blitz</source>
-        <translation type="unfinished"/>
+        <location line="-168"/>
+        <source>This help message</source>
+        <translation>Denne hjelpemeldingen</translation>
     </message>
     <message>
-        <location line="+140"/>
+        <location line="+104"/>
+        <source>Wallet %s resides outside data directory %s.</source>
+        <translation>Lommeboken %s holder til utenfor data mappen %s.</translation>
+    </message>
+    <message>
+        <location line="+35"/>
         <source>Unable to bind to %s on this computer (bind returned error %d, %s)</source>
         <translation>Kan ikke binde til %s på denne datamaskinen (bind returnerte feil %d, %s)</translation>
     </message>
     <message>
-        <location line="-130"/>
-        <source>Connect through socks proxy</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+3"/>
+        <location line="-129"/>
         <source>Allow DNS lookups for -addnode, -seednode and -connect</source>
         <translation>Tillat DNS oppslag for -addnode, -seednode og -connect</translation>
     </message>
     <message>
-        <location line="+122"/>
+        <location line="+125"/>
         <source>Loading addresses...</source>
         <translation>Laster adresser...</translation>
     </message>
     <message>
-        <location line="-15"/>
-        <source>Error loading blkindex.dat</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+2"/>
+        <location line="-10"/>
         <source>Error loading wallet.dat: Wallet corrupted</source>
         <translation>Feil ved lasting av wallet.dat: Lommeboken er skadet</translation>
     </message>
     <message>
         <location line="+4"/>
-        <source>Error loading wallet.dat: Wallet requires newer version of blitz</source>
+        <source>Error loading wallet.dat: Wallet requires newer version of Fibre</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location line="+1"/>
-        <source>Wallet needed to be rewritten: restart blitz to complete</source>
+        <source>Wallet needed to be rewritten: restart Fibre to complete</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3169,7 +3177,7 @@ for example: alertnotify=echo %%s | mail -s &quot;blitz Alert&quot; admin@foo.co
         <translation>Feil ved lasting av wallet.dat</translation>
     </message>
     <message>
-        <location line="-16"/>
+        <location line="-15"/>
         <source>Invalid -proxy address: &apos;%s&apos;</source>
         <translation>Ugyldig -proxy adresse: &apos;%s&apos;</translation>
     </message>
@@ -3179,12 +3187,7 @@ for example: alertnotify=echo %%s | mail -s &quot;blitz Alert&quot; admin@foo.co
         <translation>Ukjent nettverk angitt i -onlynet &apos;%s&apos;</translation>
     </message>
     <message>
-        <location line="-1"/>
-        <source>Unknown -socks proxy version requested: %i</source>
-        <translation>Ukjent -socks proxy versjon angitt: %i</translation>
-    </message>
-    <message>
-        <location line="+4"/>
+        <location line="+3"/>
         <source>Cannot resolve -bind address: &apos;%s&apos;</source>
         <translation>Kunne ikke slå opp -bind adresse: &apos;%s&apos;</translation>
     </message>
@@ -3194,19 +3197,14 @@ for example: alertnotify=echo %%s | mail -s &quot;blitz Alert&quot; admin@foo.co
         <translation>Kunne ikke slå opp -externalip adresse: &apos;%s&apos;</translation>
     </message>
     <message>
-        <location line="-24"/>
+        <location line="-22"/>
         <source>Invalid amount for -paytxfee=&lt;amount&gt;: &apos;%s&apos;</source>
         <translation>Ugyldig beløp for -paytxfee=&lt;beløp&gt;: &apos;%s&apos;</translation>
     </message>
     <message>
-        <location line="+44"/>
-        <source>Error: could not start node</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location line="+11"/>
+        <location line="+58"/>
         <source>Sending...</source>
-        <translation type="unfinished"/>
+        <translation>Sender...</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -3219,32 +3217,62 @@ for example: alertnotify=echo %%s | mail -s &quot;blitz Alert&quot; admin@foo.co
         <translation>Utilstrekkelige midler</translation>
     </message>
     <message>
-        <location line="-34"/>
+        <location line="-40"/>
         <source>Loading block index...</source>
         <translation>Laster blokkindeks...</translation>
     </message>
     <message>
-        <location line="-103"/>
+        <location line="-109"/>
         <source>Add a node to connect to and attempt to keep the connection open</source>
         <translation>Legg til node for tilkobling og hold forbindelsen åpen</translation>
     </message>
     <message>
-        <location line="+122"/>
-        <source>Unable to bind to %s on this computer. blitz is probably already running.</source>
+        <location line="+124"/>
+        <source>Unable to bind to %s on this computer. Fibre is probably already running.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="-97"/>
+        <location line="-101"/>
         <source>Fee per KB to add to transactions you send</source>
+        <translation>Gebyr per KB som skal legges til transaksjoner du sender</translation>
+    </message>
+    <message>
+        <location line="+33"/>
+        <source>Minimize weight consumption (experimental) (default: 0)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+55"/>
+        <location line="+8"/>
+        <source>How many blocks to check at startup (default: 500, 0 = all)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>Acceptable ciphers (default: TLSv1.2+HIGH:TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!3DES:@STRENGTH)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Warning: Deprecated argument -debugnet ignored, use -debug=net</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+8"/>
         <source>Invalid amount for -mininput=&lt;amount&gt;: &apos;%s&apos;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location line="+25"/>
+        <location line="+3"/>
+        <source>Cannot obtain a lock on data directory %s. Fibre is probably already running.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Error initializing wallet database environment %s!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location line="+15"/>
         <source>Loading wallet...</source>
         <translation>Laster lommebok...</translation>
     </message>
@@ -3252,11 +3280,6 @@ for example: alertnotify=echo %%s | mail -s &quot;blitz Alert&quot; admin@foo.co
         <location line="+8"/>
         <source>Cannot downgrade wallet</source>
         <translation>Kan ikke nedgradere lommebok</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Cannot initialize keypool</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <location line="+1"/>
@@ -3269,22 +3292,22 @@ for example: alertnotify=echo %%s | mail -s &quot;blitz Alert&quot; admin@foo.co
         <translation>Leser gjennom...</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+2"/>
         <source>Done loading</source>
         <translation>Ferdig med lasting</translation>
     </message>
     <message>
-        <location line="-167"/>
+        <location line="-159"/>
         <source>To use the %s option</source>
         <translation>For å bruke %s opsjonen</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+186"/>
         <source>Error</source>
         <translation>Feil</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="-18"/>
         <source>You must set rpcpassword=&lt;password&gt; in the configuration file:
 %s
 If the file does not exist, create it with owner-readable-only file permissions.</source>

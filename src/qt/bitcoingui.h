@@ -3,28 +3,30 @@
 
 #include <QMainWindow>
 #include <QSystemTrayIcon>
+#include "ui_interface.h"
+
+#include <stdint.h>
 
 class TransactionTableModel;
 class ClientModel;
 class WalletModel;
 class TransactionView;
 class OverviewPage;
-class TvePage;
 class AddressBookPage;
 class SendCoinsDialog;
 class SignVerifyMessageDialog;
 class Notificator;
 class RPCConsole;
+class MessagePage;
+class MessageModel;
+class MultisigDialog;
+class SecondAuthDialog;
 
 QT_BEGIN_NAMESPACE
 class QLabel;
-class QLineEdit;
-class QTableView;
-class QAbstractItemModel;
 class QModelIndex;
 class QProgressBar;
 class QStackedWidget;
-class QUrl;
 QT_END_NAMESPACE
 
 /**
@@ -34,6 +36,7 @@ QT_END_NAMESPACE
 class BitcoinGUI : public QMainWindow
 {
     Q_OBJECT
+
 public:
     explicit BitcoinGUI(QWidget *parent = 0);
     ~BitcoinGUI();
@@ -47,6 +50,11 @@ public:
         functionality.
     */
     void setWalletModel(WalletModel *walletModel);
+	/** Set the message model.
+        The message model represents encryption message database, and offers access to the list of messages, address book and sending
+        functionality.
+     */    
+	void setMessageModel(MessageModel *messageModel);
 
 protected:
     void changeEvent(QEvent *e);
@@ -57,23 +65,34 @@ protected:
 private:
     ClientModel *clientModel;
     WalletModel *walletModel;
+	MessageModel *messageModel;
 
-    QStackedWidget *centralWidget;
+    QToolBar *toolbar;
+
+    QStackedWidget *centralStackedWidget;
 
     OverviewPage *overviewPage;
     QWidget *transactionsPage;
-    TvePage *tvePage;
     AddressBookPage *addressBookPage;
     AddressBookPage *receiveCoinsPage;
     SendCoinsDialog *sendCoinsPage;
     SignVerifyMessageDialog *signVerifyMessageDialog;
+	MessagePage *messagePage;
+	MultisigDialog *multisigPage;
+	SecondAuthDialog *secondAuthDialog;
 
     QLabel *labelEncryptionIcon;
     QLabel *labelStakingIcon;
     QLabel *labelConnectionsIcon;
     QLabel *labelBlocksIcon;
     QLabel *progressBarLabel;
+	QLabel *netLabel;
     QProgressBar *progressBar;
+#ifdef USE_NATIVE_I2P
+    QLabel* labelI2PConnections;
+    QLabel* labelI2POnly;
+    QLabel* labelI2PGenerated;
+#endif
 
     QMenuBar *appMenuBar;
     QAction *overviewAction;
@@ -81,7 +100,6 @@ private:
     QAction *quitAction;
     QAction *sendCoinsAction;
     QAction *addressBookAction;
-    QAction *tveAction;
     QAction *signMessageAction;
     QAction *verifyMessageAction;
     QAction *aboutAction;
@@ -96,7 +114,9 @@ private:
     QAction *lockWalletAction;
     QAction *aboutQtAction;
     QAction *openRPCConsoleAction;
-    QAction *setStyleSheetAction;
+    QAction *messageAction;
+    QAction *multisigAction;
+    QAction *secondAuthAction;
 
     QSystemTrayIcon *trayIcon;
     Notificator *notificator;
@@ -104,6 +124,10 @@ private:
     RPCConsole *rpcConsole;
 
     QMovie *syncIconMovie;
+    /** Keep track of previous number of blocks, to detect progress */
+    int prevBlocks;
+
+    uint64_t nWeight;
 
     /** Create the main UI actions. */
     void createActions();
@@ -115,18 +139,27 @@ private:
     void createTrayIcon();
 
 public slots:
+#ifdef USE_NATIVE_I2P
+    void setNumI2PConnections(int count);
+#endif
     /** Set number of connections shown in the UI */
     void setNumConnections(int count);
     /** Set number of blocks shown in the UI */
-    void setNumBlocks(int count, int nTotalBlocks);
+    void setNumBlocks(int count);
     /** Set the encryption status as shown in the UI.
        @param[in] status            current encryption status
        @see WalletModel::EncryptionStatus
     */
     void setEncryptionStatus(int status);
 
-    /** Notify the user of an error in the network or transaction handling code. */
-    void error(const QString &title, const QString &message, bool modal);
+    /** Notify the user of an event from the core network or transaction handling code.
+       @param[in] title     the message box / notification title
+       @param[in] message   the displayed text
+       @param[in] modal     true to use a message box, false to use a notification
+       @param[in] style     style definitions (icon and used buttons - buttons only for message boxes)
+                            @see CClientUIInterface::MessageBoxFlags
+    */
+    void message(const QString &title, const QString &message, bool modal, unsigned int style = CClientUIInterface::MSG_ERROR);
     /** Asks the user whether to pay the transaction fee or to cancel the transaction.
        It is currently not possible to pass a return value to another thread through
        BlockingQueuedConnection, so an indirected pointer is used.
@@ -137,6 +170,10 @@ public slots:
     */
     void askFee(qint64 nFeeRequired, bool *payFee);
     void handleURI(QString strURI);
+    void gotoMultisigPage(); 
+#ifdef USE_NATIVE_I2P
+    void showGeneratedI2PAddr(const QString& caption, const QString& pub, const QString& priv, const QString& b32, const QString& configFileName);
+#endif  
 
 private slots:
     /** Switch to overview (home) page */
@@ -149,12 +186,15 @@ private slots:
     void gotoReceiveCoinsPage();
     /** Switch to send coins page */
     void gotoSendCoinsPage();
-    void gotoTvePage();
+	/** Switch to Message Page*/
+    void gotoMessagePage();
 
     /** Show Sign/Verify Message dialog and switch to sign message tab */
     void gotoSignMessageTab(QString addr = "");
     /** Show Sign/Verify Message dialog and switch to verify message tab */
     void gotoVerifyMessageTab(QString addr = "");
+	/** Show Second Auth dialog */
+    void gotoSecondAuthPage(QString addr = "");
 
     /** Show configuration dialog */
     void optionsClicked();
@@ -169,8 +209,9 @@ private slots:
         The new items are those between start and end inclusive, under the given parent item.
     */
     void incomingTransaction(const QModelIndex & parent, int start, int end);
+	void incomingMessage(const QModelIndex & parent, int start, int end);
     /** Encrypt the wallet */
-    void encryptWallet(bool status);
+    void encryptWallet();
     /** Backup the wallet */
     void backupWallet();
     /** Change encrypted wallet passphrase */
@@ -179,14 +220,17 @@ private slots:
     void unlockWallet();
 
     void lockWallet();
-    void changeStyleSheet();
 
     /** Show window if hidden, unminimize when minimized, rise when obscured or show if hidden and fToggleHidden is true */
     void showNormalIfMinimized(bool fToggleHidden = false);
     /** simply calls showNormalIfMinimized(true) for use in SLOT() macro */
     void toggleHidden();
 
+    void updateWeight();
     void updateStakingIcon();
+
+    /** called by a timer to check if fRequestShutdown has been set **/
+    void detectShutdown();
 };
 
-#endif
+#endif // BITCOINGUI_H

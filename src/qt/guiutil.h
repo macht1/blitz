@@ -4,6 +4,9 @@
 #include <QString>
 #include <QObject>
 #include <QMessageBox>
+#include <boost/filesystem.hpp>
+ 
+class SendCoinsRecipient;
 
 QT_BEGIN_NAMESPACE
 class QFont;
@@ -13,12 +16,16 @@ class QDateTime;
 class QUrl;
 class QAbstractItemView;
 QT_END_NAMESPACE
-class SendCoinsRecipient;
 
 /** Utility functions used by the Bitcoin Qt UI.
  */
 namespace GUIUtil
 {
+	 /* Convert QString to OS specific boost path through UTF-8 */
+    boost::filesystem::path qstringToBoostPath(const QString &path);
+     /* Convert OS specific boost path to QString through UTF-8 */
+    QString boostPathToQString(const boost::filesystem::path &path); 
+
     // Create human-readable string from date
     QString dateTimeStr(const QDateTime &datetime);
     QString dateTimeStr(qint64 nTime);
@@ -114,6 +121,8 @@ namespace GUIUtil
         QString coreOptions;
         QString uiOptions;
     };
+
+    void SetBlackThemeQSS(QApplication& app);
 
 } // namespace GUIUtil
 

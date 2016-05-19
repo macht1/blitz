@@ -1,17 +1,23 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
+// Copyright (c) 2016-2020 Empinel
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef BITCOIN_INIT_H
-#define BITCOIN_INIT_H
+#ifndef BLITZ_INIT_H
+#define BLITZ_INIT_H
 
-#include "wallet.h"
+#include "wallet/wallet.h"
+
+namespace boost {
+    class thread_group;
+} // namespace boost
 
 extern CWallet* pwalletMain;
-extern std::string strWalletFileName;
 void StartShutdown();
-void Shutdown(void* parg);
-bool AppInit2();
+bool ShutdownRequested();
+void Shutdown();
+bool AppInit2(boost::thread_group& threadGroup);
 std::string HelpMessage();
+extern bool fOnlyTor;
 
 #endif

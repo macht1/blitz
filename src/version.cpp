@@ -8,10 +8,10 @@
 // Name of client reported in the 'version' message. Report the same name
 // for both bitcoind and bitcoin-qt, to make it harder for attackers to
 // target servers or GUI users specifically.
-const std::string CLIENT_NAME("blitz");
+const std::string CLIENT_NAME("Lightening");
 
 // Client version number
-#define CLIENT_VERSION_SUFFIX   ""
+#define CLIENT_VERSION_SUFFIX   " Beta"
 
 
 // The following part of the code determines the CLIENT_BUILD variable.
@@ -36,15 +36,15 @@ const std::string CLIENT_NAME("blitz");
 // git will put "#define GIT_ARCHIVE 1" on the next line inside archives. 
 #define GIT_ARCHIVE 1
 #ifdef GIT_ARCHIVE
-#    define GIT_COMMIT_ID ": Final"
-//#    define GIT_COMMIT_DATE "$Format:%cD"
+#    define GIT_COMMIT_ID "32a928e"
+#    define GIT_COMMIT_DATE "$Format:%cD"
 #endif
 
 #define BUILD_DESC_FROM_COMMIT(maj,min,rev,build,commit) \
-    "v" DO_STRINGIZE(maj) "." DO_STRINGIZE(min) "." DO_STRINGIZE(rev) "." DO_STRINGIZE(build) "" commit
+    "v" DO_STRINGIZE(maj) "." DO_STRINGIZE(min) "." DO_STRINGIZE(rev) "." DO_STRINGIZE(build) "-g" commit
 
 #define BUILD_DESC_FROM_UNKNOWN(maj,min,rev,build) \
-    "v" DO_STRINGIZE(maj) "." DO_STRINGIZE(min) "." DO_STRINGIZE(rev) "." DO_STRINGIZE(build) ""
+    "v" DO_STRINGIZE(maj) "." DO_STRINGIZE(min) "." DO_STRINGIZE(rev) "." DO_STRINGIZE(build) "-unk"
 
 #ifndef BUILD_DESC
 #    ifdef GIT_COMMIT_ID
@@ -60,6 +60,22 @@ const std::string CLIENT_NAME("blitz");
 #    else
 #        define BUILD_DATE __DATE__ ", " __TIME__
 #    endif
+#endif
+
+#ifdef USE_NATIVE_I2P
+
+#include "i2p/i2pbuild.h"
+
+#define BUILD_I2P_NATIVE_DESC_FROM_COMMIT(maj,min,rev,build,commit) \
+    "v" DO_STRINGIZE(maj) "." DO_STRINGIZE(min) "." DO_STRINGIZE(rev) "." DO_STRINGIZE(build) "-r" commit
+
+#define BUILD_I2P_NATIVE_DESC BUILD_I2P_NATIVE_DESC_FROM_COMMIT(I2P_NATIVE_VERSION_MAJOR, I2P_NATIVE_VERSION_MINOR, I2P_NATIVE_VERSION_REVISION, I2P_NATIVE_VERSION_BUILD, I2P_NATIVE_REVISION_STR)
+
+#define BUILD_I2P_NATIVE_DATE __DATE__ /*", " __TIME__*/
+
+const std::string I2P_NATIVE_BUILD(BUILD_I2P_NATIVE_DESC);
+const std::string I2P_NATIVE_DATE(BUILD_I2P_NATIVE_DATE);
+
 #endif
 
 const std::string CLIENT_BUILD(BUILD_DESC CLIENT_VERSION_SUFFIX);

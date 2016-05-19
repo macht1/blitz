@@ -10,8 +10,10 @@
 #include <QIntValidator>
 #include <QLocale>
 #include <QMessageBox>
-#include <QRegExp>
-#include <QRegExpValidator>
+
+#ifdef USE_NATIVE_I2P
+#include "clientmodel.h"
+#endif
 
 OptionsDialog::OptionsDialog(QWidget *parent) :
     QDialog(parent),
@@ -21,6 +23,10 @@ OptionsDialog::OptionsDialog(QWidget *parent) :
     fRestartWarningDisplayed_Proxy(false),
     fRestartWarningDisplayed_Lang(false),
     fProxyIpValid(true)
+#ifdef USE_NATIVE_I2P
+  , fRestartWarningDisplayed_I2P(false)
+  , tabI2P(new I2POptionsWidget())
+#endif
 {
     ui->setupUi(this);
 
@@ -33,14 +39,8 @@ OptionsDialog::OptionsDialog(QWidget *parent) :
     ui->proxyPort->setEnabled(false);
     ui->proxyPort->setValidator(new QIntValidator(1, 65535, this));
 
-    ui->socksVersion->setEnabled(false);
-    ui->socksVersion->addItem("5", 5);
-    ui->socksVersion->addItem("4", 4);
-    ui->socksVersion->setCurrentIndex(0);
-
     connect(ui->connectSocks, SIGNAL(toggled(bool)), ui->proxyIp, SLOT(setEnabled(bool)));
     connect(ui->connectSocks, SIGNAL(toggled(bool)), ui->proxyPort, SLOT(setEnabled(bool)));
-    connect(ui->connectSocks, SIGNAL(toggled(bool)), ui->socksVersion, SLOT(setEnabled(bool)));
     connect(ui->connectSocks, SIGNAL(clicked(bool)), this, SLOT(showRestartWarning_Proxy()));
 
     ui->proxyIp->installEventFilter(this);
@@ -93,6 +93,9 @@ OptionsDialog::OptionsDialog(QWidget *parent) :
     connect(mapper, SIGNAL(currentIndexChanged(int)), this, SLOT(disableApplyButton()));
     /* setup/change UI elements when proxy IP is invalid/valid */
     connect(this, SIGNAL(proxyIpValid(QValidatedLineEdit *, bool)), this, SLOT(handleProxyIpValid(QValidatedLineEdit *, bool)));
+#ifdef USE_NATIVE_I2P
+    ui->tabWidget->addTab(tabI2P, QString("I2P"));
+#endif
 }
 
 OptionsDialog::~OptionsDialog()
@@ -118,10 +121,23 @@ void OptionsDialog::setModel(OptionsModel *model)
 
     /* warn only when language selection changes by user action (placed here so init via mapper doesn't trigger this) */
     connect(ui->lang, SIGNAL(valueChanged()), this, SLOT(showRestartWarning_Lang()));
+#ifdef USE_NATIVE_I2P
+    QObject::connect(tabI2P, SIGNAL(settingsChanged()), this, SLOT(showRestartWarning_I2P()));
+#endif
 
     /* disable apply button after settings are loaded as there is nothing to save */
     disableApplyButton();
 }
+
+#ifdef USE_NATIVE_I2P
+void OptionsDialog::setClientModel(ClientModel* clientModel)
+{
+    if (clientModel)
+    {
+        tabI2P->setModel(clientModel);
+    }
+}
+#endif
 
 void OptionsDialog::setMapper()
 {
@@ -129,15 +145,13 @@ void OptionsDialog::setMapper()
     mapper->addMapping(ui->transactionFee, OptionsModel::Fee);
     mapper->addMapping(ui->reserveBalance, OptionsModel::ReserveBalance);
     mapper->addMapping(ui->bitcoinAtStartup, OptionsModel::StartAtStartup);
-    mapper->addMapping(ui->detachDatabases, OptionsModel::DetachDatabases);
 
     /* Network */
     mapper->addMapping(ui->mapPortUpnp, OptionsModel::MapPortUPnP);
-
+	mapper->addMapping(ui->connectBlitzDark, OptionsModel::BlitzDarkEnabled);
     mapper->addMapping(ui->connectSocks, OptionsModel::ProxyUse);
     mapper->addMapping(ui->proxyIp, OptionsModel::ProxyIP);
     mapper->addMapping(ui->proxyPort, OptionsModel::ProxyPort);
-    mapper->addMapping(ui->socksVersion, OptionsModel::ProxySocksVersion);
 
     /* Window */
 #ifndef Q_OS_MAC
@@ -148,8 +162,12 @@ void OptionsDialog::setMapper()
     /* Display */
     mapper->addMapping(ui->lang, OptionsModel::Language);
     mapper->addMapping(ui->unit, OptionsModel::DisplayUnit);
-    mapper->addMapping(ui->displayAddresses, OptionsModel::DisplayAddresses);
     mapper->addMapping(ui->coinControlFeatures, OptionsModel::CoinControlFeatures);
+    mapper->addMapping(ui->useBlackTheme, OptionsModel::UseBlackTheme);
+
+#ifdef USE_NATIVE_I2P
+    tabI2P->setMapper(*mapper);
+#endif
 }
 
 void OptionsDialog::enableApplyButton()
@@ -201,7 +219,7 @@ void OptionsDialog::showRestartWarning_Proxy()
 {
     if(!fRestartWarningDisplayed_Proxy)
     {
-        QMessageBox::warning(this, tr("Warning"), tr("This setting will take effect after restarting blitz."), QMessageBox::Ok);
+        QMessageBox::warning(this, tr("Warning"), tr("This setting will take effect after restarting Blitz."), QMessageBox::Ok);
         fRestartWarningDisplayed_Proxy = true;
     }
 }
@@ -210,10 +228,21 @@ void OptionsDialog::showRestartWarning_Lang()
 {
     if(!fRestartWarningDisplayed_Lang)
     {
-        QMessageBox::warning(this, tr("Warning"), tr("This setting will take effect after restarting blitz."), QMessageBox::Ok);
+        QMessageBox::warning(this, tr("Warning"), tr("This setting will take effect after restarting Blitz."), QMessageBox::Ok);
         fRestartWarningDisplayed_Lang = true;
     }
 }
+
+#ifdef USE_NATIVE_I2P
+void OptionsDialog::showRestartWarning_I2P()
+{
+    if(!fRestartWarningDisplayed_I2P)
+    {
+        QMessageBox::warning(this, tr("Warning"), tr("This setting will take effect after restarting Crave."), QMessageBox::Ok);
+        fRestartWarningDisplayed_I2P = true;
+    }
+}
+#endif
 
 void OptionsDialog::updateDisplayUnit()
 {

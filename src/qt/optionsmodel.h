@@ -3,6 +3,8 @@
 
 #include <QAbstractListModel>
 
+extern bool fUseBlackTheme;
+
 /** Interface from Qt to configuration data structure for Bitcoin client.
    To Qt, the options are presented as a list with the different options
    laid out vertically.
@@ -24,21 +26,38 @@ public:
         ProxyUse,          // bool
         ProxyIP,           // QString
         ProxyPort,         // int
-        ProxySocksVersion, // int
         Fee,               // qint64
         ReserveBalance,    // qint64
         DisplayUnit,       // BitcoinUnits::Unit
-        DisplayAddresses,  // bool
-        DetachDatabases,   // bool
         Language,          // QString
         CoinControlFeatures, // bool
-        OptionIDRowCount,
+        UseBlackTheme,     // bool
+		BlitzDarkEnabled,    // bool
+#ifdef USE_NATIVE_I2P
+        I2PUseI2POnly,              // bool
+        I2PSAMHost,                 // QString
+        I2PSAMPort,                 // int
+        I2PSessionName,             // QString
+
+        I2PInboundQuantity,         // int
+        I2PInboundLength,           // int
+        I2PInboundLengthVariance,   // int
+        I2PInboundBackupQuantity,   // int
+        I2PInboundAllowZeroHop,     // bool
+        I2PInboundIPRestriction,    // int
+
+        I2POutboundQuantity,        // int
+        I2POutboundLength,          // int
+        I2POutboundLengthVariance,  // int
+        I2POutboundBackupQuantity,  // int
+        I2POutboundAllowZeroHop,    // bool
+        I2POutboundIPRestriction,   // int
+        I2POutboundPriority,        // int
+#endif
+		OptionIDRowCount,
     };
 
     void Init();
-
-    /* Migrate settings from wallet.dat after app initialization */
-    bool Upgrade(); /* returns true if settings upgraded */
 
     int rowCount(const QModelIndex & parent = QModelIndex()) const;
     QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
@@ -50,17 +69,31 @@ public:
     bool getMinimizeToTray();
     bool getMinimizeOnClose();
     int getDisplayUnit();
-    bool getDisplayAddresses();
     bool getCoinControlFeatures();
     QString getLanguage() { return language; }
 
 private:
     int nDisplayUnit;
-    bool bDisplayAddresses;
     bool fMinimizeToTray;
     bool fMinimizeOnClose;
     bool fCoinControlFeatures;
     QString language;
+#ifdef USE_NATIVE_I2P
+    int i2pInboundQuantity;
+    int i2pInboundLength;
+    int i2pInboundLengthVariance;
+    int i2pInboundBackupQuantity;
+    bool i2pInboundAllowZeroHop;
+    int i2pInboundIPRestriction;
+    int i2pOutboundQuantity;
+    int i2pOutboundLength;
+    int i2pOutboundLengthVariance;
+    int i2pOutboundBackupQuantity;
+    bool i2pOutboundAllowZeroHop;
+    int i2pOutboundIPRestriction;
+    int i2pOutboundPriority;
+    QString i2pOptions;
+#endif
 
 signals:
     void displayUnitChanged(int unit);

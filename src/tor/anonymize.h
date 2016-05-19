@@ -1,4 +1,4 @@
-/* Copyright (c) 2014, blitz Developers */
+/* Copyright (c) 2014, Fibre Developers */
 /* See LICENSE for licensing information */
 
 /**
@@ -6,8 +6,8 @@
  * \brief Headers for anonymize.cpp
  **/
 
-#ifndef TOR_ANONYMIZE_H
-#define TOR_ANONYMIZE_H
+#ifndef TOR_FIBRE_H
+#define TOR_FIBRE_H
 
 #ifdef __cplusplus
 extern "C" {

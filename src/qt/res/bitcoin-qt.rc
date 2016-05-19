@@ -1,4 +1,4 @@
-IDI_ICON1 ICON DISCARDABLE "icons/blitz.ico"
+IDI_ICON1 ICON DISCARDABLE "icons/novacoin.ico"
 
 #include <windows.h>             // needed for VERSIONINFO
 #include "../../clientversion.h" // holds the needed client version information
@@ -18,14 +18,14 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "blitz"
-            VALUE "FileDescription",    "blitz-Qt (OSS GUI client for blitz)"
+            VALUE "CompanyName",        "Fibre"
+            VALUE "FileDescription",    "Fibre-Qt (OSS GUI client for Fibre)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
-            VALUE "InternalName",       "blitz-qt"
-            VALUE "LegalCopyright",     "2014 The blitz developers"
+            VALUE "InternalName",       "fibre-qt"
+            VALUE "LegalCopyright",     "2009-2014 The Bitcoin developers, 2012-2014 The NovaCoin & PPCoin developers, 2014 The Fibre developers"
             VALUE "LegalTrademarks1",   "Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
-            VALUE "OriginalFilename",   "blitz-qt.exe"
-            VALUE "ProductName",        "blitz-Qt"
+            VALUE "OriginalFilename",   "fibre-qt.exe"
+            VALUE "ProductName",        "Fibre-Qt"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END

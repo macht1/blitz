@@ -7,7 +7,7 @@ cryptographic software written by Eric Young (eay@cryptsoft.com) and UPnP
 software written by Thomas Bernard.
 
 
-See readme-qt.rst for instructions on building blitz QT, the
+See readme-qt.rst for instructions on building Fibre QT, the
 graphical user interface.
 
 WINDOWS BUILD NOTES
@@ -76,9 +76,9 @@ make -f Makefile.mingw
 mkdir miniupnpc
 cp *.h miniupnpc/
 
-blitz
+Fibre
 -------
 DOS prompt:
-cd \blitz\src
+cd \fibre\src
 mingw32-make -f makefile.mingw
-strip blitzd.exe
+strip fibred.exe
