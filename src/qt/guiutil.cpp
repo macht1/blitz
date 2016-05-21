@@ -198,9 +198,9 @@ void copyEntryData(QAbstractItemView *view, int column, int role)
 }
 
 QString getSaveFileName(QWidget *parent, const QString &caption,
-                                 const QString &dir,
-                                 const QString &filter,
-                                 QString *selectedSuffixOut)
+                        const QString &dir,
+                        const QString &filter,
+                        QString *selectedSuffixOut)
 {
     QString selectedFilter;
     QString myDir;
@@ -265,10 +265,10 @@ bool checkPoint(const QPoint &p, const QWidget *w)
 bool isObscured(QWidget *w)
 {
     return !(checkPoint(QPoint(0, 0), w)
-        && checkPoint(QPoint(w->width() - 1, 0), w)
-        && checkPoint(QPoint(0, w->height() - 1), w)
-        && checkPoint(QPoint(w->width() - 1, w->height() - 1), w)
-        && checkPoint(QPoint(w->width() / 2, w->height() / 2), w));
+             && checkPoint(QPoint(w->width() - 1, 0), w)
+             && checkPoint(QPoint(0, w->height() - 1), w)
+             && checkPoint(QPoint(w->width() - 1, w->height() - 1), w)
+             && checkPoint(QPoint(w->width() / 2, w->height() / 2), w));
 }
 
 void openDebugLogfile()
@@ -328,8 +328,8 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         // Get a pointer to the IShellLink interface.
         IShellLink* psl = NULL;
         HRESULT hres = CoCreateInstance(CLSID_ShellLink, NULL,
-                                CLSCTX_INPROC_SERVER, IID_IShellLink,
-                                reinterpret_cast<void**>(&psl));
+                                        CLSCTX_INPROC_SERVER, IID_IShellLink,
+                                        reinterpret_cast<void**>(&psl));
 
         if (SUCCEEDED(hres))
         {
@@ -403,7 +403,7 @@ bool GetStartOnSystemStartup()
     {
         getline(optionFile, line);
         if (line.find("Hidden") != std::string::npos &&
-            line.find("true") != std::string::npos)
+                line.find("true") != std::string::npos)
             return false;
     }
     optionFile.close();
@@ -443,8 +443,12 @@ bool SetStartOnSystemStartup(bool fAutoStart)
 // TODO: OSX startup stuff; see:
 // https://developer.apple.com/library/mac/#documentation/MacOSX/Conceptual/BPSystemStartup/Articles/CustomLogin.html
 
-bool GetStartOnSystemStartup() { return false; }
-bool SetStartOnSystemStartup(bool fAutoStart) { return false; }
+bool GetStartOnSystemStartup() {
+    return false;
+}
+bool SetStartOnSystemStartup(bool fAutoStart) {
+    return false;
+}
 
 #endif
 
@@ -452,16 +456,16 @@ HelpMessageBox::HelpMessageBox(QWidget *parent) :
     QMessageBox(parent)
 {
     header = tr("Blitz-Qt") + " " + tr("version") + " " +
-        QString::fromStdString(FormatFullVersion()) + "\n\n" +
-        tr("Usage:") + "\n" +
-        "  blitz-qt [" + tr("command-line options") + "]                     " + "\n";
+             QString::fromStdString(FormatFullVersion()) + "\n\n" +
+             tr("Usage:") + "\n" +
+             "  blitz-qt [" + tr("command-line options") + "]                     " + "\n";
 
     coreOptions = QString::fromStdString(HelpMessage());
 
     uiOptions = tr("UI options") + ":\n" +
-        "  -lang=<lang>           " + tr("Set language, for example \"de_DE\" (default: system locale)") + "\n" +
-        "  -min                   " + tr("Start minimized") + "\n" +
-        "  -splash                " + tr("Show splash screen on startup (default: 1)") + "\n";
+                "  -lang=<lang>           " + tr("Set language, for example \"de_DE\" (default: system locale)") + "\n" +
+                "  -min                   " + tr("Start minimized") + "\n" +
+                "  -splash                " + tr("Show splash screen on startup (default: 1)") + "\n";
 
     setWindowTitle(tr("Blitz-Qt"));
     setTextFormat(Qt::PlainText);
@@ -480,11 +484,11 @@ void HelpMessageBox::printToConsole()
 void HelpMessageBox::showOrPrint()
 {
 #if defined(WIN32)
-        // On Windows, show a message box, as there is no stderr/stdout in windowed applications
-        exec();
+    // On Windows, show a message box, as there is no stderr/stdout in windowed applications
+    exec();
 #else
-        // On other operating systems, print help text to console
-        printToConsole();
+    // On other operating systems, print help text to console
+    printToConsole();
 #endif
 }
 

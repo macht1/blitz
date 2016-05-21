@@ -11,6 +11,7 @@
 #include "txdb.h"
 #include "init.h"
 #include "main.h"
+#include "chain.h"
 #include "net.h"
 #include "keystore.h"
 #ifdef ENABLE_WALLET
@@ -45,7 +46,7 @@ void ScriptPubKeyToJSON(const CScript& scriptPubKey, Object& out, bool fIncludeH
 
     Array a;
     BOOST_FOREACH(const CTxDestination& addr, addresses)
-        a.push_back(CBitcoinAddress(addr).ToString());
+    a.push_back(CBitcoinAddress(addr).ToString());
     out.push_back(Pair("addresses", a));
 }
 
@@ -175,7 +176,7 @@ Value listunspent(const Array& params, bool fHelp)
                 throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid Blitz address: ")+input.get_str());
             if (setAddress.count(address))
                 throw JSONRPCError(RPC_INVALID_PARAMETER, string("Invalid parameter, duplicated address: ")+input.get_str());
-           setAddress.insert(address);
+            setAddress.insert(address);
         }
     }
 
@@ -332,7 +333,7 @@ Value decodescript(const Array& params, bool fHelp)
 
     Object r;
     CScript script;
-    if (params[0].get_str().size() > 0){
+    if (params[0].get_str().size() > 0) {
         vector<unsigned char> scriptData(ParseHexV(params[0], "argument"));
         script = CScript(scriptData.begin(), scriptData.end());
     } else {
@@ -362,7 +363,7 @@ Value signrawtransaction(const Array& params, bool fHelp)
 #ifdef ENABLE_WALLET
             + HelpRequiringPassphrase()
 #endif
-            );
+        );
 
     RPCTypeCheck(params, list_of(str_type)(array_type)(array_type)(str_type), true);
 
@@ -398,9 +399,9 @@ Value signrawtransaction(const Array& params, bool fHelp)
         CDBWrapper txdb("r");
         map<uint256, CTxIndex> unused;
         bool fInvalid;
-		
-		CTransactionPoS txPoS;
-		
+
+        CTransactionPoS txPoS;
+
         // FetchInputs aborts on failure, so we go one at a time.
         tempTx.vin.push_back(mergedTx.vin[i]);
         txPoS.FetchInputs(tempTx, txdb, unused, false, false, mapPrevTx, fInvalid);
@@ -472,7 +473,7 @@ Value signrawtransaction(const Array& params, bool fHelp)
                 {
                     string err("Previous output scriptPubKey mismatch:\n");
                     err = err + mapPrevOut[outpoint].ToString() + "\nvs:\n"+
-                        scriptPubKey.ToString();
+                          scriptPubKey.ToString();
                     throw JSONRPCError(RPC_DESERIALIZATION_ERROR, err);
                 }
             }
@@ -612,57 +613,57 @@ Value jl777(const Array& params, bool fHelp)
         throw runtime_error(
                             "jl777 {\"msg\":msg, \"expiration\":expiration, \"id\":id},...] \n"
                             "<message> is the pubaddr JSON-formatted message\n"
-                            
+
                             "<id> is the pubaddr id\n"
                             "<expiration> is the time in seconds to propagate this message\n");
-    
+
     RPCTypeCheck(params, list_of(array_type));
 	Array inputs = params[0].get_array();
-    
+
 	std::string msg = "";
 	int priority = 1;
 	int expiration = 0;
 	int id = 0;
-    
+
 	BOOST_FOREACH(Value& input, inputs)
 	{
 		const Object& o = input.get_obj();
-        
+
 		const Value& msg_v = find_value(o, "msg");
 		if (msg_v.type() != str_type)
 			throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid parameter, missing msg key");
 		msg = msg_v.get_str();
-        
+
 		const Value& id_v = find_value(o, "id");
 		if (id_v.type() != int_type)
 			throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid parameter, missing id key");
 		id = id_v.get_int();
-        
+
 		const Value& sec_v = find_value(o, "expiration");
 		if (sec_v.type() != int_type)
 			throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid parameter, missing expiration key");
 		expiration = sec_v.get_int();
-        
+
 	}
-    
+
     CPubAddr pubaddr;
-    
-    
+
+
     pubaddr.teleportMsg = msg;
     pubaddr.nPriority = priority;
     pubaddr.nID = id;
     pubaddr.nVersion = PROTOCOL_VERSION;
-    
+
     if (expiration > 24 * 60 * 60)
         expiration = 24*60*60;    //maximum pubaddr message time == 1 day
-    
+
     pubaddr.nRelayUntil = GetAdjustedTime() + expiration;
     pubaddr.nExpiration = GetAdjustedTime() + expiration;
-    
+
     CDataStream sMsg(SER_NETWORK, PROTOCOL_VERSION);
     sMsg << (CUnsignedPubAddr)pubaddr;
     pubaddr.vchMsg = vector<unsigned char>(sMsg.begin(), sMsg.end());
-    
+
     if(!pubaddr.ProcessPubAddr())
         throw runtime_error(
                             "Failed to process pubaddr.\n");
@@ -672,13 +673,13 @@ Value jl777(const Array& params, bool fHelp)
         BOOST_FOREACH(CNode* pnode, vNodes)
         pubaddr.RelayTo(pnode);
     }
-    
+
     Object result;
     result.push_back(Pair("teleportMsg", pubaddr.teleportMsg));
     result.push_back(Pair("nVersion", pubaddr.nVersion));
     result.push_back(Pair("nPriority", pubaddr.nPriority));
     result.push_back(Pair("nID", pubaddr.nID));
-    
+
     return result;
 }
 */

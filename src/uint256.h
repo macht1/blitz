@@ -476,54 +476,142 @@ public:
     }
 };
 
-inline bool operator==(const uint160& a, uint64_t b)                         { return (base_uint160)a == b; }
-inline bool operator!=(const uint160& a, uint64_t b)                         { return (base_uint160)a != b; }
-inline const uint160 operator<<(const base_uint160& a, unsigned int shift)   { return uint160(a) <<= shift; }
-inline const uint160 operator>>(const base_uint160& a, unsigned int shift)   { return uint160(a) >>= shift; }
-inline const uint160 operator<<(const uint160& a, unsigned int shift)        { return uint160(a) <<= shift; }
-inline const uint160 operator>>(const uint160& a, unsigned int shift)        { return uint160(a) >>= shift; }
+inline bool operator==(const uint160& a, uint64_t b)                         {
+    return (base_uint160)a == b;
+}
+inline bool operator!=(const uint160& a, uint64_t b)                         {
+    return (base_uint160)a != b;
+}
+inline const uint160 operator<<(const base_uint160& a, unsigned int shift)   {
+    return uint160(a) <<= shift;
+}
+inline const uint160 operator>>(const base_uint160& a, unsigned int shift)   {
+    return uint160(a) >>= shift;
+}
+inline const uint160 operator<<(const uint160& a, unsigned int shift)        {
+    return uint160(a) <<= shift;
+}
+inline const uint160 operator>>(const uint160& a, unsigned int shift)        {
+    return uint160(a) >>= shift;
+}
 
-inline const uint160 operator^(const base_uint160& a, const base_uint160& b) { return uint160(a) ^= b; }
-inline const uint160 operator&(const base_uint160& a, const base_uint160& b) { return uint160(a) &= b; }
-inline const uint160 operator|(const base_uint160& a, const base_uint160& b) { return uint160(a) |= b; }
-inline const uint160 operator+(const base_uint160& a, const base_uint160& b) { return uint160(a) += b; }
-inline const uint160 operator-(const base_uint160& a, const base_uint160& b) { return uint160(a) -= b; }
+inline const uint160 operator^(const base_uint160& a, const base_uint160& b) {
+    return uint160(a) ^= b;
+}
+inline const uint160 operator&(const base_uint160& a, const base_uint160& b) {
+    return uint160(a) &= b;
+}
+inline const uint160 operator|(const base_uint160& a, const base_uint160& b) {
+    return uint160(a) |= b;
+}
+inline const uint160 operator+(const base_uint160& a, const base_uint160& b) {
+    return uint160(a) += b;
+}
+inline const uint160 operator-(const base_uint160& a, const base_uint160& b) {
+    return uint160(a) -= b;
+}
 
-inline bool operator<(const base_uint160& a, const uint160& b)          { return (base_uint160)a <  (base_uint160)b; }
-inline bool operator<=(const base_uint160& a, const uint160& b)         { return (base_uint160)a <= (base_uint160)b; }
-inline bool operator>(const base_uint160& a, const uint160& b)          { return (base_uint160)a >  (base_uint160)b; }
-inline bool operator>=(const base_uint160& a, const uint160& b)         { return (base_uint160)a >= (base_uint160)b; }
-inline bool operator==(const base_uint160& a, const uint160& b)         { return (base_uint160)a == (base_uint160)b; }
-inline bool operator!=(const base_uint160& a, const uint160& b)         { return (base_uint160)a != (base_uint160)b; }
-inline const uint160 operator^(const base_uint160& a, const uint160& b) { return (base_uint160)a ^  (base_uint160)b; }
-inline const uint160 operator&(const base_uint160& a, const uint160& b) { return (base_uint160)a &  (base_uint160)b; }
-inline const uint160 operator|(const base_uint160& a, const uint160& b) { return (base_uint160)a |  (base_uint160)b; }
-inline const uint160 operator+(const base_uint160& a, const uint160& b) { return (base_uint160)a +  (base_uint160)b; }
-inline const uint160 operator-(const base_uint160& a, const uint160& b) { return (base_uint160)a -  (base_uint160)b; }
+inline bool operator<(const base_uint160& a, const uint160& b)          {
+    return (base_uint160)a <  (base_uint160)b;
+}
+inline bool operator<=(const base_uint160& a, const uint160& b)         {
+    return (base_uint160)a <= (base_uint160)b;
+}
+inline bool operator>(const base_uint160& a, const uint160& b)          {
+    return (base_uint160)a >  (base_uint160)b;
+}
+inline bool operator>=(const base_uint160& a, const uint160& b)         {
+    return (base_uint160)a >= (base_uint160)b;
+}
+inline bool operator==(const base_uint160& a, const uint160& b)         {
+    return (base_uint160)a == (base_uint160)b;
+}
+inline bool operator!=(const base_uint160& a, const uint160& b)         {
+    return (base_uint160)a != (base_uint160)b;
+}
+inline const uint160 operator^(const base_uint160& a, const uint160& b) {
+    return (base_uint160)a ^  (base_uint160)b;
+}
+inline const uint160 operator&(const base_uint160& a, const uint160& b) {
+    return (base_uint160)a &  (base_uint160)b;
+}
+inline const uint160 operator|(const base_uint160& a, const uint160& b) {
+    return (base_uint160)a |  (base_uint160)b;
+}
+inline const uint160 operator+(const base_uint160& a, const uint160& b) {
+    return (base_uint160)a +  (base_uint160)b;
+}
+inline const uint160 operator-(const base_uint160& a, const uint160& b) {
+    return (base_uint160)a -  (base_uint160)b;
+}
 
-inline bool operator<(const uint160& a, const base_uint160& b)          { return (base_uint160)a <  (base_uint160)b; }
-inline bool operator<=(const uint160& a, const base_uint160& b)         { return (base_uint160)a <= (base_uint160)b; }
-inline bool operator>(const uint160& a, const base_uint160& b)          { return (base_uint160)a >  (base_uint160)b; }
-inline bool operator>=(const uint160& a, const base_uint160& b)         { return (base_uint160)a >= (base_uint160)b; }
-inline bool operator==(const uint160& a, const base_uint160& b)         { return (base_uint160)a == (base_uint160)b; }
-inline bool operator!=(const uint160& a, const base_uint160& b)         { return (base_uint160)a != (base_uint160)b; }
-inline const uint160 operator^(const uint160& a, const base_uint160& b) { return (base_uint160)a ^  (base_uint160)b; }
-inline const uint160 operator&(const uint160& a, const base_uint160& b) { return (base_uint160)a &  (base_uint160)b; }
-inline const uint160 operator|(const uint160& a, const base_uint160& b) { return (base_uint160)a |  (base_uint160)b; }
-inline const uint160 operator+(const uint160& a, const base_uint160& b) { return (base_uint160)a +  (base_uint160)b; }
-inline const uint160 operator-(const uint160& a, const base_uint160& b) { return (base_uint160)a -  (base_uint160)b; }
+inline bool operator<(const uint160& a, const base_uint160& b)          {
+    return (base_uint160)a <  (base_uint160)b;
+}
+inline bool operator<=(const uint160& a, const base_uint160& b)         {
+    return (base_uint160)a <= (base_uint160)b;
+}
+inline bool operator>(const uint160& a, const base_uint160& b)          {
+    return (base_uint160)a >  (base_uint160)b;
+}
+inline bool operator>=(const uint160& a, const base_uint160& b)         {
+    return (base_uint160)a >= (base_uint160)b;
+}
+inline bool operator==(const uint160& a, const base_uint160& b)         {
+    return (base_uint160)a == (base_uint160)b;
+}
+inline bool operator!=(const uint160& a, const base_uint160& b)         {
+    return (base_uint160)a != (base_uint160)b;
+}
+inline const uint160 operator^(const uint160& a, const base_uint160& b) {
+    return (base_uint160)a ^  (base_uint160)b;
+}
+inline const uint160 operator&(const uint160& a, const base_uint160& b) {
+    return (base_uint160)a &  (base_uint160)b;
+}
+inline const uint160 operator|(const uint160& a, const base_uint160& b) {
+    return (base_uint160)a |  (base_uint160)b;
+}
+inline const uint160 operator+(const uint160& a, const base_uint160& b) {
+    return (base_uint160)a +  (base_uint160)b;
+}
+inline const uint160 operator-(const uint160& a, const base_uint160& b) {
+    return (base_uint160)a -  (base_uint160)b;
+}
 
-inline bool operator<(const uint160& a, const uint160& b)               { return (base_uint160)a <  (base_uint160)b; }
-inline bool operator<=(const uint160& a, const uint160& b)              { return (base_uint160)a <= (base_uint160)b; }
-inline bool operator>(const uint160& a, const uint160& b)               { return (base_uint160)a >  (base_uint160)b; }
-inline bool operator>=(const uint160& a, const uint160& b)              { return (base_uint160)a >= (base_uint160)b; }
-inline bool operator==(const uint160& a, const uint160& b)              { return (base_uint160)a == (base_uint160)b; }
-inline bool operator!=(const uint160& a, const uint160& b)              { return (base_uint160)a != (base_uint160)b; }
-inline const uint160 operator^(const uint160& a, const uint160& b)      { return (base_uint160)a ^  (base_uint160)b; }
-inline const uint160 operator&(const uint160& a, const uint160& b)      { return (base_uint160)a &  (base_uint160)b; }
-inline const uint160 operator|(const uint160& a, const uint160& b)      { return (base_uint160)a |  (base_uint160)b; }
-inline const uint160 operator+(const uint160& a, const uint160& b)      { return (base_uint160)a +  (base_uint160)b; }
-inline const uint160 operator-(const uint160& a, const uint160& b)      { return (base_uint160)a -  (base_uint160)b; }
+inline bool operator<(const uint160& a, const uint160& b)               {
+    return (base_uint160)a <  (base_uint160)b;
+}
+inline bool operator<=(const uint160& a, const uint160& b)              {
+    return (base_uint160)a <= (base_uint160)b;
+}
+inline bool operator>(const uint160& a, const uint160& b)               {
+    return (base_uint160)a >  (base_uint160)b;
+}
+inline bool operator>=(const uint160& a, const uint160& b)              {
+    return (base_uint160)a >= (base_uint160)b;
+}
+inline bool operator==(const uint160& a, const uint160& b)              {
+    return (base_uint160)a == (base_uint160)b;
+}
+inline bool operator!=(const uint160& a, const uint160& b)              {
+    return (base_uint160)a != (base_uint160)b;
+}
+inline const uint160 operator^(const uint160& a, const uint160& b)      {
+    return (base_uint160)a ^  (base_uint160)b;
+}
+inline const uint160 operator&(const uint160& a, const uint160& b)      {
+    return (base_uint160)a &  (base_uint160)b;
+}
+inline const uint160 operator|(const uint160& a, const uint160& b)      {
+    return (base_uint160)a |  (base_uint160)b;
+}
+inline const uint160 operator+(const uint160& a, const uint160& b)      {
+    return (base_uint160)a +  (base_uint160)b;
+}
+inline const uint160 operator-(const uint160& a, const uint160& b)      {
+    return (base_uint160)a -  (base_uint160)b;
+}
 
 
 
@@ -591,54 +679,142 @@ public:
     }
 };
 
-inline bool operator==(const uint256& a, uint64_t b)                         { return (base_uint256)a == b; }
-inline bool operator!=(const uint256& a, uint64_t b)                         { return (base_uint256)a != b; }
-inline const uint256 operator<<(const base_uint256& a, unsigned int shift)   { return uint256(a) <<= shift; }
-inline const uint256 operator>>(const base_uint256& a, unsigned int shift)   { return uint256(a) >>= shift; }
-inline const uint256 operator<<(const uint256& a, unsigned int shift)        { return uint256(a) <<= shift; }
-inline const uint256 operator>>(const uint256& a, unsigned int shift)        { return uint256(a) >>= shift; }
+inline bool operator==(const uint256& a, uint64_t b)                         {
+    return (base_uint256)a == b;
+}
+inline bool operator!=(const uint256& a, uint64_t b)                         {
+    return (base_uint256)a != b;
+}
+inline const uint256 operator<<(const base_uint256& a, unsigned int shift)   {
+    return uint256(a) <<= shift;
+}
+inline const uint256 operator>>(const base_uint256& a, unsigned int shift)   {
+    return uint256(a) >>= shift;
+}
+inline const uint256 operator<<(const uint256& a, unsigned int shift)        {
+    return uint256(a) <<= shift;
+}
+inline const uint256 operator>>(const uint256& a, unsigned int shift)        {
+    return uint256(a) >>= shift;
+}
 
-inline const uint256 operator^(const base_uint256& a, const base_uint256& b) { return uint256(a) ^= b; }
-inline const uint256 operator&(const base_uint256& a, const base_uint256& b) { return uint256(a) &= b; }
-inline const uint256 operator|(const base_uint256& a, const base_uint256& b) { return uint256(a) |= b; }
-inline const uint256 operator+(const base_uint256& a, const base_uint256& b) { return uint256(a) += b; }
-inline const uint256 operator-(const base_uint256& a, const base_uint256& b) { return uint256(a) -= b; }
+inline const uint256 operator^(const base_uint256& a, const base_uint256& b) {
+    return uint256(a) ^= b;
+}
+inline const uint256 operator&(const base_uint256& a, const base_uint256& b) {
+    return uint256(a) &= b;
+}
+inline const uint256 operator|(const base_uint256& a, const base_uint256& b) {
+    return uint256(a) |= b;
+}
+inline const uint256 operator+(const base_uint256& a, const base_uint256& b) {
+    return uint256(a) += b;
+}
+inline const uint256 operator-(const base_uint256& a, const base_uint256& b) {
+    return uint256(a) -= b;
+}
 
-inline bool operator<(const base_uint256& a, const uint256& b)          { return (base_uint256)a <  (base_uint256)b; }
-inline bool operator<=(const base_uint256& a, const uint256& b)         { return (base_uint256)a <= (base_uint256)b; }
-inline bool operator>(const base_uint256& a, const uint256& b)          { return (base_uint256)a >  (base_uint256)b; }
-inline bool operator>=(const base_uint256& a, const uint256& b)         { return (base_uint256)a >= (base_uint256)b; }
-inline bool operator==(const base_uint256& a, const uint256& b)         { return (base_uint256)a == (base_uint256)b; }
-inline bool operator!=(const base_uint256& a, const uint256& b)         { return (base_uint256)a != (base_uint256)b; }
-inline const uint256 operator^(const base_uint256& a, const uint256& b) { return (base_uint256)a ^  (base_uint256)b; }
-inline const uint256 operator&(const base_uint256& a, const uint256& b) { return (base_uint256)a &  (base_uint256)b; }
-inline const uint256 operator|(const base_uint256& a, const uint256& b) { return (base_uint256)a |  (base_uint256)b; }
-inline const uint256 operator+(const base_uint256& a, const uint256& b) { return (base_uint256)a +  (base_uint256)b; }
-inline const uint256 operator-(const base_uint256& a, const uint256& b) { return (base_uint256)a -  (base_uint256)b; }
+inline bool operator<(const base_uint256& a, const uint256& b)          {
+    return (base_uint256)a <  (base_uint256)b;
+}
+inline bool operator<=(const base_uint256& a, const uint256& b)         {
+    return (base_uint256)a <= (base_uint256)b;
+}
+inline bool operator>(const base_uint256& a, const uint256& b)          {
+    return (base_uint256)a >  (base_uint256)b;
+}
+inline bool operator>=(const base_uint256& a, const uint256& b)         {
+    return (base_uint256)a >= (base_uint256)b;
+}
+inline bool operator==(const base_uint256& a, const uint256& b)         {
+    return (base_uint256)a == (base_uint256)b;
+}
+inline bool operator!=(const base_uint256& a, const uint256& b)         {
+    return (base_uint256)a != (base_uint256)b;
+}
+inline const uint256 operator^(const base_uint256& a, const uint256& b) {
+    return (base_uint256)a ^  (base_uint256)b;
+}
+inline const uint256 operator&(const base_uint256& a, const uint256& b) {
+    return (base_uint256)a &  (base_uint256)b;
+}
+inline const uint256 operator|(const base_uint256& a, const uint256& b) {
+    return (base_uint256)a |  (base_uint256)b;
+}
+inline const uint256 operator+(const base_uint256& a, const uint256& b) {
+    return (base_uint256)a +  (base_uint256)b;
+}
+inline const uint256 operator-(const base_uint256& a, const uint256& b) {
+    return (base_uint256)a -  (base_uint256)b;
+}
 
-inline bool operator<(const uint256& a, const base_uint256& b)          { return (base_uint256)a <  (base_uint256)b; }
-inline bool operator<=(const uint256& a, const base_uint256& b)         { return (base_uint256)a <= (base_uint256)b; }
-inline bool operator>(const uint256& a, const base_uint256& b)          { return (base_uint256)a >  (base_uint256)b; }
-inline bool operator>=(const uint256& a, const base_uint256& b)         { return (base_uint256)a >= (base_uint256)b; }
-inline bool operator==(const uint256& a, const base_uint256& b)         { return (base_uint256)a == (base_uint256)b; }
-inline bool operator!=(const uint256& a, const base_uint256& b)         { return (base_uint256)a != (base_uint256)b; }
-inline const uint256 operator^(const uint256& a, const base_uint256& b) { return (base_uint256)a ^  (base_uint256)b; }
-inline const uint256 operator&(const uint256& a, const base_uint256& b) { return (base_uint256)a &  (base_uint256)b; }
-inline const uint256 operator|(const uint256& a, const base_uint256& b) { return (base_uint256)a |  (base_uint256)b; }
-inline const uint256 operator+(const uint256& a, const base_uint256& b) { return (base_uint256)a +  (base_uint256)b; }
-inline const uint256 operator-(const uint256& a, const base_uint256& b) { return (base_uint256)a -  (base_uint256)b; }
+inline bool operator<(const uint256& a, const base_uint256& b)          {
+    return (base_uint256)a <  (base_uint256)b;
+}
+inline bool operator<=(const uint256& a, const base_uint256& b)         {
+    return (base_uint256)a <= (base_uint256)b;
+}
+inline bool operator>(const uint256& a, const base_uint256& b)          {
+    return (base_uint256)a >  (base_uint256)b;
+}
+inline bool operator>=(const uint256& a, const base_uint256& b)         {
+    return (base_uint256)a >= (base_uint256)b;
+}
+inline bool operator==(const uint256& a, const base_uint256& b)         {
+    return (base_uint256)a == (base_uint256)b;
+}
+inline bool operator!=(const uint256& a, const base_uint256& b)         {
+    return (base_uint256)a != (base_uint256)b;
+}
+inline const uint256 operator^(const uint256& a, const base_uint256& b) {
+    return (base_uint256)a ^  (base_uint256)b;
+}
+inline const uint256 operator&(const uint256& a, const base_uint256& b) {
+    return (base_uint256)a &  (base_uint256)b;
+}
+inline const uint256 operator|(const uint256& a, const base_uint256& b) {
+    return (base_uint256)a |  (base_uint256)b;
+}
+inline const uint256 operator+(const uint256& a, const base_uint256& b) {
+    return (base_uint256)a +  (base_uint256)b;
+}
+inline const uint256 operator-(const uint256& a, const base_uint256& b) {
+    return (base_uint256)a -  (base_uint256)b;
+}
 
-inline bool operator<(const uint256& a, const uint256& b)               { return (base_uint256)a <  (base_uint256)b; }
-inline bool operator<=(const uint256& a, const uint256& b)              { return (base_uint256)a <= (base_uint256)b; }
-inline bool operator>(const uint256& a, const uint256& b)               { return (base_uint256)a >  (base_uint256)b; }
-inline bool operator>=(const uint256& a, const uint256& b)              { return (base_uint256)a >= (base_uint256)b; }
-inline bool operator==(const uint256& a, const uint256& b)              { return (base_uint256)a == (base_uint256)b; }
-inline bool operator!=(const uint256& a, const uint256& b)              { return (base_uint256)a != (base_uint256)b; }
-inline const uint256 operator^(const uint256& a, const uint256& b)      { return (base_uint256)a ^  (base_uint256)b; }
-inline const uint256 operator&(const uint256& a, const uint256& b)      { return (base_uint256)a &  (base_uint256)b; }
-inline const uint256 operator|(const uint256& a, const uint256& b)      { return (base_uint256)a |  (base_uint256)b; }
-inline const uint256 operator+(const uint256& a, const uint256& b)      { return (base_uint256)a +  (base_uint256)b; }
-inline const uint256 operator-(const uint256& a, const uint256& b)      { return (base_uint256)a -  (base_uint256)b; }
+inline bool operator<(const uint256& a, const uint256& b)               {
+    return (base_uint256)a <  (base_uint256)b;
+}
+inline bool operator<=(const uint256& a, const uint256& b)              {
+    return (base_uint256)a <= (base_uint256)b;
+}
+inline bool operator>(const uint256& a, const uint256& b)               {
+    return (base_uint256)a >  (base_uint256)b;
+}
+inline bool operator>=(const uint256& a, const uint256& b)              {
+    return (base_uint256)a >= (base_uint256)b;
+}
+inline bool operator==(const uint256& a, const uint256& b)              {
+    return (base_uint256)a == (base_uint256)b;
+}
+inline bool operator!=(const uint256& a, const uint256& b)              {
+    return (base_uint256)a != (base_uint256)b;
+}
+inline const uint256 operator^(const uint256& a, const uint256& b)      {
+    return (base_uint256)a ^  (base_uint256)b;
+}
+inline const uint256 operator&(const uint256& a, const uint256& b)      {
+    return (base_uint256)a &  (base_uint256)b;
+}
+inline const uint256 operator|(const uint256& a, const uint256& b)      {
+    return (base_uint256)a |  (base_uint256)b;
+}
+inline const uint256 operator+(const uint256& a, const uint256& b)      {
+    return (base_uint256)a +  (base_uint256)b;
+}
+inline const uint256 operator-(const uint256& a, const uint256& b)      {
+    return (base_uint256)a -  (base_uint256)b;
+}
 
 
 //////////////////////////////////////////////////////////////////////////////
@@ -700,65 +876,153 @@ public:
         else
             *this = 0;
     }
-	
+
     uint256 trim256() const
     {
         uint256 ret;
-        for (unsigned int i = 0; i < uint256::WIDTH; i++){
+        for (unsigned int i = 0; i < uint256::WIDTH; i++) {
             ret.pn[i] = pn[i];
         }
         return ret;
-    }	
+    }
 };
 
-inline bool operator==(const uint512& a, uint64_t b)                          { return (base_uint512)a == b; }
-inline bool operator!=(const uint512& a, uint64_t b)                          { return (base_uint512)a != b; }
-inline const uint512 operator<<(const base_uint512& a, unsigned int shift)   { return uint512(a) <<= shift; }
-inline const uint512 operator>>(const base_uint512& a, unsigned int shift)   { return uint512(a) >>= shift; }
-inline const uint512 operator<<(const uint512& a, unsigned int shift)        { return uint512(a) <<= shift; }
-inline const uint512 operator>>(const uint512& a, unsigned int shift)        { return uint512(a) >>= shift; }
+inline bool operator==(const uint512& a, uint64_t b)                          {
+    return (base_uint512)a == b;
+}
+inline bool operator!=(const uint512& a, uint64_t b)                          {
+    return (base_uint512)a != b;
+}
+inline const uint512 operator<<(const base_uint512& a, unsigned int shift)   {
+    return uint512(a) <<= shift;
+}
+inline const uint512 operator>>(const base_uint512& a, unsigned int shift)   {
+    return uint512(a) >>= shift;
+}
+inline const uint512 operator<<(const uint512& a, unsigned int shift)        {
+    return uint512(a) <<= shift;
+}
+inline const uint512 operator>>(const uint512& a, unsigned int shift)        {
+    return uint512(a) >>= shift;
+}
 
-inline const uint512 operator^(const base_uint512& a, const base_uint512& b) { return uint512(a) ^= b; }
-inline const uint512 operator&(const base_uint512& a, const base_uint512& b) { return uint512(a) &= b; }
-inline const uint512 operator|(const base_uint512& a, const base_uint512& b) { return uint512(a) |= b; }
-inline const uint512 operator+(const base_uint512& a, const base_uint512& b) { return uint512(a) += b; }
-inline const uint512 operator-(const base_uint512& a, const base_uint512& b) { return uint512(a) -= b; }
+inline const uint512 operator^(const base_uint512& a, const base_uint512& b) {
+    return uint512(a) ^= b;
+}
+inline const uint512 operator&(const base_uint512& a, const base_uint512& b) {
+    return uint512(a) &= b;
+}
+inline const uint512 operator|(const base_uint512& a, const base_uint512& b) {
+    return uint512(a) |= b;
+}
+inline const uint512 operator+(const base_uint512& a, const base_uint512& b) {
+    return uint512(a) += b;
+}
+inline const uint512 operator-(const base_uint512& a, const base_uint512& b) {
+    return uint512(a) -= b;
+}
 
-inline bool operator<(const base_uint512& a, const uint512& b)          { return (base_uint512)a <  (base_uint512)b; }
-inline bool operator<=(const base_uint512& a, const uint512& b)         { return (base_uint512)a <= (base_uint512)b; }
-inline bool operator>(const base_uint512& a, const uint512& b)          { return (base_uint512)a >  (base_uint512)b; }
-inline bool operator>=(const base_uint512& a, const uint512& b)         { return (base_uint512)a >= (base_uint512)b; }
-inline bool operator==(const base_uint512& a, const uint512& b)         { return (base_uint512)a == (base_uint512)b; }
-inline bool operator!=(const base_uint512& a, const uint512& b)         { return (base_uint512)a != (base_uint512)b; }
-inline const uint512 operator^(const base_uint512& a, const uint512& b) { return (base_uint512)a ^  (base_uint512)b; }
-inline const uint512 operator&(const base_uint512& a, const uint512& b) { return (base_uint512)a &  (base_uint512)b; }
-inline const uint512 operator|(const base_uint512& a, const uint512& b) { return (base_uint512)a |  (base_uint512)b; }
-inline const uint512 operator+(const base_uint512& a, const uint512& b) { return (base_uint512)a +  (base_uint512)b; }
-inline const uint512 operator-(const base_uint512& a, const uint512& b) { return (base_uint512)a -  (base_uint512)b; }
+inline bool operator<(const base_uint512& a, const uint512& b)          {
+    return (base_uint512)a <  (base_uint512)b;
+}
+inline bool operator<=(const base_uint512& a, const uint512& b)         {
+    return (base_uint512)a <= (base_uint512)b;
+}
+inline bool operator>(const base_uint512& a, const uint512& b)          {
+    return (base_uint512)a >  (base_uint512)b;
+}
+inline bool operator>=(const base_uint512& a, const uint512& b)         {
+    return (base_uint512)a >= (base_uint512)b;
+}
+inline bool operator==(const base_uint512& a, const uint512& b)         {
+    return (base_uint512)a == (base_uint512)b;
+}
+inline bool operator!=(const base_uint512& a, const uint512& b)         {
+    return (base_uint512)a != (base_uint512)b;
+}
+inline const uint512 operator^(const base_uint512& a, const uint512& b) {
+    return (base_uint512)a ^  (base_uint512)b;
+}
+inline const uint512 operator&(const base_uint512& a, const uint512& b) {
+    return (base_uint512)a &  (base_uint512)b;
+}
+inline const uint512 operator|(const base_uint512& a, const uint512& b) {
+    return (base_uint512)a |  (base_uint512)b;
+}
+inline const uint512 operator+(const base_uint512& a, const uint512& b) {
+    return (base_uint512)a +  (base_uint512)b;
+}
+inline const uint512 operator-(const base_uint512& a, const uint512& b) {
+    return (base_uint512)a -  (base_uint512)b;
+}
 
-inline bool operator<(const uint512& a, const base_uint512& b)          { return (base_uint512)a <  (base_uint512)b; }
-inline bool operator<=(const uint512& a, const base_uint512& b)         { return (base_uint512)a <= (base_uint512)b; }
-inline bool operator>(const uint512& a, const base_uint512& b)          { return (base_uint512)a >  (base_uint512)b; }
-inline bool operator>=(const uint512& a, const base_uint512& b)         { return (base_uint512)a >= (base_uint512)b; }
-inline bool operator==(const uint512& a, const base_uint512& b)         { return (base_uint512)a == (base_uint512)b; }
-inline bool operator!=(const uint512& a, const base_uint512& b)         { return (base_uint512)a != (base_uint512)b; }
-inline const uint512 operator^(const uint512& a, const base_uint512& b) { return (base_uint512)a ^  (base_uint512)b; }
-inline const uint512 operator&(const uint512& a, const base_uint512& b) { return (base_uint512)a &  (base_uint512)b; }
-inline const uint512 operator|(const uint512& a, const base_uint512& b) { return (base_uint512)a |  (base_uint512)b; }
-inline const uint512 operator+(const uint512& a, const base_uint512& b) { return (base_uint512)a +  (base_uint512)b; }
-inline const uint512 operator-(const uint512& a, const base_uint512& b) { return (base_uint512)a -  (base_uint512)b; }
+inline bool operator<(const uint512& a, const base_uint512& b)          {
+    return (base_uint512)a <  (base_uint512)b;
+}
+inline bool operator<=(const uint512& a, const base_uint512& b)         {
+    return (base_uint512)a <= (base_uint512)b;
+}
+inline bool operator>(const uint512& a, const base_uint512& b)          {
+    return (base_uint512)a >  (base_uint512)b;
+}
+inline bool operator>=(const uint512& a, const base_uint512& b)         {
+    return (base_uint512)a >= (base_uint512)b;
+}
+inline bool operator==(const uint512& a, const base_uint512& b)         {
+    return (base_uint512)a == (base_uint512)b;
+}
+inline bool operator!=(const uint512& a, const base_uint512& b)         {
+    return (base_uint512)a != (base_uint512)b;
+}
+inline const uint512 operator^(const uint512& a, const base_uint512& b) {
+    return (base_uint512)a ^  (base_uint512)b;
+}
+inline const uint512 operator&(const uint512& a, const base_uint512& b) {
+    return (base_uint512)a &  (base_uint512)b;
+}
+inline const uint512 operator|(const uint512& a, const base_uint512& b) {
+    return (base_uint512)a |  (base_uint512)b;
+}
+inline const uint512 operator+(const uint512& a, const base_uint512& b) {
+    return (base_uint512)a +  (base_uint512)b;
+}
+inline const uint512 operator-(const uint512& a, const base_uint512& b) {
+    return (base_uint512)a -  (base_uint512)b;
+}
 
-inline bool operator<(const uint512& a, const uint512& b)               { return (base_uint512)a <  (base_uint512)b; }
-inline bool operator<=(const uint512& a, const uint512& b)              { return (base_uint512)a <= (base_uint512)b; }
-inline bool operator>(const uint512& a, const uint512& b)               { return (base_uint512)a >  (base_uint512)b; }
-inline bool operator>=(const uint512& a, const uint512& b)              { return (base_uint512)a >= (base_uint512)b; }
-inline bool operator==(const uint512& a, const uint512& b)              { return (base_uint512)a == (base_uint512)b; }
-inline bool operator!=(const uint512& a, const uint512& b)              { return (base_uint512)a != (base_uint512)b; }
-inline const uint512 operator^(const uint512& a, const uint512& b)      { return (base_uint512)a ^  (base_uint512)b; }
-inline const uint512 operator&(const uint512& a, const uint512& b)      { return (base_uint512)a &  (base_uint512)b; }
-inline const uint512 operator|(const uint512& a, const uint512& b)      { return (base_uint512)a |  (base_uint512)b; }
-inline const uint512 operator+(const uint512& a, const uint512& b)      { return (base_uint512)a +  (base_uint512)b; }
-inline const uint512 operator-(const uint512& a, const uint512& b)      { return (base_uint512)a -  (base_uint512)b; }
+inline bool operator<(const uint512& a, const uint512& b)               {
+    return (base_uint512)a <  (base_uint512)b;
+}
+inline bool operator<=(const uint512& a, const uint512& b)              {
+    return (base_uint512)a <= (base_uint512)b;
+}
+inline bool operator>(const uint512& a, const uint512& b)               {
+    return (base_uint512)a >  (base_uint512)b;
+}
+inline bool operator>=(const uint512& a, const uint512& b)              {
+    return (base_uint512)a >= (base_uint512)b;
+}
+inline bool operator==(const uint512& a, const uint512& b)              {
+    return (base_uint512)a == (base_uint512)b;
+}
+inline bool operator!=(const uint512& a, const uint512& b)              {
+    return (base_uint512)a != (base_uint512)b;
+}
+inline const uint512 operator^(const uint512& a, const uint512& b)      {
+    return (base_uint512)a ^  (base_uint512)b;
+}
+inline const uint512 operator&(const uint512& a, const uint512& b)      {
+    return (base_uint512)a &  (base_uint512)b;
+}
+inline const uint512 operator|(const uint512& a, const uint512& b)      {
+    return (base_uint512)a |  (base_uint512)b;
+}
+inline const uint512 operator+(const uint512& a, const uint512& b)      {
+    return (base_uint512)a +  (base_uint512)b;
+}
+inline const uint512 operator-(const uint512& a, const uint512& b)      {
+    return (base_uint512)a -  (base_uint512)b;
+}
 
 #ifdef TEST_UINT256
 
@@ -768,17 +1032,23 @@ inline int Testuint256AdHoc(std::vector<std::string> vArg)
 
 
     LogPrintf("%s\n", g.ToString());
-    g--;  LogPrintf("g--\n");
+    g--;
+    LogPrintf("g--\n");
     LogPrintf("%s\n", g.ToString());
-    g--;  LogPrintf("g--\n");
+    g--;
+    LogPrintf("g--\n");
     LogPrintf("%s\n", g.ToString());
-    g++;  LogPrintf("g++\n");
+    g++;
+    LogPrintf("g++\n");
     LogPrintf("%s\n", g.ToString());
-    g++;  LogPrintf("g++\n");
+    g++;
+    LogPrintf("g++\n");
     LogPrintf("%s\n", g.ToString());
-    g++;  LogPrintf("g++\n");
+    g++;
+    LogPrintf("g++\n");
     LogPrintf("%s\n", g.ToString());
-    g++;  LogPrintf("g++\n");
+    g++;
+    LogPrintf("g++\n");
     LogPrintf("%s\n", g.ToString());
 
 
@@ -845,7 +1115,8 @@ inline int Testuint256AdHoc(std::vector<std::string> vArg)
     d = a;
 
     LogPrintf("%s\n", d.ToString());
-    for (int i = uint256::WIDTH-1; i >= 0; i--) LogPrintf("%08x", d.pn[i]); LogPrintf("\n");
+    for (int i = uint256::WIDTH-1; i >= 0; i--) LogPrintf("%08x", d.pn[i]);
+    LogPrintf("\n");
 
     uint256 neg = d;
     neg = ~neg;
@@ -895,6 +1166,8 @@ inline int Testuint256AdHoc(std::vector<std::string> vArg)
 #endif
 
 // Temporary for migration to opaque uint160/256
-inline uint256 uint256S(const std::string &x) { return uint256(x); }
+inline uint256 uint256S(const std::string &x) {
+    return uint256(x);
+}
 
 #endif // BITCOIN_UINT256_H

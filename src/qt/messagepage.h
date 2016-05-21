@@ -4,7 +4,7 @@
 #include <QWidget>
 
 namespace Ui {
-    class MessagePage;
+class MessagePage;
 }
 class MessageModel;
 //class OptionsModel;
@@ -42,7 +42,7 @@ public slots:
 private:
     Ui::MessagePage *ui;
     MessageModel *model;
-    
+
     QMenu *contextMenu;
     QAction *replyAction;
     QAction *copyFromAddressAction;

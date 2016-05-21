@@ -61,9 +61,9 @@ bool static ApplyProxySettings()
 
 #ifdef USE_NATIVE_I2P
 std::string& FormatI2POptionsString(
-        std::string& options,
-        const std::string& name,
-        const std::pair<bool, std::string>& value)
+    std::string& options,
+    const std::string& name,
+    const std::pair<bool, std::string>& value)
 {
     if (value.first)
     {
@@ -75,9 +75,9 @@ std::string& FormatI2POptionsString(
 }
 
 std::string& FormatI2POptionsString(
-        std::string& options,
-        const std::string& name,
-        const std::pair<bool, bool>& value)
+    std::string& options,
+    const std::string& name,
+    const std::pair<bool, bool>& value)
 {
     if (value.first)
     {
@@ -89,9 +89,9 @@ std::string& FormatI2POptionsString(
 }
 
 std::string& FormatI2POptionsString(
-        std::string& options,
-        const std::string& name,
-        const std::pair<bool, int>& value)
+    std::string& options,
+    const std::string& name,
+    const std::pair<bool, int>& value)
 {
     if (value.first)
     {
@@ -127,7 +127,7 @@ void OptionsModel::Init()
         SoftSetArg("-proxy", settings.value("addrProxy").toString().toStdString());
     if (!language.isEmpty())
         SoftSetArg("-lang", language.toStdString());
-	if (settings.contains("fDarkEnabled"))
+    if (settings.contains("fDarkEnabled"))
         SoftSetBoolArg("-blitzdark", settings.value("fDarkEnabled").toBool());
 
 #ifdef USE_NATIVE_I2P
@@ -204,9 +204,9 @@ QVariant OptionsModel::data(const QModelIndex & index, int role) const
             return QVariant(fMinimizeToTray);
         case MapPortUPnP:
             return settings.value("fUseUPnP", GetBoolArg("-upnp", true));
-		case BlitzDarkEnabled:
+        case BlitzDarkEnabled:
             return settings.value("fDarkEnabled", GetBoolArg("-blitzdark", false));
-		case MinimizeOnClose:
+        case MinimizeOnClose:
             return QVariant(fMinimizeOnClose);
         case ProxyUse:
             return settings.value("fUseProxy", false);
@@ -321,7 +321,7 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
             fDarkEnabled = value.toBool();
             settings.setValue("fDarkEnabled", fDarkEnabled);
             break;
-		case MinimizeOnClose:
+        case MinimizeOnClose:
             fMinimizeOnClose = value.toBool();
             settings.setValue("fMinimizeOnClose", fMinimizeOnClose);
             break;
@@ -372,8 +372,8 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
             fCoinControlFeatures = value.toBool();
             settings.setValue("fCoinControlFeatures", fCoinControlFeatures);
             emit coinControlFeaturesChanged(fCoinControlFeatures);
-            }
-            break;
+        }
+        break;
         case UseBlackTheme:
             fUseBlackTheme = value.toBool();
             settings.setValue("fUseBlackTheme", fUseBlackTheme);

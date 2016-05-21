@@ -29,9 +29,15 @@ const QString MessageModel::Received = "Received";
 
 struct MessageTableEntryLessThan
 {
-    bool operator()(const MessageTableEntry &a, const MessageTableEntry &b) const {return a.received_datetime < b.received_datetime;};
-    bool operator()(const MessageTableEntry &a, const QDateTime         &b) const {return a.received_datetime < b;}
-    bool operator()(const QDateTime         &a, const MessageTableEntry &b) const {return a < b.received_datetime;}
+    bool operator()(const MessageTableEntry &a, const MessageTableEntry &b) const {
+        return a.received_datetime < b.received_datetime;
+    };
+    bool operator()(const MessageTableEntry &a, const QDateTime         &b) const {
+        return a.received_datetime < b;
+    }
+    bool operator()(const QDateTime         &a, const MessageTableEntry &b) const {
+        return a < b.received_datetime;
+    }
 };
 
 // Private implementation
@@ -47,7 +53,7 @@ public:
     void refreshMessageTable()
     {
         cachedMessageTable.clear();
-        
+
         if (parent->getWalletModel()->getEncryptionStatus() == WalletModel::Locked)
         {
             // -- messages are stored encrypted, can't load them without the private keys
@@ -84,7 +90,7 @@ public:
 
                     sent_datetime    .setTime_t(msg.timestamp);
                     received_datetime.setTime_t(smsgStored.timeReceived);
-                    
+
                     memcpy(&vchKey[0], chKey, 18);
 
                     addMessageEntry(MessageTableEntry(vchKey,
@@ -112,7 +118,7 @@ public:
 
                     sent_datetime    .setTime_t(msg.timestamp);
                     received_datetime.setTime_t(smsgStored.timeReceived);
-                    
+
                     memcpy(&vchKey[0], chKey, 18);
 
                     addMessageEntry(MessageTableEntry(vchKey,
@@ -150,7 +156,7 @@ public:
 
             std::string sPrefix("im");
             SecureMessage* psmsg = (SecureMessage*) &smsgStored.vchMessage[0];
-            
+
             std::vector<unsigned char> vchKey;
             vchKey.resize(18);
             memcpy(&vchKey[0],  sPrefix.data(),  2);
@@ -210,9 +216,9 @@ public:
     {
         // -- wallet is unlocked, can get at the private keys now
         refreshMessageTable();
-        
+
         parent->reset(); // reload table view
-        
+
         if (parent->proxyModel)
         {
             parent->proxyModel->setFilterRole(false);
@@ -221,10 +227,10 @@ public:
             parent->proxyModel->setFilterRole(MessageModel::Ambiguous);
             parent->proxyModel->setFilterFixedString("true");
         }
-        
+
         //invalidateFilter()
     }
-    
+
     void setEncryptionStatus(int status)
     {
         if (status == WalletModel::Locked)
@@ -296,8 +302,8 @@ private:
             int index = qLowerBound(cachedMessageTable.begin(), cachedMessageTable.end(), message.received_datetime, MessageTableEntryLessThan()) - cachedMessageTable.begin();
             parent->beginInsertRows(QModelIndex(), index, index);
             cachedMessageTable.insert(
-                        index,
-                        message);
+                index,
+                message);
             parent->endInsertRows();
         }
     }
@@ -308,9 +314,9 @@ MessageModel::MessageModel(CWallet *wallet, WalletModel *walletModel, QObject *p
     QAbstractTableModel(parent), wallet(wallet), walletModel(walletModel), optionsModel(0), priv(0)
 {
     columns << tr("Type") << tr("Sent Date Time") << tr("Received Date Time") << tr("Label") << tr("To Address") << tr("From Address") << tr("Message");
-    
+
     proxyModel = NULL;
-    
+
     optionsModel = walletModel->getOptionsModel();
 
     priv = new MessageTablePriv(this);
@@ -323,7 +329,7 @@ MessageModel::~MessageModel()
 {
     if (proxyModel)
         delete proxyModel;
-    
+
     delete priv;
     unsubscribeFromCoreSignals();
 }
@@ -339,7 +345,7 @@ bool MessageModel::getAddressOrPubkey(QString &address, QString &pubkey) const
         addressParsed.GetKeyID(destinationAddress);
 
         if (SecureMsgGetStoredKey(destinationAddress, destinationKey) != 0
-            && SecureMsgGetLocalKey(destinationAddress, destinationKey) != 0) // test if it's a local key
+                && SecureMsgGetLocalKey(destinationAddress, destinationKey) != 0) // test if it's a local key
             return false;
 
         address = destinationAddress.ToString().c_str();
@@ -385,14 +391,14 @@ MessageModel::StatusCode MessageModel::sendMessages(const QList<SendMessagesReci
 
         SecureMsgAddAddress(sendTo, pubkey);
         setAddress.insert(rcp.address);
-        
+
         std::string sError;
         if (SecureMsgSend(addFrom, sendTo, message, sError) != 0)
         {
             QMessageBox::warning(NULL, tr("Send Secure Message"),
-                tr("Send failed: %1.").arg(sError.c_str()),
-                QMessageBox::Ok, QMessageBox::Ok);
-            
+                                 tr("Send failed: %1.").arg(sError.c_str()),
+                                 QMessageBox::Ok, QMessageBox::Ok);
+
             return FailedErrorShown;
         };
 
@@ -457,36 +463,59 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     case Qt::DisplayRole:
         switch(index.column())
         {
-            case Label:	           return (rec->label.isEmpty() ? tr("(no label)") : rec->label);
-            case ToAddress:	       return rec->to_address;
-            case FromAddress:      return rec->from_address;
-            case SentDateTime:     return rec->sent_datetime;
-            case ReceivedDateTime: return rec->received_datetime;
-            case Message:          return rec->message;
-            case TypeInt:          return rec->type;
-            case HTML:             return rec->received_datetime.toString() + "<br>"  + (rec->label.isEmpty() ? rec->from_address : rec->label)  + "<br>" + rec->message;
-            case Type:
-                switch(rec->type)
-                {
-                    case MessageTableEntry::Sent:     return Sent;
-                    case MessageTableEntry::Received: return Received;
-                    default: break;
-                }
-            case Key:               return QVariant::fromValue(rec->chKey);
+        case Label:
+            return (rec->label.isEmpty() ? tr("(no label)") : rec->label);
+        case ToAddress:
+            return rec->to_address;
+        case FromAddress:
+            return rec->from_address;
+        case SentDateTime:
+            return rec->sent_datetime;
+        case ReceivedDateTime:
+            return rec->received_datetime;
+        case Message:
+            return rec->message;
+        case TypeInt:
+            return rec->type;
+        case HTML:
+            return rec->received_datetime.toString() + "<br>"  + (rec->label.isEmpty() ? rec->from_address : rec->label)  + "<br>" + rec->message;
+        case Type:
+            switch(rec->type)
+            {
+            case MessageTableEntry::Sent:
+                return Sent;
+            case MessageTableEntry::Received:
+                return Received;
+            default:
+                break;
+            }
+        case Key:
+            return QVariant::fromValue(rec->chKey);
         }
         break;
 
-    case KeyRole:           return QVariant::fromValue(rec->chKey);
-    case TypeRole:          return rec->type;
-    case SentDateRole:      return rec->sent_datetime;
-    case ReceivedDateRole:  return rec->received_datetime;
-    case FromAddressRole:   return rec->from_address;
-    case ToAddressRole:     return rec->to_address;
-    case FilterAddressRole: return (rec->type == MessageTableEntry::Sent ? rec->to_address + rec->from_address : rec->from_address + rec->to_address);
-    case LabelRole:         return rec->label;
-    case MessageRole:       return rec->message;
-    case ShortMessageRole:  return rec->message; // TODO: Short message
-    case HTMLRole:          return rec->received_datetime.toString() + "<br>"  + (rec->label.isEmpty() ? rec->from_address : rec->label)  + "<br>" + rec->message;
+    case KeyRole:
+        return QVariant::fromValue(rec->chKey);
+    case TypeRole:
+        return rec->type;
+    case SentDateRole:
+        return rec->sent_datetime;
+    case ReceivedDateRole:
+        return rec->received_datetime;
+    case FromAddressRole:
+        return rec->from_address;
+    case ToAddressRole:
+        return rec->to_address;
+    case FilterAddressRole:
+        return (rec->type == MessageTableEntry::Sent ? rec->to_address + rec->from_address : rec->from_address + rec->to_address);
+    case LabelRole:
+        return rec->label;
+    case MessageRole:
+        return rec->message;
+    case ShortMessageRole:
+        return rec->message; // TODO: Short message
+    case HTMLRole:
+        return rec->received_datetime.toString() + "<br>"  + (rec->label.isEmpty() ? rec->from_address : rec->label)  + "<br>" + rec->message;
     case Ambiguous:
         int it;
 
@@ -604,7 +633,7 @@ void MessageModel::subscribeToCoreSignals()
     NotifySecMsgInboxChanged.connect(boost::bind(NotifySecMsgInbox, this, _1));
     NotifySecMsgOutboxChanged.connect(boost::bind(NotifySecMsgOutbox, this, _1));
     NotifySecMsgWalletUnlocked.connect(boost::bind(NotifySecMsgWallet, this));
-    
+
     connect(walletModel, SIGNAL(encryptionStatusChanged(int)), this, SLOT(setEncryptionStatus(int)));
 }
 
@@ -614,6 +643,6 @@ void MessageModel::unsubscribeFromCoreSignals()
     NotifySecMsgInboxChanged.disconnect(boost::bind(NotifySecMsgInbox, this, _1));
     NotifySecMsgOutboxChanged.disconnect(boost::bind(NotifySecMsgOutbox, this, _1));
     NotifySecMsgWalletUnlocked.disconnect(boost::bind(NotifySecMsgWallet, this));
-    
+
     disconnect(walletModel, SIGNAL(encryptionStatusChanged(int)), this, SLOT(setEncryptionStatus(int)));
 }

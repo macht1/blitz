@@ -36,22 +36,22 @@ using namespace json_spirit;
 // extern char SuperNET_url[512];
 
 string HTTPPost(const string& strMsg, const map<string,string>& mapRequestHeaders)
-{/*
-    ostringstream s;
-    s << "POST / HTTP/1.1\r\n"
-      << "User-Agent: blitz-json-rpc/" << FormatFullVersion() << "\r\n"
-      << "Host: 127.0.0.1\r\n"
-      << "Content-Type: application/json\r\n"
-      << "Content-Length: " << strMsg.size() << "\r\n"
-      << "Access-Control-Allow-Origin: " << SuperNET_url << "\r\n"
-      << "Connection: close\r\n"
-      << "Accept: application/json\r\n";
-    BOOST_FOREACH(const PAIRTYPE(string, string)& item, mapRequestHeaders)
-        s << item.first << ": " << item.second << "\r\n";
-    s << "\r\n" << strMsg;
+{   /*
+       ostringstream s;
+       s << "POST / HTTP/1.1\r\n"
+         << "User-Agent: blitz-json-rpc/" << FormatFullVersion() << "\r\n"
+         << "Host: 127.0.0.1\r\n"
+         << "Content-Type: application/json\r\n"
+         << "Content-Length: " << strMsg.size() << "\r\n"
+         << "Access-Control-Allow-Origin: " << SuperNET_url << "\r\n"
+         << "Connection: close\r\n"
+         << "Accept: application/json\r\n";
+       BOOST_FOREACH(const PAIRTYPE(string, string)& item, mapRequestHeaders)
+           s << item.first << ": " << item.second << "\r\n";
+       s << "\r\n" << strMsg;
 
-    return s.str();
-*/
+       return s.str();
+    */
 
     ostringstream s;
     s << "POST / HTTP/1.1\r\n"
@@ -68,10 +68,28 @@ string HTTPPost(const string& strMsg, const map<string,string>& mapRequestHeader
       << "Connection: close\r\n"
       << "Accept: application/json\r\n";
     BOOST_FOREACH(const PAIRTYPE(string, string)& item, mapRequestHeaders)
-        s << item.first << ": " << item.second << "\r\n";
+    s << item.first << ": " << item.second << "\r\n";
     s << "\r\n" << strMsg;
 
     return s.str();
+}
+
+static const char *httpStatusDescription(int nStatus)
+{
+    switch (nStatus) {
+    case HTTP_OK:
+        return "OK";
+    case HTTP_BAD_REQUEST:
+        return "Bad Request";
+    case HTTP_FORBIDDEN:
+        return "Forbidden";
+    case HTTP_NOT_FOUND:
+        return "Not Found";
+    case HTTP_INTERNAL_SERVER_ERROR:
+        return "Internal Server Error";
+    default:
+        return "";
+    }
 }
 
 static string rfc1123Time()
@@ -83,47 +101,47 @@ string HTTPReply(int nStatus, const string& strMsg, bool keepalive)
 {
     if (nStatus == HTTP_UNAUTHORIZED)
         return strprintf("HTTP/1.0 401 Authorization Required\r\n"
-            "Date: %s\r\n"
-            "Server: blitz-json-rpc/%s\r\n"
-            "WWW-Authenticate: Basic realm=\"jsonrpc\"\r\n"
-            "Content-Type: text/html\r\n"
-            "Content-Length: 296\r\n"
-            "\r\n"
-            "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\"\r\n"
-            "\"http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd\">\r\n"
-            "<HTML>\r\n"
-            "<HEAD>\r\n"
-            "<TITLE>Error</TITLE>\r\n"
-            "<META HTTP-EQUIV='Content-Type' CONTENT='text/html; charset=ISO-8859-1'>\r\n"
-            "</HEAD>\r\n"
-            "<BODY><H1>401 Unauthorized.</H1></BODY>\r\n"
-            "</HTML>\r\n",rfc1123Time().c_str(),FormatFullVersion().c_str());
+                         "Date: %s\r\n"
+                         "Server: blitz-json-rpc/%s\r\n"
+                         "WWW-Authenticate: Basic realm=\"jsonrpc\"\r\n"
+                         "Content-Type: text/html\r\n"
+                         "Content-Length: 296\r\n"
+                         "\r\n"
+                         "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\"\r\n"
+                         "\"http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd\">\r\n"
+                         "<HTML>\r\n"
+                         "<HEAD>\r\n"
+                         "<TITLE>Error</TITLE>\r\n"
+                         "<META HTTP-EQUIV='Content-Type' CONTENT='text/html; charset=ISO-8859-1'>\r\n"
+                         "</HEAD>\r\n"
+                         "<BODY><H1>401 Unauthorized.</H1></BODY>\r\n"
+                         "</HTML>\r\n",rfc1123Time().c_str(),FormatFullVersion().c_str());
 //            "</HTML>\r\n",rfc1123Time().c_str(),FormatFullVersion().c_str(),SuperNET_url);
 
- const char *cStatus;
-         if (nStatus == HTTP_OK) cStatus = "OK";
+    const char *cStatus;
+    if (nStatus == HTTP_OK) cStatus = "OK";
     else if (nStatus == HTTP_BAD_REQUEST) cStatus = "Bad Request";
     else if (nStatus == HTTP_FORBIDDEN) cStatus = "Forbidden";
     else if (nStatus == HTTP_NOT_FOUND) cStatus = "Not Found";
     else if (nStatus == HTTP_INTERNAL_SERVER_ERROR) cStatus = "Internal Server Error";
     else cStatus = "";
     return strprintf(
-            "HTTP/1.1 %d %s\r\n"
-            "Date: %s\r\n"
-            "Connection: %s\r\n"
-            "Content-Length: %u\r\n"
-            "Content-Type: application/json\r\n"
-            "Server: blitz-json-rpc/%s\r\n"
-            "\r\n"
-            "%s",
-        nStatus,
-        cStatus,
-        rfc1123Time(),
-        keepalive ? "keep-alive" : "close",
-        strMsg.size(),
-        //SuperNET_url,
-        FormatFullVersion(),
-        strMsg);
+               "HTTP/1.1 %d %s\r\n"
+               "Date: %s\r\n"
+               "Connection: %s\r\n"
+               "Content-Length: %u\r\n"
+               "Content-Type: application/json\r\n"
+               "Server: blitz-json-rpc/%s\r\n"
+               "\r\n"
+               "%s",
+               nStatus,
+               cStatus,
+               rfc1123Time(),
+               keepalive ? "keep-alive" : "close",
+               strMsg.size(),
+               //SuperNET_url,
+               FormatFullVersion(),
+               strMsg);
 }
 
 bool ReadHTTPRequestLine(std::basic_istream<char>& stream, int &proto,
@@ -278,4 +296,58 @@ Object JSONRPCError(int code, const string& message)
     error.push_back(Pair("code", code));
     error.push_back(Pair("message", message));
     return error;
+}
+
+string HTTPError(int nStatus, bool keepalive, bool headersOnly)
+{
+    if (nStatus == HTTP_UNAUTHORIZED)
+        return strprintf("HTTP/1.0 401 Authorization Required\r\n"
+                         "Date: %s\r\n"
+                         "Server: bitcoin-json-rpc/%s\r\n"
+                         "WWW-Authenticate: Basic realm=\"jsonrpc\"\r\n"
+                         "Content-Type: text/html\r\n"
+                         "Content-Length: 296\r\n"
+                         "\r\n"
+                         "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\"\r\n"
+                         "\"http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd\">\r\n"
+                         "<HTML>\r\n"
+                         "<HEAD>\r\n"
+                         "<TITLE>Error</TITLE>\r\n"
+                         "<META HTTP-EQUIV='Content-Type' CONTENT='text/html; charset=ISO-8859-1'>\r\n"
+                         "</HEAD>\r\n"
+                         "<BODY><H1>401 Unauthorized.</H1></BODY>\r\n"
+                         "</HTML>\r\n", rfc1123Time(), FormatFullVersion());
+
+    return HTTPReply(nStatus, httpStatusDescription(nStatus), keepalive,
+                     headersOnly, "text/plain");
+}
+
+string HTTPReplyHeader(int nStatus, bool keepalive, size_t contentLength, const char *contentType)
+{
+    return strprintf(
+               "HTTP/1.1 %d %s\r\n"
+               "Date: %s\r\n"
+               "Connection: %s\r\n"
+               "Content-Length: %u\r\n"
+               "Content-Type: %s\r\n"
+               "Server: bitcoin-json-rpc/%s\r\n"
+               "\r\n",
+               nStatus,
+               httpStatusDescription(nStatus),
+               rfc1123Time(),
+               keepalive ? "keep-alive" : "close",
+               contentLength,
+               contentType,
+               FormatFullVersion());
+}
+
+string HTTPReply(int nStatus, const string& strMsg, bool keepalive,
+                 bool headersOnly, const char *contentType)
+{
+    if (headersOnly)
+    {
+        return HTTPReplyHeader(nStatus, keepalive, 0, contentType);
+    } else {
+        return HTTPReplyHeader(nStatus, keepalive, strMsg.size(), contentType) + strMsg;
+    }
 }

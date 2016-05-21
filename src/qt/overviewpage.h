@@ -4,7 +4,7 @@
 #include <QWidget>
 
 namespace Ui {
-    class OverviewPage;
+class OverviewPage;
 }
 class ClientModel;
 class WalletModel;

@@ -11,31 +11,31 @@
 
 namespace Ui
 {
-    class MultisigDialog;
+class MultisigDialog;
 }
 
 class MultisigDialog : public QDialog
 {
     Q_OBJECT;
 
-  public:
+public:
     explicit MultisigDialog(QWidget *parent);
     MultisigDialog();
     void setModel(WalletModel *model);
 
-  public slots:
+public slots:
     MultisigAddressEntry * addPubKey();
     void clear();
     void updateRemoveEnabled();
     MultisigInputEntry * addInput();
     SendCoinsEntry * addOutput();
 
-  private:
+private:
     Ui::MultisigDialog *ui;
     WalletModel *model;
     ~MultisigDialog();
 
-  private slots:
+private slots:
     void on_createAddressButton_clicked();
     void on_copyMultisigAddressButton_clicked();
     void on_copyRedeemScriptButton_clicked();

@@ -19,6 +19,7 @@
 #include "txdb.h"
 #include "util.h"
 #include "main.h"
+#include "chain.h"
 #include "primitives/block.h"
 #include "chainparams.h"
 
@@ -410,8 +411,8 @@ bool CDBWrapper::LoadBlockIndex()
     nBestChainTrust = pindexBest->nChainTrust;
 
     LogPrintf("LoadBlockIndex(): hashBestChain=%s  height=%d  trust=%s  date=%s\n",
-      hashBestChain.ToString(), nBestHeight, CBigNum(nBestChainTrust).ToString(),
-      DateTimeStrFormat("%x %H:%M:%S", pindexBest->GetBlockTime()));
+              hashBestChain.ToString(), nBestHeight, CBigNum(nBestChainTrust).ToString(),
+              DateTimeStrFormat("%x %H:%M:%S", pindexBest->GetBlockTime()));
 
     // Load bnBestInvalidTrust, OK if it doesn't exist
     CBigNum bnBestInvalidTrust;
@@ -459,18 +460,17 @@ bool CDBWrapper::LoadBlockIndex()
                     {
                         // either an error or a duplicate transaction
                         CTransaction txFound;
-			CTransactionPoS txPoS;
+                        CTransactionPoS txPoS;
                         if (!txPoS.ReadFromDisk(txFound, txindex.pos))
                         {
                             LogPrintf("LoadBlockIndex() : *** cannot read mislocated transaction %s\n", hashTx.ToString());
                             pindexFork = pindex->pprev;
                         }
-                        else
-                            if (txFound.GetHash() != hashTx) // not a duplicate tx
-                            {
-                                LogPrintf("LoadBlockIndex(): *** invalid tx position for %s\n", hashTx.ToString());
-                                pindexFork = pindex->pprev;
-                            }
+                        else if (txFound.GetHash() != hashTx) // not a duplicate tx
+                        {
+                            LogPrintf("LoadBlockIndex(): *** invalid tx position for %s\n", hashTx.ToString());
+                            pindexFork = pindex->pprev;
+                        }
                     }
                     // check level 4: check whether spent txouts were spent within the main chain
                     unsigned int nOutput = 0;
@@ -489,7 +489,7 @@ bool CDBWrapper::LoadBlockIndex()
                                 // check level 6: check whether spent txouts were spent by a valid transaction that consume them
                                 if (nCheckLevel>5)
                                 {
-				    CTransactionPoS txPoS;
+                                    CTransactionPoS txPoS;
                                     CTransaction txSpend;
                                     if (!txPoS.ReadFromDisk(txSpend, txpos))
                                     {
@@ -505,8 +505,8 @@ bool CDBWrapper::LoadBlockIndex()
                                     {
                                         bool fFound = false;
                                         BOOST_FOREACH(const CTxIn &txin, txSpend.vin)
-                                            if (txin.prevout.hash == hashTx && txin.prevout.n == nOutput)
-                                                fFound = true;
+                                        if (txin.prevout.hash == hashTx && txin.prevout.n == nOutput)
+                                            fFound = true;
                                         if (!fFound)
                                         {
                                             LogPrintf("LoadBlockIndex(): *** spending transaction of %s:%i does not spend it\n", hashTx.ToString(), nOutput);
@@ -522,16 +522,16 @@ bool CDBWrapper::LoadBlockIndex()
                 // check level 5: check whether all prevouts are marked spent
                 if (nCheckLevel>4)
                 {
-                     BOOST_FOREACH(const CTxIn &txin, tx.vin)
-                     {
-                          CTxIndex txindex;
-                          if (ReadTxIndex(txin.prevout.hash, txindex))
-                              if (txindex.vSpent.size()-1 < txin.prevout.n || txindex.vSpent[txin.prevout.n].IsNull())
-                              {
-                                  LogPrintf("LoadBlockIndex(): *** found unspent prevout %s:%i in %s\n", txin.prevout.hash.ToString(), txin.prevout.n, hashTx.ToString());
-                                  pindexFork = pindex->pprev;
-                              }
-                     }
+                    BOOST_FOREACH(const CTxIn &txin, tx.vin)
+                    {
+                        CTxIndex txindex;
+                        if (ReadTxIndex(txin.prevout.hash, txindex))
+                            if (txindex.vSpent.size()-1 < txin.prevout.n || txindex.vSpent[txin.prevout.n].IsNull())
+                            {
+                                LogPrintf("LoadBlockIndex(): *** found unspent prevout %s:%i in %s\n", txin.prevout.hash.ToString(), txin.prevout.n, hashTx.ToString());
+                                pindexFork = pindex->pprev;
+                            }
+                    }
                 }
             }
         }

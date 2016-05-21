@@ -14,6 +14,7 @@
 #include <stdint.h>
 
 #include "serialize.h"
+#include "streams.h"
 #include "util.h"
 #include "txmempool.h"
 
@@ -167,13 +168,13 @@ public:
 
     //! equality test
     friend bool operator==(const CCoins &a, const CCoins &b) {
-         // Empty CCoins objects are always equal.
-         if (a.IsPruned() && b.IsPruned())
-             return true;
-         return a.fCoinBase == b.fCoinBase &&
-                a.nHeight == b.nHeight &&
-                a.nVersion == b.nVersion &&
-                a.vout == b.vout;
+        // Empty CCoins objects are always equal.
+        if (a.IsPruned() && b.IsPruned())
+            return true;
+        return a.fCoinBase == b.fCoinBase &&
+               a.nHeight == b.nHeight &&
+               a.nVersion == b.nVersion &&
+               a.vout == b.vout;
     }
     friend bool operator!=(const CCoins &a, const CCoins &b) {
         return !(a == b);
@@ -288,8 +289,8 @@ public:
     //! note that only !IsPruned() CCoins can be serialized
     bool IsPruned() const {
         BOOST_FOREACH(const CTxOut &out, vout)
-            if (!out.IsNull())
-                return false;
+        if (!out.IsNull())
+            return false;
         return true;
     }
 };
@@ -411,8 +412,12 @@ private:
     CCoinsModifier(CCoinsViewCache& cache_, CCoinsMap::iterator it_);
 
 public:
-    CCoins* operator->() { return &it->second.coins; }
-    CCoins& operator*() { return it->second.coins; }
+    CCoins* operator->() {
+        return &it->second.coins;
+    }
+    CCoins& operator*() {
+        return it->second.coins;
+    }
     ~CCoinsModifier();
     friend class CCoinsViewCache;
 };

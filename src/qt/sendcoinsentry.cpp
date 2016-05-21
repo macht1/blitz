@@ -118,7 +118,7 @@ bool SendCoinsEntry::validate()
     }
 
     if(!ui->payTo->hasAcceptableInput() ||
-       (model && !model->validateAddress(ui->payTo->text())))
+            (model && !model->validateAddress(ui->payTo->text())))
     {
         ui->payTo->setValid(false);
         retval = false;

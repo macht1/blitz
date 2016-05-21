@@ -7,6 +7,7 @@
 #include "allocators.h" /* for SecureString */
 #include "key.h"
 #include "serialize.h"
+#include "streams.h"
 #include "keystore.h"
 
 const unsigned int WALLET_CRYPTO_KEY_SIZE = 32;
@@ -41,14 +42,17 @@ public:
     // such as the various parameters to scrypt
     std::vector<unsigned char> vchOtherDerivationParameters;
 
-    IMPLEMENT_SERIALIZE
-    (
+    ADD_SERIALIZE_METHODS;
+
+    template <typename Stream, typename Operation>
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion) {
         READWRITE(vchCryptedKey);
         READWRITE(vchSalt);
         READWRITE(nDerivationMethod);
         READWRITE(nDeriveIterations);
         READWRITE(vchOtherDerivationParameters);
-    )
+    }
+
     CMasterKey()
     {
         // 25000 rounds is just under 0.1 seconds on a 1.86 GHz Pentium M
@@ -62,17 +66,17 @@ public:
     {
         switch (nDerivationMethodIndex)
         {
-            case 0: // sha512
-            default:
-                nDeriveIterations = 25000;
-                nDerivationMethod = 0;
-                vchOtherDerivationParameters = std::vector<unsigned char>(0);
+        case 0: // sha512
+        default:
+            nDeriveIterations = 25000;
+            nDerivationMethod = 0;
+            vchOtherDerivationParameters = std::vector<unsigned char>(0);
             break;
 
-            case 1: // scrypt+sha512
-                nDeriveIterations = 10000;
-                nDerivationMethod = 1;
-                vchOtherDerivationParameters = std::vector<unsigned char>(0);
+        case 1: // scrypt+sha512
+            nDeriveIterations = 10000;
+            nDerivationMethod = 1;
+            vchOtherDerivationParameters = std::vector<unsigned char>(0);
             break;
         }
     }

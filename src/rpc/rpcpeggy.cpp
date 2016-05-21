@@ -5,6 +5,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "main.h"
+#include "chain.h"
 #include "bitcoinrpc.h"
 #include "kernel.h"
 #include "init.h"
@@ -53,13 +54,13 @@ extern "C" char* GetPeggyByBlock(CBlock *pblock, CBlockIndex *pindex)
 
     jadd(arrayObj, "header", header);
 
-    if(pindex->nHeight >= nMinPeggyHeight){
+    if(pindex->nHeight >= nMinPeggyHeight) {
         if(!pblock->vtx[2].IsPeggyBase())
             throw runtime_error(
                 "Block Does not contain a peggybase transaction!\n"
             );
     }
-    else{
+    else {
         return "Not a peggy block\n";
     }
 
@@ -73,13 +74,13 @@ extern "C" char* GetPeggyByBlock(CBlock *pblock, CBlockIndex *pindex)
     bool fPeggy = false;
     uint64_t nPeggyPayments = 0;
 
-    for(index=0; index<pblock->vtx.size(); index++){
+    for(index=0; index<pblock->vtx.size(); index++) {
         fPeggy = false;
         const CTransaction tempTx = pblock->vtx[index];
         if(tempTx.IsCoinBase() || tempTx.IsCoinStake())
             continue;
 
-        if(tempTx.IsPeggyBase()){
+        if(tempTx.IsPeggyBase()) {
             const CTxOut peggyOut = tempTx.vout[0];
             const CScript priceFeed = peggyOut.scriptPubKey;
 
@@ -95,7 +96,7 @@ extern "C" char* GetPeggyByBlock(CBlock *pblock, CBlockIndex *pindex)
             fPeggy = true;
         }
 
-        for(vouts=0; vouts<tempTx.vout.size(); vouts++){
+        for(vouts=0; vouts<tempTx.vout.size(); vouts++) {
 
             const CTxOut tempVout = tempTx.vout[vouts];
 
@@ -104,7 +105,7 @@ extern "C" char* GetPeggyByBlock(CBlock *pblock, CBlockIndex *pindex)
             strcpy(hex, (char*)HexStr(tempScriptPubKey.begin(), tempScriptPubKey.end(), false).c_str());
             sprintf(hex, "%s", hex);
 
-            if(fPeggy && (vouts != 0)){
+            if(fPeggy && (vouts != 0)) {
                 cJSON *peggyOut = cJSON_CreateObject();
 
 
@@ -115,10 +116,10 @@ extern "C" char* GetPeggyByBlock(CBlock *pblock, CBlockIndex *pindex)
                 jaddnum(peggyOut, "voutind", vouts);
                 jaddstr(peggyOut, "scriptPubKey", hex);
 
-                if(ExtractDestination(tempScriptPubKey, destAddress)){
+                if(ExtractDestination(tempScriptPubKey, destAddress)) {
                     jaddstr(peggyOut, "address", (char*)CBitcoinAddress(destAddress).ToString().c_str());
                 }
-                else{
+                else {
                     jaddstr(peggyOut, "address", "null");
                 }
 
@@ -127,7 +128,7 @@ extern "C" char* GetPeggyByBlock(CBlock *pblock, CBlockIndex *pindex)
                 jaddi(peggypayments, peggyOut);
             }
 
-            else if(!fPeggy && (isOpReturn(hex) == 0)){ //peggy lock found
+            else if(!fPeggy && (isOpReturn(hex) == 0)) { //peggy lock found
                 cJSON *lockVout = cJSON_CreateObject();
 
                 jaddstr(lockVout, "txid", (char*)tempTx.GetHash().ToString().c_str());
@@ -136,10 +137,10 @@ extern "C" char* GetPeggyByBlock(CBlock *pblock, CBlockIndex *pindex)
                 jaddnum(lockVout, "voutind", vouts);
                 jaddstr(lockVout, "scriptPubKey", hex);
 
-                if(ExtractDestination(tempScriptPubKey, destAddress)){
+                if(ExtractDestination(tempScriptPubKey, destAddress)) {
                     jaddstr(lockVout, "address", (char*)CBitcoinAddress(destAddress).ToString().c_str());
                 }
-                else{
+                else {
                     jaddstr(lockVout, "address", "null");
                 }
 
@@ -225,7 +226,7 @@ Value peggytx(const Array& params, bool fHelp)
     scriptPubKey << OP_RETURN;
     scriptPubKey << ParseHex(peggytx);
     //for(i=0;i<strlen((const char*)buf);i++)
-       // scriptPubKey << test[i];
+    // scriptPubKey << test[i];
     //scriptPubKey << ParseHex(hex);
     //scriptPubKey.SetDestination(returnAddr.Get());
     CReserveKey reservekey(pwalletMain);
@@ -247,30 +248,30 @@ Value peggytx(const Array& params, bool fHelp)
 
     free(peggytx);
 
-    if(signAndSend){
+    if(signAndSend) {
         if(!pwalletMain->CommitTransaction(wtx, reservekey))
             return std::string("The transaction was Rejected\n");
-        else{
-           return jprint(obj, 1);
+        else {
+            return jprint(obj, 1);
         }
     }
-    else{
-       return jprint(obj, 1);
+    else {
+        return jprint(obj, 1);
     }
-/*
-                  CTransaction peggy;
-                    char *paymentScript= "{\"RWoDDki8gfqYMHDEzsyFdsCtdSkB79DbVc\":10000000}"; // temp.
+    /*
+                      CTransaction peggy;
+                        char *paymentScript= "{\"RWoDDki8gfqYMHDEzsyFdsCtdSkB79DbVc\":10000000}"; // temp.
 
-                    char *priceFeedHash = "5f43ac64";
-                    if(wallet.CreatePeggyBase(peggy, paymentScript, priceFeedHash))
-                    {
-                        peggy.nTime = 0;
+                        char *priceFeedHash = "5f43ac64";
+                        if(wallet.CreatePeggyBase(peggy, paymentScript, priceFeedHash))
+                        {
+                            peggy.nTime = 0;
 
-                    }
+                        }
 
-                    Object o;
-                            TxToJSON(peggy, 0, o);
-                           return o;*/
+                        Object o;
+                                TxToJSON(peggy, 0, o);
+                               return o;*/
 }
 
 Value getpeggyblock(const Array& params, bool fHelp)
@@ -301,36 +302,36 @@ Value peggypayments(const Array& params, bool fHelp)
             "peggypayments <block height>\n"
             "Shows all redeems for a certain block: \n"
             "(-1 for latest block)\n"
+        );
+
+
+    int64_t nHeight, nBlockTime;
+
+    nHeight = params[0].get_int64();
+
+    if(nHeight != -1) {
+
+        if(nHeight < nMinPeggyHeight || nHeight > pindexBest->nHeight)
+            throw runtime_error(
+                "peggypayments <block height> <block time>\n"
+                "the block height you entered is not a peggy block, or the height is out of range\n"
             );
 
 
-        int64_t nHeight, nBlockTime;
+        CBlockIndex *pindex = FindBlockByHeight(nHeight);
+        nHeight = pindex->nHeight;
+        nBlockTime = pindex->GetBlockTime();
+    }
+    else {
+        nHeight = pindexBest->nHeight;
+        nBlockTime = pindexBest->GetBlockTime();
+    }
+    CWallet wallet;
+    char *paymentScript = peggypayments(nHeight, nBlockTime);
+    //char *priceFeedHash = peggybase(nHeight, nBlockTime);
 
-        nHeight = params[0].get_int64();
-
-        if(nHeight != -1){
-
-            if(nHeight < nMinPeggyHeight || nHeight > pindexBest->nHeight)
-                throw runtime_error(
-                    "peggypayments <block height> <block time>\n"
-                    "the block height you entered is not a peggy block, or the height is out of range\n"
-                );
-
-
-            CBlockIndex *pindex = FindBlockByHeight(nHeight);
-            nHeight = pindex->nHeight;
-            nBlockTime = pindex->GetBlockTime();
-        }
-        else{
-            nHeight = pindexBest->nHeight;
-            nBlockTime = pindexBest->GetBlockTime();
-        }
-        CWallet wallet;
-        char *paymentScript = peggypayments(nHeight, nBlockTime);
-        //char *priceFeedHash = peggybase(nHeight, nBlockTime);
-
-        std::string retVal = std::string(paymentScript);
-        free(paymentScript);
-        return std::string(paymentScript);
+    std::string retVal = std::string(paymentScript);
+    free(paymentScript);
+    return std::string(paymentScript);
 }
 #endif

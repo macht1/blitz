@@ -24,8 +24,8 @@ OptionsDialog::OptionsDialog(QWidget *parent) :
     fRestartWarningDisplayed_Lang(false),
     fProxyIpValid(true)
 #ifdef USE_NATIVE_I2P
-  , fRestartWarningDisplayed_I2P(false)
-  , tabI2P(new I2POptionsWidget())
+    , fRestartWarningDisplayed_I2P(false)
+    , tabI2P(new I2POptionsWidget())
 #endif
 {
     ui->setupUi(this);
@@ -148,7 +148,7 @@ void OptionsDialog::setMapper()
 
     /* Network */
     mapper->addMapping(ui->mapPortUpnp, OptionsModel::MapPortUPnP);
-	mapper->addMapping(ui->connectBlitzDark, OptionsModel::BlitzDarkEnabled);
+    mapper->addMapping(ui->connectBlitzDark, OptionsModel::BlitzDarkEnabled);
     mapper->addMapping(ui->connectSocks, OptionsModel::ProxyUse);
     mapper->addMapping(ui->proxyIp, OptionsModel::ProxyIP);
     mapper->addMapping(ui->proxyPort, OptionsModel::ProxyPort);

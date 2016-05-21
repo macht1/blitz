@@ -33,8 +33,12 @@ static const int PING_INTERVAL = 2 * 60;
 /** Time after which to disconnect, after waiting for a ping response (or inactivity). */
 static const int TIMEOUT_INTERVAL = 20 * 60;
 
-inline unsigned int ReceiveFloodSize() { return 1000*GetArg("-maxreceivebuffer", 5*1000); }
-inline unsigned int SendBufferSize() { return 1000*GetArg("-maxsendbuffer", 1*1000); }
+inline unsigned int ReceiveFloodSize() {
+    return 1000*GetArg("-maxreceivebuffer", 5*1000);
+}
+inline unsigned int SendBufferSize() {
+    return 1000*GetArg("-maxsendbuffer", 1*1000);
+}
 
 void AddOneShot(std::string strDest);
 bool RecvLine(SOCKET hSocket, std::string& strLine);
@@ -127,7 +131,7 @@ extern CCriticalSection cs_nLastNodeId;
 class CNodeStats
 {
 public:
-	NodeId nodeid;
+    NodeId nodeid;
     uint64_t nServices;
     int64_t nLastSend;
     int64_t nLastRecv;
@@ -200,16 +204,16 @@ public:
         nPeerId         = 0;
         fEnabled        = false;
     };
-    
+
     ~SecMsgNode() {};
-    
+
     int64_t                     lastSeen;
     int64_t                     lastMatched;
     int64_t                     ignoreUntil;
     uint32_t                    nWakeCounter;
     uint32_t                    nPeerId;
     bool                        fEnabled;
-    
+
 };
 
 /** Information about a peer */
@@ -249,7 +253,7 @@ public:
     bool fDisconnect;
     CSemaphoreGrant grantOutbound;
     int nRefCount;
-	NodeId id;
+    NodeId id;
 protected:
 
     // Denial-of-service detection/prevention
@@ -277,8 +281,8 @@ public:
     std::vector<CInv> vInventoryToSend;
     CCriticalSection cs_inventory;
     std::multimap<int64_t, CInv> mapAskFor;
-	
-	SecMsgNode smsgData;
+
+    SecMsgNode smsgData;
 
     // Ping time measurement:
     // The pong reply we're expecting, or 0 if no pong expected.
@@ -294,8 +298,8 @@ public:
 
     CNode(SOCKET hSocketIn, CAddress addrIn, std::string addrNameIn = "", bool fInboundIn=false) : ssSend(SER_NETWORK, INIT_PROTO_VERSION), setAddrKnown(5000)
 #ifdef USE_NATIVE_I2P
-      , nSendStreamType(SER_NETWORK | (((addrIn.nServices & NODE_I2P) || addrIn.IsNativeI2P()) ? 0 : SER_IPADDRONLY))
-      , nRecvStreamType(SER_NETWORK | (((addrIn.nServices & NODE_I2P) || addrIn.IsNativeI2P()) ? 0 : SER_IPADDRONLY))
+        , nSendStreamType(SER_NETWORK | (((addrIn.nServices & NODE_I2P) || addrIn.IsNativeI2P()) ? 0 : SER_IPADDRONLY))
+        , nRecvStreamType(SER_NETWORK | (((addrIn.nServices & NODE_I2P) || addrIn.IsNativeI2P()) ? 0 : SER_IPADDRONLY))
 #endif
     {
 #ifdef USE_NATIVE_I2P
@@ -339,7 +343,7 @@ public:
             LOCK(cs_nLastNodeId);
             id = nLastNodeId++;
         }
-		
+
         // Be shy and don't send version until we hear
         if (hSocket != INVALID_SOCKET && !fInbound)
             PushVersion();
@@ -399,9 +403,9 @@ public:
 public:
 
     NodeId GetId() const {
-      return id;
+        return id;
     }
-	
+
     int GetRefCount()
     {
         assert(nRefCount >= 0);
@@ -412,8 +416,8 @@ public:
     unsigned int GetTotalRecvSize()
     {
         unsigned int total = 0;
-        BOOST_FOREACH(const CNetMessage &msg, vRecvMsg) 
-            total += msg.vRecv.size() + 24;
+        BOOST_FOREACH(const CNetMessage &msg, vRecvMsg)
+        total += msg.vRecv.size() + 24;
         return total;
     }
 
@@ -425,7 +429,7 @@ public:
     {
         nRecvVersion = nVersionIn;
         BOOST_FOREACH(CNetMessage &msg, vRecvMsg)
-            msg.SetVersion(nVersionIn);
+        msg.SetVersion(nVersionIn);
     }
 
     CNode* AddRef()
@@ -456,7 +460,7 @@ public:
             // if receiver doesn't support i2p-address we don't send it
             if ((this->nServices & NODE_I2P) || !addr.IsNativeI2P())
 #endif
-            vAddrToSend.push_back(addr);
+                vAddrToSend.push_back(addr);
     }
 
 
@@ -753,7 +757,7 @@ inline void RelayInventory(const CInv& inv)
     {
         LOCK(cs_vNodes);
         BOOST_FOREACH(CNode* pnode, vNodes)
-            pnode->PushInventory(inv);
+        pnode->PushInventory(inv);
     }
 }
 

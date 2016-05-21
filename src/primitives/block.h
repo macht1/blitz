@@ -6,7 +6,6 @@
 #ifndef BLITZ_BLOCK_H
 #define BLITZ_BLOCK_H
 
-#include "main.h"
 #include "primitives/transaction.h"
 #include "crypto/algo.h"
 #include "crypto/scrypt/scrypt.h"
@@ -16,9 +15,7 @@ class CDBWrapper;
 class CWallet;
 class CBlockIndex;
 
-inline int64_t FutureDriftV1(int64_t nTime) { return nTime + 10 * 60; }
-inline int64_t FutureDriftV2(int64_t nTime) { return nTime + 15; }
-inline int64_t FutureDrift(int64_t nTime, int nHeight) { return FutureDriftV2(nTime); }
+inline int64_t FutureDrift(int64_t nTime, int nHeight) { return (nTime+15); }
 
 bool CheckProofOfWork(uint256 hash, unsigned int nBits);
 
@@ -55,15 +52,21 @@ public:
 
     // Denial-of-service detection:
     mutable int nDoS;
-    bool DoS(int nDoSIn, bool fIn) const { nDoS += nDoSIn; return fIn; }
+    bool DoS(int nDoSIn, bool fIn) const {
+        nDoS += nDoSIn;
+        return fIn;
+    }
 
     CBlock()
     {
         SetNull();
     }
 
-    IMPLEMENT_SERIALIZE
-    (
+    ADD_SERIALIZE_METHODS;
+
+    template <typename Stream, typename Operation>
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion) {
+        bool fRead = boost::is_same<Operation, CSerActionUnserialize>();
         READWRITE(this->nVersion);
         nVersion = this->nVersion;
         READWRITE(hashPrevBlock);
@@ -83,7 +86,7 @@ public:
             const_cast<CBlock*>(this)->vtx.clear();
             const_cast<CBlock*>(this)->vchBlockSig.clear();
         }
-    )
+    }
 
     void SetNull()
     {
@@ -111,12 +114,12 @@ public:
 
     unsigned int returnNonce() const
     {
-		return (unsigned int)nNonce;
+        return (unsigned int)nNonce;
     }
 
     uint256 GetPoWHash() const
     {
-		return Hash9(BEGIN(nVersion), END(nNonce));
+        return Hash9(BEGIN(nVersion), END(nNonce));
     }
 
     int64_t GetBlockTime() const
@@ -156,7 +159,7 @@ public:
     {
         int64_t maxTransactionTime = 0;
         BOOST_FOREACH(const CTransaction& tx, vtx)
-            maxTransactionTime = std::max(maxTransactionTime, (int64_t)tx.nTime);
+        maxTransactionTime = std::max(maxTransactionTime, (int64_t)tx.nTime);
         return maxTransactionTime;
     }
 
@@ -164,7 +167,7 @@ public:
     {
         vMerkleTree.clear();
         BOOST_FOREACH(const CTransaction& tx, vtx)
-            vMerkleTree.push_back(tx.GetHash());
+        vMerkleTree.push_back(tx.GetHash());
         int j = 0;
         for (int nSize = vtx.size(); nSize > 1; nSize = (nSize + 1) / 2)
         {
@@ -212,20 +215,20 @@ public:
 
 
     bool WriteToDisk(unsigned int& nFileRet, unsigned int& nBlockPosRet);
-    
+
     bool ReadFromDisk(unsigned int nFile, unsigned int nBlockPos, bool fReadTransactions=true);
-    
+
     std::string ToString() const
     {
         std::stringstream s;
         s << strprintf("CBlock(hash=%s, ver=%d, hashPrevBlock=%s, hashMerkleRoot=%s, nTime=%u, nBits=%08x, nNonce=%u, vtx=%u, vchBlockSig=%s)\n",
-            GetHash().ToString(),
-            nVersion,
-            hashPrevBlock.ToString(),
-            hashMerkleRoot.ToString(),
-            nTime, nBits, nNonce,
-            vtx.size(),
-            HexStr(vchBlockSig.begin(), vchBlockSig.end()));
+                       GetHash().ToString(),
+                       nVersion,
+                       hashPrevBlock.ToString(),
+                       hashMerkleRoot.ToString(),
+                       nTime, nBits, nNonce,
+                       vtx.size(),
+                       HexStr(vchBlockSig.begin(), vchBlockSig.end()));
         for (unsigned int i = 0; i < vtx.size(); i++)
         {
             s << "  " << vtx[i].ToString() << "\n";

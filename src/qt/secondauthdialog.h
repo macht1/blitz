@@ -4,13 +4,13 @@
 #include <QWidget>
 
 #if QT_VERSION < 0x050000
- static const Qt::WindowFlags DIALOGWINDOWHINTS = Qt::WindowSystemMenuHint | Qt::WindowTitleHint;
+static const Qt::WindowFlags DIALOGWINDOWHINTS = Qt::WindowSystemMenuHint | Qt::WindowTitleHint;
 #else
- static const Qt::WindowFlags DIALOGWINDOWHINTS = Qt::WindowCloseButtonHint | Qt::WindowTitleHint;
+static const Qt::WindowFlags DIALOGWINDOWHINTS = Qt::WindowCloseButtonHint | Qt::WindowTitleHint;
 #endif
 
 namespace Ui {
-    class SecondAuthDialog;
+class SecondAuthDialog;
 }
 class WalletModel;
 

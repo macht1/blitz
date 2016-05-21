@@ -4,7 +4,7 @@
 #include <QDialog>
 
 namespace Ui {
-    class AddressBookPage;
+class AddressBookPage;
 }
 class AddressTableModel;
 class OptionsModel;
@@ -39,7 +39,9 @@ public:
 
     void setModel(AddressTableModel *model);
     void setOptionsModel(OptionsModel *optionsModel);
-    const QString &getReturnValue() const { return returnValue; }
+    const QString &getReturnValue() const {
+        return returnValue;
+    }
 
 public slots:
     void done(int retval);

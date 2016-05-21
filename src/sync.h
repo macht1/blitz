@@ -22,9 +22,9 @@
 ////////////////////////////////////////////////
 
 /*
- 
- 
- 
+
+
+
 CCriticalSection mutex;
     boost::recursive_mutex mutex;
 
@@ -43,9 +43,9 @@ ENTER_CRITICAL_SECTION(mutex); // no RAII
 
 LEAVE_CRITICAL_SECTION(mutex); // no RAII
     mutex.unlock();
- 
- 
- 
+
+
+
  */
 
 
@@ -64,17 +64,17 @@ class LOCKABLE AnnotatedMixin : public PARENT
 public:
     void lock() EXCLUSIVE_LOCK_FUNCTION()
     {
-      PARENT::lock();
+        PARENT::lock();
     }
 
     void unlock() UNLOCK_FUNCTION()
     {
-      PARENT::unlock();
+        PARENT::unlock();
     }
 
     bool try_lock() EXCLUSIVE_TRYLOCK_FUNCTION(true)
     {
-      return PARENT::try_lock();
+        return PARENT::try_lock();
     }
 };
 
@@ -116,7 +116,7 @@ private:
         {
             PrintLockContention(pszName, pszFile, nLine);
 #endif
-        lock.lock();
+            lock.lock();
 #ifdef DEBUG_LOCKCONTENTION
         }
 #endif

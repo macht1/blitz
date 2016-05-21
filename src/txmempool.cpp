@@ -56,7 +56,7 @@ bool CTxMemPool::remove(const CTransaction &tx, bool fRecursive)
                 }
             }
             BOOST_FOREACH(const CTxIn& txin, tx.vin)
-                mapNextTx.erase(txin.prevout);
+            mapNextTx.erase(txin.prevout);
             mapTx.erase(hash);
             nTransactionsUpdated++;
         }

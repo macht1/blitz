@@ -28,8 +28,10 @@ public:
     ~CECKey() {
         EC_KEY_free(pkey);
     }
-    
-    EC_KEY* GetECKey() {return pkey;};
+
+    EC_KEY* GetECKey() {
+        return pkey;
+    };
 
     void GetSecretBytes(unsigned char vch[32]) const;
 
@@ -54,7 +56,7 @@ public:
     // If this function succeeds, the recovered public key is guaranteed to be valid
     // (the signature is a valid signature of the given data for that key)
     bool Recover(const uint256 &hash, const unsigned char *p64, int rec);
-    
+
     bool TweakPublic(const unsigned char vchTweak[32]);
 };
 

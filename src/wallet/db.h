@@ -8,6 +8,7 @@
 #define BLITZ_DB_H
 
 #include "serialize.h"
+#include "streams.h"
 #include "sync.h"
 #include "version.h"
 
@@ -49,7 +50,9 @@ public:
     CDBEnv();
     ~CDBEnv();
     void MakeMock();
-    bool IsMock() { return fMockDb; };
+    bool IsMock() {
+        return fMockDb;
+    };
 
     /*
      * Verify that database file strFile is OK. If it is not,
@@ -100,7 +103,9 @@ protected:
     bool fReadOnly;
 
     explicit CDB(const std::string& strFilename, const char* pszMode="r+");
-    ~CDB() { Close(); }
+    ~CDB() {
+        Close();
+    }
 
 public:
     void Close();

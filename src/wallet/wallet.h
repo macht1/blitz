@@ -15,11 +15,13 @@
 
 #include "crypter.h"
 #include "main.h"
+#include "chain.h"
 #include "key.h"
 #include "keystore.h"
 #include "script.h"
 #include "ui_interface.h"
 #include "util.h"
+#include "walletinterface.h"
 
 // Settings
 extern int64_t nTransactionFee;
@@ -64,13 +66,15 @@ public:
         vchPubKey = vchPubKeyIn;
     }
 
-    IMPLEMENT_SERIALIZE
-    (
+    ADD_SERIALIZE_METHODS;
+
+    template <typename Stream, typename Operation>
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion) {
         if (!(nType & SER_GETHASH))
             READWRITE(nVersion);
         READWRITE(nTime);
         READWRITE(vchPubKey);
-    )
+    }
 };
 
 /** A CWallet is an extension of a keystore, which also maintains a set of transactions and balances,
@@ -141,7 +145,10 @@ public:
     int64_t nTimeFirstKey;
 
     // check whether we are allowed to upgrade (or already support) to the named feature
-    bool CanSupportFeature(enum WalletFeature wf) { AssertLockHeld(cs_wallet); return nWalletMaxVersion >= wf; }
+    bool CanSupportFeature(enum WalletFeature wf) {
+        AssertLockHeld(cs_wallet);
+        return nWalletMaxVersion >= wf;
+    }
 
     void AvailableCoinsForStaking(std::vector<COutput>& vCoins, unsigned int nSpendTime) const;
     void AvailableCoins(std::vector<COutput>& vCoins, bool fOnlyConfirmed=true, const CCoinControl *coinControl=NULL) const;
@@ -153,11 +160,18 @@ public:
     // Adds a key to the store, and saves it to disk.
     bool AddKeyPubKey(const CKey& key, const CPubKey &pubkey);
     // Adds a key to the store, without saving it to disk (used by LoadWallet)
-    bool LoadKey(const CKey& key, const CPubKey &pubkey) { return CCryptoKeyStore::AddKeyPubKey(key, pubkey); }
+    bool LoadKey(const CKey& key, const CPubKey &pubkey) {
+        return CCryptoKeyStore::AddKeyPubKey(key, pubkey);
+    }
     // Load metadata (used by LoadWallet)
     bool LoadKeyMetadata(const CPubKey &pubkey, const CKeyMetadata &metadata);
 
-    bool LoadMinVersion(int nVersion) { AssertLockHeld(cs_wallet); nWalletVersion = nVersion; nWalletMaxVersion = std::max(nWalletMaxVersion, nVersion); return true; }
+    bool LoadMinVersion(int nVersion) {
+        AssertLockHeld(cs_wallet);
+        nWalletVersion = nVersion;
+        nWalletMaxVersion = std::max(nWalletMaxVersion, nVersion);
+        return true;
+    }
 
     // Adds an encrypted key to the store, and saves it to disk.
     bool AddCryptedKey(const CPubKey &vchPubKey, const std::vector<unsigned char> &vchCryptedSecret);
@@ -246,8 +260,8 @@ public:
     bool IsMine(const CTransaction& tx) const
     {
         BOOST_FOREACH(const CTxOut& txout, tx.vout)
-            if (IsMine(txout) && txout.nValue >= nMinimumInputValue)
-                return true;
+        if (IsMine(txout) && txout.nValue >= nMinimumInputValue)
+            return true;
         return false;
     }
     bool IsFromMe(const CTransaction& tx) const
@@ -322,7 +336,10 @@ public:
     bool SetMaxVersion(int nVersion);
 
     // get the current wallet format (the oldest client version guaranteed to understand this wallet)
-    int GetVersion() { LOCK(cs_wallet); return nWalletVersion; }
+    int GetVersion() {
+        LOCK(cs_wallet);
+        return nWalletVersion;
+    }
 
     void FixSpentCoins(int& nMismatchSpent, int64_t& nBalanceInQuestion, bool fCheckOnly = false);
     void DisableTransaction(const CTransaction &tx);
@@ -458,8 +475,11 @@ public:
         nOrderPos = -1;
     }
 
-    IMPLEMENT_SERIALIZE
-    (
+    ADD_SERIALIZE_METHODS;
+
+    template <typename Stream, typename Operation>
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion) {
+        bool fRead = boost::is_same<Operation, CSerActionUnserialize>();
         CWalletTx* pthis = const_cast<CWalletTx*>(this);
         if (fRead)
             pthis->Init(NULL);
@@ -484,7 +504,7 @@ public:
                 pthis->mapValue["timesmart"] = strprintf("%u", nTimeSmart);
         }
 
-        nSerSize += SerReadWrite(s, *(CMerkleTx*)this, nType, nVersion,ser_action);
+        READWRITE(*(CMerkleTx*)this);
         READWRITE(vtxPrev);
         READWRITE(mapValue);
         READWRITE(vOrderForm);
@@ -499,7 +519,7 @@ public:
 
             if (mapValue.count("spent"))
                 BOOST_FOREACH(char c, pthis->mapValue["spent"])
-                    pthis->vfSpent.push_back(c != '0');
+                pthis->vfSpent.push_back(c != '0');
             else
                 pthis->vfSpent.assign(vout.size(), fSpent);
 
@@ -513,7 +533,7 @@ public:
         pthis->mapValue.erase("spent");
         pthis->mapValue.erase("n");
         pthis->mapValue.erase("timesmart");
-    )
+    }
 
     // marks certain txout's as spent
     // returns true if any update took place
@@ -691,7 +711,7 @@ public:
             if (mapPrev.empty())
             {
                 BOOST_FOREACH(const CMerkleTx& tx, vtxPrev)
-                    mapPrev[tx.GetHash()] = &tx;
+                mapPrev[tx.GetHash()] = &tx;
             }
 
             BOOST_FOREACH(const CTxIn& txin, ptx->vin)
@@ -731,7 +751,9 @@ public:
 
     COutput(const CWalletTx *txIn, int iIn, int nDepthIn)
     {
-        tx = txIn; i = iIn; nDepth = nDepthIn;
+        tx = txIn;
+        i = iIn;
+        nDepth = nDepthIn;
     }
 
     std::string ToString() const
@@ -760,15 +782,17 @@ public:
         nTimeExpires = nExpires;
     }
 
-    IMPLEMENT_SERIALIZE
-    (
+    ADD_SERIALIZE_METHODS;
+
+    template <typename Stream, typename Operation>
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion) {
         if (!(nType & SER_GETHASH))
             READWRITE(nVersion);
         READWRITE(vchPrivKey);
         READWRITE(nTimeCreated);
         READWRITE(nTimeExpires);
         READWRITE(strComment);
-    )
+    }
 };
 
 
@@ -794,12 +818,14 @@ public:
         vchPubKey = CPubKey();
     }
 
-    IMPLEMENT_SERIALIZE
-    (
+    ADD_SERIALIZE_METHODS;
+
+    template <typename Stream, typename Operation>
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion) {
         if (!(nType & SER_GETHASH))
             READWRITE(nVersion);
         READWRITE(vchPubKey);
-    )
+    }
 };
 
 
@@ -834,8 +860,11 @@ public:
         nOrderPos = -1;
     }
 
-    IMPLEMENT_SERIALIZE
-    (
+    ADD_SERIALIZE_METHODS;
+
+    template <typename Stream, typename Operation>
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion) {
+        bool fRead = boost::is_same<Operation, CSerActionUnserialize>();
         CAccountingEntry& me = *const_cast<CAccountingEntry*>(this);
         if (!(nType & SER_GETHASH))
             READWRITE(nVersion);
@@ -861,22 +890,27 @@ public:
         READWRITE(strComment);
 
         size_t nSepPos = strComment.find("\0", 0, 1);
-        if (fRead)
+
         {
-            me.mapValue.clear();
-            if (std::string::npos != nSepPos)
+            bool fReadX = boost::is_same<Operation, CSerActionUnserialize>();
+
+            if (fReadX)
             {
-                CDataStream ss(std::vector<char>(strComment.begin() + nSepPos + 1, strComment.end()), nType, nVersion);
-                ss >> me.mapValue;
-                me._ssExtra = std::vector<char>(ss.begin(), ss.end());
+                me.mapValue.clear();
+                if (std::string::npos != nSepPos)
+                {
+                    CDataStream ss(std::vector<char>(strComment.begin() + nSepPos + 1, strComment.end()), nType, nVersion);
+                    ss >> me.mapValue;
+                    me._ssExtra = std::vector<char>(ss.begin(), ss.end());
+                }
+                ReadOrderPos(me.nOrderPos, me.mapValue);
             }
-            ReadOrderPos(me.nOrderPos, me.mapValue);
         }
         if (std::string::npos != nSepPos)
             me.strComment.erase(nSepPos);
 
         me.mapValue.erase("n");
-    )
+    }
 
 private:
     std::vector<char> _ssExtra;

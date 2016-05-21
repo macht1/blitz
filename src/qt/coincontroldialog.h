@@ -11,7 +11,7 @@
 #include <QTreeWidgetItem>
 
 namespace Ui {
-    class CoinControlDialog;
+class CoinControlDialog;
 }
 class WalletModel;
 class CCoinControl;

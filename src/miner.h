@@ -8,6 +8,7 @@
 #define NOVACOIN_MINER_H
 
 #include "main.h"
+#include "chain.h"
 #include "wallet/wallet.h"
 
 /** Run the miner threads */

@@ -11,8 +11,24 @@
 
 #include <list>
 #include <map>
+#include <stdint.h>
+#include <string>
+
+#include "json/json_spirit_reader_template.h"
+#include "json/json_spirit_utils.h"
+#include "json/json_spirit_writer_template.h"
 
 class CBlockIndex;
+
+class AcceptedConnection
+{
+public:
+    virtual ~AcceptedConnection() {}
+
+    virtual std::iostream& stream() = 0;
+    virtual std::string peer_address_to_string() const = 0;
+    virtual void close() = 0;
+};
 
 void StartRPCThreads();
 void StopRPCThreads();
@@ -196,4 +212,11 @@ extern json_spirit::Value smsgsendanon(const json_spirit::Array& params, bool fH
 extern json_spirit::Value smsginbox(const json_spirit::Array& params, bool fHelp);
 extern json_spirit::Value smsgoutbox(const json_spirit::Array& params, bool fHelp);
 extern json_spirit::Value smsgbuckets(const json_spirit::Array& params, bool fHelp);
+
+// in rest.cpp
+extern bool HTTPReq_REST(AcceptedConnection *conn,
+                         std::string& strURI,
+                         std::map<std::string, std::string>& mapHeaders,
+                         bool fRun);
+
 #endif

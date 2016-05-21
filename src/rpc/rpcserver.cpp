@@ -216,8 +216,8 @@ Value stop(const Array& params, bool fHelp)
 
 
 static const CRPCCommand vRPCCommands[] =
-{ //  name                      actor (function)         okSafeMode threadSafe reqWallet
-  //  ------------------------  -----------------------  ---------- ---------- ---------
+{   //  name                      actor (function)         okSafeMode threadSafe reqWallet
+    //  ------------------------  -----------------------  ---------- ---------- ---------
     { "help",                   &help,                   true,      true,      false },
     { "stop",                   &stop,                   true,      true,      false },
     { "getbestblockhash",       &getbestblockhash,       true,      false,     false },
@@ -258,8 +258,8 @@ static const CRPCCommand vRPCCommands[] =
     { "smsginbox",              &smsginbox,              false,     false,     false },
     { "smsgoutbox",             &smsgoutbox,             false,     false,     false },
     { "smsgbuckets",            &smsgbuckets,            false,     false,     false },
-	//{ "jl777",				&jl777,            		false,  	false,	false },
-   //  { "SuperNET",               &SuperNET,               false,  	false,		false },
+    //{ "jl777",				&jl777,            		false,  	false,	false },
+    //  { "SuperNET",               &SuperNET,               false,  	false,		false },
 
 #ifdef ENABLE_WALLET
     { "setgenerate", 		&setgenerate, 		 true, false, true },
@@ -341,7 +341,8 @@ bool HTTPAuthorized(map<string, string>& mapHeaders)
     string strAuth = mapHeaders["authorization"];
     if (strAuth.substr(0,6) != "Basic ")
         return false;
-    string strUserPass64 = strAuth.substr(6); boost::trim(strUserPass64);
+    string strUserPass64 = strAuth.substr(6);
+    boost::trim(strUserPass64);
     string strUserPass = DecodeBase64(strUserPass64);
     return TimingResistantEqual(strUserPass, strRPCUserColonPass);
 }
@@ -361,43 +362,33 @@ bool ClientAllowed(const boost::asio::ip::address& address)
 {
     // Make sure that IPv4-compatible and IPv4-mapped IPv6 addresses are treated as IPv4 addresses
     if (address.is_v6()
-     && (address.to_v6().is_v4_compatible()
-      || address.to_v6().is_v4_mapped()))
+            && (address.to_v6().is_v4_compatible()
+                || address.to_v6().is_v4_mapped()))
         return ClientAllowed(address.to_v6().to_v4());
 
     if (address == asio::ip::address_v4::loopback()
-     || address == asio::ip::address_v6::loopback()
-     || (address.is_v4()
-         // Check whether IPv4 addresses match 127.0.0.0/8 (loopback subnet)
-      && (address.to_v4().to_ulong() & 0xff000000) == 0x7f000000))
+            || address == asio::ip::address_v6::loopback()
+            || (address.is_v4()
+                // Check whether IPv4 addresses match 127.0.0.0/8 (loopback subnet)
+                && (address.to_v4().to_ulong() & 0xff000000) == 0x7f000000))
         return true;
 
     const string strAddress = address.to_string();
     const vector<string>& vAllow = mapMultiArgs["-rpcallowip"];
     BOOST_FOREACH(string strAllow, vAllow)
-        if (WildcardMatch(strAddress, strAllow))
-            return true;
+    if (WildcardMatch(strAddress, strAllow))
+        return true;
     return false;
 }
-
-class AcceptedConnection
-{
-public:
-    virtual ~AcceptedConnection() {}
-
-    virtual std::iostream& stream() = 0;
-    virtual std::string peer_address_to_string() const = 0;
-    virtual void close() = 0;
-};
 
 template <typename Protocol>
 class AcceptedConnectionImpl : public AcceptedConnection
 {
 public:
     AcceptedConnectionImpl(
-            asio::io_service& io_service,
-            ssl::context &context,
-            bool fUseSSL) :
+        asio::io_service& io_service,
+        ssl::context &context,
+        bool fUseSSL) :
         sslStream(io_service, context),
         _d(sslStream, fUseSSL),
         _stream(_d)
@@ -442,21 +433,21 @@ static void RPCAcceptHandler(boost::shared_ptr< basic_socket_acceptor<Protocol, 
  */
 template <typename Protocol, typename SocketAcceptorService>
 static void RPCListen(boost::shared_ptr< basic_socket_acceptor<Protocol, SocketAcceptorService> > acceptor,
-                   ssl::context& context,
-                   const bool fUseSSL)
+                      ssl::context& context,
+                      const bool fUseSSL)
 {
     // Accept connection
     AcceptedConnectionImpl<Protocol>* conn = new AcceptedConnectionImpl<Protocol>(acceptor->get_io_service(), context, fUseSSL);
 
     acceptor->async_accept(
-            conn->sslStream.lowest_layer(),
-            conn->peer,
-            boost::bind(&RPCAcceptHandler<Protocol, SocketAcceptorService>,
-                acceptor,
-                boost::ref(context),
-                fUseSSL,
-                conn,
-                boost::asio::placeholders::error));
+        conn->sslStream.lowest_layer(),
+        conn->peer,
+        boost::bind(&RPCAcceptHandler<Protocol, SocketAcceptorService>,
+                    acceptor,
+                    boost::ref(context),
+                    fUseSSL,
+                    conn,
+                    boost::asio::placeholders::error));
 }
 
 
@@ -503,7 +494,7 @@ void StartRPCThreads()
 {
     strRPCUserColonPass = mapArgs["-rpcuser"] + ":" + mapArgs["-rpcpassword"];
     if (((mapArgs["-rpcpassword"] == "") ||
-         (mapArgs["-rpcuser"] == mapArgs["-rpcpassword"])) && Params().RequireRPCPassword())
+            (mapArgs["-rpcuser"] == mapArgs["-rpcpassword"])) && Params().RequireRPCPassword())
     {
         unsigned char rand_pwd[32];
         RAND_bytes(rand_pwd, 32);
@@ -513,20 +504,20 @@ void StartRPCThreads()
         else if (mapArgs.count("-daemon"))
             strWhatAmI = strprintf(_("To use the %s option"), "\"-daemon\"");
         uiInterface.ThreadSafeMessageBox(strprintf(
-            _("%s, you must set a rpcpassword in the configuration file:\n"
-              "%s\n"
-              "It is recommended you use the following random password:\n"
-              "rpcuser=blitzrpc\n"
-              "rpcpassword=%s\n"
-              "(you do not need to remember this password)\n"
-              "The username and password MUST NOT be the same.\n"
-              "If the file does not exist, create it with owner-readable-only file permissions.\n"
-              "It is also recommended to set alertnotify so you are notified of problems;\n"
-              "for example: alertnotify=echo %%s | mail -s \"Blitz Alert\" admin@foo.com\n"),
-                strWhatAmI,
-                GetConfigFile().string(),
-                EncodeBase58(&rand_pwd[0],&rand_pwd[0]+32)),
-                "", CClientUIInterface::MSG_ERROR);
+                                             _("%s, you must set a rpcpassword in the configuration file:\n"
+                                               "%s\n"
+                                               "It is recommended you use the following random password:\n"
+                                               "rpcuser=blitzrpc\n"
+                                               "rpcpassword=%s\n"
+                                               "(you do not need to remember this password)\n"
+                                               "The username and password MUST NOT be the same.\n"
+                                               "If the file does not exist, create it with owner-readable-only file permissions.\n"
+                                               "It is also recommended to set alertnotify so you are notified of problems;\n"
+                                               "for example: alertnotify=echo %%s | mail -s \"Blitz Alert\" admin@foo.com\n"),
+                                             strWhatAmI,
+                                             GetConfigFile().string(),
+                                             EncodeBase58(&rand_pwd[0],&rand_pwd[0]+32)),
+                                         "", CClientUIInterface::MSG_ERROR);
         StartShutdown();
         return;
     }
@@ -626,9 +617,12 @@ void StopRPCThreads()
     rpc_io_service->stop();
     if (rpc_worker_group != NULL)
         rpc_worker_group->join_all();
-    delete rpc_worker_group; rpc_worker_group = NULL;
-    delete rpc_ssl_context; rpc_ssl_context = NULL;
-    delete rpc_io_service; rpc_io_service = NULL;
+    delete rpc_worker_group;
+    rpc_worker_group = NULL;
+    delete rpc_ssl_context;
+    rpc_ssl_context = NULL;
+    delete rpc_io_service;
+    rpc_io_service = NULL;
 }
 
 void RPCRunHandler(const boost::system::error_code& err, boost::function<void(void)> func)
@@ -657,7 +651,9 @@ public:
     string strMethod;
     Array params;
 
-    JSONRequest() { id = Value::null; }
+    JSONRequest() {
+        id = Value::null;
+    }
     void parse(const Value& valRequest);
 };
 
@@ -725,6 +721,72 @@ static string JSONRPCExecBatch(const Array& vReq)
     return write_string(Value(ret), false) + "\n";
 }
 
+
+static bool HTTPReq_JSONRPC(AcceptedConnection *conn,
+                            string& strRequest,
+                            map<string, string>& mapHeaders,
+                            bool fRun)
+{
+    // Check authorization
+    if (mapHeaders.count("authorization") == 0)
+    {
+        conn->stream() << HTTPReply(HTTP_UNAUTHORIZED, "", false) << std::flush;
+        return false;
+    }
+    if (!HTTPAuthorized(mapHeaders))
+    {
+        LogPrintf("ThreadRPCServer incorrect password attempt from %s\n", conn->peer_address_to_string());
+        /* Deter brute-forcing short passwords.
+           If this results in a DoS the user really
+           shouldn't have their RPC port exposed. */
+        if (mapArgs["-rpcpassword"].size() < 20)
+            MilliSleep(250);
+
+        conn->stream() << HTTPReply(HTTP_UNAUTHORIZED, "", false) << std::flush;
+        return false;
+    }
+
+    JSONRequest jreq;
+    try
+    {
+        // Parse request
+        Value valRequest;
+        if (!read_string(strRequest, valRequest))
+            throw JSONRPCError(RPC_PARSE_ERROR, "Parse error");
+
+        string strReply;
+
+        // singleton request
+        if (valRequest.type() == obj_type) {
+            jreq.parse(valRequest);
+
+            Value result = tableRPC.execute(jreq.strMethod, jreq.params);
+
+            // Send reply
+            strReply = JSONRPCReply(result, Value::null, jreq.id);
+
+            // array of requests
+        } else if (valRequest.type() == array_type)
+            strReply = JSONRPCExecBatch(valRequest.get_array());
+        else
+            throw JSONRPCError(RPC_PARSE_ERROR, "Top-level object parse error");
+
+        conn->stream() << HTTPReply(HTTP_OK, strReply, fRun) << std::flush;
+    }
+    catch (Object& objError)
+    {
+        ErrorReply(conn->stream(), objError, jreq.id);
+        return false;
+    }
+    catch (std::exception& e)
+    {
+        ErrorReply(conn->stream(), JSONRPCError(RPC_PARSE_ERROR, e.what()), jreq.id);
+        return false;
+    }
+
+    return true;
+}
+
 void ServiceConnection(AcceptedConnection *conn)
 {
     bool fRun = true;
@@ -741,69 +803,23 @@ void ServiceConnection(AcceptedConnection *conn)
         // Read HTTP message headers and body
         ReadHTTPMessage(conn->stream(), mapHeaders, strRequest, nProto);
 
-        if (strURI != "/") {
+        // Process via JSON-RPC API
+        if (strURI == "/") {
+            if (!HTTPReq_JSONRPC(conn, strRequest, mapHeaders, fRun))
+                break;
+
+            // Process via HTTP REST API
+        } else if (strURI.substr(0, 6) == "/rest/") {
+            if (!HTTPReq_REST(conn, strURI, mapHeaders, fRun))
+                break;
+
+        } else {
             conn->stream() << HTTPReply(HTTP_NOT_FOUND, "", false) << std::flush;
             break;
         }
 
-        // Check authorization
-        if (mapHeaders.count("authorization") == 0)
-        {
-            conn->stream() << HTTPReply(HTTP_UNAUTHORIZED, "", false) << std::flush;
-            break;
-        }
-        if (!HTTPAuthorized(mapHeaders))
-        {
-            LogPrintf("ThreadRPCServer incorrect password attempt from %s\n", conn->peer_address_to_string());
-            /* Deter brute-forcing short passwords.
-               If this results in a DoS the user really
-               shouldn't have their RPC port exposed. */
-            if (mapArgs["-rpcpassword"].size() < 20)
-                MilliSleep(250);
-
-            conn->stream() << HTTPReply(HTTP_UNAUTHORIZED, "", false) << std::flush;
-            break;
-        }
         if (mapHeaders["connection"] == "close")
             fRun = false;
-
-        JSONRequest jreq;
-        try
-        {
-            // Parse request
-            Value valRequest;
-            if (!read_string(strRequest, valRequest))
-                throw JSONRPCError(RPC_PARSE_ERROR, "Parse error");
-
-            string strReply;
-
-            // singleton request
-            if (valRequest.type() == obj_type) {
-                jreq.parse(valRequest);
-
-                Value result = tableRPC.execute(jreq.strMethod, jreq.params);
-
-                // Send reply
-                strReply = JSONRPCReply(result, Value::null, jreq.id);
-
-            // array of requests
-            } else if (valRequest.type() == array_type)
-                strReply = JSONRPCExecBatch(valRequest.get_array());
-            else
-                throw JSONRPCError(RPC_PARSE_ERROR, "Top-level object parse error");
-
-            conn->stream() << HTTPReply(HTTP_OK, strReply, fRun) << std::flush;
-        }
-        catch (Object& objError)
-        {
-            ErrorReply(conn->stream(), objError, jreq.id);
-            break;
-        }
-        catch (std::exception& e)
-        {
-            ErrorReply(conn->stream(), JSONRPCError(RPC_PARSE_ERROR, e.what()), jreq.id);
-            break;
-        }
     }
 }
 
@@ -821,7 +837,7 @@ json_spirit::Value CRPCTable::execute(const std::string &strMethod, const json_s
     // Observe safe mode
     string strWarning = GetWarnings("rpc");
     if (strWarning != "" && !GetBoolArg("-disablesafemode", false) &&
-        !pcmd->okSafeMode)
+            !pcmd->okSafeMode)
         throw JSONRPCError(RPC_FORBIDDEN_BY_SAFE_MODE, string("Safe mode: ") + strWarning);
 
     try

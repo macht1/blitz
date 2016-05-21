@@ -7,6 +7,7 @@
 
 #include "init.h"
 #include "main.h"
+#include "chain.h"
 #include "chainparams.h"
 #include "txdb.h"
 #include "rpc/rpcserver.h"
@@ -101,7 +102,7 @@ void Shutdown()
     RenameThread("blackcoin-shutoff");
     mempool.AddTransactionsUpdated(1);
     StopRPCThreads();
-	SecureMsgShutdown();
+    SecureMsgShutdown();
 #ifdef ENABLE_WALLET
     ShutdownRPCMining();
     if (pwalletMain)
@@ -239,7 +240,7 @@ std::string HelpMessage()
     strUsage += "  -shrinkdebugfile       " + _("Shrink debug.log file on client startup (default: 1 when no -debug)") + "\n";
     strUsage += "  -printtoconsole        " + _("Send trace/debug info to console instead of debug.log file") + "\n";
     strUsage += "  -regtest               " + _("Enter regression test mode, which uses a special chain in which blocks can be "
-                                                "solved instantly. This is intended for regression testing tools and app development.") + "\n";
+                "solved instantly. This is intended for regression testing tools and app development.") + "\n";
     strUsage += "  -rpcuser=<user>        " + _("Username for JSON-RPC connections") + "\n";
     strUsage += "  -rpcpassword=<pw>      " + _("Password for JSON-RPC connections") + "\n";
     strUsage += "  -rpcport=<port>        " + _("Listen for JSON-RPC connections on <port> (default: 15715 or testnet: 25715)") + "\n";
@@ -275,9 +276,9 @@ std::string HelpMessage()
     strUsage += "  -rpcsslciphers=<ciphers>                 " + _("Acceptable ciphers (default: TLSv1.2+HIGH:TLSv1+HIGH:!SSLv2:!aNULL:!eNULL:!3DES:@STRENGTH)") + "\n";
 
     strUsage += _("Secure messaging options:") + "\n" +
-        "  -nosmsg                                  " + _("Disable secure messaging.") + "\n" +
-        "  -debugsmsg                               " + _("Log extra debug messages.") + "\n" +
-        "  -smsgscanchain                           " + _("Scan the block chain for public key addresses on startup.") + "\n";
+                "  -nosmsg                                  " + _("Disable secure messaging.") + "\n" +
+                "  -debugsmsg                               " + _("Log extra debug messages.") + "\n" +
+                "  -smsgscanchain                           " + _("Scan the block chain for public key addresses on startup.") + "\n";
 
     return strUsage;
 }
@@ -303,7 +304,7 @@ bool InitSanityCheck(void)
  *  @pre Parameters should be parsed and config file should be read.
  */
 //extern "C" int32_t init_SuperNET_storage();
- 
+
 bool AppInit2(boost::thread_group& threadGroup)
 {
     // ********************************************************* Step 1: setup
@@ -363,11 +364,11 @@ bool AppInit2(boost::thread_group& threadGroup)
     {
         const SAM::FullDestination generatedDest = I2PSession::Instance().destGenerate();
         uiInterface.ThreadSafeShowGeneratedI2PAddress(
-                    "Generated I2P address",
-                    generatedDest.pub,
-                    generatedDest.priv,
-                    I2PSession::GenerateB32AddressFromDestination(generatedDest.pub),
-                    GetConfigFile().string());
+            "Generated I2P address",
+            generatedDest.pub,
+            generatedDest.priv,
+            I2PSession::GenerateB32AddressFromDestination(generatedDest.pub),
+            GetConfigFile().string());
         return false;
     }
 #endif
@@ -446,13 +447,13 @@ bool AppInit2(boost::thread_group& threadGroup)
     else
         fServer = GetBoolArg("-server", false);
 
-	if(fDebug)
-	{
-		fDebugSmsg = true;
+    if(fDebug)
+    {
+        fDebugSmsg = true;
     } else {
         fDebugSmsg = GetBoolArg("-debugsmsg", false);
     }
-	
+
     fNoSmsg = GetBoolArg("-nosmsg", false);
 
     /* force fServer when running without GUI */
@@ -512,12 +513,12 @@ bool AppInit2(boost::thread_group& threadGroup)
     static boost::interprocess::file_lock lock(pathLockFile.string().c_str());
     if (!lock.try_lock())
         return InitError(strprintf(_("Cannot obtain a lock on data directory %s. BlackCoin is probably already running."), strDataDir));
-	
-	if ( fDaemon != 0 )
+
+    if ( fDaemon != 0 )
     {
         //init_SuperNET_storage();
     }
-	
+
     if (GetBoolArg("-shrinkdebugfile", !fDebug))
         ShrinkDebugFile();
     LogPrintf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
@@ -548,7 +549,7 @@ bool AppInit2(boost::thread_group& threadGroup)
                 boost::filesystem::rename(pathDatabase, pathDatabaseBak);
                 LogPrintf("Moved old %s to %s. Retrying.\n", pathDatabase.string(), pathDatabaseBak.string());
             } catch(boost::filesystem::filesystem_error &error) {
-                 // failure is ok (well, not really, but it's not worse than what we started with)
+                // failure is ok (well, not really, but it's not worse than what we started with)
             }
 
             // try again
@@ -583,8 +584,8 @@ bool AppInit2(boost::thread_group& threadGroup)
     } // (!fDisableWallet)
 #endif // ENABLE_WALLET
     // ********************************************************* Step 6: network initialization
-	
-	uiInterface.InitMessage(_("Initialising Tor Network..."));
+
+    uiInterface.InitMessage(_("Initialising Tor Network..."));
     LogPrintf("Initialising Tor Network...\n");
 
     RegisterNodeSignals(GetNodeSignals());
@@ -593,8 +594,8 @@ bool AppInit2(boost::thread_group& threadGroup)
         std::set<enum Network> nets;
         BOOST_FOREACH(std::string snet, mapMultiArgs["-onlynet"]) {
             enum Network net = ParseNetwork(snet);
-	    if(net == NET_TOR)
-		fOnlyTor = true;
+            if(net == NET_TOR)
+                fOnlyTor = true;
             if (net == NET_UNROUTABLE)
                 return InitError(strprintf(_("Unknown network specified in -onlynet: '%s'"), snet));
             nets.insert(net);
@@ -605,14 +606,14 @@ bool AppInit2(boost::thread_group& threadGroup)
                 SetLimited(net);
         }
     }
-	
-	if (mapArgs.count("-connect") && mapMultiArgs["-connect"].size() > 0) {
+
+    if (mapArgs.count("-connect") && mapMultiArgs["-connect"].size() > 0) {
         // when only connecting to trusted nodes, do not seed via .onion, or listen by default
         SoftSetBoolArg("-onionseed", false);
 
     }
 
-	int isfDark = GetArg("-blitzdark", 1);
+    int isfDark = GetArg("-blitzdark", 1);
     if (isfDark == 1)
     {
         std::set<enum Network> nets;
@@ -656,7 +657,7 @@ bool AppInit2(boost::thread_group& threadGroup)
     fNoListen = !GetBoolArg("-listen", true);
     fDiscover = GetBoolArg("-discover", true);
     fNameLookup = GetBoolArg("-dns", true);
-	fDarkEnabled = GetArg("-blitzdark", 1);
+    fDarkEnabled = GetArg("-blitzdark", 1);
 
     bool fBound = false;
     if (!fNoListen)
@@ -680,7 +681,7 @@ bool AppInit2(boost::thread_group& threadGroup)
             if (!IsLimited(NET_NATIVE_I2P))
                 fBound |= BindNativeI2P();
 #endif
-			if (isfDark == 1)
+            if (isfDark == 1)
             {
                 CService addrBind;
                 if (!Lookup("127.0.0.1", addrBind, GetListenPort(), false))
@@ -692,12 +693,12 @@ bool AppInit2(boost::thread_group& threadGroup)
         if (!fBound)
             return InitError(_("Failed to listen on any port. Use -listen=0 if you want this."));
     }
-	
-	if (isfDark == 1)
+
+    if (isfDark == 1)
     {
-		if (!(mapArgs.count("-tor") && mapArgs["-tor"] != "0")) {
-    	StartTor(threadGroup);
-		}	
+        if (!(mapArgs.count("-tor") && mapArgs["-tor"] != "0")) {
+            StartTor(threadGroup);
+        }
         wait_initialized();
         uiInterface.InitMessage(_("Initialising Tor Network..."));
         LogPrintf("Initialising Tor Network...\n");
@@ -726,7 +727,7 @@ bool AppInit2(boost::thread_group& threadGroup)
         file >> automatic_onion;
         AddLocal(CService(automatic_onion, GetListenPort(), fNameLookup), LOCAL_MANUAL);
     }
-	
+
 #ifdef ENABLE_WALLET
     if (mapArgs.count("-reservebalance")) // ppcoin: reserve balance amount
     {
@@ -739,7 +740,7 @@ bool AppInit2(boost::thread_group& threadGroup)
 #endif
 
     BOOST_FOREACH(string strDest, mapMultiArgs["-seednode"])
-        AddOneShot(strDest);
+    AddOneShot(strDest);
 
     // ********************************************************* Step 7: load blockchain
 
@@ -898,7 +899,7 @@ bool AppInit2(boost::thread_group& threadGroup)
     if (mapArgs.count("-loadblock"))
     {
         BOOST_FOREACH(string strFile, mapMultiArgs["-loadblock"])
-            vImportFiles.push_back(strFile);
+        vImportFiles.push_back(strFile);
     }
     threadGroup.create_thread(boost::bind(&ThreadImport, vImportFiles));
 
@@ -915,11 +916,11 @@ bool AppInit2(boost::thread_group& threadGroup)
     }
 
     LogPrintf("Loaded %i addresses from peers.dat  %dms\n",
-           addrman.size(), GetTimeMillis() - nStart);
-	
-	// ********************************************************* Step 10.1 : Initialize Messaging Service
-	
-	SecureMsgStart(fNoSmsg, GetBoolArg("-smsgscanchain", false));
+              addrman.size(), GetTimeMillis() - nStart);
+
+    // ********************************************************* Step 10.1 : Initialize Messaging Service
+
+    SecureMsgStart(fNoSmsg, GetBoolArg("-smsgscanchain", false));
 
     // ********************************************************* Step 11: start node
 

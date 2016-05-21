@@ -46,7 +46,7 @@ qint64 WalletModel::getBalance(const CCoinControl *coinControl) const
         std::vector<COutput> vCoins;
         wallet->AvailableCoins(vCoins, true, coinControl);
         BOOST_FOREACH(const COutput& out, vCoins)
-            nBalance += out.tx->vout[out.i].nValue;
+        nBalance += out.tx->vout[out.i].nValue;
 
         return nBalance;
     }
@@ -368,11 +368,11 @@ void WalletModel::unsubscribeFromCoreSignals()
 WalletModel::UnlockContext WalletModel::requestUnlock()
 {
     bool was_locked = getEncryptionStatus() == Locked;
-    
+
     if ((!was_locked) && fWalletUnlockStakingOnly)
     {
-       setWalletLocked(true);
-       was_locked = getEncryptionStatus() == Locked;
+        setWalletLocked(true);
+        was_locked = getEncryptionStatus() == Locked;
 
     }
     if(was_locked)
@@ -387,9 +387,9 @@ WalletModel::UnlockContext WalletModel::requestUnlock()
 }
 
 WalletModel::UnlockContext::UnlockContext(WalletModel *wallet, bool valid, bool relock):
-        wallet(wallet),
-        valid(valid),
-        relock(relock)
+    wallet(wallet),
+    valid(valid),
+    relock(relock)
 {
 }
 
@@ -410,7 +410,7 @@ void WalletModel::UnlockContext::CopyFrom(const UnlockContext& rhs)
 
 bool WalletModel::getPubKey(const CKeyID &address, CPubKey& vchPubKeyOut) const
 {
-    return wallet->GetPubKey(address, vchPubKeyOut);   
+    return wallet->GetPubKey(address, vchPubKeyOut);
 }
 
 // returns a list of COutputs from COutPoints
@@ -427,7 +427,7 @@ void WalletModel::getOutputs(const std::vector<COutPoint>& vOutpoints, std::vect
     }
 }
 
-// AvailableCoins + LockedCoins grouped by wallet address (put change in one group with wallet address) 
+// AvailableCoins + LockedCoins grouped by wallet address (put change in one group with wallet address)
 void WalletModel::listCoins(std::map<QString, std::vector<COutput> >& mapCoins) const
 {
     std::vector<COutput> vCoins;
@@ -485,4 +485,4 @@ void WalletModel::listLockedCoins(std::vector<COutPoint>& vOutpts)
 CWallet* WalletModel::getWallet()
 {
     return wallet;
-} 
+}

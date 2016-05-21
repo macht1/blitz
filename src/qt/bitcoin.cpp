@@ -17,8 +17,8 @@
 #ifdef Q_OS_MAC
 #include "macdockiconhandler.h"
 #endif
-#include "intro.h" 
- 
+#include "intro.h"
+
 #include <QApplication>
 #include <QMessageBox>
 #include <QTextCodec>
@@ -27,7 +27,7 @@
 #include <QTranslator>
 #include <QSplashScreen>
 #include <QLibraryInfo>
-#include <QSettings> 
+#include <QSettings>
 
 #if defined(BITCOIN_NEED_QT_PLUGINS) && !defined(_BITCOIN_QT_PLUGINS_INCLUDED)
 #define _BITCOIN_QT_PLUGINS_INCLUDED
@@ -49,8 +49,8 @@ static QSplashScreen *splashref;
 /** Set up translations */
 static void initTranslations(QTranslator &qtTranslatorBase, QTranslator &qtTranslator, QTranslator &translatorBase, QTranslator &translator)
 {
-	QSettings settings;
-	
+    QSettings settings;
+
     // Get desired locale (e.g. "de_DE") from command line or use system locale
     QString lang_territory = QString::fromStdString(GetArg("-lang", QLocale::system().name().toStdString()));
     QString lang = lang_territory;
@@ -81,11 +81,11 @@ static void ThreadSafeMessageBox(const std::string& message, const std::string& 
         bool modal = (style & CClientUIInterface::MODAL);
         // In case of modal message, use blocking connection to wait for user to click a button
         QMetaObject::invokeMethod(guiref, "message",
-                                   modal ? GUIUtil::blockingGUIThreadConnection() : Qt::QueuedConnection,
-                                   Q_ARG(QString, QString::fromStdString(caption)),
-                                   Q_ARG(QString, QString::fromStdString(message)),
-                                   Q_ARG(bool, modal),
-                                   Q_ARG(unsigned int, style));
+                                  modal ? GUIUtil::blockingGUIThreadConnection() : Qt::QueuedConnection,
+                                  Q_ARG(QString, QString::fromStdString(caption)),
+                                  Q_ARG(QString, QString::fromStdString(message)),
+                                  Q_ARG(bool, modal),
+                                  Q_ARG(unsigned int, style));
     }
     else
     {
@@ -103,8 +103,8 @@ static bool ThreadSafeAskFee(int64_t nFeeRequired, const std::string& strCaption
     bool payFee = false;
 
     QMetaObject::invokeMethod(guiref, "askFee", GUIUtil::blockingGUIThreadConnection(),
-                               Q_ARG(qint64, nFeeRequired),
-                               Q_ARG(bool*, &payFee));
+                              Q_ARG(qint64, nFeeRequired),
+                              Q_ARG(bool*, &payFee));
 
     return payFee;
 }
@@ -176,10 +176,10 @@ int main(int argc, char *argv[])
         app.setApplicationName("Blitz-Qt-testnet");
     else
         app.setApplicationName("Blitz-Qt");
-	
-	// Now that QSettings are accessible, initialize translations
+
+    // Now that QSettings are accessible, initialize translations
     QTranslator qtTranslatorBase, qtTranslator, translatorBase, translator;
-    initTranslations(qtTranslatorBase, qtTranslator, translatorBase, translator); 
+    initTranslations(qtTranslatorBase, qtTranslator, translatorBase, translator);
 
     // Do this early as we don't want to bother initializing if we are just calling IPC
     // ... but do it after creating app, so QCoreApplication::arguments is initialized:
@@ -280,7 +280,7 @@ int main(int argc, char *argv[])
 
                 ClientModel clientModel(&optionsModel);
                 WalletModel walletModel(pwalletMain, &optionsModel);
-				MessageModel messageModel(pwalletMain, &walletModel);
+                MessageModel messageModel(pwalletMain, &walletModel);
 
                 window.setClientModel(&clientModel);
                 window.setWalletModel(&walletModel);
@@ -306,7 +306,7 @@ int main(int argc, char *argv[])
                 window.hide();
                 window.setClientModel(0);
                 window.setWalletModel(0);
-				window.setMessageModel(0);
+                window.setMessageModel(0);
                 guiref = 0;
             }
             // Shutdown the core and its threads, but don't exit Bitcoin-Qt here

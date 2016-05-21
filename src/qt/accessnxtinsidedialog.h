@@ -4,7 +4,7 @@
 #include <QDialog>
 
 namespace Ui {
-    class AccessNxtInsideDialog;
+class AccessNxtInsideDialog;
 }
 class WalletModel;
 
@@ -34,7 +34,7 @@ private slots:
     /* Access Nxt */
     void on_addressBookButton_AN_clicked();
     void on_pasteButton_AN_clicked();
-	void on_accessNxtInsideButton_AN_clicked();
+    void on_accessNxtInsideButton_AN_clicked();
     void on_clearButton_AN_clicked();
 };
 

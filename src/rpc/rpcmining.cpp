@@ -6,6 +6,7 @@
 #include "rpc/rpcserver.h"
 #include "chainparams.h"
 #include "main.h"
+#include "chain.h"
 #include "wallet/db.h"
 #include "txdb.h"
 #include "init.h"
@@ -36,7 +37,8 @@ void ShutdownRPCMining()
     if (!pMiningKey)
         return;
 
-    delete pMiningKey; pMiningKey = NULL;
+    delete pMiningKey;
+    pMiningKey = NULL;
 }
 
 Value getsubsidy(const Array& params, bool fHelp)
@@ -259,14 +261,14 @@ Value getworkex(const Array& params, bool fHelp)
         static int64_t nStart;
         static CBlock* pblock;
         if (pindexPrev != pindexBest ||
-            (mempool.GetTransactionsUpdated() != nTransactionsUpdatedLast && GetTime() - nStart > 60))
+                (mempool.GetTransactionsUpdated() != nTransactionsUpdatedLast && GetTime() - nStart > 60))
         {
             if (pindexPrev != pindexBest)
             {
                 // Deallocate old blocks since they're obsolete now
                 mapNewBlock.clear();
                 BOOST_FOREACH(CBlock* pblock, vNewBlock)
-                    delete pblock;
+                delete pblock;
                 vNewBlock.clear();
             }
             nTransactionsUpdatedLast = mempool.GetTransactionsUpdated();
@@ -393,14 +395,14 @@ Value getwork(const Array& params, bool fHelp)
         static int64_t nStart;
         static CBlock* pblock;
         if (pindexPrev != pindexBest ||
-            (mempool.GetTransactionsUpdated() != nTransactionsUpdatedLast && GetTime() - nStart > 60))
+                (mempool.GetTransactionsUpdated() != nTransactionsUpdatedLast && GetTime() - nStart > 60))
         {
             if (pindexPrev != pindexBest)
             {
                 // Deallocate old blocks since they're obsolete now
                 mapNewBlock.clear();
                 BOOST_FOREACH(CBlock* pblock, vNewBlock)
-                    delete pblock;
+                delete pblock;
                 vNewBlock.clear();
             }
 
@@ -531,7 +533,7 @@ Value getblocktemplate(const Array& params, bool fHelp)
     static int64_t nStart;
     static CBlock* pblock;
     if (pindexPrev != pindexBest ||
-        (mempool.GetTransactionsUpdated() != nTransactionsUpdatedLast && GetTime() - nStart > 5))
+            (mempool.GetTransactionsUpdated() != nTransactionsUpdatedLast && GetTime() - nStart > 5))
     {
         // Clear pindexPrev so future calls make a new block, despite any failures from here on
         pindexPrev = NULL;

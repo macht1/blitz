@@ -6,6 +6,7 @@
 #include "base58.h"
 #include "init.h"
 #include "main.h"
+#include "chain.h"
 #include "net.h"
 #include "netbase.h"
 #include "rpc/rpcserver.h"
@@ -78,7 +79,9 @@ Value getinfo(const Array& params, bool fHelp)
 class DescribeAddressVisitor : public boost::static_visitor<Object>
 {
 public:
-    Object operator()(const CNoDestination &dest) const { return Object(); }
+    Object operator()(const CNoDestination &dest) const {
+        return Object();
+    }
 
     Object operator()(const CKeyID &keyID) const {
         Object obj;
@@ -103,7 +106,7 @@ public:
         obj.push_back(Pair("hex", HexStr(subscript.begin(), subscript.end())));
         Array a;
         BOOST_FOREACH(const CTxDestination& addr, addresses)
-            a.push_back(CBitcoinAddress(addr).ToString());
+        a.push_back(CBitcoinAddress(addr).ToString());
         obj.push_back(Pair("addresses", a));
         if (whichType == TX_MULTISIG)
             obj.push_back(Pair("sigsrequired", nRequired));

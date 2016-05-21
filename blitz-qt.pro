@@ -177,7 +177,7 @@ HEADERS += src/qt/bitcoingui.h \
     src/qt/editaddressdialog.h \
     src/qt/bitcoinaddressvalidator.h \
 	src/qt/secondauthdialog.h \
-	#src/coin.h \
+	src/chain.h \
 	src/primitives/block.h \ 
     src/alert.h \
     src/addrman.h \
@@ -253,6 +253,7 @@ HEADERS += src/qt/bitcoingui.h \
     src/version.h \
     src/netbase.h \
     src/clientversion.h \
+    src/walletinterface.h \
     src/threadsafety.h \
     src/tinyformat.h \
 	src/qt/serveur.h \
@@ -267,11 +268,14 @@ HEADERS += src/qt/bitcoingui.h \
     src/qt/qvalidatedtextedit.h \
     src/qt/multisigaddressentry.h \
     src/qt/multisigdialog.h \
-    src/qt/multisiginputentry.h
+    src/qt/multisiginputentry.h \
+    src/streams.h
 #    src/pubaddr.h \
 #    src/SuperNET.h \
  
 SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
+    src/rest.cpp \
+    src/walletinterface.cpp \
     src/qt/transactiontablemodel.cpp \
     src/qt/addresstablemodel.cpp \
     src/qt/optionsdialog.cpp \
@@ -366,8 +370,8 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/pubaddr.cpp \
     src/qt/multisigaddressentry.cpp \
     src/qt/multisigdialog.cpp \
-    src/qt/multisiginputentry.cpp
-#    src/glue.c
+    src/qt/multisiginputentry.cpp \
+    src/chain.cpp
 
 
 

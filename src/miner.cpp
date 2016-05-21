@@ -74,7 +74,7 @@ public:
 uint64_t nLastBlockTx = 0;
 uint64_t nLastBlockSize = 0;
 int64_t nLastCoinStakeSearchInterval = 0;
- 
+
 // We want to sort transactions by priority and fee, so:
 typedef boost::tuple<double, double, CTransaction*> TxPriority;
 class TxPriorityCompare
@@ -112,7 +112,7 @@ CBlock* CreateNewBlock(CReserveKey& reservekey, bool fProofOfStake, int64_t* pFe
 
     // Create coinbase tx
     CTransaction txNew;
-	CTransaction txPoS;
+    CTransaction txPoS;
     txNew.vin.resize(1);
     txNew.vin[0].prevout.SetNull();
     txNew.vout.resize(1);
@@ -230,7 +230,7 @@ CBlock* CreateNewBlock(CReserveKey& reservekey, bool fProofOfStake, int64_t* pFe
             unsigned int nTxSize = ::GetSerializeSize(tx, SER_NETWORK, PROTOCOL_VERSION);
             dPriority /= nTxSize;
 
-			CTransactionPoS txPoS;
+            CTransactionPoS txPoS;
 
             // This is a more accurate fee-per-kilobyte than is used by the client code, because the
             // client code rounds up the size to the nearest 1K. That's good, because it gives an
@@ -290,15 +290,15 @@ CBlock* CreateNewBlock(CReserveKey& reservekey, bool fProofOfStake, int64_t* pFe
             // Prioritize by fee once past the priority size or we run out of high-priority
             // transactions:
             if (!fSortedByFee &&
-                ((nBlockSize + nTxSize >= nBlockPrioritySize) || (dPriority < COIN * 144 / 250)))
+                    ((nBlockSize + nTxSize >= nBlockPrioritySize) || (dPriority < COIN * 144 / 250)))
             {
                 fSortedByFee = true;
                 comparer = TxPriorityCompare(fSortedByFee);
                 std::make_heap(vecPriority.begin(), vecPriority.end(), comparer);
             }
 
-			CTransactionPoS txPoS;
-			
+            CTransactionPoS txPoS;
+
             // Connecting shouldn't fail due to dependency on other memory pool transactions
             // because we're already processing them in order of dependency
             map<uint256, CTxIndex> mapTestPoolTmp(mapTestPool);
@@ -333,7 +333,7 @@ CBlock* CreateNewBlock(CReserveKey& reservekey, bool fProofOfStake, int64_t* pFe
             if (fDebug && GetBoolArg("-printpriority", false))
             {
                 LogPrintf("priority %.1f feeperkb %.1f txid %s\n",
-                       dPriority, dFeePerKb, tx.GetHash().ToString());
+                          dPriority, dFeePerKb, tx.GetHash().ToString());
             }
 
             // Add transactions that depend on this one to the priority queue
@@ -596,102 +596,104 @@ void static BitcoinMiner(CWallet *pwallet)
     CReserveKey reservekey(pwallet);
     unsigned int nExtraNonce = 0;
 
-    try { while (true) {
+    try {
+        while (true) {
 
-        // Busy-wait for the network to come online so we don't waste time mining
-        // on an obsolete chain. In regtest mode we expect to fly solo.
+            // Busy-wait for the network to come online so we don't waste time mining
+            // on an obsolete chain. In regtest mode we expect to fly solo.
 //        while (vNodes.empty())
 //            MilliSleep(1000);
- 
 
-        //
-        // Create new block
-        //
-        unsigned int nTransactionsUpdatedLast = mempool.GetTransactionsUpdated();
-        CBlockIndex* pindexPrev = pindexBest;
 
-        int64_t nFees;
-        auto_ptr<CBlock> pblocktemplate(CreateNewBlock(reservekey, false, &nFees));
-        if (!pblocktemplate.get())
-            return;
-	CBlock *pblock = pblocktemplate.get();
+            //
+            // Create new block
+            //
+            unsigned int nTransactionsUpdatedLast = mempool.GetTransactionsUpdated();
+            CBlockIndex* pindexPrev = pindexBest;
 
-        IncrementExtraNonce(pblock, pindexPrev, nExtraNonce);
+            int64_t nFees;
+            auto_ptr<CBlock> pblocktemplate(CreateNewBlock(reservekey, false, &nFees));
+            if (!pblocktemplate.get())
+                return;
+            CBlock *pblock = pblocktemplate.get();
 
-        /*LogPrintf("Running BRAINHash Miner with %llu transactions in block (%u bytes)\n", pblock->vtx.size(),
-               ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
-*/
-        uint256 hashTarget = CBigNum().SetCompact(pblock->nBits).getuint256();
-	int64_t nStart = GetTime();
-	uint256 hash;
-	unsigned int nHashesDone = 0;
+            IncrementExtraNonce(pblock, pindexPrev, nExtraNonce);
 
-        while (true)
-        {            
-            hash = pblock->GetPoWHash();
-	    ++nHashesDone;
-            
-            if (hash <= hashTarget)
+            /*LogPrintf("Running BRAINHash Miner with %llu transactions in block (%u bytes)\n", pblock->vtx.size(),
+                   ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
+            */
+            uint256 hashTarget = CBigNum().SetCompact(pblock->nBits).getuint256();
+            int64_t nStart = GetTime();
+            uint256 hash;
+            unsigned int nHashesDone = 0;
+
+            while (true)
             {
-                // Found a solution
-                SetThreadPriority(THREAD_PRIORITY_NORMAL);
-                CheckWork(pblock, *pwallet, reservekey);
-                SetThreadPriority(THREAD_PRIORITY_LOWEST);
-                break;
-            }       
-	    ++pblock->nNonce;    
+                hash = pblock->GetPoWHash();
+                ++nHashesDone;
 
-            // Meter hashes/sec
-            static int64_t nHashCounter;
-            if (nHPSTimerStart == 0)
-            {
-                nHPSTimerStart = GetTime();
-                nHashCounter = 0;
-            }
-            else
-                ++nHashCounter;// += nHashesDone;
-            if ((GetTime() - nHPSTimerStart) % 4 == 0)
-            {
-                static CCriticalSection cs;
+                if (hash <= hashTarget)
                 {
-                    LOCK(cs);
-		    int64_t nLimiter = 1;
-                    int64_t nDelta = GetTime() - nHPSTimerStart;
-		    if(nDelta > 0 && nLimiter <= 10+1)
-                        dHashesPerSec = 32768 * nHashCounter / (GetTime() - nHPSTimerStart);
+                    // Found a solution
+                    SetThreadPriority(THREAD_PRIORITY_NORMAL);
+                    CheckWork(pblock, *pwallet, reservekey);
+                    SetThreadPriority(THREAD_PRIORITY_LOWEST);
+                    break;
+                }
+                ++pblock->nNonce;
+
+                // Meter hashes/sec
+                static int64_t nHashCounter;
+                if (nHPSTimerStart == 0)
+                {
+                    nHPSTimerStart = GetTime();
+                    nHashCounter = 0;
+                }
+                else
+                    ++nHashCounter;// += nHashesDone;
+                if ((GetTime() - nHPSTimerStart) % 4 == 0)
+                {
+                    static CCriticalSection cs;
+                    {
+                        LOCK(cs);
+                        int64_t nLimiter = 1;
+                        int64_t nDelta = GetTime() - nHPSTimerStart;
+                        if(nDelta > 0 && nLimiter <= 10+1)
+                            dHashesPerSec = 32768 * nHashCounter / (GetTime() - nHPSTimerStart);
                         //nHPSTimerStart = GetTimeMillis();
                         //nHashCounter = 0;
-			//nHashesDone = 0;
+                        //nHashesDone = 0;
                         // LogPrintf("BRAINHash CPU Hashing Rate: %6.0f hash/s\n", dHashesPerSec);
-			// Avoid Debug Log Pollution
-			nLimiter++; // Increment by 1
-                        if (nLimiter >= 5000+1){
-                                nLimiter = 1;
+                        // Avoid Debug Log Pollution
+                        nLimiter++; // Increment by 1
+                        if (nLimiter >= 5000+1) {
+                            nLimiter = 1;
                         }
+                    }
+                }
+
+                // Check for stop or if block needs to be rebuilt
+                boost::this_thread::interruption_point();
+                if (vNodes.empty())
+                    break;
+                if (pblock->nNonce >= 0xffff0000)
+                    break;
+                if (mempool.GetTransactionsUpdated() != nTransactionsUpdatedLast && GetTime() - nStart > 60)
+                    break;
+                if (pindexPrev != pindexBest)
+                    break;
+
+                // Update nTime every few seconds
+                pblock->UpdateTime(pindexPrev);
+
+                if (TestNet())
+                {
+                    // Changing pblock->nTime can change work required on testnet:
+                    hashTarget = CBigNum().SetCompact(pblock->nBits).getuint256();
                 }
             }
-
-            // Check for stop or if block needs to be rebuilt
-            boost::this_thread::interruption_point();
-            if (vNodes.empty())
-                break;
-            if (pblock->nNonce >= 0xffff0000)
-                break;
-            if (mempool.GetTransactionsUpdated() != nTransactionsUpdatedLast && GetTime() - nStart > 60)
-                break;
-            if (pindexPrev != pindexBest)
-                break;
-
-            // Update nTime every few seconds
- 	    pblock->UpdateTime(pindexPrev);
-            
-            if (TestNet())
-            {
-                // Changing pblock->nTime can change work required on testnet:
-                hashTarget = CBigNum().SetCompact(pblock->nBits).getuint256();
-            }
         }
-    } }
+    }
     catch (boost::thread_interrupted)
     {
         LogPrintf("BRAINHash Miner terminated\n");
@@ -704,17 +706,17 @@ void GenerateBitcoins(bool fGenerate, CWallet* pwallet, int nThreads)
     static boost::thread_group* minerThreads = NULL;
     if(nThreads == -1)
         nThreads = boost::thread::hardware_concurrency();
-    
+
     if (minerThreads != NULL)
     {
-	minerThreads->interrupt_all();
-	delete minerThreads;
-	minerThreads = NULL;
+        minerThreads->interrupt_all();
+        delete minerThreads;
+        minerThreads = NULL;
     }
     if (nThreads == 0 || !fGenerate)
-	return;
+        return;
     minerThreads = new boost::thread_group();
     for (int i = 0; i < nThreads; i++)
-	minerThreads->create_thread(boost::bind(&BitcoinMiner, pwallet));
+        minerThreads->create_thread(boost::bind(&BitcoinMiner, pwallet));
 }
 #endif

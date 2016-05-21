@@ -80,8 +80,8 @@ MessagePage::MessagePage(QWidget *parent) :
     messageTextEdit(new MRichTextEdit())
 {
     ui->setupUi(this);
-   
-    
+
+
 #ifdef Q_OS_MAC // Icons on push buttons are very uncommon on Mac
     ui->deleteButton->setIcon(QIcon());
 #endif
@@ -123,7 +123,7 @@ void MessagePage::setModel(MessageModel *model)
     this->model = model;
     if(!model)
         return;
-    
+
     //if (model->proxyModel)
     //    delete model->proxyModel;
     model->proxyModel = new QSortFilterProxyModel(this);
@@ -180,8 +180,8 @@ void MessagePage::on_sendButton_clicked()
     if (SecureMsgSend(addFrom, sendTo, message, sError) != 0)
     {
         QMessageBox::warning(NULL, tr("Send Secure Message"),
-            tr("Send failed: %1.").arg(sError.c_str()),
-            QMessageBox::Ok, QMessageBox::Ok);
+                             tr("Send failed: %1.").arg(sError.c_str()),
+                             QMessageBox::Ok, QMessageBox::Ok);
 
         return;
     };
@@ -392,9 +392,9 @@ void MessagePage::exportClicked()
 {
     // CSV is currently the only supported format
     QString filename = GUIUtil::getSaveFileName(
-            this,
-            tr("Export Messages"), QString(),
-            tr("Comma separated file (*.csv)"));
+                           this,
+                           tr("Export Messages"), QString(),
+                           tr("Comma separated file (*.csv)"));
 
     if (filename.isNull()) return;
 

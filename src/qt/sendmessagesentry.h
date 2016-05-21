@@ -4,7 +4,7 @@
 #include <QFrame>
 
 namespace Ui {
-    class SendMessagesEntry;
+class SendMessagesEntry;
 }
 class MessageModel;
 class SendMessagesRecipient;
@@ -37,7 +37,7 @@ public:
 public slots:
     void setRemoveEnabled(bool enabled);
     void clear();
-    
+
 signals:
     void removeEntry(SendMessagesEntry *entry);
 

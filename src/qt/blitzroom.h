@@ -26,7 +26,7 @@
 
 namespace Ui
 {
-    class BlitzRoomClass;
+class BlitzRoomClass;
 }
 
 class BlitzRoom : public QWidget
@@ -38,28 +38,28 @@ public:
     ~BlitzRoom();
     void setModel(ClientModel *model);
     Serveur * currentTab();
-	signals:
-		void changeTab();
+signals:
+    void changeTab();
 
-	public slots:
-		void sendCommande();
-        void connecte();
-		void closeTab();
+public slots:
+    void sendCommande();
+    void connecte();
+    void closeTab();
 
-		void tabChanged(int index);
+    void tabChanged(int index);
 
-		void tabJoined();
-		void tabJoining();
-        void disconnectFromServer();
-        void tabClosing(int index);
+    void tabJoined();
+    void tabJoining();
+    void disconnectFromServer();
+    void tabClosing(int index);
 
 
 private:
-	Ui::BlitzRoomClass *ui;
+    Ui::BlitzRoomClass *ui;
     ClientModel *model;
     QMap<QString,Serveur *> serveurs;
-	bool joining;
-	void closeEvent(QCloseEvent *event);
+    bool joining;
+    void closeEvent(QCloseEvent *event);
 
 };
 

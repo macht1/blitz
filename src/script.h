@@ -69,14 +69,14 @@ enum
 // Failing one of these tests may trigger a DoS ban - see ConnectInputs() for
 // details.
 static const unsigned int MANDATORY_SCRIPT_VERIFY_FLAGS = SCRIPT_VERIFY_NULLDUMMY |
-                                                          SCRIPT_VERIFY_STRICTENC |
-                                                          SCRIPT_VERIFY_CHECKLOCKTIMEVERIFY;
+        SCRIPT_VERIFY_STRICTENC |
+        SCRIPT_VERIFY_CHECKLOCKTIMEVERIFY;
 
 // Standard script verification flags that standard transactions will comply
 // with. However scripts violating these flags may still be present in valid
 // blocks and we must accept those blocks.
 static const unsigned int STANDARD_SCRIPT_VERIFY_FLAGS = MANDATORY_SCRIPT_VERIFY_FLAGS |
-                                                         SCRIPT_VERIFY_DISCOURAGE_UPGRADABLE_NOPS;
+        SCRIPT_VERIFY_DISCOURAGE_UPGRADABLE_NOPS;
 
 // For convenience, standard but not mandatory verify flags.
 static const unsigned int STANDARD_NOT_MANDATORY_VERIFY_FLAGS = STANDARD_SCRIPT_VERIFY_FLAGS & ~MANDATORY_SCRIPT_VERIFY_FLAGS;
@@ -94,8 +94,12 @@ enum txnouttype
 
 class CNoDestination {
 public:
-    friend bool operator==(const CNoDestination &a, const CNoDestination &b) { return true; }
-    friend bool operator<(const CNoDestination &a, const CNoDestination &b) { return true; }
+    friend bool operator==(const CNoDestination &a, const CNoDestination &b) {
+        return true;
+    }
+    friend bool operator<(const CNoDestination &a, const CNoDestination &b) {
+        return true;
+    }
 };
 
 /** A txout script template with a specific destination. It is either:
@@ -342,34 +346,82 @@ public:
 
 
     //explicit CScript(char b) is not portable.  Use 'signed char' or 'unsigned char'.
-    explicit CScript(signed char b)        { operator<<(b); }
-    explicit CScript(short b)              { operator<<(b); }
-    explicit CScript(int b)                { operator<<(b); }
-    explicit CScript(long b)               { operator<<(b); }
-    explicit CScript(long long b)          { operator<<(b); }
-    explicit CScript(unsigned char b)      { operator<<(b); }
-    explicit CScript(unsigned int b)       { operator<<(b); }
-    explicit CScript(unsigned short b)     { operator<<(b); }
-    explicit CScript(unsigned long b)      { operator<<(b); }
-    explicit CScript(unsigned long long b) { operator<<(b); }
+    explicit CScript(signed char b)        {
+        operator<<(b);
+    }
+    explicit CScript(short b)              {
+        operator<<(b);
+    }
+    explicit CScript(int b)                {
+        operator<<(b);
+    }
+    explicit CScript(long b)               {
+        operator<<(b);
+    }
+    explicit CScript(long long b)          {
+        operator<<(b);
+    }
+    explicit CScript(unsigned char b)      {
+        operator<<(b);
+    }
+    explicit CScript(unsigned int b)       {
+        operator<<(b);
+    }
+    explicit CScript(unsigned short b)     {
+        operator<<(b);
+    }
+    explicit CScript(unsigned long b)      {
+        operator<<(b);
+    }
+    explicit CScript(unsigned long long b) {
+        operator<<(b);
+    }
 
-    explicit CScript(opcodetype b)     { operator<<(b); }
-    explicit CScript(const uint256& b) { operator<<(b); }
-    explicit CScript(const CBigNum& b) { operator<<(b); }
-    explicit CScript(const std::vector<unsigned char>& b) { operator<<(b); }
+    explicit CScript(opcodetype b)     {
+        operator<<(b);
+    }
+    explicit CScript(const uint256& b) {
+        operator<<(b);
+    }
+    explicit CScript(const CBigNum& b) {
+        operator<<(b);
+    }
+    explicit CScript(const std::vector<unsigned char>& b) {
+        operator<<(b);
+    }
 
 
     //CScript& operator<<(char b) is not portable.  Use 'signed char' or 'unsigned char'.
-    CScript& operator<<(signed char b)        { return push_int64(b); }
-    CScript& operator<<(short b)              { return push_int64(b); }
-    CScript& operator<<(int b)                { return push_int64(b); }
-    CScript& operator<<(long b)               { return push_int64(b); }
-    CScript& operator<<(long long b)          { return push_int64(b); }
-    CScript& operator<<(unsigned char b)      { return push_uint64(b); }
-    CScript& operator<<(unsigned int b)       { return push_uint64(b); }
-    CScript& operator<<(unsigned short b)     { return push_uint64(b); }
-    CScript& operator<<(unsigned long b)      { return push_uint64(b); }
-    CScript& operator<<(unsigned long long b) { return push_uint64(b); }
+    CScript& operator<<(signed char b)        {
+        return push_int64(b);
+    }
+    CScript& operator<<(short b)              {
+        return push_int64(b);
+    }
+    CScript& operator<<(int b)                {
+        return push_int64(b);
+    }
+    CScript& operator<<(long b)               {
+        return push_int64(b);
+    }
+    CScript& operator<<(long long b)          {
+        return push_int64(b);
+    }
+    CScript& operator<<(unsigned char b)      {
+        return push_uint64(b);
+    }
+    CScript& operator<<(unsigned int b)       {
+        return push_uint64(b);
+    }
+    CScript& operator<<(unsigned short b)     {
+        return push_uint64(b);
+    }
+    CScript& operator<<(unsigned long b)      {
+        return push_uint64(b);
+    }
+    CScript& operator<<(unsigned long long b) {
+        return push_uint64(b);
+    }
 
     CScript& operator<<(opcodetype opcode)
     {
@@ -445,19 +497,19 @@ public:
 
     bool GetOp(iterator& pc, opcodetype& opcodeRet, std::vector<unsigned char>& vchRet)
     {
-         // Wrapper so it can be called with either iterator or const_iterator
-         const_iterator pc2 = pc;
-         bool fRet = GetOp2(pc2, opcodeRet, &vchRet);
-         pc = begin() + (pc2 - begin());
-         return fRet;
+        // Wrapper so it can be called with either iterator or const_iterator
+        const_iterator pc2 = pc;
+        bool fRet = GetOp2(pc2, opcodeRet, &vchRet);
+        pc = begin() + (pc2 - begin());
+        return fRet;
     }
 
     bool GetOp(iterator& pc, opcodetype& opcodeRet)
     {
-         const_iterator pc2 = pc;
-         bool fRet = GetOp2(pc2, opcodeRet, NULL);
-         pc = begin() + (pc2 - begin());
-         return fRet;
+        const_iterator pc2 = pc;
+        bool fRet = GetOp2(pc2, opcodeRet, NULL);
+        pc = begin() + (pc2 - begin());
+        return fRet;
     }
 
     bool GetOp(const_iterator& pc, opcodetype& opcodeRet, std::vector<unsigned char>& vchRet) const
@@ -725,7 +777,7 @@ bool ExtractDestinations(const CScript& scriptPubKey, txnouttype& typeRet, std::
 bool SignSignature(const CKeyStore& keystore, const CScript& fromPubKey, CTransaction& txTo, unsigned int nIn, int nHashType=SIGHASH_ALL);
 bool SignSignature(const CKeyStore& keystore, const CTransaction& txFrom, CTransaction& txTo, unsigned int nIn, int nHashType=SIGHASH_ALL);
 bool VerifyScript(const CScript& scriptSig, const CScript& scriptPubKey, const CTransaction& txTo, unsigned int nIn,
-                   unsigned int flags, int nHashType);
+                  unsigned int flags, int nHashType);
 bool VerifySignature(const CTransaction& txFrom, const CTransaction& txTo, unsigned int nIn, unsigned int flags, int nHashType);
 
 // Given two sets of signatures for scriptPubKey, possibly with OP_0 placeholders,

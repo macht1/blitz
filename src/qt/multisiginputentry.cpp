@@ -75,7 +75,7 @@ QString MultisigInputEntry::getRedeemScript()
 
 void MultisigInputEntry::setTransactionId(QString transactionId)
 {
-   ui->transactionId->setText(transactionId);
+    ui->transactionId->setText(transactionId);
 }
 
 void MultisigInputEntry::setTransactionOutputIndex(int index)
@@ -154,8 +154,8 @@ void MultisigInputEntry::on_transactionOutput_currentIndexChanged(int index)
 
         if(model)
         {
-             // Try to find the redeem script
-             CTxDestination dest;
+            // Try to find the redeem script
+            CTxDestination dest;
             if(ExtractDestination(script, dest))
             {
                 CScriptID scriptID = boost::get<CScriptID>(dest);
@@ -171,4 +171,4 @@ void MultisigInputEntry::on_transactionOutput_currentIndexChanged(int index)
     }
 
     emit updateAmount();
-} 
+}

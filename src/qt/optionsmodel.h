@@ -32,7 +32,7 @@ public:
         Language,          // QString
         CoinControlFeatures, // bool
         UseBlackTheme,     // bool
-		BlitzDarkEnabled,    // bool
+        BlitzDarkEnabled,    // bool
 #ifdef USE_NATIVE_I2P
         I2PUseI2POnly,              // bool
         I2PSAMHost,                 // QString
@@ -54,7 +54,7 @@ public:
         I2POutboundIPRestriction,   // int
         I2POutboundPriority,        // int
 #endif
-		OptionIDRowCount,
+        OptionIDRowCount,
     };
 
     void Init();
@@ -70,7 +70,9 @@ public:
     bool getMinimizeOnClose();
     int getDisplayUnit();
     bool getCoinControlFeatures();
-    QString getLanguage() { return language; }
+    QString getLanguage() {
+        return language;
+    }
 
 private:
     int nDisplayUnit;

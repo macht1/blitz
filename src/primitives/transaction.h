@@ -7,6 +7,7 @@
 
 #include "uint256.h"
 #include "serialize.h"
+#include "streams.h"
 #include "util.h"
 #include "script.h"
 
@@ -20,7 +21,9 @@ static const unsigned int MAX_BLOCK_SIZE = 2000000;
 /** No amount larger than this (in satoshi) is valid */
 static const int64_t MAX_MONEY = std::numeric_limits<int64_t>::max();
 
-inline bool MoneyRange(int64_t nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
+inline bool MoneyRange(int64_t nValue) {
+    return (nValue >= 0 && nValue <= MAX_MONEY);
+}
 
 /** An outpoint - a combination of a transaction hash and an index n into its vout */
 class COutPoint
@@ -29,11 +32,27 @@ public:
     uint256 hash;
     unsigned int n;
 
-    COutPoint() { SetNull(); }
-    COutPoint(uint256 hashIn, unsigned int nIn) { hash = hashIn; n = nIn; }
-    IMPLEMENT_SERIALIZE( READWRITE(FLATDATA(*this)); )
-    void SetNull() { hash = 0; n = (unsigned int) -1; }
-    bool IsNull() const { return (hash == 0 && n == (unsigned int) -1); }
+    COutPoint() {
+        SetNull();
+    }
+    COutPoint(uint256 hashIn, unsigned int nIn) {
+        hash = hashIn;
+        n = nIn;
+    }
+
+    ADD_SERIALIZE_METHODS;
+    template <typename Stream, typename Operation>
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion) {
+        READWRITE(FLATDATA(*this));
+    }
+
+    void SetNull() {
+        hash = 0;
+        n = (unsigned int) -1;
+    }
+    bool IsNull() const {
+        return (hash == 0 && n == (unsigned int) -1);
+    }
 
     friend bool operator<(const COutPoint& a, const COutPoint& b)
     {
@@ -63,10 +82,20 @@ public:
     CTransaction* ptx;
     unsigned int n;
 
-    CInPoint() { SetNull(); }
-    CInPoint(CTransaction* ptxIn, unsigned int nIn) { ptx = ptxIn; n = nIn; }
-    void SetNull() { ptx = NULL; n = (unsigned int) -1; }
-    bool IsNull() const { return (ptx == NULL && n == (unsigned int) -1); }
+    CInPoint() {
+        SetNull();
+    }
+    CInPoint(CTransaction* ptxIn, unsigned int nIn) {
+        ptx = ptxIn;
+        n = nIn;
+    }
+    void SetNull() {
+        ptx = NULL;
+        n = (unsigned int) -1;
+    }
+    bool IsNull() const {
+        return (ptx == NULL && n == (unsigned int) -1);
+    }
 };
 
 /** An input of a transaction.  It contains the location of the previous
@@ -99,12 +128,14 @@ public:
         nSequence = nSequenceIn;
     }
 
-    IMPLEMENT_SERIALIZE
-    (
+    ADD_SERIALIZE_METHODS;
+
+    template <typename Stream, typename Operation>
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion) {
         READWRITE(prevout);
         READWRITE(scriptSig);
         READWRITE(nSequence);
-    )
+    }
 
     bool IsFinal() const
     {
@@ -162,11 +193,13 @@ public:
         scriptPubKey = scriptPubKeyIn;
     }
 
-    IMPLEMENT_SERIALIZE
-    (
+    ADD_SERIALIZE_METHODS;
+
+    template <typename Stream, typename Operation>
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion) {
         READWRITE(nValue);
         READWRITE(scriptPubKey);
-    )
+    }
 
     void SetNull()
     {
@@ -234,7 +267,10 @@ public:
 
     // Denial-of-service detection:
     mutable int nDoS;
-    bool DoS(int nDoSIn, bool fIn) const { nDoS += nDoSIn; return fIn; }
+    bool DoS(int nDoSIn, bool fIn) const {
+        nDoS += nDoSIn;
+        return fIn;
+    }
 
     CTransaction();
 
@@ -243,15 +279,17 @@ public:
     {
     }
 
-    IMPLEMENT_SERIALIZE
-    (
+    ADD_SERIALIZE_METHODS;
+
+    template <typename Stream, typename Operation>
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion) {
         READWRITE(this->nVersion);
         nVersion = this->nVersion;
         READWRITE(nTime);
         READWRITE(vin);
         READWRITE(vout);
         READWRITE(nLockTime);
-    )
+    }
 
     void SetNull()
     {
@@ -301,7 +339,7 @@ public:
     }
 
     std::string ToString() const;
-    
+
     bool CheckTransaction() const;
 };
 
@@ -313,11 +351,14 @@ private:
 public:
     CTxOutCompressor(CTxOut &txoutIn) : txout(txoutIn) { }
 
-    IMPLEMENT_SERIALIZE(
+    ADD_SERIALIZE_METHODS;
+
+    template <typename Stream, typename Operation>
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion) {
         READWRITE(VARINT(txout.nValue));
         CScriptCompressor cscript(REF(txout.scriptPubKey));
         READWRITE(cscript);
-    )
+    }
 };
 
 #endif

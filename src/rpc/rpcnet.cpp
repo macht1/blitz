@@ -6,6 +6,7 @@
 
 #include "alert.h"
 #include "main.h"
+#include "chain.h"
 #include "net.h"
 #include "netbase.h"
 #include "protocol.h"
@@ -108,7 +109,7 @@ Value addnode(const Array& params, bool fHelp)
     if (params.size() == 2)
         strCommand = params[1].get_str();
     if (fHelp || params.size() != 2 ||
-        (strCommand != "onetry" && strCommand != "add" && strCommand != "remove"))
+            (strCommand != "onetry" && strCommand != "add" && strCommand != "remove"))
         throw runtime_error(
             "addnode <node> <add|remove|onetry>\n"
             "Attempts add or remove <node> from the addnode list or try a connection to <node> once.");
@@ -161,18 +162,18 @@ Value getaddednodeinfo(const Array& params, bool fHelp)
     {
         LOCK(cs_vAddedNodes);
         BOOST_FOREACH(string& strAddNode, vAddedNodes)
-            laddedNodes.push_back(strAddNode);
+        laddedNodes.push_back(strAddNode);
     }
     else
     {
         string strNode = params[1].get_str();
         LOCK(cs_vAddedNodes);
         BOOST_FOREACH(string& strAddNode, vAddedNodes)
-            if (strAddNode == strNode)
-            {
-                laddedNodes.push_back(strAddNode);
-                break;
-            }
+        if (strAddNode == strNode)
+        {
+            laddedNodes.push_back(strAddNode);
+            break;
+        }
         if (laddedNodes.size() == 0)
             throw JSONRPCError(RPC_CLIENT_NODE_NOT_ADDED, "Error: Node has not been added.");
     }
@@ -181,7 +182,7 @@ Value getaddednodeinfo(const Array& params, bool fHelp)
     {
         Object ret;
         BOOST_FOREACH(string& strAddNode, laddedNodes)
-            ret.push_back(Pair("addednode", strAddNode));
+        ret.push_back(Pair("addednode", strAddNode));
         return ret;
     }
 
@@ -217,13 +218,13 @@ Value getaddednodeinfo(const Array& params, bool fHelp)
             Object node;
             node.push_back(Pair("address", addrNode.ToString()));
             BOOST_FOREACH(CNode* pnode, vNodes)
-                if (pnode->addr == addrNode)
-                {
-                    fFound = true;
-                    fConnected = true;
-                    node.push_back(Pair("connected", pnode->fInbound ? "inbound" : "outbound"));
-                    break;
-                }
+            if (pnode->addr == addrNode)
+            {
+                fFound = true;
+                fConnected = true;
+                node.push_back(Pair("connected", pnode->fInbound ? "inbound" : "outbound"));
+                break;
+            }
             if (!fFound)
                 node.push_back(Pair("connected", "false"));
             addresses.push_back(node);
@@ -236,7 +237,7 @@ Value getaddednodeinfo(const Array& params, bool fHelp)
     return ret;
 }
 
-// ppcoin: send alert.  
+// ppcoin: send alert.
 // There is a known deadlock situation with ThreadMessageHandler
 // ThreadMessageHandler: holds cs_vSend and acquiring cs_main in SendMessages()
 // ThreadRPCServer: holds cs_main and acquiring cs_vSend in alert.RelayTo()/PushMessage()/BeginMessage()
@@ -276,15 +277,15 @@ Value sendalert(const Array& params, bool fHelp)
     key.SetPrivKey(CPrivKey(vchPrivKey.begin(), vchPrivKey.end()), false); // if key is not correct openssl may crash
     if (!key.Sign(Hash(alert.vchMsg.begin(), alert.vchMsg.end()), alert.vchSig))
         throw runtime_error(
-            "Unable to sign alert, check private key?\n");  
-    if(!alert.ProcessAlert()) 
+            "Unable to sign alert, check private key?\n");
+    if(!alert.ProcessAlert())
         throw runtime_error(
             "Failed to process alert.\n");
     // Relay alert
     {
         LOCK(cs_vNodes);
         BOOST_FOREACH(CNode* pnode, vNodes)
-            alert.RelayTo(pnode);
+        alert.RelayTo(pnode);
     }
 
     Object result;

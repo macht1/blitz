@@ -139,10 +139,10 @@ void MultisigDialog::on_createAddressButton_clicked()
         QString str = entry->getPubkey();
 
         CPubKey vchPubKey(ParseHex(str.toStdString().c_str()));
-	CPubKey pubkey(vchPubKey);
+        CPubKey pubkey(vchPubKey);
 
-  	if (!pubkey.IsValid())
-       		 return;
+        if (!pubkey.IsValid())
+            return;
     }
 
     if((required == 0) || (required > pubkeys.size()))
@@ -226,7 +226,7 @@ MultisigAddressEntry * MultisigDialog::addPubKey()
     connect(entry, SIGNAL(removeEntry(MultisigAddressEntry *)), this, SLOT(removeEntry(MultisigAddressEntry *)));
     updateRemoveEnabled();
     entry->clear();
-   ui->scrollAreaWidgetContents->resize(ui->scrollAreaWidgetContents->sizeHint());
+    ui->scrollAreaWidgetContents->resize(ui->scrollAreaWidgetContents->sizeHint());
     QScrollBar *bar = ui->scrollArea->verticalScrollBar();
     if(bar)
         bar->setSliderPosition(bar->maximum());
@@ -261,7 +261,7 @@ void MultisigDialog::on_createTransactionButton_clicked()
     }
 
     // Get outputs
-   for(int i = 0; i < ui->outputs->count(); i++)
+    for(int i = 0; i < ui->outputs->count(); i++)
     {
         SendCoinsEntry *entry = qobject_cast<SendCoinsEntry *>(ui->outputs->itemAt(i)->widget());
 
@@ -275,7 +275,7 @@ void MultisigDialog::on_createTransactionButton_clicked()
                 scriptPubKey.SetDestination(address.Get());
                 int64_t amount = recipient.amount;
                 CTxOut output(amount, scriptPubKey);
-               transaction.vout.push_back(output);
+                transaction.vout.push_back(output);
             }
             else
                 return;
@@ -284,7 +284,7 @@ void MultisigDialog::on_createTransactionButton_clicked()
 
     CDataStream ss(SER_NETWORK, PROTOCOL_VERSION);
     ss << transaction;
-   ui->transaction->setText(HexStr(ss.begin(), ss.end()).c_str());
+    ui->transaction->setText(HexStr(ss.begin(), ss.end()).c_str());
 }
 
 void MultisigDialog::on_transaction_textChanged()
@@ -304,13 +304,13 @@ void MultisigDialog::on_transaction_textChanged()
     CDataStream ss(txData, SER_NETWORK, PROTOCOL_VERSION);
     CTransaction tx;
     try
-   {
+    {
         ss >> tx;
     }
     catch(std::exception &e)
     {
         return;
-   }
+    }
 
     // Fill input list
     int index = -1;
@@ -352,7 +352,7 @@ void MultisigDialog::on_transaction_textChanged()
 
 void MultisigDialog::on_copyTransactionButton_clicked()
 {
-   QApplication::clipboard()->setText(ui->transaction->text());
+    QApplication::clipboard()->setText(ui->transaction->text());
 }
 
 void MultisigDialog::on_pasteTransactionButton_clicked()
@@ -387,7 +387,7 @@ void MultisigDialog::on_signTransactionButton_clicked()
     std::map<COutPoint, CScript> mapPrevOut;
     for(int i = 0; i < mergedTx.vin.size(); i++)
     {
-	CTransactionPoS txPoS;
+        CTransactionPoS txPoS;
         CTransaction tempTx;
         MapPrevTx mapPrevTx;
         CDBWrapper txdb("r");
@@ -410,7 +410,7 @@ void MultisigDialog::on_signTransactionButton_clicked()
     {
         MultisigInputEntry *entry = qobject_cast<MultisigInputEntry *>(ui->inputs->itemAt(i)->widget());
         if(entry)
-       {
+        {
             QString redeemScriptStr = entry->getRedeemScript();
             if(redeemScriptStr.size() > 0)
             {
@@ -516,7 +516,7 @@ void MultisigDialog::on_sendTransactionButton_clicked()
     // Send the transaction to the local node
     //   CDBWrapper txdb("r");
     if(!cmt.AcceptToMemoryPool(false))
-    return;
+        return;
     SyncWithWallets(tx, NULL, true);
     //(CInv(MSG_TX, txHash), tx);
     RelayTransaction(tx, txHash);

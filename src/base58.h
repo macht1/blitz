@@ -244,11 +244,21 @@ public:
         return 0;
     }
 
-    bool operator==(const CBase58Data& b58) const { return CompareTo(b58) == 0; }
-    bool operator<=(const CBase58Data& b58) const { return CompareTo(b58) <= 0; }
-    bool operator>=(const CBase58Data& b58) const { return CompareTo(b58) >= 0; }
-    bool operator< (const CBase58Data& b58) const { return CompareTo(b58) <  0; }
-    bool operator> (const CBase58Data& b58) const { return CompareTo(b58) >  0; }
+    bool operator==(const CBase58Data& b58) const {
+        return CompareTo(b58) == 0;
+    }
+    bool operator<=(const CBase58Data& b58) const {
+        return CompareTo(b58) <= 0;
+    }
+    bool operator>=(const CBase58Data& b58) const {
+        return CompareTo(b58) >= 0;
+    }
+    bool operator< (const CBase58Data& b58) const {
+        return CompareTo(b58) <  0;
+    }
+    bool operator> (const CBase58Data& b58) const {
+        return CompareTo(b58) >  0;
+    }
 };
 
 /** base58-encoded addresses.
@@ -341,9 +351,15 @@ public:
     }
 };
 
-bool inline CBitcoinAddressVisitor::operator()(const CKeyID &id) const         { return addr->Set(id); }
-bool inline CBitcoinAddressVisitor::operator()(const CScriptID &id) const      { return addr->Set(id); }
-bool inline CBitcoinAddressVisitor::operator()(const CNoDestination &id) const { return false; }
+bool inline CBitcoinAddressVisitor::operator()(const CKeyID &id) const         {
+    return addr->Set(id);
+}
+bool inline CBitcoinAddressVisitor::operator()(const CScriptID &id) const      {
+    return addr->Set(id);
+}
+bool inline CBitcoinAddressVisitor::operator()(const CNoDestination &id) const {
+    return false;
+}
 
 /** A base58-encoded secret key */
 class CBitcoinSecret : public CBase58Data

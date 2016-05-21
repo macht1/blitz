@@ -52,11 +52,11 @@ bool AppInit(int argc, char* argv[])
         {
             // First part of help message is specific to bitcoind / RPC client
             std::string strUsage = _("Blitz version") + " " + FormatFullVersion() + "\n\n" +
-                _("Usage:") + "\n" +
-                  "  blitzd [options]                     " + "\n" +
-                  "  blitzd [options] <command> [params]  " + _("Send command to -server or blitzd") + "\n" +
-                  "  blitzd [options] help                " + _("List commands") + "\n" +
-                  "  blitzd [options] help <command>      " + _("Get help for a command") + "\n";
+                                   _("Usage:") + "\n" +
+                                   "  blitzd [options]                     " + "\n" +
+                                   "  blitzd [options] <command> [params]  " + _("Send command to -server or blitzd") + "\n" +
+                                   "  blitzd [options] help                " + _("List commands") + "\n" +
+                                   "  blitzd [options] help <command>      " + _("Get help for a command") + "\n";
 
             strUsage += "\n" + HelpMessage();
 

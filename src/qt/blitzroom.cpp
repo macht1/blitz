@@ -22,24 +22,24 @@ BlitzRoom::BlitzRoom(QWidget *parent)
 {
     ui->setupUi(this);
     this->setStyleSheet("QTextEdit, QLineEdit, QListView { color: #e2e2e2; background-color: #000; }");
-   // setFixedSize(750,600);
+    // setFixedSize(750,600);
     ui->splitter->hide();
-ui->lineEdit->setDisabled(true);
+    ui->lineEdit->setDisabled(true);
 
-	connect(ui->buttonConnect, SIGNAL(clicked()), this, SLOT(connecte()));
+    connect(ui->buttonConnect, SIGNAL(clicked()), this, SLOT(connecte()));
 
-	connect(ui->actionQuit, SIGNAL(triggered()), this, SLOT(close()));
-        //connect(ui->actionCloseTab, SIGNAL(triggered()), this, SLOT(closeTab()));
+    connect(ui->actionQuit, SIGNAL(triggered()), this, SLOT(close()));
+    //connect(ui->actionCloseTab, SIGNAL(triggered()), this, SLOT(closeTab()));
 
-	connect(ui->lineEdit, SIGNAL(returnPressed()), this, SLOT(sendCommande()));
-
-
+    connect(ui->lineEdit, SIGNAL(returnPressed()), this, SLOT(sendCommande()));
 
 
 
-        connect(ui->disconnect, SIGNAL(clicked()), this, SLOT(disconnectFromServer()));
-        connect(ui->tab, SIGNAL(currentChanged(int)), this, SLOT(tabChanged(int)) );
-        connect(ui->tab, SIGNAL(tabCloseRequested(int)), this, SLOT(tabClosing(int)) );
+
+
+    connect(ui->disconnect, SIGNAL(clicked()), this, SLOT(disconnectFromServer()));
+    connect(ui->tab, SIGNAL(currentChanged(int)), this, SLOT(tabChanged(int)) );
+    connect(ui->tab, SIGNAL(tabCloseRequested(int)), this, SLOT(tabClosing(int)) );
 
 }
 
@@ -47,18 +47,18 @@ ui->lineEdit->setDisabled(true);
 
 void BlitzRoom::tabChanged(int index)
 {
-      if(index!=0 && joining == false)
-       currentTab()->updateUsersList(ui->tab->tabText(index));
+    if(index!=0 && joining == false)
+        currentTab()->updateUsersList(ui->tab->tabText(index));
 }
 
 void BlitzRoom::tabClosing(int index)
 {
     if (index==0)
     {
-    disconnectFromServer();
+        disconnectFromServer();
     }
     else {
-    currentTab()->leave(ui->tab->tabText(index));
+        currentTab()->leave(ui->tab->tabText(index));
     }
 
 
@@ -87,64 +87,64 @@ void BlitzRoom::disconnectFromServer() {
 
 Serveur *BlitzRoom::currentTab()
 {
-	QString tooltip=ui->tab->tabToolTip(ui->tab->currentIndex());
-	return serveurs[tooltip];
-	//return ui->tab->currentWidget()->findChild<Serveur *>();
+    QString tooltip=ui->tab->tabToolTip(ui->tab->currentIndex());
+    return serveurs[tooltip];
+    //return ui->tab->currentWidget()->findChild<Serveur *>();
 }
 
 void BlitzRoom::closeTab()
 {
-	QString tooltip=ui->tab->tabToolTip(ui->tab->currentIndex());
-	QString txt=ui->tab->tabText(ui->tab->currentIndex());
+    QString tooltip=ui->tab->tabToolTip(ui->tab->currentIndex());
+    QString txt=ui->tab->tabText(ui->tab->currentIndex());
 
-	if(txt==tooltip)
-	{
-		QMapIterator<QString, QTextEdit*> i(serveurs[tooltip]->conversations);
+    if(txt==tooltip)
+    {
+        QMapIterator<QString, QTextEdit*> i(serveurs[tooltip]->conversations);
 
-		int count=ui->tab->currentIndex()+1;
+        int count=ui->tab->currentIndex()+1;
 
-		while(i.hasNext())
-		{
-			i.next();
-			ui->tab->removeTab(count);
-		}
+        while(i.hasNext())
+        {
+            i.next();
+            ui->tab->removeTab(count);
+        }
 
-		currentTab()->abort();
-		ui->tab->removeTab(ui->tab->currentIndex());
-	}
-	else
-	{
+        currentTab()->abort();
+        ui->tab->removeTab(ui->tab->currentIndex());
+    }
+    else
+    {
 
         ui->tab->removeTab(ui->tab->currentIndex());
-		currentTab()->conversations.remove(txt);
-	}
+        currentTab()->conversations.remove(txt);
+    }
 }
 
 void BlitzRoom::sendCommande()
 {
-	QString tooltip=ui->tab->tabToolTip(ui->tab->currentIndex());
-	QString txt=ui->tab->tabText(ui->tab->currentIndex());
-	if(txt==tooltip)
-	{
-		currentTab()->sendData(currentTab()->parseCommande(ui->lineEdit->text(),true) );
-	}
-	else
-	{
+    QString tooltip=ui->tab->tabToolTip(ui->tab->currentIndex());
+    QString txt=ui->tab->tabText(ui->tab->currentIndex());
+    if(txt==tooltip)
+    {
+        currentTab()->sendData(currentTab()->parseCommande(ui->lineEdit->text(),true) );
+    }
+    else
+    {
         currentTab()->sendData(currentTab()->parseCommande(ui->lineEdit->text()) );
-	}
-	ui->lineEdit->clear();
-	ui->lineEdit->setFocus();
+    }
+    ui->lineEdit->clear();
+    ui->lineEdit->setFocus();
 }
 
 void BlitzRoom::tabJoined()
 {
-	joining=true;
+    joining=true;
 }
 void BlitzRoom::tabJoining()
 {
-	joining=false;
-         ui->lineEdit->setEnabled(true);
-        ui->tab->setTabsClosable(true);
+    joining=false;
+    ui->lineEdit->setEnabled(true);
+    ui->tab->setTabsClosable(true);
 
 
 
@@ -155,7 +155,7 @@ void BlitzRoom::connecte()
 
 
     ui->splitter->show();
-	Serveur *serveur=new Serveur;
+    Serveur *serveur=new Serveur;
     QTextEdit *textEdit=new QTextEdit;
     ui->hide3->hide();
 
@@ -165,50 +165,50 @@ void BlitzRoom::connecte()
     ui->tab->setTabToolTip(ui->tab->count()-1,"irc.freenode.net");
     // current tab is now the last, therefore remove all but the last
     for (int i = ui->tab->count(); i > 1; --i) {
-       ui->tab->removeTab(0);
+        ui->tab->removeTab(0);
     }
 
     serveurs.insert("irc.freenode.net",serveur);
 
-	serveur->pseudo=ui->editPseudo->text();
+    serveur->pseudo=ui->editPseudo->text();
     serveur->serveur="irc.freenode.net";
     serveur->port=6667;
     serveur->affichage=textEdit;
     serveur->tab=ui->tab;
     serveur->userList=ui->userView;
-	serveur->parent=this;
+    serveur->parent=this;
 
-	textEdit->setReadOnly(true);
+    textEdit->setReadOnly(true);
 
-	connect(serveur, SIGNAL(joinTab()),this, SLOT(tabJoined() ));
-	connect(serveur, SIGNAL(tabJoined()),this, SLOT(tabJoining() ));
+    connect(serveur, SIGNAL(joinTab()),this, SLOT(tabJoined() ));
+    connect(serveur, SIGNAL(tabJoined()),this, SLOT(tabJoining() ));
 
-   // serveur->connectToHost("irc.freenode.net",6667);
+    // serveur->connectToHost("irc.freenode.net",6667);
 
-        serveur->connectToHost("irc.freenode.net",6667);
-        //333
+    serveur->connectToHost("irc.freenode.net",6667);
+    //333
 
-	ui->tab->setCurrentIndex(ui->tab->count()-1);
+    ui->tab->setCurrentIndex(ui->tab->count()-1);
 
 
 }
 
 void BlitzRoom::closeEvent(QCloseEvent *event)
 {
-	(void) event;
+    (void) event;
 
-	QMapIterator<QString, Serveur*> i(serveurs);
+    QMapIterator<QString, Serveur*> i(serveurs);
 
-	while(i.hasNext())
-	{
-		i.next();
-		QMapIterator<QString, QTextEdit*> i2(i.value()->conversations);
-		while(i2.hasNext())
-		{
-			i2.next();
+    while(i.hasNext())
+    {
+        i.next();
+        QMapIterator<QString, QTextEdit*> i2(i.value()->conversations);
+        while(i2.hasNext())
+        {
+            i2.next();
             i.value()->sendData("QUIT "+i2.key() + " ");
-		}
-	}
+        }
+    }
 }
 void BlitzRoom ::setModel(ClientModel *model)
 {

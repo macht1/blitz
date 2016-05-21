@@ -45,13 +45,16 @@ private:
 
 public:
 
-    IMPLEMENT_SERIALIZE(
+    ADD_SERIALIZE_METHODS;
+
+    template <typename Stream, typename Operation>
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion) {
         CAddress* pthis = (CAddress*)(this);
         READWRITE(*pthis);
         READWRITE(source);
         READWRITE(nLastSuccess);
         READWRITE(nAttempts);
-    )
+    }
 
     void Init()
     {

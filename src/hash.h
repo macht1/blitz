@@ -8,6 +8,7 @@
 
 #include "uint256.h"
 #include "serialize.h"
+#include "streams.h"
 
 #include <openssl/sha.h>
 #include <openssl/ripemd.h>

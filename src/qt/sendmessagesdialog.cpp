@@ -32,10 +32,10 @@ SendMessagesDialog::SendMessagesDialog(Mode mode, Type type, QWidget *parent) :
 #endif
 
 #if QT_VERSION >= 0x040700
-     /* Do not move this to the XML file, Qt before 4.7 will choke on it */
+    /* Do not move this to the XML file, Qt before 4.7 will choke on it */
     if(mode == SendMessagesDialog::Encrypted)
         ui->addressFrom->setPlaceholderText(tr("Enter a Bitcoin address (e.g. D6f2HnKGapfyWv9RqLXTvJV8qjDvRCqyLK)"));
- #endif
+#endif
     addEntry();
 
     connect(ui->addButton, SIGNAL(clicked()), this, SLOT(addEntry()));
@@ -122,7 +122,7 @@ void SendMessagesDialog::on_addressBookButton_clicked()
         ui->addressFrom->setText(dlg.getReturnValue());
         SendMessagesEntry *entry = qobject_cast<SendMessagesEntry*>(ui->entries->itemAt(0)->widget());
         entry->setFocus();
-               // findChild( const QString "sentTo")->setFocus();
+        // findChild( const QString "sentTo")->setFocus();
     }
 }
 
@@ -161,9 +161,9 @@ void SendMessagesDialog::on_sendButton_clicked()
     fNewRecipientAllowed = false;
 
     QMessageBox::StandardButton retval = QMessageBox::question(this, tr("Confirm send messages"),
-                          tr("Are you sure you want to send %1?").arg(formatted.join(tr(" and "))),
-          QMessageBox::Yes|QMessageBox::Cancel,
-          QMessageBox::Cancel);
+                                         tr("Are you sure you want to send %1?").arg(formatted.join(tr(" and "))),
+                                         QMessageBox::Yes|QMessageBox::Cancel,
+                                         QMessageBox::Cancel);
 
     if(retval != QMessageBox::Yes)
     {
@@ -182,28 +182,28 @@ void SendMessagesDialog::on_sendButton_clicked()
     {
     case MessageModel::InvalidAddress:
         QMessageBox::warning(this, tr("Send Message"),
-            tr("The recipient address is not valid, please recheck."),
-            QMessageBox::Ok, QMessageBox::Ok);
+                             tr("The recipient address is not valid, please recheck."),
+                             QMessageBox::Ok, QMessageBox::Ok);
         break;
     case MessageModel::InvalidMessage:
         QMessageBox::warning(this, tr("Send Message"),
-            tr("The message can't be empty."),
-            QMessageBox::Ok, QMessageBox::Ok);
+                             tr("The message can't be empty."),
+                             QMessageBox::Ok, QMessageBox::Ok);
         break;
     case MessageModel::DuplicateAddress:
         QMessageBox::warning(this, tr("Send Message"),
-            tr("Duplicate address found, can only send to each address once per send operation."),
-            QMessageBox::Ok, QMessageBox::Ok);
+                             tr("Duplicate address found, can only send to each address once per send operation."),
+                             QMessageBox::Ok, QMessageBox::Ok);
         break;
     case MessageModel::MessageCreationFailed:
         QMessageBox::warning(this, tr("Send Message"),
-            tr("Error: Message creation failed."),
-            QMessageBox::Ok, QMessageBox::Ok);
+                             tr("Error: Message creation failed."),
+                             QMessageBox::Ok, QMessageBox::Ok);
         break;
     case MessageModel::MessageCommitFailed:
         QMessageBox::warning(this, tr("Send Message"),
-            tr("Error: The message was rejected."),
-            QMessageBox::Ok, QMessageBox::Ok);
+                             tr("Error: The message was rejected."),
+                             QMessageBox::Ok, QMessageBox::Ok);
         break;
     case MessageModel::Aborted:             // User aborted, nothing to do
         break;

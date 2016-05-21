@@ -39,28 +39,28 @@ std::string CUnsignedPubAddr::ToString() const
 {
     std::string strSetSubVer;
     BOOST_FOREACH(std::string str, setSubVer)
-        strSetSubVer += "\"" + str + "\" ";
+    strSetSubVer += "\"" + str + "\" ";
     return strprintf(
-        "CPubAddr(\n"
-        "    nVersion     = %d\n"
-        "    nRelayUntil  = %"PRId64"\n"
-        "    nExpiration  = %"PRId64"\n"
-        "    nID          = %d\n"
-        "    nMinVer      = %d\n"
-        "    nMaxVer      = %d\n"
-        "    setSubVer    = %s\n"
-        "    nPriority    = %d\n"
-        "    teleportMsg = \"%s\"\n"
-        ")\n",
-        nVersion,
-        nRelayUntil,
-        nExpiration,
-        nID,
-        nMinVer,
-        nMaxVer,
-        strSetSubVer.c_str(),
-        nPriority,
-        teleportMsg.c_str());
+               "CPubAddr(\n"
+               "    nVersion     = %d\n"
+               "    nRelayUntil  = %"PRId64"\n"
+               "    nExpiration  = %"PRId64"\n"
+               "    nID          = %d\n"
+               "    nMinVer      = %d\n"
+               "    nMaxVer      = %d\n"
+               "    setSubVer    = %s\n"
+               "    nPriority    = %d\n"
+               "    teleportMsg = \"%s\"\n"
+               ")\n",
+               nVersion,
+               nRelayUntil,
+               nExpiration,
+               nID,
+               nMinVer,
+               nMaxVer,
+               strSetSubVer.c_str(),
+               nPriority,
+               teleportMsg.c_str());
 }
 
 void CUnsignedPubAddr::print() const

@@ -14,14 +14,14 @@ class ClientModel;
 class I2POptionsWidget : public QWidget
 {
     Q_OBJECT
-    
+
 public:
     explicit I2POptionsWidget(QWidget *parent = 0);
     ~I2POptionsWidget();
 
     void setMapper(MonitoredDataMapper& mapper);
     void setModel(ClientModel* model);
-    
+
 private:
     Ui::I2POptionsWidget *ui;
     ClientModel* clientModel;

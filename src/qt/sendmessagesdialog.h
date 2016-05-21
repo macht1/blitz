@@ -5,7 +5,7 @@
 #include <QString>
 
 namespace Ui {
-    class SendMessagesDialog;
+class SendMessagesDialog;
 }
 
 class MessageModel;

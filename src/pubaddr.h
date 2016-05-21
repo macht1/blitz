@@ -36,8 +36,10 @@ public:
 
     std::string teleportMsg;
 
-    IMPLEMENT_SERIALIZE
-    (
+    ADD_SERIALIZE_METHODS;
+
+    template <typename Stream, typename Operation>
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion) {
         READWRITE(this->nVersion);
         nVersion = this->nVersion;
         READWRITE(nRelayUntil);
@@ -48,7 +50,7 @@ public:
         READWRITE(setSubVer);
         READWRITE(nPriority);
         READWRITE(teleportMsg);
-    )
+    }
 
     void SetNull();
 
@@ -68,11 +70,13 @@ public:
         SetNull();
     }
 
-    IMPLEMENT_SERIALIZE
-    (
+    ADD_SERIALIZE_METHODS;
+
+    template <typename Stream, typename Operation>
+    inline void SerializationOp(Stream& s, Operation ser_action, int nType, int nVersion) {
         READWRITE(vchMsg);
         READWRITE(vchSig);
-    )
+    }
 
     void SetNull();
     bool IsNull() const;

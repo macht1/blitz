@@ -7,6 +7,7 @@
 #define BLITZ_LEVELDB_H
 
 #include "main.h"
+#include "chain.h"
 
 #include <map>
 #include <string>

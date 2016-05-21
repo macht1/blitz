@@ -5,6 +5,7 @@
 
 #include "rpc/rpcserver.h"
 #include "main.h"
+#include "chain.h"
 #include "kernel.h"
 #include "checkpoints.h"
 
@@ -208,7 +209,7 @@ Value getrawmempool(const Array& params, bool fHelp)
 
     Array a;
     BOOST_FOREACH(const uint256& hash, vtxid)
-        a.push_back(hash.ToString());
+    a.push_back(hash.ToString());
 
     return a;
 }

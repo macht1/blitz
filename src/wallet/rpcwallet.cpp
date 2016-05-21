@@ -36,8 +36,8 @@ static void accountingDeprecationCheck()
 std::string HelpRequiringPassphrase()
 {
     return pwalletMain && pwalletMain->IsCrypted()
-        ? "\nrequires wallet passphrase to be set with walletpassphrase first"
-        : "";
+           ? "\nrequires wallet passphrase to be set with walletpassphrase first"
+           : "";
 }
 
 void EnsureWalletIsUnlocked()
@@ -64,7 +64,7 @@ void WalletTxToJSON(const CWalletTx& wtx, Object& entry)
     entry.push_back(Pair("time", (int64_t)wtx.GetTxTime()));
     entry.push_back(Pair("timereceived", (int64_t)wtx.nTimeReceived));
     BOOST_FOREACH(const PAIRTYPE(string,string)& item, wtx.mapValue)
-        entry.push_back(Pair(item.first, item.second));
+    entry.push_back(Pair(item.first, item.second));
 }
 
 string AccountFromValue(const Value& value)
@@ -147,13 +147,13 @@ CBitcoinAddress GetAccountAddress(string strAccount, bool bForceNew=false)
         CScript scriptPubKey;
         scriptPubKey.SetDestination(account.vchPubKey.GetID());
         for (map<uint256, CWalletTx>::iterator it = pwalletMain->mapWallet.begin();
-             it != pwalletMain->mapWallet.end() && account.vchPubKey.IsValid();
-             ++it)
+                it != pwalletMain->mapWallet.end() && account.vchPubKey.IsValid();
+                ++it)
         {
             const CWalletTx& wtx = (*it).second;
             BOOST_FOREACH(const CTxOut& txout, wtx.vout)
-                if (txout.scriptPubKey == scriptPubKey)
-                    bKeyUsed = true;
+            if (txout.scriptPubKey == scriptPubKey)
+                bKeyUsed = true;
         }
     }
 
@@ -387,9 +387,9 @@ Value getreceivedbyaddress(const Array& params, bool fHelp)
             continue;
 
         BOOST_FOREACH(const CTxOut& txout, wtx.vout)
-            if (txout.scriptPubKey == scriptPubKey)
-                if (wtx.GetDepthInMainChain() >= nMinDepth)
-                    nAmount += txout.nValue;
+        if (txout.scriptPubKey == scriptPubKey)
+            if (wtx.GetDepthInMainChain() >= nMinDepth)
+                nAmount += txout.nValue;
     }
 
     return  ValueFromAmount(nAmount);
@@ -513,10 +513,10 @@ Value getbalance(const Array& params, bool fHelp)
             if (wtx.GetDepthInMainChain() >= nMinDepth && wtx.GetBlocksToMaturity() == 0)
             {
                 BOOST_FOREACH(const PAIRTYPE(CTxDestination,int64_t)& r, listReceived)
-                    nBalance += r.second;
+                nBalance += r.second;
             }
             BOOST_FOREACH(const PAIRTYPE(CTxDestination,int64_t)& r, listSent)
-                nBalance -= r.second;
+            nBalance -= r.second;
             nBalance -= allFee;
         }
         return  ValueFromAmount(nBalance);
@@ -696,9 +696,9 @@ Value addmultisigaddress(const Array& params, bool fHelp)
     if (fHelp || params.size() < 2 || params.size() > 3)
     {
         string msg = "addmultisigaddress <nrequired> <'[\"key\",\"key\"]'> [account]\n"
-            "Add a nrequired-to-sign multisignature address to the wallet\"\n"
-            "each key is a Blitz address or hex-encoded public key\n"
-            "If [account] is specified, assign address to [account].";
+                     "Add a nrequired-to-sign multisignature address to the wallet\"\n"
+                     "each key is a Blitz address or hex-encoded public key\n"
+                     "If [account] is specified, assign address to [account].";
         throw runtime_error(msg);
     }
 
@@ -768,8 +768,8 @@ Value addredeemscript(const Array& params, bool fHelp)
     if (fHelp || params.size() < 1 || params.size() > 2)
     {
         string msg = "addredeemscript <redeemScript> [account]\n"
-            "Add a P2SH address with a specified redeemScript to the wallet.\n"
-            "If [account] is specified, assign address to [account].";
+                     "Add a P2SH address with a specified redeemScript to the wallet.\n"
+                     "If [account] is specified, assign address to [account].";
         throw runtime_error(msg);
     }
 
@@ -1108,21 +1108,21 @@ Value listaccounts(const Array& params, bool fHelp)
         wtx.GetAmounts(listReceived, listSent, nFee, strSentAccount);
         mapAccountBalances[strSentAccount] -= nFee;
         BOOST_FOREACH(const PAIRTYPE(CTxDestination, int64_t)& s, listSent)
-            mapAccountBalances[strSentAccount] -= s.second;
+        mapAccountBalances[strSentAccount] -= s.second;
         if (nDepth >= nMinDepth && wtx.GetBlocksToMaturity() == 0)
         {
             BOOST_FOREACH(const PAIRTYPE(CTxDestination, int64_t)& r, listReceived)
-                if (pwalletMain->mapAddressBook.count(r.first))
-                    mapAccountBalances[pwalletMain->mapAddressBook[r.first]] += r.second;
-                else
-                    mapAccountBalances[""] += r.second;
+            if (pwalletMain->mapAddressBook.count(r.first))
+                mapAccountBalances[pwalletMain->mapAddressBook[r.first]] += r.second;
+            else
+                mapAccountBalances[""] += r.second;
         }
     }
 
     list<CAccountingEntry> acentries;
     CWalletDB(pwalletMain->strWalletFile).ListAccountCreditDebit("*", acentries);
     BOOST_FOREACH(const CAccountingEntry& entry, acentries)
-        mapAccountBalances[entry.strAccount] += entry.nCreditDebit;
+    mapAccountBalances[entry.strAccount] += entry.nCreditDebit;
 
     Object ret;
     BOOST_FOREACH(const PAIRTYPE(string, int64_t)& accountBalance, mapAccountBalances) {
@@ -1181,8 +1181,8 @@ Value listsinceblock(const Array& params, bool fHelp)
 
         CBlockIndex *block;
         for (block = pindexBest;
-             block && block->nHeight > target_height;
-             block = block->pprev)  { }
+                block && block->nHeight > target_height;
+                block = block->pprev)  { }
 
         lastblock = block ? block->GetBlockHash() : 0;
     }
@@ -1553,7 +1553,7 @@ Value makekeypair(const Array& params, bool fHelp)
     string strPrefix = "";
     if (params.size() > 0)
         strPrefix = params[0].get_str();
- 
+
     CKey key;
     key.MakeNewKey(false);
 

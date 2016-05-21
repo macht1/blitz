@@ -9,6 +9,7 @@
 #include "wallet/db.h"
 #include "net.h"
 #include "main.h"
+#include "chain.h"
 #include "addrman.h"
 #include "ui_interface.h"
 //#include "SuperNET.h"
@@ -96,7 +97,9 @@ CCriticalSection cs_nLastNodeId;
 
 // Signals for message handling
 static CNodeSignals g_signals;
-CNodeSignals& GetNodeSignals() { return g_signals; }
+CNodeSignals& GetNodeSignals() {
+    return g_signals;
+}
 
 void AddOneShot(string strDest)
 {
@@ -226,7 +229,7 @@ void AdvertizeLocal(CNode *pnode)
         // tells us that it sees us as in case it has a better idea of our
         // address than we do.
         if (IsPeerAddrLocalGood(pnode) && (!addrLocal.IsRoutable() ||
-             GetRand((GetnScore(addrLocal) > LOCAL_MANUAL) ? 8:2) == 0))
+                                           GetRand((GetnScore(addrLocal) > LOCAL_MANUAL) ? 8:2) == 0))
         {
             addrLocal.SetIP(pnode->addrLocal);
         }
@@ -342,8 +345,8 @@ CNode* FindNode(const CNetAddr& ip)
     {
         LOCK(cs_vNodes);
         BOOST_FOREACH(CNode* pnode, vNodes)
-            if ((CNetAddr)pnode->addr == ip)
-                return (pnode);
+        if ((CNetAddr)pnode->addr == ip)
+            return (pnode);
     }
     return NULL;
 }
@@ -352,8 +355,8 @@ CNode* FindNode(const std::string& addrName)
 {
     LOCK(cs_vNodes);
     BOOST_FOREACH(CNode* pnode, vNodes)
-        if (pnode->addrName == addrName)
-            return (pnode);
+    if (pnode->addrName == addrName)
+        return (pnode);
     return NULL;
 }
 
@@ -362,8 +365,8 @@ CNode* FindNode(const CService& addr)
     {
         LOCK(cs_vNodes);
         BOOST_FOREACH(CNode* pnode, vNodes)
-            if ((CService)pnode->addr == addr)
-                return (pnode);
+        if ((CService)pnode->addr == addr)
+            return (pnode);
     }
     return NULL;
 }
@@ -386,14 +389,14 @@ CNode* ConnectNode(CAddress addrConnect, const char *pszDest)
 
     /// debug print
     LogPrint("net", "trying connection %s lastseen=%.1fhrs\n",
-        pszDest ? pszDest : addrConnect.ToString(),
-        pszDest ? 0 : (double)(GetAdjustedTime() - addrConnect.nTime)/3600.0);
+             pszDest ? pszDest : addrConnect.ToString(),
+             pszDest ? 0 : (double)(GetAdjustedTime() - addrConnect.nTime)/3600.0);
 
     // Connect
     SOCKET hSocket;
     bool proxyConnectionFailed = false;
     if (pszDest ? ConnectSocketByName(addrConnect, hSocket, pszDest, Params().GetDefaultPort(), nConnectTimeout, &proxyConnectionFailed) :
-                  ConnectSocket(addrConnect, hSocket, nConnectTimeout, &proxyConnectionFailed))
+            ConnectSocket(addrConnect, hSocket, nConnectTimeout, &proxyConnectionFailed))
     {
         addrman.Attempt(addrConnect);
 
@@ -522,7 +525,7 @@ bool CNode::Misbehaving(int howmuch)
 #define X(name) stats.name = name
 void CNode::copyStats(CNodeStats &stats)
 {
-	stats.nodeid = this->GetId();
+    stats.nodeid = this->GetId();
     X(nServices);
     X(nLastSend);
     X(nLastRecv);
@@ -552,7 +555,7 @@ void CNode::copyStats(CNodeStats &stats)
     // Raw ping time is in microseconds, but show it to user as whole seconds (Bitcoin users should be well used to small numbers with many decimal places by now :)
     stats.dPingTime = (((double)nPingUsecTime) / 1e6);
     stats.dPingWait = (((double)nPingUsecWait) / 1e6);
-    
+
     // Leave string empty if addrLocal invalid (not filled in yet)
     stats.addrLocal = addrLocal.IsValid() ? addrLocal.ToString() : "";
 }
@@ -565,13 +568,13 @@ bool CNode::ReceiveMsgBytes(const char *pch, unsigned int nBytes)
 
         // get current incomplete message, or create a new one
         if (vRecvMsg.empty() ||
-            vRecvMsg.back().complete())
+                vRecvMsg.back().complete())
 #ifdef USE_NATIVE_I2P
             vRecvMsg.push_back(CNetMessage(nRecvStreamType, nRecvVersion));
 #else
             vRecvMsg.push_back(CNetMessage(SER_NETWORK, nRecvVersion));
 #endif
-            
+
         CNetMessage& msg = vRecvMsg.back();
 
         // absorb network data
@@ -582,7 +585,7 @@ bool CNode::ReceiveMsgBytes(const char *pch, unsigned int nBytes)
             handled = msg.readData(pch, nBytes);
 
         if (handled < 0)
-                return false;
+            return false;
 
         pch += handled;
         nBytes -= handled;
@@ -602,8 +605,8 @@ void AddIncomingConnection(SOCKET hSocket, const CAddress& addr)
     {
         LOCK(cs_vNodes);
         BOOST_FOREACH(CNode* pnode, vNodes)
-            if (pnode->fInbound)
-                nInbound++;
+        if (pnode->fInbound)
+            nInbound++;
     }
 
     if (hSocket == INVALID_SOCKET)
@@ -663,7 +666,7 @@ int CNetMessage::readHeader(const char *pch, unsigned int nBytes)
 
     // reject messages larger than MAX_SIZE
     if (hdr.nMessageSize > MAX_SIZE)
-            return -1;
+        return -1;
 
     // switch state to reading message data
     in_data = true;
@@ -758,7 +761,7 @@ void ThreadSocketHandler()
             BOOST_FOREACH(CNode* pnode, vNodesCopy)
             {
                 if (pnode->fDisconnect ||
-                    (pnode->GetRefCount() <= 0 && pnode->vRecvMsg.empty() && pnode->nSendSize == 0 && pnode->ssSend.empty()))
+                        (pnode->GetRefCount() <= 0 && pnode->vRecvMsg.empty() && pnode->nSendSize == 0 && pnode->ssSend.empty()))
                 {
                     // remove from vNodes
                     vNodes.erase(remove(vNodes.begin(), vNodes.end(), pnode), vNodes.end());
@@ -914,8 +917,8 @@ void ThreadSocketHandler()
             {
                 LOCK(cs_vNodes);
                 BOOST_FOREACH(CNode* pnode, vNodes)
-                    if (pnode->fInbound)
-                        nInbound++;
+                if (pnode->fInbound)
+                    nInbound++;
             }
 
             if (hSocket == INVALID_SOCKET)
@@ -1021,7 +1024,7 @@ void ThreadSocketHandler()
             LOCK(cs_vNodes);
             vNodesCopy = vNodes;
             BOOST_FOREACH(CNode* pnode, vNodesCopy)
-                pnode->AddRef();
+            pnode->AddRef();
         }
         BOOST_FOREACH(CNode* pnode, vNodesCopy)
         {
@@ -1114,7 +1117,7 @@ void ThreadSocketHandler()
         {
             LOCK(cs_vNodes);
             BOOST_FOREACH(CNode* pnode, vNodesCopy)
-                pnode->Release();
+            pnode->Release();
         }
     }
 }
@@ -1177,20 +1180,20 @@ void ThreadMapPort()
         string strDesc = "BlackCoin " + FormatFullVersion();
 
         try {
-          while (true) {
+            while (true) {
 #ifndef UPNPDISCOVER_SUCCESS
                 /* miniupnpc 1.5 */
                 r = UPNP_AddPortMapping(urls.controlURL, data.first.servicetype,
-                                    port.c_str(), port.c_str(), lanaddr, strDesc.c_str(), "TCP", 0);
+                                        port.c_str(), port.c_str(), lanaddr, strDesc.c_str(), "TCP", 0);
 #else
                 /* miniupnpc 1.6 */
                 r = UPNP_AddPortMapping(urls.controlURL, data.first.servicetype,
-                                    port.c_str(), port.c_str(), lanaddr, strDesc.c_str(), "TCP", 0, "0");
+                                        port.c_str(), port.c_str(), lanaddr, strDesc.c_str(), "TCP", 0, "0");
 #endif
 
                 if(r!=UPNPCOMMAND_SUCCESS)
                     LogPrintf("AddPortMapping(%s, %s, %s) failed with code %d (%s)\n",
-                        port, port, lanaddr, r, strupnperror(r));
+                              port, port, lanaddr, r, strupnperror(r));
                 else
                     LogPrintf("UPnP Port Mapping successful.\n");;
 
@@ -1201,13 +1204,15 @@ void ThreadMapPort()
         {
             r = UPNP_DeletePortMapping(urls.controlURL, data.first.servicetype, port.c_str(), "TCP", 0);
             LogPrintf("UPNP_DeletePortMapping() returned : %d\n", r);
-            freeUPNPDevlist(devlist); devlist = 0;
+            freeUPNPDevlist(devlist);
+            devlist = 0;
             FreeUPNPUrls(&urls);
             throw;
         }
     } else {
         LogPrintf("No valid UPnP IGDs found\n");
-        freeUPNPDevlist(devlist); devlist = 0;
+        freeUPNPDevlist(devlist);
+        devlist = 0;
         if (r != 0)
             FreeUPNPUrls(&urls);
     }
@@ -1258,13 +1263,13 @@ void ThreadOnionSeed()
     printf("Loading addresses from .onion seeds (could take a while)\n");
 
     for (unsigned int seed_idx = 0; strOnionSeed[seed_idx][0] != NULL; seed_idx++) {
-         CNetAddr parsed;
-         if (
-             !parsed.SetSpecial(
-                 strOnionSeed[seed_idx][0]
-             )
-         ) {
-             throw runtime_error("ThreadOnionSeed() : invalid .onion seed");
+        CNetAddr parsed;
+        if (
+            !parsed.SetSpecial(
+                strOnionSeed[seed_idx][0]
+            )
+        ) {
+            throw runtime_error("ThreadOnionSeed() : invalid .onion seed");
 
         }
         int nOneDay = 24*3600;
@@ -1276,7 +1281,7 @@ void ThreadOnionSeed()
 
     printf("%d addresses found from .onion seeds\n", found);
 }
-  
+
 
 
 
@@ -1286,7 +1291,7 @@ void ThreadDNSAddressSeed()
 {
     // goal: only query DNS seeds if address need is acute
     if ((addrman.size() > 0) &&
-        (!GetBoolArg("-forcednsseed", false))) {
+            (!GetBoolArg("-forcednsseed", false))) {
         MilliSleep(11 * 1000);
 
         LOCK(cs_vNodes);
@@ -1341,7 +1346,7 @@ void DumpAddresses()
     adb.Write(addrman);
 
     LogPrint("net", "Flushed %d addresses to peers.dat  %dms\n",
-           addrman.size(), GetTimeMillis() - nStart);
+             addrman.size(), GetTimeMillis() - nStart);
 }
 
 void static ProcessOneShot()
@@ -1478,7 +1483,7 @@ void ThreadOpenAddedConnections()
             {
                 LOCK(cs_vAddedNodes);
                 BOOST_FOREACH(string& strAddNode, vAddedNodes)
-                    lAddresses.push_back(strAddNode);
+                lAddresses.push_back(strAddNode);
             }
             BOOST_FOREACH(string& strAddNode, lAddresses) {
                 CAddress addr;
@@ -1496,7 +1501,7 @@ void ThreadOpenAddedConnections()
         {
             LOCK(cs_vAddedNodes);
             BOOST_FOREACH(string& strAddNode, vAddedNodes)
-                lAddresses.push_back(strAddNode);
+            lAddresses.push_back(strAddNode);
         }
 
         list<vector<CService> > lservAddressesToAdd(0);
@@ -1509,7 +1514,7 @@ void ThreadOpenAddedConnections()
                 {
                     LOCK(cs_setservAddNodeAddresses);
                     BOOST_FOREACH(CService& serv, vservNode)
-                        setservAddNodeAddresses.insert(serv);
+                    setservAddNodeAddresses.insert(serv);
                 }
             }
         }
@@ -1518,14 +1523,14 @@ void ThreadOpenAddedConnections()
         {
             LOCK(cs_vNodes);
             BOOST_FOREACH(CNode* pnode, vNodes)
-                for (list<vector<CService> >::iterator it = lservAddressesToAdd.begin(); it != lservAddressesToAdd.end(); it++)
-                    BOOST_FOREACH(CService& addrNode, *(it))
-                        if (pnode->addr == addrNode)
-                        {
-                            it = lservAddressesToAdd.erase(it);
-                            it--;
-                            break;
-                        }
+            for (list<vector<CService> >::iterator it = lservAddressesToAdd.begin(); it != lservAddressesToAdd.end(); it++)
+                BOOST_FOREACH(CService& addrNode, *(it))
+                if (pnode->addr == addrNode)
+                {
+                    it = lservAddressesToAdd.erase(it);
+                    it--;
+                    break;
+                }
         }
         BOOST_FOREACH(vector<CService>& vserv, lservAddressesToAdd)
         {
@@ -1546,8 +1551,8 @@ bool OpenNetworkConnection(const CAddress& addrConnect, CSemaphoreGrant *grantOu
     boost::this_thread::interruption_point();
     if (!strDest)
         if (IsLocal(addrConnect) ||
-            FindNode((CNetAddr)addrConnect) || CNode::IsBanned(addrConnect) ||
-            FindNode(addrConnect.ToStringIPPort().c_str()))
+                FindNode((CNetAddr)addrConnect) || CNode::IsBanned(addrConnect) ||
+                FindNode(addrConnect.ToStringIPPort().c_str()))
             return false;
     if (strDest && FindNode(strDest))
         return false;
@@ -1586,9 +1591,9 @@ void static StartSync(const vector<CNode*> &vNodes) {
     BOOST_FOREACH(CNode* pnode, vNodes) {
         // check preconditions for allowing a sync
         if (!pnode->fClient && !pnode->fOneShot &&
-            !pnode->fDisconnect && pnode->fSuccessfullyConnected &&
-            (pnode->nStartingHeight > (nBestHeight - 144)) &&
-            (pnode->nVersion < NOBLKS_VERSION_START || pnode->nVersion >= NOBLKS_VERSION_END)) {
+                !pnode->fDisconnect && pnode->fSuccessfullyConnected &&
+                (pnode->nStartingHeight > (nBestHeight - 144)) &&
+                (pnode->nVersion < NOBLKS_VERSION_START || pnode->nVersion >= NOBLKS_VERSION_END)) {
             // if ok, compare node's score with the best so far
             int64_t nScore = NodeSyncScore(pnode);
             if (pnodeNewSync == NULL || nScore > nBestScore) {
@@ -1668,7 +1673,7 @@ void ThreadMessageHandler()
         {
             LOCK(cs_vNodes);
             BOOST_FOREACH(CNode* pnode, vNodesCopy)
-                pnode->Release();
+            pnode->Release();
         }
 
         if (fSleep)
@@ -1877,8 +1882,8 @@ static void run_tor() {
         "--hush",
         "--Log",
         argvLogDecl
-     };
-     tor_main(4, argv);
+    };
+    tor_main(4, argv);
 }
 
 void StartNode(boost::thread_group& threadGroup)
@@ -1903,12 +1908,12 @@ void StartNode(boost::thread_group& threadGroup)
     else
         threadGroup.create_thread(boost::bind(&TraceThread<void (*)()>, "dnsseed", &ThreadDNSAddressSeed));
 
-	int isfDark = GetArg("-blitzdark", 1);
-	
+    int isfDark = GetArg("-blitzdark", 1);
+
     if (!(isfDark == 1) || (fDarkEnabled != 1))
         LogPrintf(".onion seeding disabled\n");
     else
-       threadGroup.create_thread(boost::bind(&TraceThread<boost::function<void()> >, "onionseed", &ThreadOnionSeed));
+        threadGroup.create_thread(boost::bind(&TraceThread<boost::function<void()> >, "onionseed", &ThreadOnionSeed));
 
 
 #ifdef USE_UPNP
@@ -1960,18 +1965,18 @@ public:
     {
         // Close sockets
         BOOST_FOREACH(CNode* pnode, vNodes)
-            if (pnode->hSocket != INVALID_SOCKET)
-                closesocket(pnode->hSocket);
+        if (pnode->hSocket != INVALID_SOCKET)
+            closesocket(pnode->hSocket);
         BOOST_FOREACH(SOCKET hListenSocket, vhListenSocket)
-            if (hListenSocket != INVALID_SOCKET)
-                if (closesocket(hListenSocket) == SOCKET_ERROR)
-                    LogPrintf("closesocket(hListenSocket) failed with error %d\n", WSAGetLastError());
+        if (hListenSocket != INVALID_SOCKET)
+            if (closesocket(hListenSocket) == SOCKET_ERROR)
+                LogPrintf("closesocket(hListenSocket) failed with error %d\n", WSAGetLastError());
 
 #ifdef USE_NATIVE_I2P
         BOOST_FOREACH(SOCKET& hI2PListenSocket, vhI2PListenSocket)
-            if (hI2PListenSocket != INVALID_SOCKET)
-                if (closesocket(hI2PListenSocket) == SOCKET_ERROR)
-                    printf("closesocket(hI2PListenSocket) failed with error %d\n", WSAGetLastError());
+        if (hI2PListenSocket != INVALID_SOCKET)
+            if (closesocket(hI2PListenSocket) == SOCKET_ERROR)
+                printf("closesocket(hI2PListenSocket) failed with error %d\n", WSAGetLastError());
 #endif
 
 #ifdef WIN32

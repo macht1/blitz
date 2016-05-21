@@ -94,15 +94,15 @@ bool CDBEnv::Open(boost::filesystem::path pathEnv_)
     dbenv.log_set_config(DB_LOG_AUTO_REMOVE, 1);
 #endif
     int ret = dbenv.open(strPath.c_str(),
-                     DB_CREATE     |
-                     DB_INIT_LOCK  |
-                     DB_INIT_LOG   |
-                     DB_INIT_MPOOL |
-                     DB_INIT_TXN   |
-                     DB_THREAD     |
-                     DB_RECOVER    |
-                     nEnvFlags,
-                     S_IRUSR | S_IWUSR);
+                         DB_CREATE     |
+                         DB_INIT_LOCK  |
+                         DB_INIT_LOG   |
+                         DB_INIT_MPOOL |
+                         DB_INIT_TXN   |
+                         DB_THREAD     |
+                         DB_RECOVER    |
+                         nEnvFlags,
+                         S_IRUSR | S_IWUSR);
     if (ret != 0)
         return error("CDB() : error %s (%d) opening database environment", DbEnv::strerror(ret), ret);
 
@@ -131,14 +131,14 @@ void CDBEnv::MakeMock()
     dbenv.log_set_config(DB_LOG_IN_MEMORY, 1);
 #endif
     int ret = dbenv.open(NULL,
-                     DB_CREATE     |
-                     DB_INIT_LOCK  |
-                     DB_INIT_LOG   |
-                     DB_INIT_MPOOL |
-                     DB_INIT_TXN   |
-                     DB_THREAD     |
-                     DB_PRIVATE,
-                     S_IRUSR | S_IWUSR);
+                         DB_CREATE     |
+                         DB_INIT_LOCK  |
+                         DB_INIT_LOG   |
+                         DB_INIT_MPOOL |
+                         DB_INIT_TXN   |
+                         DB_THREAD     |
+                         DB_PRIVATE,
+                         S_IRUSR | S_IWUSR);
     if (ret > 0)
         throw runtime_error(strprintf("CDBEnv::MakeMock(): error %d opening database environment", ret));
 
@@ -352,7 +352,7 @@ bool CDB::Rewrite(const string& strFile, const char* pszSkip)
                 bool fSuccess = true;
                 LogPrintf("Rewriting %s...\n", strFile);
                 string strFileRes = strFile + ".rewrite";
-                { // surround usage of db with extra {}
+                {   // surround usage of db with extra {}
                     CDB db(strFile.c_str(), "r");
                     Db* pdbCopy = new Db(&bitdb.dbenv, 0);
 
@@ -387,7 +387,7 @@ bool CDB::Rewrite(const string& strFile, const char* pszSkip)
                                 break;
                             }
                             if (pszSkip &&
-                                strncmp(&ssKey[0], pszSkip, std::min(ssKey.size(), strlen(pszSkip))) == 0)
+                                    strncmp(&ssKey[0], pszSkip, std::min(ssKey.size(), strlen(pszSkip))) == 0)
                                 continue;
                             if (strncmp(&ssKey[0], "\x07version", 8) == 0)
                             {

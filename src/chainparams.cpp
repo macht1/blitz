@@ -8,6 +8,7 @@
 
 #include "chainparams.h"
 #include "main.h"
+#include "chain.h"
 #include "util.h"
 
 #include <boost/assign/list_of.hpp>
@@ -21,7 +22,7 @@ struct SeedSpec6 {
 
 #include "chainparamsseeds.h"
 
-void MineGenesis(CBlock genesis){
+void MineGenesis(CBlock genesis) {
     // This will figure out a valid hash and Nonce if you're creating a different genesis block:
     uint256 hashTarget = CBigNum().SetCompact(Params().ProofOfWorkLimit().GetCompact()).getuint256();
     printf("Target: %s\n", hashTarget.GetHex().c_str());
@@ -29,16 +30,16 @@ void MineGenesis(CBlock genesis){
     uint256 besthash;
     memset(&besthash,0xFF,32);
     while (newhash > hashTarget) {
-    	++genesis.nNonce;
-        if (genesis.nNonce == 0){
+        ++genesis.nNonce;
+        if (genesis.nNonce == 0) {
             printf("NONCE WRAPPED, incrementing time");
             ++genesis.nTime;
         }
-	newhash = genesis.GetHash();
-	if(newhash < besthash){
-	    besthash=newhash;
-	    printf("New best: %s\n", newhash.GetHex().c_str());
-	}
+        newhash = genesis.GetHash();
+        if(newhash < besthash) {
+            besthash=newhash;
+            printf("New best: %s\n", newhash.GetHex().c_str());
+        }
     }
     printf("Found Genesis, Nonce: %ld, Hash: %s\n", genesis.nNonce, genesis.GetHash().GetHex().c_str());
 }
@@ -79,11 +80,13 @@ public:
         nDefaultPort = 35200;
         nRPCPort = 35500;
         bnProofOfWorkLimit = CBigNum(~uint256(0) >> 21);
-		
-		bool weAreNew = false;
-		if(weAreNew == true){MineGenesis(genesis);}
 
-		const char* pszTimestamp = "NOTICE! THIS IS A TEST BLITZ BLOCKCHAIN, DO NOT USE FOR PRODUCTION!";
+        bool weAreNew = false;
+        if(weAreNew == true) {
+            MineGenesis(genesis);
+        }
+
+        const char* pszTimestamp = "NOTICE! THIS IS A TEST BLITZ BLOCKCHAIN, DO NOT USE FOR PRODUCTION!";
         CTransaction txNew;
         txNew.nTime = 1462850000;
         txNew.vin.resize(1);
@@ -100,13 +103,13 @@ public:
 
         hashGenesisBlock = genesis.GetHash();
 
-	LogPrintf(hashGenesisBlock.GetHex().c_str());
+        LogPrintf(hashGenesisBlock.GetHex().c_str());
 
         assert(hashGenesisBlock == uint256("0xf2a0c629eaa47bfdcdb431b04440f06c09256201ccb342d11e1bdd6335098b09"));
         assert(genesis.hashMerkleRoot == uint256("0x974edca41dde0eaa9d7b764c9565ab1460797b4f6f9221ddbf1ea24b5aadbee8"));
 
-     /* vSeeds.push_back(CDNSSeedData("[ENTER SEED SERVER I]", "[ENTER SEED SERVER I]"));
-     */
+        /* vSeeds.push_back(CDNSSeedData("[ENTER SEED SERVER I]", "[ENTER SEED SERVER I]"));
+        */
 
         base58Prefixes[PUBKEY_ADDRESS] = list_of(35);
         base58Prefixes[SCRIPT_ADDRESS] = list_of(85);
@@ -119,8 +122,12 @@ public:
         nLastPOWBlock = 0x7fffffff; // For now infinite Proof Of Work
     }
 
-    virtual const CBlock& GenesisBlock() const { return genesis; }
-    virtual Network NetworkID() const { return CChainParams::MAIN; }
+    virtual const CBlock& GenesisBlock() const {
+        return genesis;
+    }
+    virtual Network NetworkID() const {
+        return CChainParams::MAIN;
+    }
 
     virtual const vector<CAddress>& FixedSeeds() const {
         return vFixedSeeds;
@@ -171,7 +178,9 @@ public:
 
         nLastPOWBlock = 0x7fffffff;
     }
-    virtual Network NetworkID() const { return CChainParams::TESTNET; }
+    virtual Network NetworkID() const {
+        return CChainParams::TESTNET;
+    }
 };
 static CTestNetParams testNetParams;
 
@@ -198,8 +207,12 @@ public:
         vSeeds.clear();  // Regtest mode doesn't have any DNS seeds.
     }
 
-    virtual bool RequireRPCPassword() const { return false; }
-    virtual Network NetworkID() const { return CChainParams::REGTEST; }
+    virtual bool RequireRPCPassword() const {
+        return false;
+    }
+    virtual Network NetworkID() const {
+        return CChainParams::REGTEST;
+    }
 };
 static CRegTestParams regTestParams;
 
@@ -211,18 +224,18 @@ const CChainParams &Params() {
 
 void SelectParams(CChainParams::Network network) {
     switch (network) {
-        case CChainParams::MAIN:
-            pCurrentParams = &mainParams;
-            break;
-        case CChainParams::TESTNET:
-            pCurrentParams = &testNetParams;
-            break;
-        case CChainParams::REGTEST:
-            pCurrentParams = &regTestParams;
-            break;
-        default:
-            assert(false && "Unimplemented network");
-            return;
+    case CChainParams::MAIN:
+        pCurrentParams = &mainParams;
+        break;
+    case CChainParams::TESTNET:
+        pCurrentParams = &testNetParams;
+        break;
+    case CChainParams::REGTEST:
+        pCurrentParams = &regTestParams;
+        break;
+    default:
+        assert(false && "Unimplemented network");
+        return;
     }
 }
 

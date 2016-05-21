@@ -80,9 +80,9 @@ public:
     boost::signals2::signal<void (const std::string& strURI)> ThreadSafeHandleURI;
 
 #ifdef USE_NATIVE_I2P
-   boost::signals2::signal<void (const std::string& caption, const std::string& pub, const std::string& priv, const std::string& b32, const std::string& configFileName)> ThreadSafeShowGeneratedI2PAddress;
+    boost::signals2::signal<void (const std::string& caption, const std::string& pub, const std::string& priv, const std::string& b32, const std::string& configFileName)> ThreadSafeShowGeneratedI2PAddress;
 
-   boost::signals2::signal<void (int newNumI2PConnections)> NotifyNumI2PConnectionsChanged;
+    boost::signals2::signal<void (int newNumI2PConnections)> NotifyNumI2PConnectionsChanged;
 #endif
 
     /** Progress message during initialization. */

@@ -9,6 +9,7 @@
 
 #include "allocators.h"
 #include "serialize.h"
+#include "streams.h"
 #include "uint256.h"
 #include "hash.h"
 
@@ -85,10 +86,18 @@ public:
     }
 
     // Simple read-only vector-like interface to the pubkey data.
-    unsigned int size() const { return GetLen(vch[0]); }
-    const unsigned char *begin() const { return vch; }
-    const unsigned char *end() const { return vch+size(); }
-    const unsigned char &operator[](unsigned int pos) const { return vch[pos]; }
+    unsigned int size() const {
+        return GetLen(vch[0]);
+    }
+    const unsigned char *begin() const {
+        return vch;
+    }
+    const unsigned char *end() const {
+        return vch+size();
+    }
+    const unsigned char &operator[](unsigned int pos) const {
+        return vch[pos];
+    }
 
     // Comparator implementation.
     friend bool operator==(const CPubKey &a, const CPubKey &b) {
@@ -167,12 +176,12 @@ public:
     // Derive BIP32 child pubkey.
     bool Derive(CPubKey& pubkeyChild, unsigned char ccChild[32], unsigned int nChild, const unsigned char cc[32]) const;
 
-	// Raw
-     std::vector<unsigned char> Raw() const {
- 	std::vector<unsigned char> r;
-         r.insert(r.end(), vch, vch+size());
- 	return r;
-     }
+    // Raw
+    std::vector<unsigned char> Raw() const {
+        std::vector<unsigned char> r;
+        r.insert(r.end(), vch, vch+size());
+        return r;
+    }
 };
 
 
@@ -235,15 +244,25 @@ public:
     }
 
     // Simple read-only vector-like interface.
-    unsigned int size() const { return (fValid ? 32 : 0); }
-    const unsigned char *begin() const { return vch; }
-    const unsigned char *end() const { return vch + size(); }
+    unsigned int size() const {
+        return (fValid ? 32 : 0);
+    }
+    const unsigned char *begin() const {
+        return vch;
+    }
+    const unsigned char *end() const {
+        return vch + size();
+    }
 
     // Check whether this private key is valid.
-    bool IsValid() const { return fValid; }
+    bool IsValid() const {
+        return fValid;
+    }
 
     // Check whether the public key corresponding to this private key is (to be) compressed.
-    bool IsCompressed() const { return fCompressed; }
+    bool IsCompressed() const {
+        return fCompressed;
+    }
 
     // Initialize from a CPrivKey (serialized OpenSSL private key data).
     bool SetPrivKey(const CPrivKey &vchPrivKey, bool fCompressed);

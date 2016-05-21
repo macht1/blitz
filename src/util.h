@@ -14,6 +14,7 @@
 #endif
 
 #include "serialize.h"
+#include "streams.h"
 #include "tinyformat.h"
 
 #include <map>
@@ -267,7 +268,8 @@ std::string HexStr(const T itbegin, const T itend, bool fSpaces=false)
 {
     std::string rv;
     static const char hexmap[16] = { '0', '1', '2', '3', '4', '5', '6', '7',
-                                     '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
+                                     '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'
+                                   };
     rv.reserve((itend-itbegin)*3);
     for(T it = itbegin; it < itend; ++it)
     {
@@ -393,9 +395,9 @@ extern uint32_t insecure_rand_Rz;
 extern uint32_t insecure_rand_Rw;
 static inline uint32_t insecure_rand(void)
 {
-  insecure_rand_Rz=36969*(insecure_rand_Rz&65535)+(insecure_rand_Rz>>16);
-  insecure_rand_Rw=18000*(insecure_rand_Rw&65535)+(insecure_rand_Rw>>16);
-  return (insecure_rand_Rw<<16)+insecure_rand_Rz;
+    insecure_rand_Rz=36969*(insecure_rand_Rz&65535)+(insecure_rand_Rz>>16);
+    insecure_rand_Rw=18000*(insecure_rand_Rw&65535)+(insecure_rand_Rw>>16);
+    return (insecure_rand_Rw<<16)+insecure_rand_Rz;
 }
 
 /**

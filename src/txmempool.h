@@ -6,6 +6,7 @@
 #define BLITZ_TXMEMPOOL_H
 
 #include "main.h"
+#include "chain.h"
 #include "sync.h"
 
 class CTransaction;

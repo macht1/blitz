@@ -4,7 +4,7 @@
 #include <QDialog>
 
 namespace Ui {
-    class EditAddressDialog;
+class EditAddressDialog;
 }
 class AddressTableModel;
 

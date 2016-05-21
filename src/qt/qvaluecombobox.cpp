@@ -3,7 +3,7 @@
 #include <QStyledItemDelegate>
 
 QValueComboBox::QValueComboBox(QWidget *parent) :
-        QComboBox(parent), role(Qt::UserRole)
+    QComboBox(parent), role(Qt::UserRole)
 {
     setItemDelegate(new QStyledItemDelegate());
 

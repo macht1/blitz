@@ -50,11 +50,11 @@ public:
         functionality.
     */
     void setWalletModel(WalletModel *walletModel);
-	/** Set the message model.
+    /** Set the message model.
         The message model represents encryption message database, and offers access to the list of messages, address book and sending
         functionality.
-     */    
-	void setMessageModel(MessageModel *messageModel);
+     */
+    void setMessageModel(MessageModel *messageModel);
 
 protected:
     void changeEvent(QEvent *e);
@@ -65,7 +65,7 @@ protected:
 private:
     ClientModel *clientModel;
     WalletModel *walletModel;
-	MessageModel *messageModel;
+    MessageModel *messageModel;
 
     QToolBar *toolbar;
 
@@ -77,16 +77,16 @@ private:
     AddressBookPage *receiveCoinsPage;
     SendCoinsDialog *sendCoinsPage;
     SignVerifyMessageDialog *signVerifyMessageDialog;
-	MessagePage *messagePage;
-	MultisigDialog *multisigPage;
-	SecondAuthDialog *secondAuthDialog;
+    MessagePage *messagePage;
+    MultisigDialog *multisigPage;
+    SecondAuthDialog *secondAuthDialog;
 
     QLabel *labelEncryptionIcon;
     QLabel *labelStakingIcon;
     QLabel *labelConnectionsIcon;
     QLabel *labelBlocksIcon;
     QLabel *progressBarLabel;
-	QLabel *netLabel;
+    QLabel *netLabel;
     QProgressBar *progressBar;
 #ifdef USE_NATIVE_I2P
     QLabel* labelI2PConnections;
@@ -170,10 +170,10 @@ public slots:
     */
     void askFee(qint64 nFeeRequired, bool *payFee);
     void handleURI(QString strURI);
-    void gotoMultisigPage(); 
+    void gotoMultisigPage();
 #ifdef USE_NATIVE_I2P
     void showGeneratedI2PAddr(const QString& caption, const QString& pub, const QString& priv, const QString& b32, const QString& configFileName);
-#endif  
+#endif
 
 private slots:
     /** Switch to overview (home) page */
@@ -186,14 +186,14 @@ private slots:
     void gotoReceiveCoinsPage();
     /** Switch to send coins page */
     void gotoSendCoinsPage();
-	/** Switch to Message Page*/
+    /** Switch to Message Page*/
     void gotoMessagePage();
 
     /** Show Sign/Verify Message dialog and switch to sign message tab */
     void gotoSignMessageTab(QString addr = "");
     /** Show Sign/Verify Message dialog and switch to verify message tab */
     void gotoVerifyMessageTab(QString addr = "");
-	/** Show Second Auth dialog */
+    /** Show Second Auth dialog */
     void gotoSecondAuthPage(QString addr = "");
 
     /** Show configuration dialog */
@@ -209,7 +209,7 @@ private slots:
         The new items are those between start and end inclusive, under the given parent item.
     */
     void incomingTransaction(const QModelIndex & parent, int start, int end);
-	void incomingMessage(const QModelIndex & parent, int start, int end);
+    void incomingMessage(const QModelIndex & parent, int start, int end);
     /** Encrypt the wallet */
     void encryptWallet();
     /** Backup the wallet */

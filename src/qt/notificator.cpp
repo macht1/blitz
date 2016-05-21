@@ -42,7 +42,7 @@ Notificator::Notificator(const QString &programName, QSystemTrayIcon *trayicon, 
     }
 #ifdef USE_DBUS
     interface = new QDBusInterface("org.freedesktop.Notifications",
-          "/org/freedesktop/Notifications", "org.freedesktop.Notifications");
+                                   "/org/freedesktop/Notifications", "org.freedesktop.Notifications");
     if(interface->isValid())
     {
         mode = Freedesktop;
@@ -191,10 +191,17 @@ void Notificator::notifyDBus(Class cls, const QString &title, const QString &tex
         QStyle::StandardPixmap sicon = QStyle::SP_MessageBoxQuestion;
         switch(cls)
         {
-        case Information: sicon = QStyle::SP_MessageBoxInformation; break;
-        case Warning: sicon = QStyle::SP_MessageBoxWarning; break;
-        case Critical: sicon = QStyle::SP_MessageBoxCritical; break;
-        default: break;
+        case Information:
+            sicon = QStyle::SP_MessageBoxInformation;
+            break;
+        case Warning:
+            sicon = QStyle::SP_MessageBoxWarning;
+            break;
+        case Critical:
+            sicon = QStyle::SP_MessageBoxCritical;
+            break;
+        default:
+            break;
         }
         tmpicon = QApplication::style()->standardIcon(sicon);
     }
@@ -219,9 +226,15 @@ void Notificator::notifySystray(Class cls, const QString &title, const QString &
     QSystemTrayIcon::MessageIcon sicon = QSystemTrayIcon::NoIcon;
     switch(cls) // Set icon based on class
     {
-    case Information: sicon = QSystemTrayIcon::Information; break;
-    case Warning: sicon = QSystemTrayIcon::Warning; break;
-    case Critical: sicon = QSystemTrayIcon::Critical; break;
+    case Information:
+        sicon = QSystemTrayIcon::Information;
+        break;
+    case Warning:
+        sicon = QSystemTrayIcon::Warning;
+        break;
+    case Critical:
+        sicon = QSystemTrayIcon::Critical;
+        break;
     }
     trayIcon->showMessage(title, text, sicon, millisTimeout);
 }
@@ -248,9 +261,15 @@ void Notificator::notifyGrowl(Class cls, const QString &title, const QString &te
         QStyle::StandardPixmap sicon = QStyle::SP_MessageBoxQuestion;
         switch (cls)
         {
-        case Information: sicon = QStyle::SP_MessageBoxInformation; break;
-        case Warning: sicon = QStyle::SP_MessageBoxWarning; break;
-        case Critical: sicon = QStyle::SP_MessageBoxCritical; break;
+        case Information:
+            sicon = QStyle::SP_MessageBoxInformation;
+            break;
+        case Warning:
+            sicon = QStyle::SP_MessageBoxWarning;
+            break;
+        case Critical:
+            sicon = QStyle::SP_MessageBoxCritical;
+            break;
         }
         notificationIconPixmap = QApplication::style()->standardPixmap(sicon);
     }

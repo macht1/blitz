@@ -133,10 +133,10 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     messagePage = new MessagePage(this);
 
     signVerifyMessageDialog = new SignVerifyMessageDialog(this);
-	
-	multisigPage = new MultisigDialog(this);
 
-	secondAuthDialog = new SecondAuthDialog(0);
+    multisigPage = new MultisigDialog(this);
+
+    secondAuthDialog = new SecondAuthDialog(0);
 
     centralStackedWidget = new QStackedWidget(this);
     centralStackedWidget->addWidget(overviewPage);
@@ -223,15 +223,15 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     netLabel->setObjectName("netLabel");
     netLabel->setStyleSheet("#netLabel { color: #efefef; }");
 
-   // statusBar()->addWidget(netLabel);
+    // statusBar()->addWidget(netLabel);
 #ifdef USE_NATIVE_I2P
     labelI2PConnections = new QLabel();
     labelI2POnly = new QLabel();
     labelI2PGenerated = new QLabel();
-/*    statusBar()->addWidget(labelI2PGenerated);
-    statusBar()->addWidget(labelI2POnly);
-    statusBar()->addWidget(labelI2PConnections);
-*/#endif
+    /*    statusBar()->addWidget(labelI2PGenerated);
+        statusBar()->addWidget(labelI2POnly);
+        statusBar()->addWidget(labelI2PConnections);
+    */#endif
     statusBar()->addWidget(progressBarLabel);
     statusBar()->addWidget(progressBar);
 
@@ -299,11 +299,11 @@ void BitcoinGUI::createActions()
     addressBookAction->setCheckable(true);
     addressBookAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
     tabGroup->addAction(addressBookAction);
-	
-	multisigAction = new QAction(QIcon(":/icons/send"), tr("Multisig"), this);
+
+    multisigAction = new QAction(QIcon(":/icons/send"), tr("Multisig"), this);
     tabGroup->addAction(multisigAction);
 
-	messageAction = new QAction(QIcon(":/icons/overview"), tr("BlitzSend"), this);
+    messageAction = new QAction(QIcon(":/icons/overview"), tr("BlitzSend"), this);
     messageAction->setToolTip(tr("View and Send Encrypted messages"));
     messageAction->setCheckable(true);
 #ifdef Q_OS_MAC
@@ -325,9 +325,9 @@ void BitcoinGUI::createActions()
     connect(addressBookAction, SIGNAL(triggered()), this, SLOT(gotoAddressBookPage()));
     connect(messageAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(messageAction, SIGNAL(triggered()), this, SLOT(gotoMessagePage()));
-	connect(multisigAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
+    connect(multisigAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(multisigAction, SIGNAL(triggered()), this, SLOT(gotoMultisigPage()));
- 
+
     quitAction = new QAction(tr("E&xit"), this);
     quitAction->setToolTip(tr("Quit application"));
     quitAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q));
@@ -354,7 +354,7 @@ void BitcoinGUI::createActions()
     lockWalletAction->setToolTip(tr("Lock wallet"));
     signMessageAction = new QAction(tr("Sign &message..."), this);
     verifyMessageAction = new QAction(tr("&Verify message..."), this);
-	secondAuthAction = new QAction(QIcon(":/icons/key"), tr("Second &auth..."), this);
+    secondAuthAction = new QAction(QIcon(":/icons/key"), tr("Second &auth..."), this);
 
     exportAction = new QAction(tr("&Export..."), this);
     exportAction->setToolTip(tr("Export the data in the current tab to a file"));
@@ -453,21 +453,21 @@ void BitcoinGUI::setClientModel(ClientModel *clientModel)
 
     if(!fOnlyTor)
     {
-	#ifdef USE_NATIVE_I2P
-             setNumI2PConnections(clientModel->getNumI2PConnections());
-             connect(clientModel, SIGNAL(numI2PConnectionsChanged(int)), this, SLOT(setNumI2PConnections(int)));
-	if(clientModel->isI2POnly())
-	{
-	     netLabel->setText("I2P");
-             netLabel->setToolTip(tr("Wallet is using I2P-network only"));
-	}
-	else
-	{
-	#endif
+#ifdef USE_NATIVE_I2P
+        setNumI2PConnections(clientModel->getNumI2PConnections());
+        connect(clientModel, SIGNAL(numI2PConnectionsChanged(int)), this, SLOT(setNumI2PConnections(int)));
+        if(clientModel->isI2POnly())
+        {
+            netLabel->setText("I2P");
+            netLabel->setToolTip(tr("Wallet is using I2P-network only"));
+        }
+        else
+        {
+#endif
 
-	netLabel->setText("CLEARNET");
-	#ifdef USE_NATIVE_I2P
-	}
+            netLabel->setText("CLEARNET");
+#ifdef USE_NATIVE_I2P
+        }
 
         if (clientModel->isI2PAddressGenerated())
         {
@@ -479,22 +479,22 @@ void BitcoinGUI::setClientModel(ClientModel *clientModel)
             labelI2PGenerated->setText("STA");
             labelI2PGenerated->setToolTip(tr("Wallet is running with a static I2P-address"));
         }
-	#endif
+#endif
     }
     else
     {
-	if(!IsLimited(NET_TOR))
-	{
-	netLabel->setMinimumSize(48, 48);
-    	netLabel->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-    	netLabel->setPixmap(QPixmap(":/icons/onion"));
-    	netLabel->setMaximumSize(48,48);
-    	netLabel->setScaledContents(true);
-	}
+        if(!IsLimited(NET_TOR))
+        {
+            netLabel->setMinimumSize(48, 48);
+            netLabel->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+            netLabel->setPixmap(QPixmap(":/icons/onion"));
+            netLabel->setMaximumSize(48,48);
+            netLabel->setScaledContents(true);
+        }
     }
 
 
-   this->clientModel = clientModel;
+    this->clientModel = clientModel;
     if(clientModel)
     {
         // Replace some strings and icons, when using the testnet
@@ -548,8 +548,8 @@ void BitcoinGUI::setWalletModel(WalletModel *walletModel)
         sendCoinsPage->setModel(walletModel);
         signVerifyMessageDialog->setModel(walletModel);
         multisigPage->setModel(walletModel);
-		secondAuthDialog->setModel(walletModel);
-		
+        secondAuthDialog->setModel(walletModel);
+
         setEncryptionStatus(walletModel->getEncryptionStatus());
         connect(walletModel, SIGNAL(encryptionStatusChanged(int)), this, SLOT(setEncryptionStatus(int)));
 
@@ -570,7 +570,7 @@ void BitcoinGUI::setMessageModel(MessageModel *messageModel)
         // Report errors from message thread
         connect(messageModel, SIGNAL(error(QString,QString,bool)), this, SLOT(message(QString,QString,bool)));
 
-       // Put transaction list in tabs
+        // Put transaction list in tabs
         messagePage->setModel(messageModel);
 
         // Balloon pop-up for new message
@@ -664,11 +664,21 @@ void BitcoinGUI::setNumI2PConnections(int count)
     QString i2pIcon;
     switch(count)
     {
-    case 0: i2pIcon = ":/icons/bwi2pconnect_0"; break;
-    case 1: /*case 2: case 3:*/ i2pIcon = ":/icons/bwi2pconnect_1"; break;
-    case 2:/*case 4: case 5: case 6:*/ i2pIcon = ":/icons/bwi2pconnect_2"; break;
-    case 3:/*case 7: case 8: case 9:*/ i2pIcon = ":/icons/bwi2pconnect_3"; break;
-    default: i2pIcon = ":/icons/bwi2pconnect_4"; break;
+    case 0:
+        i2pIcon = ":/icons/bwi2pconnect_0";
+        break;
+    case 1: /*case 2: case 3:*/
+        i2pIcon = ":/icons/bwi2pconnect_1";
+        break;
+    case 2:/*case 4: case 5: case 6:*/
+        i2pIcon = ":/icons/bwi2pconnect_2";
+        break;
+    case 3:/*case 7: case 8: case 9:*/
+        i2pIcon = ":/icons/bwi2pconnect_3";
+        break;
+    default:
+        i2pIcon = ":/icons/bwi2pconnect_4";
+        break;
     }
     labelI2PConnections->setPixmap(QPixmap(i2pIcon));
     labelI2PConnections->setToolTip(tr("%n active connection(s) to I2P-Crave network", "", count));
@@ -680,11 +690,27 @@ void BitcoinGUI::setNumConnections(int count)
     QString icon;
     switch(count)
     {
-    case 0: icon = fUseBlackTheme ? ":/icons/black/connect_0" : ":/icons/connect_0"; break;
-    case 1: case 2: case 3: icon = fUseBlackTheme ? ":/icons/black/connect_1" : ":/icons/connect_1"; break;
-    case 4: case 5: case 6: icon = fUseBlackTheme ? ":/icons/black/connect_2" : ":/icons/connect_2"; break;
-    case 7: case 8: case 9: icon = fUseBlackTheme ? ":/icons/black/connect_3" : ":/icons/connect_3"; break;
-    default: icon = fUseBlackTheme ? ":/icons/black/connect_4" : ":/icons/connect_4"; break;
+    case 0:
+        icon = fUseBlackTheme ? ":/icons/black/connect_0" : ":/icons/connect_0";
+        break;
+    case 1:
+    case 2:
+    case 3:
+        icon = fUseBlackTheme ? ":/icons/black/connect_1" : ":/icons/connect_1";
+        break;
+    case 4:
+    case 5:
+    case 6:
+        icon = fUseBlackTheme ? ":/icons/black/connect_2" : ":/icons/connect_2";
+        break;
+    case 7:
+    case 8:
+    case 9:
+        icon = fUseBlackTheme ? ":/icons/black/connect_3" : ":/icons/connect_3";
+        break;
+    default:
+        icon = fUseBlackTheme ? ":/icons/black/connect_4" : ":/icons/connect_4";
+        break;
     }
     labelConnectionsIcon->setPixmap(QIcon(icon).pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
     labelConnectionsIcon->setToolTip(tr("%n active connection(s) to Blitz network", "", count));
@@ -851,7 +877,7 @@ void BitcoinGUI::closeEvent(QCloseEvent *event)
     {
 #ifndef Q_OS_MAC // Ignored on Mac
         if(!clientModel->getOptionsModel()->getMinimizeToTray() &&
-           !clientModel->getOptionsModel()->getMinimizeOnClose())
+                !clientModel->getOptionsModel()->getMinimizeOnClose())
         {
             qApp->quit();
         }
@@ -866,11 +892,11 @@ void BitcoinGUI::askFee(qint64 nFeeRequired, bool *payFee)
         return;
 
     QString strMessage = tr("This transaction is over the size limit. You can still send it for a fee of %1, "
-        "which goes to the nodes that process your transaction and helps to support the network. "
-        "Do you want to pay the fee?").arg(BitcoinUnits::formatWithUnit(clientModel->getOptionsModel()->getDisplayUnit(), nFeeRequired));
+                            "which goes to the nodes that process your transaction and helps to support the network. "
+                            "Do you want to pay the fee?").arg(BitcoinUnits::formatWithUnit(clientModel->getOptionsModel()->getDisplayUnit(), nFeeRequired));
     QMessageBox::StandardButton retval = QMessageBox::question(
-          this, tr("Confirm transaction fee"), strMessage,
-          QMessageBox::Yes|QMessageBox::Cancel, QMessageBox::Yes);
+            this, tr("Confirm transaction fee"), strMessage,
+            QMessageBox::Yes|QMessageBox::Cancel, QMessageBox::Yes);
     *payFee = (retval == QMessageBox::Yes);
 }
 
@@ -886,26 +912,26 @@ void BitcoinGUI::incomingTransaction(const QModelIndex & parent, int start, int 
         // On new transaction, make an info balloon
         // Unless the initial block download is in progress, to prevent balloon-spam
         QString date = ttm->index(start, TransactionTableModel::Date, parent)
-                        .data().toString();
+                       .data().toString();
         QString type = ttm->index(start, TransactionTableModel::Type, parent)
-                        .data().toString();
+                       .data().toString();
         QString address = ttm->index(start, TransactionTableModel::ToAddress, parent)
-                        .data().toString();
+                          .data().toString();
         QIcon icon = qvariant_cast<QIcon>(ttm->index(start,
-                            TransactionTableModel::ToAddress, parent)
-                        .data(Qt::DecorationRole));
+                                          TransactionTableModel::ToAddress, parent)
+                                          .data(Qt::DecorationRole));
 
         notificator->notify(Notificator::Information,
                             (amount)<0 ? tr("Sent transaction") :
-                                         tr("Incoming transaction"),
-                              tr("Date: %1\n"
-                                 "Amount: %2\n"
-                                 "Type: %3\n"
-                                 "Address: %4\n")
-                              .arg(date)
-                              .arg(BitcoinUnits::formatWithUnit(walletModel->getOptionsModel()->getDisplayUnit(), amount, true))
-                              .arg(type)
-                              .arg(address), icon);
+                            tr("Incoming transaction"),
+                            tr("Date: %1\n"
+                               "Amount: %2\n"
+                               "Type: %3\n"
+                               "Address: %4\n")
+                            .arg(date)
+                            .arg(BitcoinUnits::formatWithUnit(walletModel->getOptionsModel()->getDisplayUnit(), amount, true))
+                            .arg(type)
+                            .arg(address), icon);
     }
 }
 
@@ -913,7 +939,7 @@ void BitcoinGUI::incomingMessage(const QModelIndex & parent, int start, int end)
 {
     if(!messageModel)
         return;
-   MessageModel *mm = messageModel;
+    MessageModel *mm = messageModel;
 
     if (mm->index(start, MessageModel::TypeInt, parent).data().toInt() == MessageTableEntry::Received)
     {
@@ -930,10 +956,10 @@ void BitcoinGUI::incomingMessage(const QModelIndex & parent, int start, int end)
                                "From Address: %2\n"
                                "To Address: %3\n"
                                "Message: %4\n")
-                              .arg(sent_datetime)
-                              .arg(from_address)
-                              .arg(to_address)
-                              .arg(messageText));
+                            .arg(sent_datetime)
+                            .arg(from_address)
+                            .arg(to_address)
+                            .arg(messageText));
     };
 }
 
@@ -948,7 +974,7 @@ void BitcoinGUI::gotoOverviewPage()
 
 void BitcoinGUI::gotoMessagePage()
 {
-    messageAction->setChecked(true);      
+    messageAction->setChecked(true);
     centralStackedWidget->setCurrentWidget(messagePage);
 
     exportAction->setEnabled(true);
@@ -1135,7 +1161,7 @@ void BitcoinGUI::unlockWallet()
     if(walletModel->getEncryptionStatus() == WalletModel::Locked)
     {
         AskPassphraseDialog::Mode mode = sender() == unlockWalletAction ?
-              AskPassphraseDialog::UnlockStaking : AskPassphraseDialog::Unlock;
+                                         AskPassphraseDialog::UnlockStaking : AskPassphraseDialog::Unlock;
         AskPassphraseDialog dlg(mode, this);
         dlg.setModel(walletModel);
         dlg.exec();

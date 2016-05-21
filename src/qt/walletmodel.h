@@ -76,8 +76,8 @@ public:
     struct SendCoinsReturn
     {
         SendCoinsReturn(StatusCode status=Aborted,
-                         qint64 fee=0,
-                         QString hex=QString()):
+                        qint64 fee=0,
+                        QString hex=QString()):
             status(status), fee(fee), hex(hex) {}
         StatusCode status;
         qint64 fee; // is used in case status is "AmountWithFeeExceedsBalance"
@@ -102,11 +102,18 @@ public:
         UnlockContext(WalletModel *wallet, bool valid, bool relock);
         ~UnlockContext();
 
-        bool isValid() const { return valid; }
+        bool isValid() const {
+            return valid;
+        }
 
         // Copy operator and constructor transfer the context
-        UnlockContext(const UnlockContext& obj) { CopyFrom(obj); }
-        UnlockContext& operator=(const UnlockContext& rhs) { CopyFrom(rhs); return *this; }
+        UnlockContext(const UnlockContext& obj) {
+            CopyFrom(obj);
+        }
+        UnlockContext& operator=(const UnlockContext& rhs) {
+            CopyFrom(rhs);
+            return *this;
+        }
     private:
         WalletModel *wallet;
         bool valid;
@@ -124,8 +131,8 @@ public:
     void lockCoin(COutPoint& output);
     void unlockCoin(COutPoint& output);
     void listLockedCoins(std::vector<COutPoint>& vOutpts);
-	CWallet* getWallet();
-	
+    CWallet* getWallet();
+
 private:
     CWallet *wallet;
     bool fForceCheckBalanceChanged;
